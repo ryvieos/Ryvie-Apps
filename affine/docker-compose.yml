@@ -3,7 +3,7 @@ services:
   app_proxy:
     environment:
       APP_HOST: affine_web_1
-      APP_PORT: 3013
+      APP_PORT: 3015
 
   web:
     image: ghcr.io/toeverything/affine:0.25.1@sha256:6fa249b704085a931bd595ff900a595c9c131c276737d4b325e4e7c705ce8dd5
