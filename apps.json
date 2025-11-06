@@ -8,10 +8,10 @@
     "port": 3013,
     "description": "A privacy-focused, local-first, open-source, and ready-to-use alternative for Notion & Miro. One hyper-fused platform for wildly creative minds.\n\nTo Shape, not to adapt. Tools can impact your lifestyle. AFFiNE is built for individual & teams who care their data, who refuse vendor lock-in, and who want to have control over their essential tools.\n\n🛠️ SET-UP INSTRUCTIONS\nIn order to save your data, you need to sign in to your self-hosted Affine instance:\n\n1. When you first open Affine, it will walk you through setting up an admin account.\n2. After setting up your admin account, close the browser window and open up the Affine app again from the umbrelOS homescreen.\n3. In the Affine app select the Demo Workspace from the sidebar and then select \"Create cloud workspace\"\n4. Follow the steps to create your self-hosted cloud workspace. You are now ready to use Affine with your self-hosted instance!",
     "gallery": [
-      "https://cdn.jsdelivr.net/gh/Loghin01/ryvie-apps-gallery@main/affine/icon.png",
-      "https://cdn.jsdelivr.net/gh/Loghin01/ryvie-apps-gallery@main/affine/image1.png",
-      "https://cdn.jsdelivr.net/gh/Loghin01/ryvie-apps-gallery@main/affine/image2.png",
-      "https://cdn.jsdelivr.net/gh/Loghin01/ryvie-apps-gallery@main/affine/image3.png"
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/affine/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/affine/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/affine/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/affine/image3.png"
     ],
     "architectures": [
       "amd64",
@@ -27,10 +27,10 @@
     "port": 3020,
     "description": "Docuseal is an open-source electronic signature platform that allows users to sign, send, and manage documents securely online. It provides a user-friendly interface and robust features for document handling and signature workflows.",
     "gallery": [
-      "https://cdn.jsdelivr.net/gh/Loghin01/ryvie-apps-gallery@main/docuseal/icon.png",
-      "https://cdn.jsdelivr.net/gh/Loghin01/ryvie-apps-gallery@main/docuseal/image1.png",
-      "https://cdn.jsdelivr.net/gh/Loghin01/ryvie-apps-gallery@main/docuseal/image2.png",
-      "https://cdn.jsdelivr.net/gh/Loghin01/ryvie-apps-gallery@main/docuseal/image3.png"
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/image3.png"
     ]
   },
   {
@@ -48,9 +48,9 @@
     "repo": "https://gitlab.com/gitlab-org/omnibus-gitlab/tree/master/docker",
     "support": "https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues",
     "gallery": [
-      "https://cdn.jsdelivr.net/gh/Loghin01/ryvie-apps-gallery@main/gitlab/icon.png",
-      "https://cdn.jsdelivr.net/gh/Loghin01/ryvie-apps-gallery@main/gitlab/image1.png",
-      "https://cdn.jsdelivr.net/gh/Loghin01/ryvie-apps-gallery@main/gitlab/image2.png"
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/gitlab/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/gitlab/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/gitlab/image2.png"
     ],
     "dependencies": [],
     "path": "",
@@ -72,9 +72,9 @@
     "support": "https://docs.n8n.io/",
     "port": 5678,
     "gallery": [
-      "https://cdn.jsdelivr.net/gh/Loghin01/ryvie-apps-gallery@main/n8n/icon.png",
-      "https://cdn.jsdelivr.net/gh/Loghin01/ryvie-apps-gallery@main/n8n/image1.png",
-      "https://cdn.jsdelivr.net/gh/Loghin01/ryvie-apps-gallery@main/n8n/image2.png"
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/n8n/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/n8n/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/n8n/image2.png"
     ],
     "submitter": "Pranshu Agrawal"
   },
@@ -96,10 +96,10 @@
     "support": "https://nodered.org/about/community/slack/",
     "port": 1880,
     "gallery": [
-      "https://cdn.jsdelivr.net/gh/Loghin01/ryvie-apps-gallery@main/node-red/icon.png",
-      "https://cdn.jsdelivr.net/gh/Loghin01/ryvie-apps-gallery@main/node-red/image1.png",
-      "https://cdn.jsdelivr.net/gh/Loghin01/ryvie-apps-gallery@main/node-red/image2.png",
-      "https://cdn.jsdelivr.net/gh/Loghin01/ryvie-apps-gallery@main/node-red/image3.png"
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/node-red/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/node-red/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/node-red/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/node-red/image3.png"
     ]
   }
 ]
