@@ -32,7 +32,7 @@ for compose_file in */docker-compose.yml; do
   echo "🔹 Processing app: $app_dir"
 
   # Extract ports using regex (format "host:container" with optional quotes)
-  ports_from_ports=$(grep -oP '- ["\x27]?\K\d+:\d+(?=["\x27]?)' "$compose_file" 2>/dev/null || true)
+  ports_from_ports=$(grep -oP -- "- ['\"]?\K\d+:\d+" "$compose_file" 2>/dev/null || true)
   
   # Extract APP_PORT from app_proxy environment
   app_port=$(grep -oP 'APP_PORT:\s*\K\d+' "$compose_file" 2>/dev/null || true)
