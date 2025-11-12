@@ -134,5 +134,23 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/node-red/image2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/node-red/image3.png"
     ]
+  },
+  {
+    "manifestVersion": 1,
+    "id": "pihole",
+    "category": "developer",
+    "name": "pihole",
+    "version": "6.2.2",
+    "port": [
+      53,
+      80,
+      443
+    ],
+    "description": "Pi-hole is a network-wide ad blocker that acts as a DNS sinkhole, blocking unwanted content and advertisements at the network level. It improves browsing speed, enhances privacy, and reduces bandwidth usage by filtering out ads before they reach your devices.\n\n🚫 Network-Wide Ad Blocking\nPi-hole blocks ads and trackers for all devices on your network, including smartphones, tablets, computers, and smart TVs. By filtering out unwanted content at the DNS level, it provides a seamless ad-free experience across all connected devices.\n\n📊 Comprehensive Analytics\nPi-hole offers detailed statistics and analytics on network traffic, allowing users to monitor blocked requests, top domains, and client activity. This insight helps users understand their network usage and identify potential security threats.\n\n🌐 Customizable Blocklists\nUsers can customize Pi-hole's blocklists by adding or removing domains based on their preferences. This flexibility allows for tailored ad-blocking solutions that suit individual needs and enhance the overall browsing experience.\n\n🛠️ Easy Setup & Management\nPi-hole is easy to set up and manage through a user-friendly web interface. Users can configure settings, view statistics, and update blocklists with just a few clicks, making it accessible even for those with limited technical knowledge.\n\n🔒 Enhanced Privacy & Security\nBy blocking trackers and malicious domains, Pi-hole enhances user privacy and security. It helps protect against phishing attacks and reduces exposure to harmful content, contributing to a safer online experience.\n\nPi-hole is a powerful tool for anyone looking to improve their network's performance, privacy, and security by eliminating unwanted ads and trackers at the source.",
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/pihole/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/pihole/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/pihole/image2.png"
+    ]
   }
 ]
