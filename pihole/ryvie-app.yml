@@ -1,6 +1,6 @@
 manifestVersion: 1
 id: pihole
-category: developement
+category: developer
 name: pihole
 version: "6.2.2"
 port: 
