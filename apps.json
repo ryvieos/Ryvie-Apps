@@ -102,9 +102,10 @@
     "developer": "Linkwarden",
     "website": "https://linkwarden.app",
     "gallery": [
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/1.jpg",
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/2.jpg",
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/3.jpg"
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/image3.png"
     ]
   },
   {
