@@ -20,6 +20,21 @@
   },
   {
     "manifestVersion": 1,
+    "id": "bitwarden",
+    "category": "security",
+    "name": "bitwarden",
+    "version": "2025.11.0",
+    "port": 0,
+    "description": "Bitwarden is an open-source password management solution that helps individuals and organizations securely store, manage, and share their passwords and sensitive information. It offers a user-friendly interface and robust security features to protect your data.\n\n🔐 Secure Password Storage\nBitwarden provides a secure vault where users can store their passwords, credit card information, secure notes, and other sensitive data. All data is encrypted using strong encryption algorithms, ensuring that only the user has access to their information.\n\n🌐 Cross-Platform Accessibility\nBitwarden is available on multiple platforms, including web browsers, desktop applications, and mobile devices. This allows users to access their vault from anywhere, at any time, ensuring convenience and flexibility.\n\n🤝 Team Collaboration\nBitwarden offers features for team collaboration, allowing users to share passwords and sensitive information securely with team members. This is particularly useful for organizations that need to manage shared credentials for various services.\n\n🛡️ Advanced Security Features\nBitwarden includes advanced security features such as two-factor authentication (2FA), biometric login options, and security audits. These features enhance the overall security of the user's vault and help protect against unauthorized access.\n\n🔄 Automatic Syncing\nBitwarden automatically syncs data across all devices, ensuring that users always have the most up-to-date information in their vault. This seamless syncing process enhances user experience and convenience.\n\n📦 Open-Source & Self-Hosting\nAs an open-source solution, Bitwarden allows users to self-host their password management system. This provides greater control over data privacy and security, making it an ideal choice for individuals and organizations with specific security requirements.\n\nBitwarden is a comprehensive password management solution that combines security, convenience, and collaboration features to help users manage their sensitive information effectively.",
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/bitwarden/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/bitwarden/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/bitwarden/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/bitwarden/image3.png"
+    ]
+  },
+  {
+    "manifestVersion": 1,
     "id": "docuseal",
     "category": "productivity",
     "name": "docuseal",
@@ -56,6 +71,24 @@
     "path": "",
     "deterministicPassword": true,
     "defaultUsername": "root"
+  },
+  {
+    "manifestVersion": 1,
+    "id": "jellyfin",
+    "category": "distraction",
+    "name": "jellyfin",
+    "version": "10.11.2",
+    "port": [
+      8096,
+      7359
+    ],
+    "description": "Jellyfin is a free and open-source media server software that allows users to organize, manage, and stream their personal media collections, including movies, TV shows, music, and photos. It provides a user-friendly interface and supports a wide range of devices for seamless media playback.\n\n🎬 Media Organization\nJellyfin helps users organize their media libraries by automatically fetching metadata, cover art, and other relevant information for their media files. This makes it easy to browse and find content within the server.\n\n📡 Streaming Capabilities\nWith Jellyfin, users can stream their media content to various devices, including smart TVs, smartphones, tablets, and web browsers. It supports multiple streaming protocols to ensure compatibility with different devices.\n\n👥 Multi-User Support\nJellyfin allows multiple users to create individual profiles, each with their own watchlists, preferences, and viewing history. This feature is particularly useful for households with multiple members who want personalized media experiences.\n\n🔒 Privacy and Control\nAs an open-source solution, Jellyfin gives users full control over their media server without relying on third-party services. Users can host the server on their own hardware, ensuring privacy and security for their media collections.\n\n🌐 Cross-Platform Compatibility\nJellyfin is compatible with various operating systems, including Windows, macOS, Linux, and Docker. This flexibility allows users to set up their media server on a wide range of devices.\n\nJellyfin is an excellent choice for individuals looking for a free and customizable media server solution that prioritizes user control and privacy.",
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/jellyfin/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/jellyfin/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/jellyfin/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/jellyfin/image3.png"
+    ]
   },
   {
     "manifestVersion": 1,
