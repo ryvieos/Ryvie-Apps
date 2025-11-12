@@ -3,7 +3,7 @@ id: bitwarden
 category: security
 name: bitwarden
 version: "2025.11.0"
-port: 
+port: 00
 description: >-
   Bitwarden is an open-source password management solution that helps individuals and organizations securely store, manage, and share their passwords and sensitive information. It offers a user-friendly interface and robust security features to protect your data.
 
