@@ -170,22 +170,5 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/pihole/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/pihole/image2.png"
     ]
-  },
-  {
-    "manifestVersion": 1,
-    "id": "webcheck",
-    "name": "WebCheck",
-    "tagline": "An all-in-one Open Source Intelligence tool for analyzing any website",
-    "category": "networking",
-    "version": "1.0.0",
-    "port": 3093,
-    "description": "WebCheck is a versatile OSINT (Open Source Intelligence) tool for analyzing and monitoring websites. It offers a comprehensive range of features to assist users in security audits and performance analysis of websites. Key functionalities include:\n\n🔍 Website Scanning: Automated detection of vulnerabilities and security weaknesses.\n\n🚀 Performance Analysis: Metrics like load times, visibility, and optimization potential.\n\n📝 Content Analysis: Extraction of metadata, DNS info, and HTTP headers.\n\n📊 Visual Representation: Generation of screenshots to document site layouts.\n\n📝 Monitoring and Reporting: Continuous tracking with custom reporting options.\n\nWebCheck is modular, allowing users to integrate additional plugins for extended functionality. It supports API integration, is cross-platform, and is easy to deploy via Docker, making it accessible on any server. Its open-source nature ensures transparency and full control over the conducted analyses, making it ideal for security-conscious users.\n\nIn addition to public website analysis, WebCheck can be used for internal network security and infrastructure checks within organizations. The customizable features and extensibility make it an essential tool for web analysts and IT security teams.",
-    "developer": "Alicia Sykes",
-    "website": "https://web-check.xyz/",
-    "gallery": [
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/webcheck/icon.png",
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/webcheck/image1.png",
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/webcheck/image2.png"
-    ]
   }
 ]
