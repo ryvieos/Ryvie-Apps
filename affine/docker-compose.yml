@@ -3,6 +3,8 @@ services:
     environment:
       APP_HOST: web
       APP_PORT: 3015
+    networks:
+      - affine_network
   web:
     container_name: affine_web
     image: ghcr.io/toeverything/affine:0.25.1@sha256:6fa249b704085a931bd595ff900a595c9c131c276737d4b325e4e7c705ce8dd5
@@ -22,12 +24,13 @@ services:
         condition: service_healthy
       migration:
         condition: service_completed_successfully
+    networks:
+      - affine_network
   migration:
     container_name: affine_migration
     image: ghcr.io/toeverything/affine:0.25.1@sha256:6fa249b704085a931bd595ff900a595c9c131c276737d4b325e4e7c705ce8dd5
-    restart: unless-stopped
-    command:
-      ['sh', '-c', 'node ./scripts/self-host-predeploy']
+    restart: on-failure
+    command: ['sh', '-c', 'node ./scripts/self-host-predeploy']
     environment:
       - AFFINE_CONFIG_PATH=/root/.affine/config
       - REDIS_SERVER_HOST=redis
@@ -41,6 +44,8 @@ services:
         condition: service_healthy
       db:
         condition: service_healthy
+    networks:
+      - affine_network
   redis:
     container_name: affine_redis
     image: redis:7.2.4@sha256:e647cfe134bf5e8e74e620f66346f93418acfc240b71dd85640325cb7cd01402
@@ -52,6 +57,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - affine_network
   db:
     container_name: affine_db
     image: postgres:16.2@sha256:f58300ac8d393b2e3b09d36ea12d7d24ee9440440e421472a300e929ddb63460
@@ -68,3 +75,9 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - affine_network
+
+networks:
+  affine_network:
+    driver: bridge
