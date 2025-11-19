@@ -1,17 +1,16 @@
 services:
-
   app_proxy:
     environment:
-      APP_HOST: affine_web_1
+      APP_HOST: web
       APP_PORT: 3015
-
   web:
+    container_name: affine_web
     image: ghcr.io/toeverything/affine:0.25.1@sha256:6fa249b704085a931bd595ff900a595c9c131c276737d4b325e4e7c705ce8dd5
-    restart: on-failure
+    restart: unless-stopped
     environment:
       - AFFINE_CONFIG_PATH=/root/.affine/config
-      - REDIS_SERVER_HOST=affine_redis_1
-      - DATABASE_URL=postgres://affine:affine@affine_db_1:5432/affine
+      - REDIS_SERVER_HOST=redis
+      - DATABASE_URL=postgres://affine:affine@db:5432/affine
       - NODE_ENV=production
     volumes:
       - ${APP_DATA_DIR}/data/config:/root/.affine/config
@@ -23,16 +22,16 @@ services:
         condition: service_healthy
       migration:
         condition: service_completed_successfully
-
   migration:
+    container_name: affine_migration
     image: ghcr.io/toeverything/affine:0.25.1@sha256:6fa249b704085a931bd595ff900a595c9c131c276737d4b325e4e7c705ce8dd5
-    restart: on-failure
+    restart: unless-stopped
     command:
       ['sh', '-c', 'node ./scripts/self-host-predeploy']
     environment:
       - AFFINE_CONFIG_PATH=/root/.affine/config
-      - REDIS_SERVER_HOST=affine_redis_1
-      - DATABASE_URL=postgres://affine:affine@affine_db_1:5432/affine
+      - REDIS_SERVER_HOST=redis
+      - DATABASE_URL=postgres://affine:affine@db:5432/affine
       - NODE_ENV=production
     volumes:
       - ${APP_DATA_DIR}/data/config:/root/.affine/config
@@ -42,10 +41,10 @@ services:
         condition: service_healthy
       db:
         condition: service_healthy
-
   redis:
+    container_name: affine_redis
     image: redis:7.2.4@sha256:e647cfe134bf5e8e74e620f66346f93418acfc240b71dd85640325cb7cd01402
-    restart: on-failure
+    restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/storage/redis:/data
     healthcheck:
@@ -53,10 +52,10 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
   db:
+    container_name: affine_db
     image: postgres:16.2@sha256:f58300ac8d393b2e3b09d36ea12d7d24ee9440440e421472a300e929ddb63460
-    restart: on-failure
+    restart: unless-stopped
     environment:
       POSTGRES_USER: affine
       POSTGRES_PASSWORD: affine
