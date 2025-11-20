@@ -1,6 +1,6 @@
 services:
   bitwarden_server:
-    container_name: bitwarden-server
+    container_name: app-bitwarden-server
     image: mcr.microsoft.com/devcontainers/dotnet:8.0
     volumes:
       - ../../:/workspace:cached
@@ -10,7 +10,7 @@ services:
     restart: unless-stopped
 
   bitwarden_mssql:
-    container_name: bitwarden-mssql
+    container_name: app-bitwarden-mssql
     image: mcr.microsoft.com/mssql/server:2022-latest
     platform: linux/amd64
     restart: unless-stopped
@@ -28,7 +28,7 @@ services:
     network_mode: service:bitwarden_server
 
   bitwarden_mail:
-    container_name: bitwarden-mail
+    container_name: app-bitwarden-mail
     image: sj26/mailcatcher:latest
     restart: unless-stopped
     network_mode: service:bitwarden_server
