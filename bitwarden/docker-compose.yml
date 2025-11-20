@@ -5,7 +5,7 @@ services:
       - db
     env_file:
       - .env
-    image: ghcr.io/bitwarden/self-host:beta
+    image: ghcr.io/bitwarden/self-host:latest
     restart: unless-stopped
     ports:
       - "3018:8080"
