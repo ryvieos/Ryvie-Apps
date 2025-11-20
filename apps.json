@@ -24,7 +24,10 @@
     "category": "security",
     "name": "bitwarden",
     "version": "2025.11.0",
-    "port": 0,
+    "port": [
+      8080,
+      8443
+    ],
     "description": "Bitwarden is an open-source password management solution that helps individuals and organizations securely store, manage, and share their passwords and sensitive information. It offers a user-friendly interface and robust security features to protect your data.\n\n🔐 Secure Password Storage\nBitwarden provides a secure vault where users can store their passwords, credit card information, secure notes, and other sensitive data. All data is encrypted using strong encryption algorithms, ensuring that only the user has access to their information.\n\n🌐 Cross-Platform Accessibility\nBitwarden is available on multiple platforms, including web browsers, desktop applications, and mobile devices. This allows users to access their vault from anywhere, at any time, ensuring convenience and flexibility.\n\n🤝 Team Collaboration\nBitwarden offers features for team collaboration, allowing users to share passwords and sensitive information securely with team members. This is particularly useful for organizations that need to manage shared credentials for various services.\n\n🛡️ Advanced Security Features\nBitwarden includes advanced security features such as two-factor authentication (2FA), biometric login options, and security audits. These features enhance the overall security of the user's vault and help protect against unauthorized access.\n\n🔄 Automatic Syncing\nBitwarden automatically syncs data across all devices, ensuring that users always have the most up-to-date information in their vault. This seamless syncing process enhances user experience and convenience.\n\n📦 Open-Source & Self-Hosting\nAs an open-source solution, Bitwarden allows users to self-host their password management system. This provides greater control over data privacy and security, making it an ideal choice for individuals and organizations with specific security requirements.\n\nBitwarden is a comprehensive password management solution that combines security, convenience, and collaboration features to help users manage their sensitive information effectively.",
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/bitwarden/icon.png",
