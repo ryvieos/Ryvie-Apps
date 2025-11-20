@@ -83,4 +83,3 @@ services:
 
 networks:
   affine-network:
-    name: affine-network
