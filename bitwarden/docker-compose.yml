@@ -1,49 +1,39 @@
 services:
-  bitwarden_server:
+  bitwarden:
     container_name: app-bitwarden-server
-    image: mcr.microsoft.com/devcontainers/dotnet:8.0
-    volumes:
-      - ../../:/workspace:cached
+    depends_on:
+      - db
     env_file:
-      - path: ../../dev/.env
-        required: false
+      - .env
+    image: ghcr.io/bitwarden/self-host:beta
     restart: unless-stopped
+    ports:
+      - "80:8080"
+      - "443:8443"
+    volumes:
+      - bitwarden:/etc/bitwarden
+      - logs:/var/log/bitwarden
     networks:
       - bitwarden-network
 
-  bitwarden_mssql:
-    container_name: app-bitwarden-mssql
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    platform: linux/amd64
-    restart: unless-stopped
-    env_file:
-      - path: ../../dev/.env
-        required: false
+  db:
+    container_name: app-bitwarden-db
     environment:
-      ACCEPT_EULA: "Y"
-      MSSQL_PID: Developer
-    volumes:
-      - mssql_dev_data:/var/opt/mssql
-      - ../../util/Migrator:/mnt/migrator/
-      - ../../dev/helpers/mssql:/mnt/helpers
-      - ../../dev/.data/mssql:/mnt/data
-    ports:
-      - "1433:1433"
-    networks:
-      - bitwarden-network
-
-  bitwarden_mail:
-    container_name: app-bitwarden-mail
-    image: sj26/mailcatcher:latest
+      MARIADB_USER: "bitwarden"
+      MARIADB_PASSWORD: "super_strong_password"
+      MARIADB_DATABASE: "bitwarden_vault"
+      MARIADB_RANDOM_ROOT_PASSWORD: "true"
+    image: mariadb:10
     restart: unless-stopped
-    ports:
-      - "1080:1080"
-      - "1025:1025"
+    volumes:
+      - data:/var/lib/mysql
     networks:
       - bitwarden-network
 
 networks:
   bitwarden-network:
-    
+
 volumes:
-  mssql_dev_data:
+  bitwarden:
+  logs:
+  data:
