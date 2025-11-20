@@ -54,7 +54,7 @@ services:
       timeout: 5s
       retries: 5
 
-  db:
+  database:
     image: postgres:16.2
     container_name: affine_db
     restart: unless-stopped
