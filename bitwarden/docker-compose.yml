@@ -3,16 +3,15 @@ services:
     container_name: app-bitwarden-server
     image: vaultwarden/server:latest
     restart: unless-stopped
-    ports:
-      - "3018:80"
     volumes:
       - ./vw-data:/data
     environment:
-      DOMAIN: "http://localhost:3018"
+      DOMAIN: "https://bitwarden.ryvietest.local"
       SIGNUPS_ALLOWED: "true"
       WEBSOCKET_ENABLED: "true"
     networks:
-      - bitwarden-network
+      - caddy-network
 
 networks:
-  bitwarden-network:
+  caddy-network:
+    external: true

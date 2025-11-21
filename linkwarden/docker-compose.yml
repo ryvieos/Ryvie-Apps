@@ -5,7 +5,7 @@ services:
     container_name: linkwarden-proxy
     environment:
       APP_HOST: linkwarden_app_1
-      APP_PORT: 3000
+      APP_PORT: 3028
       PROXY_AUTH_ADD: "false"
     restart: unless-stopped
   
