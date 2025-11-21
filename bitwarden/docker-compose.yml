@@ -1,38 +1,18 @@
 services:
-  bitwarden:
+  vaultwarden:
     container_name: app-bitwarden-server
-    depends_on:
-      - db
-    env_file:
-      - .env
-    image: ghcr.io/bitwarden/self-host:latest
+    image: vaultwarden/server:latest
     restart: unless-stopped
     ports:
-      - "3018:8080"
+      - "3018:80"
     volumes:
-      - bitwarden:/etc/bitwarden
-      - logs:/var/log/bitwarden
-    networks:
-      - bitwarden-network
-
-  db:
-    container_name: app-bitwarden-db
+      - ./vw-data:/data
     environment:
-      MARIADB_USER: "bitwarden"
-      MARIADB_PASSWORD: "super_strong_password"
-      MARIADB_DATABASE: "bitwarden_vault"
-      MARIADB_RANDOM_ROOT_PASSWORD: "true"
-    image: mariadb:10
-    restart: unless-stopped
-    volumes:
-      - data:/var/lib/mysql
+      DOMAIN: "http://localhost:3018"
+      SIGNUPS_ALLOWED: "true"
+      WEBSOCKET_ENABLED: "true"
     networks:
       - bitwarden-network
 
 networks:
   bitwarden-network:
-
-volumes:
-  bitwarden:
-  logs:
-  data:
