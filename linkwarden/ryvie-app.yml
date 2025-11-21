@@ -4,7 +4,7 @@ name: Linkwarden
 tagline: Bookmark Preservation for Individuals and Teams
 category: social
 version: "2.13.1"
-port: 8233
+port: 3028
 description: >-
   📚 Linkwarden is a self-hosted, open-source collaborative bookmark manager to collect, organize and archive webpages.
 
