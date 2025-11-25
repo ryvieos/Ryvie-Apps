@@ -29,7 +29,7 @@ services:
       - "3028:3000"
     environment:
       - DATABASE_URL=postgresql://postgres:linkwarden@postgres:5432/postgres
-      - NEXTAUTH_URL=http://ryvietest.local:3028/api/v1/auth
+      - NEXTAUTH_URL=http://ryvie.local:3028/api/v1/auth
       - NEXTAUTH_SECRET=linkwarden
     restart: unless-stopped
     volumes:
