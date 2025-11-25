@@ -5,8 +5,6 @@ services:
     environment:
       APP_HOST: n8n_server_1
       APP_PORT: 5678
-      # These webhook endpoints are protected using Basic or Header Auth
-      # More details here: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.webhook/
       PROXY_AUTH_WHITELIST: "/webhook-test/*,/webhook/*"
     container_name: app-n8n-proxy
     restart: unless-stopped
@@ -17,11 +15,9 @@ services:
       - ${APP_DATA_DIR}/data:/home/node/.n8n
     stop_grace_period: 1m
     container_name: app-n8n-server
+    user: "1000:1000"
     environment:
-      - PUID=1000
-      - PGID=1000
-      # Used to set the url for editor, REST API & webhooks
-      - N8N_HOST=$DEVICE_DOMAIN_NAME
+      - N8N_HOST=${DEVICE_DOMAIN_NAME}
       - N8N_SECURE_COOKIE=false
       - N8N_DIAGNOSTICS_ENABLED=false
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
