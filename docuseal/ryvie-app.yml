@@ -1,7 +1,7 @@
 manifestVersion: 1
-id: docudeal
+id: docuseal
 category: productivity
-name: DocuSeal
+name: docuseal
 version: "1.0.1"
 port: 3020
 description: >-
