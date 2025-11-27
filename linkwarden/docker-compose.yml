@@ -1,14 +1,6 @@
 version: "3.7"
 
 services:
-  app_proxy:
-    container_name: app-linkwarden-proxy
-    environment:
-      APP_HOST: linkwarden_app_1
-      APP_PORT: 3028
-      PROXY_AUTH_ADD: "false"
-    restart: unless-stopped
-  
   postgres:
     container_name: app-linkwarden-postgres
     image: postgres:16-alpine@sha256:0366402213df5db03c47ff80bcc697e92c8be0c213d03c941df1fc42d1ba9560
