@@ -1,15 +1,6 @@
 version: "3.7"
 
 services:
-
-  app_proxy:
-    environment:
-      APP_HOST: gitlab_gitlab_1
-      APP_PORT: 8929
-      PROXY_AUTH_ADD: "false"
-    restart: unless-stopped
-    container_name: app-gitlab-proxy
-
   gitlab:
     image: gitlab/gitlab-ce:18.5.1-ce.0@sha256:6db4caefb0597c966065f4c3307b60aa00d13559bbe9b0c3b17bc32f0d239ab1
     restart: unless-stopped
