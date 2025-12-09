@@ -1,30 +1,16 @@
-services:
-  app_proxy:
-    image: nginx:alpine
-    environment:
-      APP_HOST: server
-      APP_PORT: 5678
-      PROXY_AUTH_WHITELIST: "/webhook-test/*,/webhook/*"
-    container_name: app-n8n-proxy
-    restart: unless-stopped
-    depends_on:
-      - server
+version: '3.8'
 
-  server:
-    image: n8nio/n8n:1.117.3@sha256:90bf64ec238b88908389694b5ace00e5c17ea5d4a0af812dd266d7cfcd40984f
-    volumes:
-      - ./data:/home/node/.n8n
-    stop_grace_period: 1m
-    container_name: app-n8n-server
-    user: "1000:1000"
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    container_name: app-n8n
+    restart: unless-stopped
     ports:
       - "5678:5678"
     environment:
-      - N8N_HOST=${DEVICE_DOMAIN_NAME}
-      - N8N_SECURE_COOKIE=false
-      - N8N_DIAGNOSTICS_ENABLED=false
+      - GENERIC_TIMEZONE=Europe/Paris
+      - TZ=Europe/Paris
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
       - N8N_RUNNERS_ENABLED=true
-      - DB_SQLITE_POOL_SIZE=3
-      - N8N_BLOCK_ENV_ACCESS_IN_NODE=false
-    restart: unless-stopped
+    volumes:
+      - ./data:/home/node/.n8n
