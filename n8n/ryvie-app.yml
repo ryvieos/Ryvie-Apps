@@ -2,7 +2,7 @@ manifestVersion: 1
 id: n8n
 category: automation
 name: n8n
-version: "3.8"
+version: "3.8.1"
 tagline: Build complex workflows, really fast
 description: >-
   n8n is an extendable workflow automation tool. With a fair-code distribution model, n8n will always have visible source code, 

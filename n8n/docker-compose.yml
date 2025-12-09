@@ -12,5 +12,6 @@ services:
       - TZ=Europe/Paris
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
       - N8N_RUNNERS_ENABLED=true
+      - 8N_SECURE_COOKIE=false
     volumes:
       - ./data:/home/node/.n8n
