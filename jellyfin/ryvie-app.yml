@@ -2,10 +2,9 @@ manifestVersion: 1
 id: jellyfin
 category: distraction
 name: jellyfin
-version: "10.11.2"
+version: "10.11.3"
 port: 
   - 8096
-  - 7359
 description: >-
   Jellyfin is a free and open-source media server software that allows users to organize, manage, and stream their personal media collections, including movies, TV shows, music, and photos. It provides a user-friendly interface and supports a wide range of devices for seamless media playback.
 

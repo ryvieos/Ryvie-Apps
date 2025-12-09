@@ -3,8 +3,7 @@ services:
     image: jellyfin/jellyfin
     container_name: app-jellyfin
     ports:
-      - 8096:8096/tcp
-      - 7359:7359/udp
+      - 8096:8096
     volumes:
       - ./data/config:/config
       - ./data/cache:/cache
