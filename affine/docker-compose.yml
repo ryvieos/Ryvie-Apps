@@ -8,7 +8,6 @@ services:
     ports:
       - "3015:3010"
     environment:
-      # AFFINE_CONFIG_PATH: /root/.affine/config
       REDIS_SERVER_HOST: redis
       DATABASE_URL: postgres://affine:affine@db:5432/affine
       NODE_ENV: production
@@ -31,7 +30,6 @@ services:
     restart: "no"
     command: ["sh", "-c", "node ./scripts/self-host-predeploy"]
     environment:
-      # AFFINE_CONFIG_PATH: /root/.affine/config
       REDIS_SERVER_HOST: redis
       DATABASE_URL: postgres://affine:affine@db:5432/affine
       NODE_ENV: production
