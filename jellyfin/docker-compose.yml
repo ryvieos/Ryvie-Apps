@@ -2,7 +2,6 @@ services:
   jellyfin:
     image: jellyfin/jellyfin
     container_name: app-jellyfin
-    user: "1000:1000"
     ports:
       - 8096:8096/tcp
       - 7359:7359/udp
@@ -21,7 +20,7 @@ services:
         target: /usr/local/share/fonts/custom
         read_only: true
     restart: 'unless-stopped'
-    environment:
-      - JELLYFIN_PublishedServerUrl=http://example.com
-    extra_hosts:
-      - 'host.docker.internal:host-gateway'
+    #environment:
+    #  - JELLYFIN_PublishedServerUrl=http://example.com
+    #extra_hosts:
+    #  - 'host.docker.internal:host-gateway'
