@@ -13,7 +13,7 @@ services:
   server:
     image: n8nio/n8n:1.117.3@sha256:90bf64ec238b88908389694b5ace00e5c17ea5d4a0af812dd266d7cfcd40984f
     volumes:
-      - ${APP_DATA_DIR}/n8n-data:/home/node/.n8n
+      - ./data:/home/node/.n8n
     stop_grace_period: 1m
     container_name: app-n8n-server
     user: "1000:1000"

@@ -7,17 +7,17 @@ services:
       - 8096:8096/tcp
       - 7359:7359/udp
     volumes:
-      - /path/to/config:/config
-      - /path/to/cache:/cache
+      - ./data/config:/config
+      - ./data/cache:/cache
       - type: bind
-        source: /path/to/media
+        source: ./data/media
         target: /media
       - type: bind
-        source: /path/to/media2
+        source: ./data/media2
         target: /media2
         read_only: true
       - type: bind
-        source: /path/to/fonts
+        source: ./data/fonts
         target: /usr/local/share/fonts/custom
         read_only: true
     restart: 'unless-stopped'
