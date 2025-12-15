@@ -3,7 +3,7 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-    image: docuseal/docuseal:latest
+    image: docuseal/docuseal:latestazerty
     container_name: app-docuseal
     ports:
       - "3020:3000"
