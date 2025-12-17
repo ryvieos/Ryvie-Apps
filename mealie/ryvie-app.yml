@@ -1,0 +1,13 @@
+manifestVersion: 1
+id: mealie
+name: Mealie
+category: plannifiers
+version: "0.0.0"
+port: 9091
+description: >-
+  
+gallery:
+  - icon.png
+  - image1.png
+  - image2.png
+  - image3.png
