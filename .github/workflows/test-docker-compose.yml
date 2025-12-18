@@ -123,3 +123,21 @@ jobs:
         run: |
           COMPOSE_FILE=$(basename "${{ matrix.compose_file }}")
           docker compose -f "$COMPOSE_FILE" down -v
+
+  all-tests-passed:
+    name: All Docker Compose Tests
+    needs: [detect-changes, test-compose]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check all tests passed
+        run: |
+          if [ "${{ needs.test-compose.result }}" != "success" ]; then
+            echo "❌ Some Docker Compose tests failed"
+            exit 1
+          fi
+          if [ "${{ needs.detect-changes.outputs.compose_files }}" == "[]" ]; then
+            echo "✅ No Docker Compose files changed"
+            exit 0
+          fi
+          echo "✅ All Docker Compose tests passed"
