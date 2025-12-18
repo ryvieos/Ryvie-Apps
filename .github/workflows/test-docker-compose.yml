@@ -4,9 +4,9 @@ on:
   pull_request:
     branches: [main]
     paths:
-      - '**/docker-compose*.yml'
-      - '**/docker-compose*.yaml'
-      - '.github/workflows/test-docker-compose.yml'
+      - '**/docker compose*.yml'
+      - '**/docker compose*.yaml'
+      - '.github/workflows/test-docker compose.yml'
 
 jobs:
   detect-changes:
@@ -19,13 +19,13 @@ jobs:
         with:
           fetch-depth: 0
       
-      - name: Get changed docker-compose files
+      - name: Get changed docker compose files
         id: changed-files
         uses: tj-actions/changed-files@v41
         with:
           files: |
-            **/docker-compose*.yml
-            **/docker-compose*.yaml
+            **/docker compose*.yml
+            **/docker compose*.yaml
           json: true
           escape_json: false
 
@@ -51,21 +51,21 @@ jobs:
           DIR=$(dirname "${{ matrix.compose_file }}")
           echo "dir=$DIR" >> $GITHUB_OUTPUT
       
-      - name: Test docker-compose build
+      - name: Test docker compose build
         working-directory: ${{ steps.compose-dir.outputs.dir }}
         run: |
           COMPOSE_FILE=$(basename "${{ matrix.compose_file }}")
           echo "Testing $COMPOSE_FILE..."
-          docker-compose -f "$COMPOSE_FILE" config --quiet
-          docker-compose -f "$COMPOSE_FILE" build
+          docker compose -f "$COMPOSE_FILE" config --quiet
+          docker compose -f "$COMPOSE_FILE" build
       
-      - name: Test docker-compose up
+      - name: Test docker compose up
         working-directory: ${{ steps.compose-dir.outputs.dir }}
         run: |
           COMPOSE_FILE=$(basename "${{ matrix.compose_file }}")
-          docker-compose -f "$COMPOSE_FILE" up -d
+          docker compose -f "$COMPOSE_FILE" up -d
           sleep 10
-          docker-compose -f "$COMPOSE_FILE" ps
+          docker compose -f "$COMPOSE_FILE" ps
       
       - name: Check services status
         working-directory: ${{ steps.compose-dir.outputs.dir }}
@@ -73,8 +73,8 @@ jobs:
           COMPOSE_FILE=$(basename "${{ matrix.compose_file }}")
           ALL_OK=true
           
-          docker-compose -f "$COMPOSE_FILE" ps --services | while read service; do
-            CONTAINER_ID=$(docker-compose -f "$COMPOSE_FILE" ps -q $service)
+          docker compose -f "$COMPOSE_FILE" ps --services | while read service; do
+            CONTAINER_ID=$(docker compose -f "$COMPOSE_FILE" ps -q $service)
             
             if [ -z "$CONTAINER_ID" ]; then
               echo "⚠️  Service $service: no container found"
@@ -98,7 +98,7 @@ jobs:
             else
               echo "  ❌ FAILED"
               echo "Logs for $service:"
-              docker-compose -f "$COMPOSE_FILE" logs $service
+              docker compose -f "$COMPOSE_FILE" logs $service
               ALL_OK=false
             fi
             echo ""
@@ -122,4 +122,4 @@ jobs:
         working-directory: ${{ steps.compose-dir.outputs.dir }}
         run: |
           COMPOSE_FILE=$(basename "${{ matrix.compose_file }}")
-          docker-compose -f "$COMPOSE_FILE" down -v
+          docker compose -f "$COMPOSE_FILE" down -v
