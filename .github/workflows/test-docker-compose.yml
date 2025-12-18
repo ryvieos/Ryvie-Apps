@@ -1,0 +1,125 @@
+name: Test Docker Compose
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '**/docker-compose*.yml'
+      - '**/docker-compose*.yaml'
+      - '.github/workflows/test-docker-compose.yml'
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      compose_files: ${{ steps.changed-files.outputs.all_changed_files }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Get changed docker-compose files
+        id: changed-files
+        uses: tj-actions/changed-files@v41
+        with:
+          files: |
+            **/docker-compose*.yml
+            **/docker-compose*.yaml
+          json: true
+          escape_json: false
+
+  test-compose:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.compose_files != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        compose_file: ${{ fromJson(needs.detect-changes.outputs.compose_files) }}
+      fail-fast: false
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Get directory of compose file
+        id: compose-dir
+        run: |
+          DIR=$(dirname "${{ matrix.compose_file }}")
+          echo "dir=$DIR" >> $GITHUB_OUTPUT
+      
+      - name: Test docker-compose build
+        working-directory: ${{ steps.compose-dir.outputs.dir }}
+        run: |
+          COMPOSE_FILE=$(basename "${{ matrix.compose_file }}")
+          echo "Testing $COMPOSE_FILE..."
+          docker-compose -f "$COMPOSE_FILE" config --quiet
+          docker-compose -f "$COMPOSE_FILE" build
+      
+      - name: Test docker-compose up
+        working-directory: ${{ steps.compose-dir.outputs.dir }}
+        run: |
+          COMPOSE_FILE=$(basename "${{ matrix.compose_file }}")
+          docker-compose -f "$COMPOSE_FILE" up -d
+          sleep 10
+          docker-compose -f "$COMPOSE_FILE" ps
+      
+      - name: Check services status
+        working-directory: ${{ steps.compose-dir.outputs.dir }}
+        run: |
+          COMPOSE_FILE=$(basename "${{ matrix.compose_file }}")
+          ALL_OK=true
+          
+          docker-compose -f "$COMPOSE_FILE" ps --services | while read service; do
+            CONTAINER_ID=$(docker-compose -f "$COMPOSE_FILE" ps -q $service)
+            
+            if [ -z "$CONTAINER_ID" ]; then
+              echo "⚠️  Service $service: no container found"
+              continue
+            fi
+            
+            STATUS=$(docker inspect -f '{{.State.Status}}' $CONTAINER_ID)
+            EXIT_CODE=$(docker inspect -f '{{.State.ExitCode}}' $CONTAINER_ID)
+            HEALTH=$(docker inspect -f '{{if .State.Health}}{{.State.Health.Status}}{{else}}none{{end}}' $CONTAINER_ID)
+            
+            echo "Service $service:"
+            echo "  - Status: $STATUS"
+            echo "  - Exit Code: $EXIT_CODE"
+            echo "  - Health: $HEALTH"
+            
+            # Accepter: running, healthy, ou stopped avec exit code 0
+            if [ "$STATUS" = "running" ] || [ "$HEALTH" = "healthy" ]; then
+              echo "  ✅ OK (running/healthy)"
+            elif [ "$STATUS" = "exited" ] && [ "$EXIT_CODE" = "0" ]; then
+              echo "  ✅ OK (exited with code 0)"
+            else
+              echo "  ❌ FAILED"
+              echo "Logs for $service:"
+              docker-compose -f "$COMPOSE_FILE" logs $service
+              ALL_OK=false
+            fi
+            echo ""
+          done
+          
+          if [ "$ALL_OK" = "false" ]; then
+            exit 1
+          fi
+      
+      - name: Run custom tests if exist
+        working-directory: ${{ steps.compose-dir.outputs.dir }}
+        run: |
+          if [ -f "test.sh" ]; then
+            echo "Running custom test script..."
+            chmod +x test.sh
+            ./test.sh
+          fi
+      
+      - name: Cleanup
+        if: always()
+        working-directory: ${{ steps.compose-dir.outputs.dir }}
+        run: |
+          COMPOSE_FILE=$(basename "${{ matrix.compose_file }}")
+          docker-compose -f "$COMPOSE_FILE" down -v
