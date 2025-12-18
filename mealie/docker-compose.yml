@@ -1,0 +1,14 @@
+services:
+  mealie:
+    container_name: app-mealie
+    image: ghcr.io/mealie-recipes/mealie:latest
+    volumes:
+      - ./mealie-data:/app/data/
+    ports:
+      - 9091:9000
+    environment:
+      TZ: Europe/Paris
+    restart: unless-stopped
+
+volumes:
+  mealie-data:
