@@ -3,7 +3,7 @@ name: Generate and Release apps.json
 on:
   push:
     branches:
-      - main
+      - dev
     paths-ignore:
       - 'apps.json'
       - 'ports.json'
