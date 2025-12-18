@@ -7,14 +7,50 @@ on:
     paths-ignore:
       - 'apps.json'
       - 'ports.json'
+      - '.github/workflows/generate-apps-json.yml'
+      - 'increment-apps-versions.sh'
+      - 'generate-apps-json.sh'
+      - 'generate-ports-json.sh'
+      - 'README.md'
 
 permissions:
   contents: write  # Required to create tags and releases
 
 jobs:
-  generate:
+  increment_versions:
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
+      - name: Get changed files
+        id: changed-files
+        run: |
+          CHANGED=$(git diff --name-only HEAD~1 HEAD | grep -v '\ryvie-app\.yml$' | tr '\n' ' ')
+          echo "files=$CHANGED" >> $GITHUB_OUTPUT
+
+      - name: Run version increment script
+        run: |
+          ./increment-apps-versions.sh "${{ steps.changed-files.outputs.files }}"
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No version changes to commit"
+          else
+            git commit -m "chore: auto-increment app versions [skip ci]"
+            git push
+          fi
+
+  generate_apps_json:
+    needs: increment_versions
+    runs-on: ubuntu-latest
+    
     steps:
       # 1️⃣ Checkout repo with full history and tags
       - name: Checkout repository
