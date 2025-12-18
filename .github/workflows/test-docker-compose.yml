@@ -4,9 +4,9 @@ on:
   pull_request:
     branches: [main]
     paths:
-      - '**/docker compose*.yml'
-      - '**/docker compose*.yaml'
-      - '.github/workflows/test-docker compose.yml'
+      - '**/docker-compose*.yml'
+      - '**/docker-compose*.yaml'
+      - '.github/workflows/test-docker-compose.yml'
 
 jobs:
   detect-changes:
@@ -24,8 +24,8 @@ jobs:
         uses: tj-actions/changed-files@v41
         with:
           files: |
-            **/docker compose*.yml
-            **/docker compose*.yaml
+            **/docker-compose*.yml
+            **/docker-compose*.yaml
           json: true
           escape_json: false
 
