@@ -70,6 +70,21 @@
   },
   {
     "manifestVersion": 1,
+    "id": "mealie",
+    "name": "Mealie",
+    "category": "plannifiers",
+    "version": "0.0.3",
+    "port": 9091,
+    "description": "Mealie is a self hosted recipe manager, meal planner and shopping list with a RestAPI backend and a reactive frontend built in Vue for a pleasant user experience for the whole family. Easily add recipes into your database by providing the URL and Mealie will automatically import the relevant data, or add a family recipe with the UI editor. Mealie also provides an API for interactions from 3rd party applications.",
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/mealie/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/mealie/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/mealie/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/mealie/image3.png"
+    ]
+  },
+  {
+    "manifestVersion": 1,
     "id": "n8n",
     "category": "automation",
     "name": "n8n",
@@ -88,5 +103,21 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/n8n/image2.png"
     ],
     "submitter": "Pranshu Agrawal"
+  },
+  {
+    "manifestVersion": 1,
+    "id": "open-notebook",
+    "category": "productivity",
+    "name": "open-notebook",
+    "version": "1.2.3",
+    "buildId": "1",
+    "tagline": "In a world dominated by Artificial Intelligence, having the ability to think 🧠 and acquire new knowledge 💡, is a skill that should not be a privilege for a few, nor restricted to a single provider.",
+    "description": "Open Notebook empowers you to:\n🔒 Control your data - Keep your research private and secure 🤖 Choose your AI models - Support for 16+ providers including OpenAI, Anthropic, Ollama, LM Studio, and more 📚 Organize multi-modal content - PDFs, videos, audio, web pages, and more 🎙️ Generate professional podcasts - Advanced multi-speaker podcast generation 🔍 Search intelligently - Full-text and vector search across all your content 💬 Chat with context - AI conversations powered by your research Learn more about our project at https://www.open-notebook.ai",
+    "port": 8502,
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/open-notebook/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/open-notebook/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/open-notebook/image2.png"
+    ]
   }
 ]
