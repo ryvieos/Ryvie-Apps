@@ -91,7 +91,7 @@ jobs:
           else
             echo "📝 Changes detected, committing..."
             git commit -m "Update apps.json and ports.json"
-            git push origin HEAD:${{ github.ref }}
+            git push --force origin HEAD:${{ github.ref }}
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
 
