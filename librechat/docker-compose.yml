@@ -1,0 +1,83 @@
+services:
+  api:
+    image: ghcr.io/danny-avila/librechat-dev-api:latest
+    container_name: app-librechat-api
+    ports:
+      - 3014:3080
+    depends_on:
+      - mongodb
+      - rag_api
+    restart: unless-stopped
+    environment:
+      - HOST=0.0.0.0
+      - NODE_ENV=production
+      - MONGO_URI=mongodb://mongodb:27017/LibreChat
+      - MEILI_HOST=http://meilisearch:7700
+      - RAG_PORT=8000
+      - RAG_API_URL=http://rag_api:8000
+      - JWT_SECRET=secret_jwt_change_moi
+      - JWT_REFRESH_SECRET=secret_refresh_change_moi
+      - CREDS_KEY=a1b2c3d4e5f6g7h8a1b2c3d4e5f6g7h8
+      - CREDS_IV=a1b2c3d4e5f6g7h8
+      - ALLOW_REGISTRATION=true
+      - ALLOW_SOCIAL_LOGIN=false
+      - ALLOW_SOCIAL_REGISTRATION=false
+    volumes:
+      - ./images:/app/client/public/images
+      - ./uploads:/app/uploads
+      - ./logs:/app/api/logs
+    networks:
+      - librechat
+
+  mongodb:
+    image: mongo
+    container_name: app-librechat-mongodb
+    restart: unless-stopped
+    volumes:
+      - ./data-node:/data/db
+    command: mongod --noauth
+    networks:
+      - librechat
+
+  meilisearch:
+    image: getmeili/meilisearch:v1.12.3
+    container_name: app-meilisearch
+    restart: unless-stopped
+    environment:
+      - MEILI_HOST=http://meilisearch:7700
+      - MEILI_NO_ANALYTICS=true
+    volumes:
+      - ./meili_data_v1.12:/meili_data
+    networks:
+      - librechat
+
+  vectordb:
+    image: pgvector/pgvector:0.8.0-pg15-trixie
+    container_name: app-vectordb
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    volumes:
+      - pgdata2:/var/lib/postgresql/data
+    networks:
+      - librechat
+
+  rag_api:
+    image: ghcr.io/danny-avila/librechat-rag-api-dev-lite:latest
+    container_name: app-librechat-rag-api
+    restart: unless-stopped
+    depends_on:
+      - vectordb
+    environment:
+      - DB_HOST=vectordb
+      - RAG_PORT=8000
+    networks:
+      - librechat
+
+networks:
+  librechat:
+
+volumes:
+  pgdata2:
