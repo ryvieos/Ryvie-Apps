@@ -1,6 +1,6 @@
 services:
   fossflow:
-    container-name: app-fossflow
+    container_name: app-fossflow
     image: stnsmith/fossflow:latest
     pull_policy: always
     ports:
