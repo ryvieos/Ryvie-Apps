@@ -75,10 +75,16 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github-actions"
+
           git add apps.json ports.json
           if git diff --cached --quiet; then
             echo "✅ No changes detected"
-          else
-            git commit -m "Update apps.json and ports.json"
-            git push origin HEAD:${{ github.ref }}
+            exit 0
           fi
+
+          git commit -m "Update apps.json and ports.json"
+
+          # 🔄 Rebase to avoid non-fast-forward
+          git pull --rebase origin dev
+          git push origin dev
+

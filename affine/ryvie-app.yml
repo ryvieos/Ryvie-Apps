@@ -2,7 +2,7 @@ manifestVersion: 1
 id: affine
 name: Affine
 category: files
-version: "0.25.2"
+version: 0.25.3
 port: 3015
 description: >-
   A privacy-focused, local-first, open-source, and ready-to-use alternative for Notion & Miro.

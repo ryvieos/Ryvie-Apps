@@ -2,7 +2,7 @@ manifestVersion: 1
 id: fossflow
 name: FossFlow
 category: diagrams
-version: 1.7.2
+version: 1.7.3
 buildId: 0
 port: 3012
 description: >-

@@ -13,3 +13,4 @@ services:
     volumes: 
       - ./diagrams:/data/diagrams
     restart: unless-stopped
+    
