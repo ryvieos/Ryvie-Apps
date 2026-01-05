@@ -1,0 +1,59 @@
+name: Release (main)
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '.github/workflows/*'
+      - 'README.md'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository with tags
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+          token: ${{ secrets.PAT_TOKEN }}
+
+      - name: Determine next version
+        id: version
+        run: |
+          latest=$(git tag | sort -V | tail -n 1)
+          if [ -z "$latest" ]; then
+            latest="v1.0.0"
+          fi
+          base=${latest%.*}
+          patch=${latest##*.}
+          next="${base}.$((patch + 1))"
+          echo "next_version=$next" >> $GITHUB_OUTPUT
+          echo "📦 Next version: $next"
+
+      - name: Create and push tag
+        run: |
+          tag=${{ steps.version.outputs.next_version }}
+          if git rev-parse "$tag" >/dev/null 2>&1; then
+            echo "Tag already exists, skipping"
+          else
+            git tag $tag
+            git push origin $tag
+          fi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.next_version }}
+          name: "Release ${{ steps.version.outputs.next_version }}"
+          body: "Automatic release generated from main branch."
+          files: |
+            apps.json
+            ports.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
