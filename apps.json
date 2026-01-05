@@ -23,7 +23,7 @@
     "id": "docuseal",
     "category": "productivity",
     "name": "docuseal",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "port": 3020,
     "description": "Docuseal is an open-source electronic signature platform that allows users to sign, send, and manage documents securely online. It provides a user-friendly interface and robust features for document handling and signature workflows.",
     "gallery": [
@@ -31,6 +31,22 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/image2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/image3.png"
+    ]
+  },
+  {
+    "manifestVersion": 1,
+    "id": "fossflow",
+    "name": "FossFlow",
+    "category": "diagrams",
+    "version": "1.7.3",
+    "buildId": 0,
+    "port": 3012,
+    "description": "FossFLOW is a powerful, open-source Progressive Web App (PWA) for creating beautiful isometric diagrams. Built with React and the Isoflow (Now forked and published to NPM as fossflow) library, it runs entirely in your browser with offline support.",
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/fossflow/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/fossflow/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/fossflow/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/fossflow/image3.png"
     ]
   },
   {
@@ -81,6 +97,21 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/mealie/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/mealie/image2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/mealie/image3.png"
+    ]
+  },
+  {
+    "manifestVersion": 1,
+    "id": "memos",
+    "name": "memos",
+    "category": "plannifiers",
+    "version": "0.0.1",
+    "port": 3012,
+    "description": "Memos is a privacy-first, self-hosted knowledge base that works seamlessly for personal notes, team wikis, and knowledge management. Built with Go and React, it offers lightning-fast performance without compromising on features or usability.gallery:",
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/memos/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/memos/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/memos/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/memos/image3.png"
     ]
   },
   {
