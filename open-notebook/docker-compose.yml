@@ -16,3 +16,4 @@ services:
       - ./notebook_data:/app/data
       - ./surreal_data:/mydata
     restart: unless-stopped
+    
