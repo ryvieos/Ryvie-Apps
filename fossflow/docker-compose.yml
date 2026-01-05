@@ -10,6 +10,6 @@ services:
       - ENABLE_SERVER_STORAGE=${ENABLE_SERVER_STORAGE:-true}
       - STORAGE_PATH=/data/diagrams
       - ENABLE_GIT_BACKUP=${ENABLE_GIT_BACKUP:-false}
-    volumes:
+    volumes: 
       - ./diagrams:/data/diagrams
     restart: unless-stopped
