@@ -3,10 +3,10 @@ id: pihole
 category: developer
 name: pihole
 version: "6.2.2"
+buildId: 0
 port: 
-  - 53
-  - 80
-  - 443
+  - 3022
+  - 3021
 description: >-
   Pi-hole is a network-wide ad blocker that acts as a DNS sinkhole, blocking unwanted content and advertisements at the network level. It improves browsing speed, enhances privacy, and reduces bandwidth usage by filtering out ads before they reach your devices.
 
