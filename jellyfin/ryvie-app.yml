@@ -3,7 +3,7 @@ id: jellyfin
 category: distraction
 name: jellyfin
 version: 10.11.4
-buildId: 0
+buildId: 1
 port: 
   - 8096
 description: >-
