@@ -3,6 +3,7 @@ id: memos
 name: memos
 category: plannifiers
 version: 0.0.1
+buildId: 0
 port: 5230
 description: >-
   Memos is a privacy-first, self-hosted knowledge base that works seamlessly for personal notes, team wikis, and knowledge management. Built with Go and React, it offers lightning-fast performance without compromising on features or usability.gallery:
