@@ -23,7 +23,7 @@
     "id": "docuseal",
     "category": "productivity",
     "name": "docuseal",
-    "version": "1.0.4",
+    "version": "1.0.6",
     "port": 3020,
     "description": "Docuseal is an open-source electronic signature platform that allows users to sign, send, and manage documents securely online. It provides a user-friendly interface and robust features for document handling and signature workflows.",
     "gallery": [
@@ -105,7 +105,7 @@
     "name": "memos",
     "category": "plannifiers",
     "version": "0.0.1",
-    "port": 3012,
+    "port": 5230,
     "description": "Memos is a privacy-first, self-hosted knowledge base that works seamlessly for personal notes, team wikis, and knowledge management. Built with Go and React, it offers lightning-fast performance without compromising on features or usability.gallery:",
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/memos/icon.png",
