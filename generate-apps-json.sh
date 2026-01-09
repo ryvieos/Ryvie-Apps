@@ -37,7 +37,7 @@ for app_file in */ryvie-app.yml; do
   echo "🔹 Processing app: $app_dir"
 
 # Check required fields
-required_fields=(manifestVersion id category name port gallery)
+required_fields=(manifestVersion id category buildId name port gallery)
 missing=false
 
 for field in "${required_fields[@]}"; do

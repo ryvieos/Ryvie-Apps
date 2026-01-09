@@ -1,11 +1,22 @@
 version: "3.8"
 
 services:
+  # Ce service répare les permissions automatiquement avant le lancement de n8n
+  init-permissions:
+    image: busybox
+    user: root
+    volumes:
+      - ./data:/home/node/.n8n
+    command: chown -R 1000:1000 /home/node/.n8n
+
   n8n:
     image: docker.n8n.io/n8nio/n8n
     container_name: app-n8n
     restart: unless-stopped
     user: "1000:1000"
+    depends_on:
+      init-permissions:
+        condition: service_completed_successfully
     ports:
       - "5678:5678"
     environment:
@@ -16,4 +27,3 @@ services:
       - N8N_SECURE_COOKIE=false
     volumes:
       - ./data:/home/node/.n8n
-      
