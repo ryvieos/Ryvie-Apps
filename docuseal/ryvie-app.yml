@@ -2,7 +2,7 @@ manifestVersion: 1
 id: docuseal
 category: productivity
 name: docuseal
-version: 1.0.5
+version: 2.2.8
 buildId: 2
 port: 3020
 description: >-
