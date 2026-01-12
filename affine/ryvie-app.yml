@@ -2,7 +2,7 @@ manifestVersion: 1
 id: affine
 name: Affine
 category: files
-version: 0.25.3
+version: 0.25.1
 buildId: 1
 port: 3015
 description: >-

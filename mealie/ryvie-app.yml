@@ -2,7 +2,7 @@ manifestVersion: 1
 id: mealie
 name: Mealie
 category: plannifiers
-version: 0.0.4
+version: 3.9.2
 buildId: 1
 port: 9091
 description: >-
