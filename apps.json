@@ -25,7 +25,7 @@
     "category": "productivity",
     "name": "docuseal",
     "version": "2.2.8",
-    "buildId": 5,
+    "buildId": 6,
     "port": 3020,
     "description": "Docuseal is an open-source electronic signature platform that allows users to sign, send, and manage documents securely online. It provides a user-friendly interface and robust features for document handling and signature workflows.",
     "gallery": [
