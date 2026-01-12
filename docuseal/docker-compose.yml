@@ -15,7 +15,7 @@ services:
       - SECRET_KEY_BASE=changez_cette_cle_par_une_longue_chaine_aleatoire_de_128_caracteres_minimum_1234567890abcdef
     restart: unless-stopped
 
-  postgres:
+  postgres: 
     image: postgres:15
     container_name: app-docuseal-postgres
     volumes:
