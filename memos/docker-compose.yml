@@ -2,10 +2,10 @@ version: '3.8'
 
 services:
   memos:
-    image: neosmemo/memos:stable
+    image: neosmemo/memos:0.25
     container_name: app-memos
     ports:
-      - "30136:5230"
+      - "3013:5230"
     volumes:
       - ./memos:/var/opt/memos
     environment:

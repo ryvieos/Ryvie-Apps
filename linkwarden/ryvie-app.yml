@@ -3,7 +3,7 @@ id: linkwarden
 name: Linkwarden
 tagline: Bookmark Preservation for Individuals and Teams
 category: social
-version: 2.13.2
+version: 2.13.1
 buildId: 1
 port: 3028
 description: >-

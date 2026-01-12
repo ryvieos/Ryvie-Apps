@@ -2,7 +2,7 @@ manifestVersion: 1
 id: jellyfin
 category: distraction
 name: jellyfin
-version: 10.11.4
+version: 10.11.5
 buildId: 1
 port: 
   - 8096

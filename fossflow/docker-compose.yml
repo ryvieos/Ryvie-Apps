@@ -2,7 +2,7 @@ services:
   fossflow:
     container_name: app-fossflow
     image: stnsmith/fossflow:latest
-    pull_policy: always
+    pull_policy: always 
     ports:
       - 3012:80
     environment:

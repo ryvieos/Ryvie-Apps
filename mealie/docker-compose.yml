@@ -1,7 +1,7 @@
 services:
   mealie:
     container_name: app-mealie
-    image: ghcr.io/mealie-recipes/mealie:latest
+    image: hkotel/mealie:v3.9.2
     volumes:
       - ./mealie-data:/app/data/
     ports:
