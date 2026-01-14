@@ -12,7 +12,8 @@ on:
       - 'generate-apps-json.sh'
       - 'generate-ports-json.sh'
       - 'README.md'
-
+      - '**/ryvie-app.yml'
+      - '**/icon.png'
 permissions:
   contents: write
 
@@ -29,7 +30,11 @@ jobs:
       - name: Get changed files
         id: changed-files
         run: |
-          CHANGED=$(git diff --name-only HEAD~1 HEAD | tr '\n' ' ')
+          # Ensure we have full history to compare multi-commit pushes
+          git fetch --no-tags --prune --unshallow || true
+          CHANGED=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} \
+            | grep -vE '(^|/)(ryvie-app\.yml|icon\.png)$' \
+            | sort -u | tr '\n' ' ')
           echo "files=$CHANGED" >> $GITHUB_OUTPUT
 
       - name: Run version increment script
