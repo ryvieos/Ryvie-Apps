@@ -12,5 +12,5 @@ services:
       - ENABLE_GIT_BACKUP=${ENABLE_GIT_BACKUP:-false}
     volumes: 
       - ./diagrams:/data/diagrams
-    restart: unless-stopped
+    restart: unless-stopped 
     
