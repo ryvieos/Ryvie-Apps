@@ -3,7 +3,6 @@ id: memos
 name: memos
 category: plannifiers
 version: 0.0.25
-
 buildId: 5
 port: 3016
 description: >-
