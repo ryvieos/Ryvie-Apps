@@ -65,3 +65,4 @@ while IFS= read -r dir; do
 done <<< "$CHANGED_DIRS_SORTED"
 
 echo "buildId increment complete"
+ 
