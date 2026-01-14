@@ -19,7 +19,7 @@ if ! command -v docker compose &> /dev/null; then
     exit 1
 fi
 
-# Start services
+# Start services 
 docker compose up -d
 
 echo "DocuSeal is starting..."
