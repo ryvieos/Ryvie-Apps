@@ -3,7 +3,7 @@ id: rdrive
 category: storage
 name: Ryvie-rDrive
 version: "0.0.1"
-buildId: 5
+buildId: 6
 port: 3010
 description: >-
   Ryvie rDrive is a self-hosted cloud storage solution designed for individuals and businesses seeking a secure
