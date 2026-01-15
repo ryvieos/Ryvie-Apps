@@ -1,9 +1,9 @@
 [
   {
     "manifestVersion": 1,
-    "id": "rdrive",
+    "id": "Ryvie-rdrive",
     "category": "storage",
-    "name": "rDrive",
+    "name": "Ryvie-rDrive",
     "version": "0.0.1",
     "buildId": 6,
     "port": 3010,
