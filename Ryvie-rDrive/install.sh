@@ -118,21 +118,25 @@ generate_rdrive_env() {
         # Récupérer l'IP NetBird
         local netbird_ip
         netbird_ip=$(get_netbird_ip)
-        
+        log_info "ip netbird récupérée: $netbird_ip"
+
         # Récupérer l'IP privée locale
         local private_ip
         private_ip=$(get_private_ip)
-        
+        log_info "ip privée locale récupérée: $private_ip"
+
         # Charger le mot de passe LDAP depuis le fichier .env
         local ldap_admin_password=""
         if [ -f "$CONFIG_DIR/ldap/.env" ]; then
             source "$CONFIG_DIR/ldap/.env"
             ldap_admin_password="$LDAP_ADMIN_PASSWORD"
         fi
-        
+        log_info "mot de passe LDAP récupéré depuis la config
+        "
         # Générer le fichier .env directement dans le répertoire de l'app
         local rdrive_app_env="$rdrive_app_dir/.env"
         [ -f "$rdrive_app_env" ] && cp "$rdrive_app_env" "$rdrive_app_env.bak.$(date +%s)" || true
+        log_info "Backup du .env existant effectué (si présent)"
         
         cat > "$rdrive_app_env" << EOF
 REACT_APP_FRONTEND_URL=http://$netbird_ip:3010
