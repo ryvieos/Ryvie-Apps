@@ -5,7 +5,7 @@ set -euo pipefail
 # Génère le fichier .env et configure l'application
 
 NETBIRD_INTERFACE="wt0"
-RDRIVE_DIR="/data/apps/Ryvie-rDrive"
+RDRIVE_DIR="/data/apps/rdrive"
 LDAP_DIR="/data/config/ldap"
 LOG_FILE="/data/logs/install-rdrive-$(date +%Y%m%d-%H%M%S).log"
 
