@@ -1,7 +1,7 @@
 manifestVersion: 1
-id: Ryvie-rDrive
+id: rdrive
 category: storage
-name: Ryvie-rDrive
+name: rdrive
 version: "0.0.1"
 buildId: 8
 port: 3010
