@@ -5,13 +5,13 @@ services:
     container_name: app-twentycrm-server
     image: twentycrm/twenty:v1.15
     ports:
-      - "${PORT}:3000"
+      - "3023:3000"
     environment:
-      PG_DATABASE_URL: postgres://postgres:${POSTGRES_PASSWORD}@db:5432/default
-      SERVER_URL: http://${DOMAIN}:${PORT}
-      FRONT_BASE_URL: http://${DOMAIN}:${PORT}
+      PG_DATABASE_URL: postgres://postgres:postgres@db:5432/default
+      SERVER_URL: http://192.168.1.46:3023
+      FRONT_BASE_URL: http://192.168.1.46:3023
       REDIS_URL: redis://redis:6379
-      APP_SECRET: ${APP_SECRET}
+      APP_SECRET: replace_me_with_a_random_string
       STORAGE_TYPE: local
       STORAGE_LOCAL_PATH: /app/.local-storage
     depends_on:
@@ -26,7 +26,7 @@ services:
       - ./data/postgres:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: default
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
     restart: unless-stopped
 
