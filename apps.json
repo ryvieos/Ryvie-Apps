@@ -5,7 +5,7 @@
     "category": "storage",
     "name": "Ryvie-rDrive",
     "version": "0.0.1",
-    "buildId": 8,
+    "buildId": 9,
     "port": 3010,
     "description": "Ryvie rDrive is a self-hosted cloud storage solution designed for individuals and businesses seeking a secure",
     "gallery": [
@@ -172,5 +172,26 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/open-notebook/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/open-notebook/image2.png"
     ]
+  },
+  {
+    "manifestVersion": 1,
+    "id": "vaultwarden",
+    "name": "Vaultwarden",
+    "category": "security",
+    "version": "1.32.7",
+    "buildId": 3,
+    "port": 3024,
+    "description": "Vaultwarden is an unofficial Bitwarden compatible server written in Rust, formerly known as bitwarden_rs. It is a lightweight alternative to the official Bitwarden server and is perfect for self-hosted deployments.\n \n\nVaultwarden provides a secure password manager that works across all your devices. Store your passwords, credit cards, and other sensitive information in an encrypted vault.\n\n⚠️ IMPORTANT: This application requires HTTPS to function properly due to Web Crypto API requirements. Access it via the reverse proxy on port 3024 with HTTPS enabled.",
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/vaultwarden/icon.png"
+    ],
+    "proxy": {
+      "enabled": true,
+      "port": 3024,
+      "https": true,
+      "target": {
+        "port": 8081
+      }
+    }
   }
 ]

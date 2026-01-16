@@ -3,7 +3,7 @@ id: vaultwarden
 name: Vaultwarden
 category: security
 version: 1.32.7
-buildId: 2
+buildId: 3
 port: 3024
 description: >-
   Vaultwarden is an unofficial Bitwarden compatible server written in Rust, formerly known as bitwarden_rs.
