@@ -160,6 +160,21 @@
   },
   {
     "manifestVersion": 1,
+    "id": "rdrive",
+    "category": "storage",
+    "name": "rdrive",
+    "version": "0.0.1",
+    "buildId": 11,
+    "port": 3010,
+    "description": "Ryvie rDrive is a self-hosted cloud storage solution designed for individuals and businesses seeking a secure",
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/image2.png"
+    ]
+  },
+  {
+    "manifestVersion": 1,
     "id": "vaultwarden",
     "name": "Vaultwarden",
     "category": "security",
