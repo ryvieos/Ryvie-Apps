@@ -17,4 +17,4 @@ services:
     ports:
       - "8081:80"
     env_file:
-      - .env
+      - .env 
