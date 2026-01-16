@@ -1,140 +1,113 @@
-#!/usr/bin/env bash
-#==========================================
-# Ryvie rDrive Installation Script
-#==========================================
-# Description: Standalone installation script for Ryvie rDrive
-# Author: Ryvie Project
-# Version: 1.0
-#==========================================
+#!/bin/bash
+set -euo pipefail
 
-set -e
+# Script d'installation de Ryvie-rDrive
+# Génère le fichier .env et configure l'application
 
-# Détecter l'utilisateur réel même si le script est lancé avec sudo
-EXEC_USER="${SUDO_USER:-$USER}"
-EXEC_HOME="$(getent passwd "$EXEC_USER" | cut -d: -f6)"
-if [ -z "$EXEC_HOME" ]; then
-    EXEC_HOME="/home/$EXEC_USER"
-fi
-
-echo ""
-echo "  ____  ____       _           "
-echo " |  _ \|  _ \ _ __(_)_   _____ "
-echo " | |_) | | | | '__| \ \ / / _ \\"
-echo " |  _ <| |_| | |  | |\ V /  __/"
-echo " |_| \_\____/|_|  |_| \_/ \___|"
-echo ""
-echo "Installation de Ryvie rDrive 🚀"
-echo "By Jules Maisonnave"
-echo ""
-
-#==========================================
-# GLOBAL PATHS
-#==========================================
-DATA_ROOT="/data"
-APPS_DIR="$DATA_ROOT/apps"
-CONFIG_DIR="$DATA_ROOT/config"
-LOG_DIR="$DATA_ROOT/logs"
 NETBIRD_INTERFACE="wt0"
+RDRIVE_DIR="/data/apps/Ryvie-rDrive"
+LDAP_DIR="/data/config/ldap"
+LOG_FILE="/data/logs/install-rdrive-$(date +%Y%m%d-%H%M%S).log"
 
-#==========================================
-# LOGGING FUNCTIONS
-#==========================================
-log_info() {
-    echo -e "\033[0;32m[INFO]\033[0m $1"
+# Créer les dossiers nécessaires
+mkdir -p /data/logs
+mkdir -p "$RDRIVE_DIR"
+mkdir -p "$LDAP_DIR"
+
+# Fonction de logging
+log() {
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*" | tee -a "$LOG_FILE"
 }
 
-log_error() {
-    echo -e "\033[0;31m[ERROR]\033[0m $1"
-}
+log "═══════════════════════════════════════════════════════════════"
+log "🚀 INSTALLATION DE RYVIE-RDRIVE"
+log "═══════════════════════════════════════════════════════════════"
 
-log_warning() {
-    echo -e "\033[1;33m[WARNING]\033[0m $1"
-}
-
-#==========================================
-# UTILITY FUNCTIONS
-#==========================================
-
-# Get machine ID
-get_machine_id() {
-    if [ -f /etc/machine-id ]; then
-        cat /etc/machine-id
-    else
-        uuidgen 2>/dev/null || echo "$(hostname)-$(date +%s)"
-    fi
-}
-
-# Get NetBird IP from config file
-get_netbird_ip() {
-    local ip=""
-    
-    # Vérifier que le fichier de config existe
-    if [ ! -f "$CONFIG_DIR/netbird/.env" ]; then
-        log_error "Fichier de configuration NetBird introuvable: $CONFIG_DIR/netbird/.env"
-        log_error "Veuillez installer et configurer NetBird d'abord."
-        exit 1
-    fi
-    
-    # Lire l'IP depuis le fichier
-    ip=$(grep -E '^NETBIRD_IP=' "$CONFIG_DIR/netbird/.env" 2>/dev/null | cut -d'=' -f2 | tr -d ' ')
-    
-    # Vérifier que l'IP a été trouvée
-    if [ -z "$ip" ]; then
-        log_error "NETBIRD_IP non trouvé dans $CONFIG_DIR/netbird/.env"
-        log_error "Le fichier de configuration NetBird est incomplet ou corrompu."
-        exit 1
-    fi
-    
-    echo "$ip"
-}
-
-# Get local private IP address (non-NetBird interface)
-get_private_ip() {
+# Fonction pour récupérer l'IP d'une interface réseau
+get_interface_ip() {
+    local interface="$1"
     local ip
     
-    # Récupérer l'IP de l'interface principale
-    ip=$(ip -4 route get 1.1.1.1 2>/dev/null | grep -oP 'src \K[\d.]+' | head -1)
-    
-    # Vérifier que l'IP a été trouvée
-    if [ -z "$ip" ]; then
-        log_error "Impossible de déterminer l'IP privée de la machine"
-        log_error "Vérifiez votre configuration réseau"
-        exit 1
+    # Essayer avec ip addr
+    if command -v ip >/dev/null 2>&1; then
+        ip=$(ip addr show "$interface" 2>/dev/null | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -n1)
+    # Essayer avec ifconfig
+    elif command -v ifconfig >/dev/null 2>&1; then
+        ip=$(ifconfig "$interface" 2>/dev/null | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -n1)
     fi
     
     echo "$ip"
 }
 
-#==========================================
-# GÉNÉRATION DU .ENV
-#==========================================
+# Fonction pour récupérer l'IP NetBird
+get_netbird_ip() {
+    local ip
+    ip=$(get_interface_ip "$NETBIRD_INTERFACE")
+    if [ -z "$ip" ]; then
+        echo "localhost"
+    else
+        echo "$ip"
+    fi
+}
 
-generate_rdrive_env() {
-    local rdrive_app_dir="$APPS_DIR/Ryvie-rDrive/tdrive"
+# Fonction pour générer un ID machine unique
+get_machine_id() {
+    local machine_id=""
     
-    if [ -d "$rdrive_app_dir" ]; then
-        log_info "Génération du .env pour rDrive..."
-        
-        # Récupérer l'IP NetBird
-        local netbird_ip
-        netbird_ip=$(get_netbird_ip)
-        
-        # Récupérer l'IP privée locale
-        local private_ip
-        private_ip=$(get_private_ip)
-        
-        # Charger le mot de passe LDAP depuis le fichier .env
-        local ldap_admin_password=""
-        if [ -f "$CONFIG_DIR/ldap/.env" ]; then
-            source "$CONFIG_DIR/ldap/.env"
-            ldap_admin_password="$LDAP_ADMIN_PASSWORD"
-        fi
-        
-        # Générer le fichier .env directement dans le répertoire de l'app
-        local rdrive_app_env="$rdrive_app_dir/.env"
-        [ -f "$rdrive_app_env" ] && cp "$rdrive_app_env" "$rdrive_app_env.bak.$(date +%s)" || true
-        
-        cat > "$rdrive_app_env" << EOF
+    # Essayer /etc/machine-id (Linux systemd)
+    if [ -f /etc/machine-id ]; then
+        machine_id=$(cat /etc/machine-id)
+    # Essayer /var/lib/dbus/machine-id
+    elif [ -f /var/lib/dbus/machine-id ]; then
+        machine_id=$(cat /var/lib/dbus/machine-id)
+    # Générer un UUID aléatoire
+    elif command -v uuidgen >/dev/null 2>&1; then
+        machine_id=$(uuidgen | tr -d '-')
+    else
+        # Fallback: générer un ID aléatoire
+        machine_id=$(openssl rand -hex 16)
+    fi
+    
+    echo "$machine_id"
+}
+
+# 1. Récupérer l'IP NetBird
+log "🌐 Récupération de l'adresse IP NetBird..."
+netbird_ip=$(get_netbird_ip)
+log "   IP NetBird: $netbird_ip"
+
+# 2. Lire le mot de passe LDAP existant
+LDAP_SECRET_FILE="$LDAP_DIR/.env"
+log "🔐 Lecture du mot de passe admin LDAP dans $LDAP_SECRET_FILE..."
+if [ ! -f "$LDAP_SECRET_FILE" ]; then
+    log "❌ $LDAP_SECRET_FILE introuvable"
+    echo "❌ $LDAP_SECRET_FILE introuvable"
+    echo "   Crée le fichier avec LDAP_ADMIN_PASSWORD avant de relancer."
+    exit 1
+fi
+
+ldap_admin_password=$(grep -E '^LDAP_ADMIN_PASSWORD=' "$LDAP_SECRET_FILE" | tail -n1 | cut -d'=' -f2-)
+
+if [ -z "${ldap_admin_password:-}" ]; then
+    log "❌ LDAP_ADMIN_PASSWORD absent dans $LDAP_SECRET_FILE"
+    echo "❌ LDAP_ADMIN_PASSWORD absent dans $LDAP_SECRET_FILE"
+    exit 1
+fi
+
+chmod 600 "$LDAP_SECRET_FILE" || true
+log "   ✅ Mot de passe LDAP récupéré"
+
+# 4. Générer l'ID machine
+log "🔑 Génération de l'ID machine..."
+instance_id=$(get_machine_id)
+log "   Instance ID: $instance_id"
+
+# 5. Créer le fichier .env pour Ryvie-rDrive
+rdrive_env="$RDRIVE_DIR/.env"
+log "📝 Création du fichier .env pour Ryvie-rDrive..."
+log "   Fichier: $rdrive_env"
+
+cat > "$rdrive_env" << EOF
 REACT_APP_FRONTEND_URL=http://$netbird_ip:3010
 REACT_APP_BACKEND_URL=http://$netbird_ip:4000
 REACT_APP_WEBSOCKET_URL=ws://$netbird_ip:4000/ws
@@ -143,122 +116,135 @@ REACT_APP_ONLYOFFICE_DOCUMENT_SERVER_URL=http://$netbird_ip:8090
 LDAP_BIND_PASSWORD=$ldap_admin_password
 # Service OAuth centralisé (NE PAS MODIFIER)
 OAUTH_SERVICE_URL=https://cloudoauth-files.ryvie.fr
-INSTANCE_ID=$(get_machine_id)
-REACT_APP_FRONTEND_URL_PRIVATE=$private_ip
+INSTANCE_ID=$instance_id
 EOF
-        
-        chmod 600 "$rdrive_app_env" || true
-        chown "$EXEC_USER:$EXEC_USER" "$rdrive_app_env" 2>/dev/null || true
-        log_info "✅ .env rDrive généré → $rdrive_app_env"
-    else
-        log_info "⚠️ Ryvie-rDrive non trouvé, skip de la génération du .env rDrive"
-    fi
-    
-    log_info "Configuration d'environnement terminée"
-}
+
+# 6. Sécuriser le fichier .env
+chmod 600 "$rdrive_env"
+log "   ✅ Fichier .env créé et sécurisé"
 
 #==========================================
 # INSTALLATION ET LANCEMENT DE RDRIVE
 #==========================================
 
-install_and_launch_rdrive() {
-    echo "-----------------------------------------------------"
-    echo "Installation et lancement de Ryvie rDrive (compose unique)"
-    echo "-----------------------------------------------------"
-    
-    # Dossier rDrive
-    RDRIVE_DIR="$APPS_DIR/Ryvie-rDrive/tdrive"
-    
-    # 1) Vérifier la présence du compose et du .env
-    cd "$RDRIVE_DIR" || { echo "❌ Impossible d'accéder à $RDRIVE_DIR"; exit 1; }
-    
-    if [ ! -f docker-compose.yml ]; then
-        echo "❌ docker-compose.yml introuvable dans $RDRIVE_DIR"
-        echo "   Place le fichier docker-compose.yml ici puis relance."
-        exit 1
-    fi
-    
-    # Le .env est généré directement dans le dossier de l'app
-    if [ ! -f "$RDRIVE_DIR/.env" ]; then
-        echo "⚠️ $RDRIVE_DIR/.env introuvable — tentative de régénération…"
-        generate_rdrive_env || {
-            echo "❌ Impossible de générer $RDRIVE_DIR/.env"
-            exit 1
-        }
-    fi
-    
-    # 2) Lancement unique
-    echo "🚀 Démarrage de la stack rDrive…"
-    sudo docker compose --env-file "$RDRIVE_DIR/.env" pull || true
-    sudo docker compose --env-file "$RDRIVE_DIR/.env" up -d --build
-    
-    echo ""
-    echo "🧪 Test rclone (container app-rdrive-node)"
-    if command -v docker >/dev/null 2>&1 && sudo docker ps --format '{{.Names}}' | grep -q '^app-rdrive-node$'; then
-        sudo docker exec -it app-rdrive-node sh -lc '/usr/bin/rclone version && /usr/bin/rclone --config /root/.config/rclone/rclone.conf listremotes -vv' || true
-    else
-        echo "ℹ️ Container app-rdrive-node non démarré (test container ignoré)"
-    fi
-    
-    # 3) Attentes/health (best-effort)
-    echo "⏳ Attente des services (mongo, onlyoffice, node, frontend)…"
-    wait_for_service() {
-        local svc="$1"
-        local retries=60
-        while [ $retries -gt 0 ]; do
-            if sudo docker compose ps --format json | jq -e ".[] | select(.Service==\"$svc\") | .State==\"running\"" >/dev/null 2>&1; then
-                # si health est défini, essaye de lire
-                if sudo docker inspect --format='{{json .State.Health}}' "$(sudo docker compose ps -q "$svc")" 2>/dev/null | jq -e '.Status=="healthy"' >/dev/null 2>&1; then
+log "-----------------------------------------------------"
+log "Installation et lancement de Ryvie rDrive (compose unique)"
+log "-----------------------------------------------------"
+
+# Dossier rDrive
+
+# Permissions sécurisées : NE JAMAIS chown -R sur DOCKER_ROOT pour éviter de casser les volumes
+# Seul le dossier racine /data (non récursif)
+DATA_ROOT="/data"
+EXEC_USER="${SUDO_USER:-$(whoami)}"
+log "🔐 Application des permissions sécurisées sur $DATA_ROOT (non récursif)"
+echo "🔐 Application des permissions sécurisées sur $DATA_ROOT (non récursif)"
+sudo chown "$EXEC_USER:$EXEC_USER" "$DATA_ROOT" || true
+sudo chmod 755 "$DATA_ROOT" || true
+
+# 1) Vérifier la présence du compose et du .env
+cd "$RDRIVE_DIR" || { 
+    log "❌ Impossible d'accéder à $RDRIVE_DIR"
+    echo "❌ Impossible d'accéder à $RDRIVE_DIR"
+    exit 1
+}
+
+if [ ! -f docker-compose.yml ]; then
+    log "❌ docker-compose.yml introuvable dans $RDRIVE_DIR"
+    echo "❌ docker-compose.yml introuvable dans $RDRIVE_DIR"
+    echo "   Place le fichier docker-compose.yml ici puis relance."
+    exit 1
+fi
+
+# Vérifier que le .env existe
+if [ ! -f "$rdrive_env" ]; then
+    log "❌ $rdrive_env introuvable"
+    echo "❌ $rdrive_env introuvable"
+    exit 1
+fi
+
+# 2) Lancement unique
+log "🚀 Démarrage de la stack rDrive…"
+echo "🚀 Démarrage de la stack rDrive…"
+sudo docker compose --env-file "$rdrive_env" pull || true
+sudo docker compose --env-file "$rdrive_env" up -d --build
+
+echo ""
+log "🧪 Test rclone (container app-rdrive-node)"
+echo "🧪 Test rclone (container app-rdrive-node)"
+if command -v docker >/dev/null 2>&1 && sudo docker ps --format '{{.Names}}' | grep -q '^app-rdrive-node$'; then
+    sudo docker exec -it app-rdrive-node sh -lc '/usr/bin/rclone version && /usr/bin/rclone --config /root/.config/rclone/rclone.conf listremotes -vv' || true
+else
+    log "ℹ️ Container app-rdrive-node non démarré (test container ignoré)"
+    echo "ℹ️ Container app-rdrive-node non démarré (test container ignoré)"
+fi
+
+# 3) Attentes/health (best-effort)
+log "⏳ Attente des services (mongo, onlyoffice, node, frontend)…"
+echo "⏳ Attente des services (mongo, onlyoffice, node, frontend)…"
+
+wait_for_service() {
+    local svc="$1"
+    local retries=60
+    while [ $retries -gt 0 ]; do
+        local container_id
+        container_id=$(sudo docker compose ps -q "$svc" 2>/dev/null || true)
+
+        if [ -n "$container_id" ]; then
+            local state
+            state=$(sudo docker inspect --format='{{.State.Status}}' "$container_id" 2>/dev/null || echo "")
+
+            if [ "$state" = "running" ]; then
+                local health
+                health=$(sudo docker inspect --format='{{if .State.Health}}{{.State.Health.Status}}{{end}}' "$container_id" 2>/dev/null || echo "")
+
+                if [ "$health" = "healthy" ]; then
+                    log "✅ $svc healthy"
                     echo "✅ $svc healthy"
                     return 0
                 fi
-                # sinon, running suffit
+
+                log "✅ $svc en cours d'exécution"
                 echo "✅ $svc en cours d'exécution"
                 return 0
             fi
-            sleep 2
-            retries=$((retries-1))
-        done
-        echo "⚠️ Timeout d'attente pour $svc"
-        return 1
-    }
-    
-    echo "✅ rDrive est lancé via docker-compose unique."
-    echo "   Frontend accessible (par défaut) sur http://localhost:3010"
+        fi
+
+        sleep 2
+        retries=$((retries-1))
+    done
+    log "⚠️ Timeout d'attente pour $svc"
+    echo "⚠️ Timeout d'attente pour $svc"
+    return 1
 }
 
-#==========================================
-# MAIN EXECUTION
-#==========================================
+# Attendre les services principaux
+wait_for_service "mongo" || true
+wait_for_service "onlyoffice" || true
+wait_for_service "node" || true
+wait_for_service "frontend" || true
 
-main() {
-    log_info "=== Début de l'installation de Ryvie rDrive ==="
-    
-    # Générer la configuration .env
-    generate_rdrive_env
-    
-    # Installer et lancer rDrive
-    install_and_launch_rdrive
-    
-    log_info "=== Installation de Ryvie rDrive terminée ==="
-    echo ""
-    echo "======================================================"
-    echo "✅ Installation terminée avec succès !"
-    echo "======================================================"
-    echo ""
-    echo "📍 Informations importantes :"
-    echo "   - Configuration: $CONFIG_DIR/rdrive/.env"
-    echo "   - Application: $APPS_DIR/Ryvie-rDrive/tdrive"
-    echo "   - Frontend: http://$(get_netbird_ip):3010"
-    echo "   - Backend: http://$(get_netbird_ip):4000"
-    echo ""
-    echo "📝 Commandes utiles :"
-    echo "   - Voir les logs: cd $APPS_DIR/Ryvie-rDrive/tdrive && sudo docker compose logs -f"
-    echo "   - Arrêter: cd $APPS_DIR/Ryvie-rDrive/tdrive && sudo docker compose down"
-    echo "   - Redémarrer: cd $APPS_DIR/Ryvie-rDrive/tdrive && sudo docker compose restart"
-    echo "   - Status: cd $APPS_DIR/Ryvie-rDrive/tdrive && sudo docker compose ps"
-    echo ""
-}
+# 7. Afficher le résumé
+log "═══════════════════════════════════════════════════════════════"
+log "✅ INSTALLATION TERMINÉE"
+log "═══════════════════════════════════════════════════════════════"
+log "📁 Répertoire Ryvie-rDrive: $RDRIVE_DIR"
+log "📄 Fichier .env: $rdrive_env"
+log "📄 Fichier LDAP .env: $LDAP_DIR/.env"
+log "🌐 IP NetBird: $netbird_ip"
+log "🔑 Instance ID: $instance_id"
+log "📋 Log complet: $LOG_FILE"
+log "═══════════════════════════════════════════════════════════════"
 
-# Execute main function
-main "$@"
+echo ""
+echo "═══════════════════════════════════════════════════════════════"
+echo "✅ rDrive est lancé via docker-compose unique."
+echo "   Frontend accessible (par défaut) sur http://$netbird_ip:3010"
+echo ""
+echo "📁 Fichiers créés:"
+echo "   - $rdrive_env"
+echo "   - $LDAP_DIR/.env"
+echo ""
+echo "� Log complet: $LOG_FILE"
+echo "═══════════════════════════════════════════════════════════════"
+echo ""
