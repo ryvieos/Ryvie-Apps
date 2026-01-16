@@ -108,6 +108,7 @@ log "📝 Création du fichier .env pour Ryvie-rDrive..."
 log "   Fichier: $rdrive_env"
 
 cat > "$rdrive_env" << EOF
+
 REACT_APP_FRONTEND_URL=http://$netbird_ip:3010
 REACT_APP_BACKEND_URL=http://$netbird_ip:4000
 REACT_APP_WEBSOCKET_URL=ws://$netbird_ip:4000/ws
