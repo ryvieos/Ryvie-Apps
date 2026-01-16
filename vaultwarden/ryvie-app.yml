@@ -8,7 +8,7 @@ port: 3024
 description: >-
   Vaultwarden is an unofficial Bitwarden compatible server written in Rust, formerly known as bitwarden_rs.
   It is a lightweight alternative to the official Bitwarden server and is perfect for self-hosted deployments.
-  
+   
   
   Vaultwarden provides a secure password manager that works across all your devices.
   Store your passwords, credit cards, and other sensitive information in an encrypted vault.
