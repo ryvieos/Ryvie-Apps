@@ -160,26 +160,11 @@
   },
   {
     "manifestVersion": 1,
-    "id": "rdrop",
-    "category": "sharing",
-    "name": "rDrop",
-    "version": "0.0.0",
-    "buildId": 2,
-    "port": 3010,
-    "description": "Ryvie rDrop is a self-hosted file sharing solution that enables users to securely upload,",
-    "gallery": [
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rDrop/icon.png",
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rDrop/image1.png",
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rDrop/image2.png"
-    ]
-  },
-  {
-    "manifestVersion": 1,
     "id": "rdrive",
     "category": "storage",
     "name": "rDrive",
     "version": "0.0.1",
-    "buildId": 13,
+    "buildId": 14,
     "port": 3010,
     "description": "Ryvie rDrive is a self-hosted cloud storage solution designed for individuals and businesses seeking a secure",
     "gallery": [
@@ -190,15 +175,33 @@
   },
   {
     "manifestVersion": 1,
+    "id": "rdrop",
+    "category": "sharing",
+    "name": "rDrop",
+    "version": "0.0.0",
+    "buildId": 8,
+    "port": 8080,
+    "description": "Ryvie rDrop is a self-hosted file sharing solution that enables users to securely upload,",
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image2.png"
+    ]
+  },
+  {
+    "manifestVersion": 1,
     "id": "vaultwarden",
     "name": "Vaultwarden",
     "category": "security",
     "version": "1.32.7",
-    "buildId": 3,
+    "buildId": 4,
     "port": 3024,
     "description": "Vaultwarden is an unofficial Bitwarden compatible server written in Rust, formerly known as bitwarden_rs. It is a lightweight alternative to the official Bitwarden server and is perfect for self-hosted deployments.\n \n\nVaultwarden provides a secure password manager that works across all your devices. Store your passwords, credit cards, and other sensitive information in an encrypted vault.\n\n⚠️ IMPORTANT: This application requires HTTPS to function properly due to Web Crypto API requirements. Access it via the reverse proxy on port 3024 with HTTPS enabled.",
     "gallery": [
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/vaultwarden/icon.png"
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/vaultwarden/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/vaultwarden/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/vaultwarden/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/vaultwarden/image3.png"
     ],
     "proxy": {
       "enabled": true,

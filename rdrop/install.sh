@@ -5,10 +5,14 @@
 # path des apps
 DATA_ROOT="/data"
 APPS_DIR="$DATA_ROOT/apps"
-RDROP_DIR="$APPS_DIR/rDrop"
+RDROP_DIR="$APPS_DIR/rdrop"
 EXEC_USER="${SUDO_USER:-$USER}"
 
+echo "lancement du script d'installation de Ryvie rDrop..."
+# Créer le répertoire rDrop s'il n'existe pas
+mkdir -p "$RDROP_DIR"
 cd "$RDROP_DIR"
+
 
 # cloner le dépôt Ryvie-rdrop s'il n'existe pas
 if [ -d "Ryvie-rdrop" ]; then
