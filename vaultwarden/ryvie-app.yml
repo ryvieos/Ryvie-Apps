@@ -18,6 +18,10 @@ description: >-
   Access it via the reverse proxy on port 3024 with HTTPS enabled.
 gallery:
   - icon.png
+  - image1.png
+  - image2.png
+  - image3.png
+  
 proxy:
   enabled: true
   port: 3024
