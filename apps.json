@@ -160,21 +160,6 @@
   },
   {
     "manifestVersion": 1,
-    "id": "rdrop",
-    "category": "sharing",
-    "name": "rDrop",
-    "version": "0.0.0",
-    "buildId": 3,
-    "port": 3010,
-    "description": "Ryvie rDrop is a self-hosted file sharing solution that enables users to securely upload,",
-    "gallery": [
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rDrop/icon.png",
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rDrop/image1.png",
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rDrop/image2.png"
-    ]
-  },
-  {
-    "manifestVersion": 1,
     "id": "rdrive",
     "category": "storage",
     "name": "rDrive",
