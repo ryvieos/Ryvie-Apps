@@ -1,0 +1,13 @@
+manifestVersion: 1
+id: rtransfer
+category: storage
+name: rTransfer
+version: "0.0.1"
+buildId: 1
+port: 3011
+description: >-
+  Ryvie rTransfer is a self-hosted file transfer solution
+gallery:
+  - icon.png
+  - image1.png
+  - image2.png
