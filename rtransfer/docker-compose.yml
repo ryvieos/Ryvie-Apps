@@ -1,4 +1,4 @@
-services:
+services: 
   rtransfer:
     container_name: app-rtransfer
     image: julescloud/rtransfer:v0.0.1
