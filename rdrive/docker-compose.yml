@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   # ==========================================
-  # OnlyOffice Stack 
+  # OnlyOffice Stack
   # ==========================================
   onlyoffice-rabbitmq:
     image: julescloud/rdrive-rabbitmq:v0.0.0
