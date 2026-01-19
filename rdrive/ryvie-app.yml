@@ -1,7 +1,7 @@
 manifestVersion: 1
 id: rdrive
 category: storage
-name: rdrive
+name: rDrive
 version: "0.0.1"
 buildId: 12
 port: 3010
