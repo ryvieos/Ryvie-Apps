@@ -1,4 +1,4 @@
-services:
+services: 
   node:
     image: "node:lts-alpine"
     user: "node"
