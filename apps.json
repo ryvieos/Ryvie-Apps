@@ -179,13 +179,14 @@
     "category": "sharing",
     "name": "rDrop",
     "version": "0.0.0",
-    "buildId": 9,
+    "buildId": 10,
     "port": 8080,
     "description": "Ryvie rDrop is a self-hosted file sharing solution that enables users to securely upload,",
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image_1.png",
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image_2.png"
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image_2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image1.png"
     ]
   },
   {
@@ -194,7 +195,7 @@
     "category": "storage",
     "name": "rPictures",
     "version": "v2.0.0",
-    "buildId": 2,
+    "buildId": 3,
     "port": 3013,
     "description": "Ryvie rPictures is a self-hosted photo local cloud storage solution",
     "gallery": [
