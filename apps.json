@@ -175,6 +175,21 @@
   },
   {
     "manifestVersion": 1,
+    "id": "rdrop",
+    "category": "sharing",
+    "name": "rDrop",
+    "version": "0.0.0",
+    "buildId": 6,
+    "port": 3010,
+    "description": "Ryvie rDrop is a self-hosted file sharing solution that enables users to securely upload,",
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image2.png"
+    ]
+  },
+  {
+    "manifestVersion": 1,
     "id": "vaultwarden",
     "name": "Vaultwarden",
     "category": "security",
