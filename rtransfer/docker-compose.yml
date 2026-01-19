@@ -1,0 +1,22 @@
+services:
+  rtransfer:
+    container_name: app-rtransfer
+    image: julescloud/rtransfer:v0.0.1
+    restart: unless-stopped
+    ports:
+      - 3011:3000
+    env_file:
+      - .env
+    environment:
+      - TRUST_PROXY=false
+    volumes:
+      - "./data:/opt/app/backend/data"
+      - "./data/images:/opt/app/frontend/public/img"
+      - "./config.yaml:/opt/app/config.yaml"
+    networks:
+      - ldap_my_custom_network
+
+networks:
+  ldap_my_custom_network:
+    external: true
+#
