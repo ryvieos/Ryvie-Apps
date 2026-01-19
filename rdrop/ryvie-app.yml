@@ -3,7 +3,7 @@ id: rdrop
 category: sharing
 name: rDrop
 version: "0.0.0"
-buildId: 9
+buildId: 10
 port: 8080
 description: >-
   Ryvie rDrop is a self-hosted file sharing solution that enables users to securely upload,
@@ -11,3 +11,4 @@ gallery:
   - icon.png
   - image_1.png
   - image_2.png
+  - image1.png # test cdn to delete
