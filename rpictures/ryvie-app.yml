@@ -2,7 +2,7 @@ manifestVersion: 1
 id: rpictures
 category: storage
 name: rPictures
-version: "v2.0.0"
+version: "2.0.0"
 buildId: 2
 port: 3013
 description: >-
