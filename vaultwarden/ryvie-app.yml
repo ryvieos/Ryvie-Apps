@@ -1,21 +1,55 @@
 manifestVersion: 1
 id: vaultwarden
 name: Vaultwarden
-category: security
+category: 
+  fr: Sécurité
+  en: Security
 version: 1.32.7
 buildId: 4
 port: 3024
-description: >-
-  Vaultwarden is an unofficial Bitwarden compatible server written in Rust, formerly known as bitwarden_rs.
-  It is a lightweight alternative to the official Bitwarden server and is perfect for self-hosted deployments.
-   
-  
-  Vaultwarden provides a secure password manager that works across all your devices.
-  Store your passwords, credit cards, and other sensitive information in an encrypted vault.
-  
-  
-  ⚠️ IMPORTANT: This application requires HTTPS to function properly due to Web Crypto API requirements.
-  Access it via the reverse proxy on port 3024 with HTTPS enabled.
+description:
+  fr:
+    Vaultwarden sécurise tous vos mots de passe et informations sensibles en un seul endroit.
+
+    Enregistrez, organisez et accédez facilement à vos identifiants, notes sécurisées et autres données privées. Avec Vaultwarden, vous gardez le contrôle total de vos informations — sans publicité, sans suivi et entièrement open-source. Accédez à votre coffre depuis tous vos appareils, où que vous soyez, en toute sécurité.
+
+    Ce que vous pouvez faire avec Vaultwarden :
+
+    - Stocker et gérer vos mots de passe en toute sécurité
+
+    - Enregistrer vos notes et informations sensibles
+
+    - Accéder à votre coffre depuis tous vos appareils
+
+    - Protéger vos données grâce au chiffrement de bout en bout
+
+    - Garder le contrôle total de vos informations privées
+
+    Vaultwarden est une solution simple, sécurisée et open-source pour gérer votre vie numérique.
+
+  en:
+    Vaultwarden secures all your passwords and sensitive information in one place.
+
+    Save, organize, and easily access your credentials, secure notes, and other private data. With Vaultwarden, you maintain full control of your information — no ads, no tracking, and fully open-source. Access your vault from all your devices, wherever you are, securely.
+
+    What you can do with Vaultwarden:
+
+    - Store and manage your passwords securely
+
+    - Save your notes and sensitive information
+
+    - Access your vault from all your devices
+
+    - Protect your data with end-to-end encryption
+
+    - Keep full control of your private information
+
+    Vaultwarden is a simple, secure, and open-source solution to manage your digital life.
+
+tagline: 
+  fr: "Gestionnaire de mots de passe sécurisé et auto-hébergé"
+  en: "Secure and self-hosted password manager"
+
 gallery:
   - icon.png
   - image1.png

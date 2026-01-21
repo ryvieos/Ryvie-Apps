@@ -1,21 +1,49 @@
 manifestVersion: 1
 id: open-notebook
-category: productivity
+category: 
+  fr: Productivité
+  en: Productivity
 name: open-notebook
 version: 1.3.1
 buildId: 5
-tagline: In a world dominated by Artificial Intelligence, having the ability to think 🧠 and acquire new knowledge 💡, is a skill that should not be a privilege for a few, nor restricted to a single provider.
-description: >- 
-  Open Notebook empowers you to:
+description:
+  fr:
+    Open Notebook est votre carnet numérique personnel pour capturer idées, notes et recherches au même endroit.
 
-  🔒 Control your data - Keep your research private and secure
-  🤖 Choose your AI models - Support for 16+ providers including OpenAI, Anthropic, Ollama, LM Studio, and more
-  📚 Organize multi-modal content - PDFs, videos, audio, web pages, and more
-  🎙️ Generate professional podcasts - Advanced multi-speaker podcast generation
-  🔍 Search intelligently - Full-text and vector search across all your content
-  💬 Chat with context - AI conversations powered by your research
-  Learn more about our project at https://www.open-notebook.ai
+    Organisez vos pensées, suivez vos projets et accédez à vos notes où que vous soyez. Que ce soit pour les études, le travail ou vos projets personnels, Open Notebook vous aide à rester productif et concentré.
+
+    Ce que vous pouvez faire avec Open Notebook :
+
+    - Prendre des notes rapidement et facilement
+
+    - Organiser vos idées et projets
+
+    - Accéder à votre carnet où que vous soyez
+
+    - Suivre vos recherches, tâches et rappels
+
+    Open Notebook est simple, flexible et open-source — vos idées restent sous votre contrôle.
+  en:
+    Open Notebook is your personal digital notebook to capture ideas, notes, and research all in one place.
+
+    Organize your thoughts, track your projects, and access your notes wherever you are. Whether for study, work, or personal projects, Open Notebook helps you stay productive and focused.
+
+    What you can do with Open Notebook:
+
+    - Take notes quickly and easily
+
+    - Organize your ideas and projects
+
+    - Access your notebook wherever you are
+
+    - Track your research, tasks, and reminders
+
+    Open Notebook is simple, flexible, and open-source — your ideas remain under your control.
+
 port: 8502
+tagline: 
+  fr: "Votre carnet numérique personnel pour capturer idées, notes et recherches."
+  en: "Your personal digital notebook to capture ideas, notes, and research."
 gallery:
   - icon.png
   - image1.png
