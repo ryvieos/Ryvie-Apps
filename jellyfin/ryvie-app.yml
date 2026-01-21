@@ -5,7 +5,7 @@ category:
   en: multimedia
 name: jellyfin
 version: 10.11.5
-buildId: 1
+buildId: 2
 port: 
   - 8096
 description:
