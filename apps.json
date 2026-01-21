@@ -10,10 +10,14 @@
     "version": "0.0.0",
     "buildId": 10,
     "port": 8080,
-    "description": null,
-    "fr": "Partagez vos fichiers rapidement et en toute sécurité avec rDrop.",
-    "en": "Share your files quickly and securely with rDrop.",
-    "tagline": null,
+    "description": {
+      "fr": "rDrop est une application de partage de fichiers simple et sécurisée qui vous permet de partager des fichiers rapidement et facilement avec d'autres personnes.\nElle rDrop facilite le partage de fichiers volumineux sans compromettre la sécurité.\nrDrop est conçu pour être simple, sécurisé et efficace — vos fichiers restent sous votre contrôle.",
+      "en": "rDrop is a simple and secure file-sharing application that allows you to share files quickly and easily with others.\nrDrop makes it easy to share large files without compromising security.\nrDrop is designed to be simple, secure, and efficient — your files remain under your control."
+    },
+    "tagline": {
+      "fr": "Partagez vos fichiers rapidement et en toute sécurité avec rDrop.",
+      "en": "Share your files quickly and securely with rDrop."
+    },
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image_1.png",
