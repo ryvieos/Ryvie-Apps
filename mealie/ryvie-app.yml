@@ -1,13 +1,56 @@
 manifestVersion: 1
 id: mealie
 name: Mealie
-category: plannifiers
+category: 
+  fr: Planificateurs
+  en: Planners
 version: 3.9.2
 buildId: 1
 port: 9091
-description: >-
-  Mealie is a self hosted recipe manager, meal planner and shopping list with a RestAPI backend and a reactive frontend built in Vue for a pleasant user experience for the whole family. Easily add recipes into your database by providing the URL and Mealie will automatically import the relevant data, or add a family recipe with the UI editor. Mealie also provides an API for interactions from 3rd party applications.
-gallery:
+description:
+  fr: 
+    Mealie simplifie la gestion des recettes et la planification des repas au quotidien.
+
+    Enregistrez vos recettes préférées, planifiez vos menus de la semaine et générez automatiquement vos listes de courses. Que vous cuisiniez souvent ou occasionnellement, Mealie vous aide à gagner du temps et à mieux vous organiser.
+
+    Toutes vos recettes sont centralisées, faciles à retrouver et à adapter selon vos envies.
+
+    Ce que vous pouvez faire avec Mealie :
+
+    - Enregistrer et organiser vos recettes
+
+    - Planifier les repas de la semaine
+
+    - Générer automatiquement des listes de courses
+
+    - Gérer votre collection de recettes
+
+    - Cuisiner plus sereinement au quotidien
+
+  en:
+    Mealie simplifies recipe management and meal planning for everyday life.
+
+    Save your favorite recipes, plan your weekly menus, and automatically generate your shopping lists. Whether you cook often or occasionally, Mealie helps you save time and stay organized.
+
+    All your recipes are centralized, easy to find, and adaptable to your tastes.
+
+    What you can do with Mealie:
+
+    - Save and organize your recipes
+
+    - Plan weekly meals
+
+    - Automatically generate shopping lists
+
+    - Manage your recipe collection
+
+    - Cook more confidently every day
+
+tagline: 
+  fr: "votre assistant cuisine personnel, pensé pour des repas plus simples et mieux organisés."
+  en: "your personal kitchen assistant, designed for simpler and better-organized meals."
+
+  gallery:
   - icon.png
   - image1.png
   - image2.png
