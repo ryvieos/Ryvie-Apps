@@ -7,7 +7,7 @@ services:
       - 3011:3000
     env_file:
       - .env
-    environment:
+    environment: 
       - TRUST_PROXY=false
     volumes:
       - "./data:/opt/app/backend/data"
