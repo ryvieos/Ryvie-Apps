@@ -8,7 +8,7 @@ version: "0.0.1"
 buildId: 2
 port: 3011
 description: 
-  fr: 
+  fr:
     rTransfer est une solution de transfert de fichiers auto-hébergée, sécurisée et facile à utiliser.
 
     Transférez, partagez et gérez vos fichiers en toute simplicité. Que ce soit pour un usage personnel ou professionnel, rTransfer vous offre une plateforme fiable et accessible.
