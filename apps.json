@@ -298,7 +298,7 @@
     },
     "name": "rPictures",
     "version": "2.0.0",
-    "buildId": 5,
+    "buildId": 6,
     "port": 3013,
     "description": {
       "fr": "rPictures est une solution de stockage local de photos auto-hébergée, sécurisée et facile à utiliser.\nGérez, organisez et visualisez vos photos en toute simplicité. Que ce soit pour un usage personnel ou professionnel, rPictures vous offre un espace de stockage fiable et accessible.\nCe que vous pouvez faire avec rPictures :\n- Stocker et organiser vos photos\n- Visualiser vos images\n- Accéder à vos photos depuis n'importe où\nrPictures est conçu pour être simple, sécurisé et performant — vos données restent sous votre contrôle.",
