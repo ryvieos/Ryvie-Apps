@@ -6,7 +6,6 @@ category:
 name: n8n
 version: 2.3.2
 buildId: 5
-tagline: Build complex workflows, really fast
 description: 
   fr:
     "n8n vous permet d’automatiser vos flux de travail et de connecter vos applications facilement.

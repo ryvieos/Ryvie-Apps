@@ -198,13 +198,13 @@
     "name": "n8n",
     "version": "2.3.2",
     "buildId": 5,
-    "tagline": {
-      "fr": "Créez des flux de travail complexes, très rapidement",
-      "en": "Build complex workflows, really fast"
-    },
     "description": {
       "fr": "n8n vous permet d’automatiser vos flux de travail et de connecter vos applications facilement.\nCréez des processus automatisés sans coder, que ce soit pour des tâches simples comme transférer des données entre apps ou pour des workflows complexes impliquant plusieurs services. Avec n8n, vous gagnez du temps, réduisez les tâches répétitives et gardez un contrôle total sur vos données.\nCe que vous pouvez faire avec n8n :\n- Automatiser les tâches entre applications et services\n- Créer des workflows personnalisés sans coder\n- Connecter plus de 200 applications et services\n- Exécuter vos workflows de manière sécurisée sur votre infrastructure\n- Gagner du temps et améliorer votre productivité\nn8n est un outil d’automatisation open-source puissant et flexible pour tous.",
       "en": "n8n lets you automate your workflows and connect your applications easily.\nCreate automated processes without coding, whether for simple tasks like transferring data between apps or complex workflows involving multiple services. With n8n, you save time, reduce repetitive tasks, and keep full control over your data.\nWhat you can do with n8n:\n- Automate tasks between applications and services\n- Create customized workflows without coding\n- Connect more than 200 applications and services\n- Execute your workflows securely on your infrastructure\n- Save time and improve your productivity\nn8n is a powerful and flexible open-source automation tool for everyone."
+    },
+    "tagline": {
+      "fr": "Créez des flux de travail complexes, très rapidement",
+      "en": "Build complex workflows, really fast"
     },
     "port": 5678,
     "gallery": [
