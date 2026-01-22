@@ -258,7 +258,7 @@
       "en": "Your self-hosted, secure, and easy-to-use file storage solution."
     },
     "gallery": [
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/icon_.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/image2.png"
     ]
@@ -285,8 +285,7 @@
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image_1.png",
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image_2.png",
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image1.png"
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image_2.png"
     ]
   },
   {
@@ -336,7 +335,8 @@
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/image1.png",
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/image2.png"
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/image_2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/image3.png"
     ]
   },
   {
