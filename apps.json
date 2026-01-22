@@ -1,6 +1,218 @@
 [
   {
     "manifestVersion": 1,
+    "id": "affine",
+    "name": "Affine",
+    "category": {
+      "fr": "Productivité",
+      "en": "Productivity"
+    },
+    "version": "0.25.1",
+    "buildId": 2,
+    "port": 3015,
+    "description": {
+      "fr": "AFFiNE est une application open-source moderne de prise de notes et de gestion des connaissances, conçue pour remplacer les outils traditionnels de productivité. Elle combine documents, tableaux, blocs de texte et organisation visuelle dans un espace de travail unique, flexible et intuitif.\nPensée pour les individus comme pour les équipes, AFFiNE permet de structurer, relier et faire évoluer vos idées librement, en ligne ou hors ligne. Vos données restent sous votre contrôle grâce à une approche open-source et respectueuse de la vie privée.\nFonctionnalités clés :\n- Prise de notes par blocs (texte, listes, tableaux, etc.)\n- Organisation visuelle et liens entre contenus\n- Travail hors ligne avec synchronisation\n- Collaboration en temps réel\n- Données locales et contrôle total de la confidentialité\n- Projet open-source, transparent et extensible\nAFFiNE est l’outil idéal pour la prise de notes, la gestion de projets, la recherche ou le brainstorming.",
+      "en": "AFFiNE is a modern open-source note-taking and knowledge management application designed to replace traditional productivity tools. It brings together documents, tables, text blocks, and visual organization into a single, flexible, and intuitive workspace.\nBuilt for both individuals and teams, AFFiNE lets you structure, connect, and grow your ideas freely, online or offline. Your data stays under your control thanks to its open-source, privacy-first approach.\nKey features:\n- Block-based note taking (text, lists, tables, and more)\n- Visual organization and linked content\n- Offline-first with synchronization\n- Real-time collaboration\n- Local data storage and full privacy control\n- Open-source, transparent, and extensible\nAFFiNE is perfect for note-taking, project management, research, and brainstorming."
+    },
+    "tagline": {
+      "fr": "L'outil parfait pour la prise de notes, la gestion de projets, la recherche et le brainstorming.",
+      "en": "The perfect tool for note-taking, project management, research, and brainstorming."
+    },
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/affine/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/affine/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/affine/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/affine/image3.png"
+    ],
+    "architectures": [
+      "amd64",
+      "arm64"
+    ]
+  },
+  {
+    "manifestVersion": 1,
+    "id": "docuseal",
+    "category": {
+      "fr": "Productivité",
+      "en": "Productivity"
+    },
+    "name": "docuseal",
+    "version": "2.2.8",
+    "buildId": 11,
+    "port": 3020,
+    "description": {
+      "fr": "DocuSeal est une application open-source de signature électronique et de gestion de documents, conçue pour simplifier la validation, le partage et la signature de fichiers en toute sécurité.\nPensée pour les particuliers comme pour les équipes, DocuSeal permet de signer des documents légalement, de suivre leur statut en temps réel et de garder un contrôle total sur vos données grâce à une approche respectueuse de la vie privée.\nFonctionnalités clés :\nSignature électronique simple et sécurisée\nGestion et suivi des documents signés\nFlux de validation clairs et efficaces\nHébergement autonome possible (self-hosted)\nRespect de la confidentialité et conformité\nProjet open-source, transparent et évolutif",
+      "en": "DocuSeal is an open-source electronic signature and document management application designed to make signing, sharing, and validating documents simple and secure.\nBuilt for individuals and teams, DocuSeal lets you legally sign documents, track their status in real time, and keep full control over your data with a privacy-first approach.\nKey features:\nSimple and secure electronic signatures\nDocument management and signing status tracking\nClear and efficient approval workflows\nSelf-hosting support\nPrivacy-focused and compliant\nOpen-source, transparent, and extensible"
+    },
+    "tagline": {
+      "fr": "Signez vos documents simplement.",
+      "en": "Sign your documents simply."
+    },
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/image3.png"
+    ]
+  },
+  {
+    "manifestVersion": 1,
+    "id": "fossflow",
+    "name": "FossFlow",
+    "category": {
+      "fr": "Diagrammes",
+      "en": "Diagrams"
+    },
+    "version": "1.7.0",
+    "buildId": 2,
+    "port": 3012,
+    "description": {
+      "fr": "FossFLOW vous permet de créer facilement des diagrammes isométriques clairs et élégants.\nVisualisez des systèmes, des flux de travail et des idées dans un style isométrique lisible, directement depuis votre ryvie.\nQue ce soit pour documenter un projet, expliquer un concept ou représenter une architecture, FossFLOW vous aide à vous concentrer sur l’essentiel : la clarté et la créativité, tout en gardant le contrôle de vos données.\nCe que vous pouvez faire avec FossFLOW :\n- Créer rapidement de beaux diagrammes isométriques\n- Visualiser clairement systèmes et flux\n- Travailler directement dans le navigateur\n- Continuer à travailler hors ligne\n- Garder le contrôle de vos données",
+      "en": "FossFLOW lets you easily create clear and elegant isometric diagrams.\nVisualize systems, workflows, and ideas in a readable isometric style, directly from your ryvie.\nWhether documenting a project, explaining a concept, or representing an architecture, FossFLOW helps you focus on what matters: clarity and creativity, while keeping control of your data.\nWhat you can do with FossFLOW:\n- Quickly create beautiful isometric diagrams\n- Clearly visualize systems and flows\n- Work directly in the browser\n- Continue working offline\n- Keep control of your data"
+    },
+    "tagline": {
+      "fr": "Créez facilement des diagrammes isométriques clairs et élégants",
+      "en": "Easily create clear and elegant isometric diagrams"
+    },
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/fossflow/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/fossflow/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/fossflow/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/fossflow/image3.png"
+    ]
+  },
+  {
+    "manifestVersion": 1,
+    "id": "jellyfin",
+    "category": {
+      "fr": "multimédia",
+      "en": "multimedia"
+    },
+    "name": "jellyfin",
+    "version": "10.11.5",
+    "buildId": 2,
+    "port": [
+      8096
+    ],
+    "description": {
+      "fr": "Jellyfin vous permet de profiter de votre bibliothèque multimédia, simplement et librement.\nRegardez vos films et séries, écoutez votre musique et consultez vos photos depuis tous vos appareils. Jellyfin organise automatiquement vos contenus et les diffuse facilement sur votre téléphone, tablette, ordinateur ou TV.\nVos médias vous appartiennent. Jellyfin est entièrement open-source, sans publicité, sans abonnement et respectueux de votre vie privée.\nCe que vous pouvez faire avec Jellyfin :\n- Regarder vos films et séries où que vous soyez\n- Écouter votre musique et parcourir vos photos\n- Diffuser sur plusieurs appareils\n- Garder vos contenus bien organisés\n- Profiter de vos médias sans publicité ni abonnement",
+      "en": "Jellyfin lets you enjoy your media library, simply and freely.\nWatch your movies and TV shows, listen to your music, and view your photos from all your devices. Jellyfin automatically organizes your content and streams it easily to your phone, tablet, computer, or TV.\nYour media belongs to you. Jellyfin is completely open-source, ad-free, subscription-free, and privacy-respecting.\nWhat you can do with Jellyfin:\n- Watch your movies and TV shows wherever you are\n- Listen to your music and browse your photos\n- Stream to multiple devices\n- Keep your content well organized\n- Enjoy your media without ads or subscriptions"
+    },
+    "tagline": {
+      "fr": "Votre centre multimédia personnel, pensé pour la liberté et la confidentialité.",
+      "en": "Your personal media center, designed for freedom and privacy."
+    },
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/jellyfin/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/jellyfin/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/jellyfin/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/jellyfin/image3.png"
+    ]
+  },
+  {
+    "manifestVersion": 1,
+    "id": "linkwarden",
+    "name": "Linkwarden",
+    "tagline": "Bookmark Preservation for Individuals and Teams",
+    "category": {
+      "fr": "Organisation",
+      "en": "Organization"
+    },
+    "version": "2.13.1",
+    "buildId": 2,
+    "port": 3028,
+    "description": {
+      "fr": "Linkwarden vous permet d’enregistrer, d’organiser et de conserver vos liens importants en un seul endroit sécurisé.\nGardez vos articles, outils et ressources sans craindre les liens cassés ou les contenus supprimés. Linkwarden sauvegarde une copie des pages enregistrées afin que vous puissiez y accéder à tout moment, même si le site d’origine change ou disparaît.\nConçu avec une approche respectueuse de la vie privée, Linkwarden vous aide à créer simplement votre bibliothèque personnelle de connaissances.\nCe que vous pouvez faire avec Linkwarden :\n- Enregistrer et organiser vos liens facilement\n- Accéder à vos contenus à tout moment\n- Conserver une copie des pages sauvegardées\n- Rechercher et gérer votre collection de liens\n- Garder le contrôle de vos données",
+      "en": "Linkwarden lets you save, organize, and preserve your important links in one secure place.\nKeep your articles, tools, and resources without worrying about broken links or deleted content. Linkwarden saves a copy of the pages you save so you can access them anytime, even if the original site changes or disappears.\nBuilt with a privacy-first approach, Linkwarden helps you easily create your personal knowledge library.\nWhat you can do with Linkwarden:\n- Save and organize your links easily\n- Access your content anytime\n- Preserve a copy of saved pages\n- Search and manage your link collection\n- Keep control of your data"
+    },
+    "tagmline": {
+      "fr": "Linkwarden est la solution simple et fiable pour ne plus jamais perdre un lien important.",
+      "en": "Linkwarden is the simple and reliable solution to never lose an important link again."
+    },
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/image3.png"
+    ]
+  },
+  {
+    "manifestVersion": 1,
+    "id": "n8n",
+    "category": {
+      "fr": "Automatisation",
+      "en": "Automation"
+    },
+    "name": "n8n",
+    "version": "2.3.2",
+    "buildId": 5,
+    "tagline": {
+      "fr": "Créez des flux de travail complexes, très rapidement",
+      "en": "Build complex workflows, really fast"
+    },
+    "description": {
+      "fr": "n8n vous permet d’automatiser vos flux de travail et de connecter vos applications facilement.\nCréez des processus automatisés sans coder, que ce soit pour des tâches simples comme transférer des données entre apps ou pour des workflows complexes impliquant plusieurs services. Avec n8n, vous gagnez du temps, réduisez les tâches répétitives et gardez un contrôle total sur vos données.\nCe que vous pouvez faire avec n8n :\n- Automatiser les tâches entre applications et services\n- Créer des workflows personnalisés sans coder\n- Connecter plus de 200 applications et services\n- Exécuter vos workflows de manière sécurisée sur votre infrastructure\n- Gagner du temps et améliorer votre productivité\nn8n est un outil d’automatisation open-source puissant et flexible pour tous.",
+      "en": "n8n lets you automate your workflows and connect your applications easily.\nCreate automated processes without coding, whether for simple tasks like transferring data between apps or complex workflows involving multiple services. With n8n, you save time, reduce repetitive tasks, and keep full control over your data.\nWhat you can do with n8n:\n- Automate tasks between applications and services\n- Create customized workflows without coding\n- Connect more than 200 applications and services\n- Execute your workflows securely on your infrastructure\n- Save time and improve your productivity\nn8n is a powerful and flexible open-source automation tool for everyone."
+    },
+    "port": 5678,
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/n8n/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/n8n/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/n8n/image2.png"
+    ]
+  },
+  {
+    "manifestVersion": 1,
+    "id": "open-notebook",
+    "category": {
+      "fr": "Productivité",
+      "en": "Productivity"
+    },
+    "name": "open-notebook",
+    "version": "1.3.1",
+    "buildId": 6,
+    "description": {
+      "fr": "Open Notebook est votre carnet numérique personnel pour capturer idées, notes et recherches au même endroit.\nOrganisez vos pensées, suivez vos projets et accédez à vos notes où que vous soyez. Que ce soit pour les études, le travail ou vos projets personnels, Open Notebook vous aide à rester productif et concentré.\nCe que vous pouvez faire avec Open Notebook :\n- Prendre des notes rapidement et facilement\n- Organiser vos idées et projets\n- Accéder à votre carnet où que vous soyez\n- Suivre vos recherches, tâches et rappels\nOpen Notebook est simple, flexible et open-source — vos idées restent sous votre contrôle.",
+      "en": "Open Notebook is your personal digital notebook to capture ideas, notes, and research all in one place.\nOrganize your thoughts, track your projects, and access your notes wherever you are. Whether for study, work, or personal projects, Open Notebook helps you stay productive and focused.\nWhat you can do with Open Notebook:\n- Take notes quickly and easily\n- Organize your ideas and projects\n- Access your notebook wherever you are\n- Track your research, tasks, and reminders\nOpen Notebook is simple, flexible, and open-source — your ideas remain under your control."
+    },
+    "port": 8502,
+    "tagline": {
+      "fr": "Votre carnet numérique personnel pour capturer idées, notes et recherches.",
+      "en": "Your personal digital notebook to capture ideas, notes, and research."
+    },
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/open-notebook/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/open-notebook/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/open-notebook/image2.png"
+    ]
+  },
+  {
+    "manifestVersion": 1,
+    "id": "rdrive",
+    "category": {
+      "fr": "Stockage",
+      "en": "Storage"
+    },
+    "name": "rDrive",
+    "version": "0.0.1",
+    "buildId": 16,
+    "port": 3010,
+    "description": {
+      "fr": "rDrive est une solution de stockage de fichiers auto-hébergée, sécurisée et facile à utiliser.\nGérez, partagez et synchronisez vos fichiers en toute simplicité. Que ce soit pour un usage personnel ou professionnel, rDrive vous offre un espace de stockage fiable et accessible.\nCe que vous pouvez faire avec rDrive :\n- Stocker et organiser vos fichiers\n- Synchroniser vos données sur votre ryvie\n- Accéder à vos fichiers depuis n'importe où\nrDrive est conçu pour être simple, sécurisé et performant — vos données restent sous votre contrôle.",
+      "en": "rDrive is a self-hosted, secure, and easy-to-use file storage solution.\nManage, share, and sync your files with ease. Whether for personal or professional use, rDrive provides you with a reliable and accessible storage space.\nWhat you can do with rDrive:\n- Store and organize your files\n- Sync your data on your ryvie\n- Access your files from anywhere\nrDrive is designed to be simple, secure, and efficient — your data remains under your control."
+    },
+    "tagline": {
+      "fr": "Votre solution de stockage de fichiers auto-hébergée, sécurisée et facile à utiliser.",
+      "en": "Your self-hosted, secure, and easy-to-use file storage solution."
+    },
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/image2.png"
+    ]
+  },
+  {
+    "manifestVersion": 1,
     "id": "rdrop",
     "category": {
       "fr": "Partage",
@@ -24,5 +236,89 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image_2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image1.png"
     ]
+  },
+  {
+    "manifestVersion": 1,
+    "id": "rpictures",
+    "category": {
+      "fr": "Stockage",
+      "en": "Storage"
+    },
+    "name": "rPictures",
+    "version": "2.0.0",
+    "buildId": 5,
+    "port": 3013,
+    "description": {
+      "fr": "rPictures est une solution de stockage local de photos auto-hébergée, sécurisée et facile à utiliser.\nGérez, organisez et visualisez vos photos en toute simplicité. Que ce soit pour un usage personnel ou professionnel, rPictures vous offre un espace de stockage fiable et accessible.\nCe que vous pouvez faire avec rPictures :\n- Stocker et organiser vos photos\n- Visualiser vos images\n- Accéder à vos photos depuis n'importe où\nrPictures est conçu pour être simple, sécurisé et performant — vos données restent sous votre contrôle.",
+      "en": "rPictures is a self-hosted, secure, and easy-to-use local photo storage solution.\nManage, organize, and view your photos with ease. Whether for personal or professional use, rPictures provides you with a reliable and accessible storage space.\nWhat you can do with rPictures:\n- Store and organize your photos\n- View your images\n- Access your photos from anywhere\nrPictures is designed to be simple, secure, and efficient — your data remains under your control."
+    },
+    "tagline": {
+      "fr": "Votre solution de stockage local de photos auto-hébergée, sécurisée et facile à utiliser.",
+      "en": "Your self-hosted, secure, and easy-to-use local photo storage solution."
+    },
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rpictures/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rpictures/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rpictures/image2.png"
+    ]
+  },
+  {
+    "manifestVersion": 1,
+    "id": "rtransfer",
+    "category": {
+      "fr": "Partage",
+      "en": "Sharing"
+    },
+    "name": "rTransfer",
+    "version": "0.0.1",
+    "buildId": 3,
+    "port": 3011,
+    "description": {
+      "fr": "rTransfer est une solution de transfert de fichiers auto-hébergée, sécurisée et facile à utiliser.\nTransférez, partagez et gérez vos fichiers en toute simplicité. Que ce soit pour un usage personnel ou professionnel, rTransfer vous offre une plateforme fiable et accessible.\nCe que vous pouvez faire avec rTransfer :\n- Transférer et organiser vos fichiers\n- Partager des fichiers en toute sécurité\nrTransfer est conçu pour être simple, sécurisé et performant — vos données restent sous votre contrôle.",
+      "en": "rTransfer is a self-hosted, secure, and easy-to-use file transfer solution.\nTransfer, share, and manage your files with ease. Whether for personal or professional use, rTransfer provides you with a reliable and accessible platform.\nWhat you can do with rTransfer:\n- Transfer and organize your files\n- Share files securely\nrTransfer is designed to be simple, secure, and efficient — your data remains under your control."
+    },
+    "tagline": {
+      "fr": "Votre solution de transfert de fichiers auto-hébergée, sécurisée et facile à utiliser.",
+      "en": "Your self-hosted, secure, and easy-to-use file transfer solution."
+    },
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/image2.png"
+    ]
+  },
+  {
+    "manifestVersion": 1,
+    "id": "vaultwarden",
+    "name": "Vaultwarden",
+    "category": {
+      "fr": "Sécurité",
+      "en": "Security"
+    },
+    "version": "1.32.7",
+    "buildId": 5,
+    "port": 3024,
+    "description": {
+      "fr": "Vaultwarden sécurise tous vos mots de passe et informations sensibles en un seul endroit.\nEnregistrez, organisez et accédez facilement à vos identifiants, notes sécurisées et autres données privées. Avec Vaultwarden, vous gardez le contrôle total de vos informations — sans publicité, sans suivi et entièrement open-source. Accédez à votre coffre depuis tous vos appareils, où que vous soyez, en toute sécurité.\nCe que vous pouvez faire avec Vaultwarden :\n- Stocker et gérer vos mots de passe en toute sécurité\n- Enregistrer vos notes et informations sensibles\n- Accéder à votre coffre depuis tous vos appareils\n- Protéger vos données grâce au chiffrement de bout en bout\n- Garder le contrôle total de vos informations privées\nVaultwarden est une solution simple, sécurisée et open-source pour gérer votre vie numérique.",
+      "en": "Vaultwarden secures all your passwords and sensitive information in one place.\nSave, organize, and easily access your credentials, secure notes, and other private data. With Vaultwarden, you maintain full control of your information — no ads, no tracking, and fully open-source. Access your vault from all your devices, wherever you are, securely.\nWhat you can do with Vaultwarden:\n- Store and manage your passwords securely\n- Save your notes and sensitive information\n- Access your vault from all your devices\n- Protect your data with end-to-end encryption\n- Keep full control of your private information\nVaultwarden is a simple, secure, and open-source solution to manage your digital life."
+    },
+    "tagline": {
+      "fr": "Gestionnaire de mots de passe sécurisé et auto-hébergé",
+      "en": "Secure and self-hosted password manager"
+    },
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/vaultwarden/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/vaultwarden/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/vaultwarden/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/vaultwarden/image3.png"
+    ],
+    "proxy": {
+      "enabled": true,
+      "port": 3024,
+      "https": true,
+      "target": {
+        "port": 8081
+      }
+    }
   }
 ]
