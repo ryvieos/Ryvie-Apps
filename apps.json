@@ -258,7 +258,7 @@
       "en": "Your self-hosted, secure, and easy-to-use file storage solution."
     },
     "gallery": [
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/icon_.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/image2.png"
     ]
@@ -285,8 +285,7 @@
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image_1.png",
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image_2.png",
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image1.png"
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image_2.png"
     ]
   },
   {
@@ -335,8 +334,9 @@
     },
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/icon.png",
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/image1.png",
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/image2.png"
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/image_1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/image_2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/image_3.png"
     ]
   },
   {
@@ -348,7 +348,7 @@
       "en": "Security"
     },
     "version": "1.32.7",
-    "buildId": 11,
+    "buildId": 12,
     "port": 3024,
     "description": {
       "fr": "Vaultwarden sécurise tous vos mots de passe et informations sensibles en un seul endroit.\nEnregistrez, organisez et accédez facilement à vos identifiants, notes sécurisées et autres données privées. Avec Vaultwarden, vous gardez le contrôle total de vos informations — sans publicité, sans suivi et entièrement open-source. Accédez à votre coffre depuis tous vos appareils, où que vous soyez, en toute sécurité.\nCe que vous pouvez faire avec Vaultwarden :\n- Stocker et gérer vos mots de passe en toute sécurité\n- Enregistrer vos notes et informations sensibles\n- Accéder à votre coffre depuis tous vos appareils\n- Protéger vos données grâce au chiffrement de bout en bout\n- Garder le contrôle total de vos informations privées\nVaultwarden est une solution simple, sécurisée et open-source pour gérer votre vie numérique.",
