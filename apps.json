@@ -348,7 +348,7 @@
       "en": "Security"
     },
     "version": "1.32.7",
-    "buildId": 8,
+    "buildId": 9,
     "port": 3024,
     "description": {
       "fr": "Vaultwarden sécurise tous vos mots de passe et informations sensibles en un seul endroit.\nEnregistrez, organisez et accédez facilement à vos identifiants, notes sécurisées et autres données privées. Avec Vaultwarden, vous gardez le contrôle total de vos informations — sans publicité, sans suivi et entièrement open-source. Accédez à votre coffre depuis tous vos appareils, où que vous soyez, en toute sécurité.\nCe que vous pouvez faire avec Vaultwarden :\n- Stocker et gérer vos mots de passe en toute sécurité\n- Enregistrer vos notes et informations sensibles\n- Accéder à votre coffre depuis tous vos appareils\n- Protéger vos données grâce au chiffrement de bout en bout\n- Garder le contrôle total de vos informations privées\nVaultwarden est une solution simple, sécurisée et open-source pour gérer votre vie numérique.",
