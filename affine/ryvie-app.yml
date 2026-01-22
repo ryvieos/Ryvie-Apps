@@ -1,30 +1,58 @@
 manifestVersion: 1
 id: affine
 name: Affine
-category: files
+category: 
+  fr: Productivité
+  en: Productivity
 version: 0.25.1
-buildId: 1
+buildId: 2
 port: 3015
-description: >-
-  A privacy-focused, local-first, open-source, and ready-to-use alternative for Notion & Miro.
-  One hyper-fused platform for wildly creative minds.
+description:
+  fr:
+    "AFFiNE est une application open-source moderne de prise de notes et de gestion des connaissances, conçue pour remplacer les outils traditionnels de productivité. Elle combine documents, tableaux, blocs de texte et organisation visuelle dans un espace de travail unique, flexible et intuitif.
 
+    Pensée pour les individus comme pour les équipes, AFFiNE permet de structurer, relier et faire évoluer vos idées librement, en ligne ou hors ligne. Vos données restent sous votre contrôle grâce à une approche open-source et respectueuse de la vie privée.
 
-  To Shape, not to adapt. Tools can impact your lifestyle. AFFiNE is built for individual & teams who care their data, who refuse vendor lock-in, and who want to have control over their essential tools.
+    Fonctionnalités clés :
 
+    - Prise de notes par blocs (texte, listes, tableaux, etc.)
 
-  🛠️ SET-UP INSTRUCTIONS
+    - Organisation visuelle et liens entre contenus
 
-  In order to save your data, you need to sign in to your self-hosted Affine instance:
+    - Travail hors ligne avec synchronisation
 
+    - Collaboration en temps réel
 
-  1. When you first open Affine, it will walk you through setting up an admin account.
+    - Données locales et contrôle total de la confidentialité
 
-  2. After setting up your admin account, close the browser window and open up the Affine app again from the umbrelOS homescreen.
+    - Projet open-source, transparent et extensible
 
-  3. In the Affine app select the Demo Workspace from the sidebar and then select "Create cloud workspace"
+    AFFiNE est l’outil idéal pour la prise de notes, la gestion de projets, la recherche ou le brainstorming."
+  
+  en:
+    "AFFiNE is a modern open-source note-taking and knowledge management application designed to replace traditional productivity tools. It brings together documents, tables, text blocks, and visual organization into a single, flexible, and intuitive workspace.
 
-  4. Follow the steps to create your self-hosted cloud workspace. You are now ready to use Affine with your self-hosted instance!
+    Built for both individuals and teams, AFFiNE lets you structure, connect, and grow your ideas freely, online or offline. Your data stays under your control thanks to its open-source, privacy-first approach.
+
+    Key features:
+
+    - Block-based note taking (text, lists, tables, and more)
+
+    - Visual organization and linked content
+
+    - Offline-first with synchronization
+
+    - Real-time collaboration
+
+    - Local data storage and full privacy control
+
+    - Open-source, transparent, and extensible
+
+    AFFiNE is perfect for note-taking, project management, research, and brainstorming."
+
+tagline: 
+  fr: "L'outil parfait pour la prise de notes, la gestion de projets, la recherche et le brainstorming."
+  en: "The perfect tool for note-taking, project management, research, and brainstorming."
 
 gallery:
   - icon.png

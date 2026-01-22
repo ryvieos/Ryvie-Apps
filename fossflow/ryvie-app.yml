@@ -1,12 +1,55 @@
 manifestVersion: 1
 id: fossflow
 name: FossFlow
-category: diagrams
+category: 
+  fr: Diagrammes
+  en: Diagrams
 version: 1.7.0
-buildId: 1
+buildId: 2
 port: 3012
-description: >-
-  FossFLOW is a powerful, open-source Progressive Web App (PWA) for creating beautiful isometric diagrams. Built with React and the Isoflow (Now forked and published to NPM as fossflow) library, it runs entirely in your browser with offline support.
+description:
+  fr:
+    "FossFLOW vous permet de créer facilement des diagrammes isométriques clairs et élégants.
+
+    Visualisez des systèmes, des flux de travail et des idées dans un style isométrique lisible, directement depuis votre ryvie.
+
+    Que ce soit pour documenter un projet, expliquer un concept ou représenter une architecture, FossFLOW vous aide à vous concentrer sur l’essentiel : la clarté et la créativité, tout en gardant le contrôle de vos données.
+
+    Ce que vous pouvez faire avec FossFLOW :
+
+    - Créer rapidement de beaux diagrammes isométriques
+
+    - Visualiser clairement systèmes et flux
+
+    - Travailler directement dans le navigateur
+    
+    - Continuer à travailler hors ligne
+
+    - Garder le contrôle de vos données"
+  
+  en:
+    "FossFLOW lets you easily create clear and elegant isometric diagrams.
+
+    Visualize systems, workflows, and ideas in a readable isometric style, directly from your ryvie.
+
+    Whether documenting a project, explaining a concept, or representing an architecture, FossFLOW helps you focus on what matters: clarity and creativity, while keeping control of your data.
+
+    What you can do with FossFLOW:
+
+    - Quickly create beautiful isometric diagrams
+
+    - Clearly visualize systems and flows
+
+    - Work directly in the browser
+
+    - Continue working offline
+
+    - Keep control of your data"
+
+tagline: 
+  fr: "Créez facilement des diagrammes isométriques clairs et élégants"
+  en: "Easily create clear and elegant isometric diagrams"
+
 gallery:
   - icon.png
   - image1.png

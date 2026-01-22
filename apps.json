@@ -3,11 +3,21 @@
     "manifestVersion": 1,
     "id": "affine",
     "name": "Affine",
-    "category": "files",
+    "category": {
+      "fr": "Productivité",
+      "en": "Productivity"
+    },
     "version": "0.25.1",
-    "buildId": 1,
+    "buildId": 2,
     "port": 3015,
-    "description": "A privacy-focused, local-first, open-source, and ready-to-use alternative for Notion & Miro. One hyper-fused platform for wildly creative minds.\n\nTo Shape, not to adapt. Tools can impact your lifestyle. AFFiNE is built for individual & teams who care their data, who refuse vendor lock-in, and who want to have control over their essential tools.\n\n🛠️ SET-UP INSTRUCTIONS\nIn order to save your data, you need to sign in to your self-hosted Affine instance:\n\n1. When you first open Affine, it will walk you through setting up an admin account.\n2. After setting up your admin account, close the browser window and open up the Affine app again from the umbrelOS homescreen.\n3. In the Affine app select the Demo Workspace from the sidebar and then select \"Create cloud workspace\"\n4. Follow the steps to create your self-hosted cloud workspace. You are now ready to use Affine with your self-hosted instance!",
+    "description": {
+      "fr": "AFFiNE est une application open-source moderne de prise de notes et de gestion des connaissances, conçue pour remplacer les outils traditionnels de productivité. Elle combine documents, tableaux, blocs de texte et organisation visuelle dans un espace de travail unique, flexible et intuitif.\nPensée pour les individus comme pour les équipes, AFFiNE permet de structurer, relier et faire évoluer vos idées librement, en ligne ou hors ligne. Vos données restent sous votre contrôle grâce à une approche open-source et respectueuse de la vie privée.\nFonctionnalités clés :\n- Prise de notes par blocs (texte, listes, tableaux, etc.)\n- Organisation visuelle et liens entre contenus\n- Travail hors ligne avec synchronisation\n- Collaboration en temps réel\n- Données locales et contrôle total de la confidentialité\n- Projet open-source, transparent et extensible\nAFFiNE est l’outil idéal pour la prise de notes, la gestion de projets, la recherche ou le brainstorming.",
+      "en": "AFFiNE is a modern open-source note-taking and knowledge management application designed to replace traditional productivity tools. It brings together documents, tables, text blocks, and visual organization into a single, flexible, and intuitive workspace.\nBuilt for both individuals and teams, AFFiNE lets you structure, connect, and grow your ideas freely, online or offline. Your data stays under your control thanks to its open-source, privacy-first approach.\nKey features:\n- Block-based note taking (text, lists, tables, and more)\n- Visual organization and linked content\n- Offline-first with synchronization\n- Real-time collaboration\n- Local data storage and full privacy control\n- Open-source, transparent, and extensible\nAFFiNE is perfect for note-taking, project management, research, and brainstorming."
+    },
+    "tagline": {
+      "fr": "L'outil parfait pour la prise de notes, la gestion de projets, la recherche et le brainstorming.",
+      "en": "The perfect tool for note-taking, project management, research, and brainstorming."
+    },
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/affine/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/affine/image1.png",
@@ -22,12 +32,22 @@
   {
     "manifestVersion": 1,
     "id": "docuseal",
-    "category": "productivity",
+    "category": {
+      "fr": "Productivité",
+      "en": "Productivity"
+    },
     "name": "docuseal",
     "version": "2.2.8",
     "buildId": 11,
     "port": 3020,
-    "description": "Docuseal is an open-source electronic signature platform that allows users to sign, send, and manage documents securely online. It provides a user-friendly interface and robust features for document handling and signature workflows.",
+    "description": {
+      "fr": "DocuSeal est une application open-source de signature électronique et de gestion de documents, conçue pour simplifier la validation, le partage et la signature de fichiers en toute sécurité.\nPensée pour les particuliers comme pour les équipes, DocuSeal permet de signer des documents légalement, de suivre leur statut en temps réel et de garder un contrôle total sur vos données grâce à une approche respectueuse de la vie privée.\nFonctionnalités clés :\nSignature électronique simple et sécurisée\nGestion et suivi des documents signés\nFlux de validation clairs et efficaces\nHébergement autonome possible (self-hosted)\nRespect de la confidentialité et conformité\nProjet open-source, transparent et évolutif",
+      "en": "DocuSeal is an open-source electronic signature and document management application designed to make signing, sharing, and validating documents simple and secure.\nBuilt for individuals and teams, DocuSeal lets you legally sign documents, track their status in real time, and keep full control over your data with a privacy-first approach.\nKey features:\nSimple and secure electronic signatures\nDocument management and signing status tracking\nClear and efficient approval workflows\nSelf-hosting support\nPrivacy-focused and compliant\nOpen-source, transparent, and extensible"
+    },
+    "tagline": {
+      "fr": "Signez vos documents simplement.",
+      "en": "Sign your documents simply."
+    },
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/image1.png",
@@ -39,11 +59,21 @@
     "manifestVersion": 1,
     "id": "fossflow",
     "name": "FossFlow",
-    "category": "diagrams",
+    "category": {
+      "fr": "Diagrammes",
+      "en": "Diagrams"
+    },
     "version": "1.7.0",
-    "buildId": 1,
+    "buildId": 2,
     "port": 3012,
-    "description": "FossFLOW is a powerful, open-source Progressive Web App (PWA) for creating beautiful isometric diagrams. Built with React and the Isoflow (Now forked and published to NPM as fossflow) library, it runs entirely in your browser with offline support.",
+    "description": {
+      "fr": "FossFLOW vous permet de créer facilement des diagrammes isométriques clairs et élégants.\nVisualisez des systèmes, des flux de travail et des idées dans un style isométrique lisible, directement depuis votre ryvie.\nQue ce soit pour documenter un projet, expliquer un concept ou représenter une architecture, FossFLOW vous aide à vous concentrer sur l’essentiel : la clarté et la créativité, tout en gardant le contrôle de vos données.\nCe que vous pouvez faire avec FossFLOW :\n- Créer rapidement de beaux diagrammes isométriques\n- Visualiser clairement systèmes et flux\n- Travailler directement dans le navigateur\n- Continuer à travailler hors ligne\n- Garder le contrôle de vos données",
+      "en": "FossFLOW lets you easily create clear and elegant isometric diagrams.\nVisualize systems, workflows, and ideas in a readable isometric style, directly from your ryvie.\nWhether documenting a project, explaining a concept, or representing an architecture, FossFLOW helps you focus on what matters: clarity and creativity, while keeping control of your data.\nWhat you can do with FossFLOW:\n- Quickly create beautiful isometric diagrams\n- Clearly visualize systems and flows\n- Work directly in the browser\n- Continue working offline\n- Keep control of your data"
+    },
+    "tagline": {
+      "fr": "Créez facilement des diagrammes isométriques clairs et élégants",
+      "en": "Easily create clear and elegant isometric diagrams"
+    },
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/fossflow/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/fossflow/image1.png",
@@ -54,14 +84,24 @@
   {
     "manifestVersion": 1,
     "id": "jellyfin",
-    "category": "distraction",
+    "category": {
+      "fr": "multimédia",
+      "en": "multimedia"
+    },
     "name": "jellyfin",
     "version": "10.11.5",
-    "buildId": 1,
+    "buildId": 2,
     "port": [
       8096
     ],
-    "description": "Jellyfin is a free and open-source media server software that allows users to organize, manage, and stream their personal media collections, including movies, TV shows, music, and photos. It provides a user-friendly interface and supports a wide range of devices for seamless media playback.\n\n🎬 Media Organization\nJellyfin helps users organize their media libraries by automatically fetching metadata, cover art, and other relevant information for their media files. This makes it easy to browse and find content within the server.\n\n📡 Streaming Capabilities\nWith Jellyfin, users can stream their media content to various devices, including smart TVs, smartphones, tablets, and web browsers. It supports multiple streaming protocols to ensure compatibility with different devices.\n\n👥 Multi-User Support\nJellyfin allows multiple users to create individual profiles, each with their own watchlists, preferences, and viewing history. This feature is particularly useful for households with multiple members who want personalized media experiences.\n\n🔒 Privacy and Control\nAs an open-source solution, Jellyfin gives users full control over their media server without relying on third-party services. Users can host the server on their own hardware, ensuring privacy and security for their media collections.\n\n🌐 Cross-Platform Compatibility\nJellyfin is compatible with various operating systems, including Windows, macOS, Linux, and Docker. This flexibility allows users to set up their media server on a wide range of devices.\n\nJellyfin is an excellent choice for individuals looking for a free and customizable media server solution that prioritizes user control and privacy.",
+    "description": {
+      "fr": "Jellyfin vous permet de profiter de votre bibliothèque multimédia, simplement et librement.\nRegardez vos films et séries, écoutez votre musique et consultez vos photos depuis tous vos appareils. Jellyfin organise automatiquement vos contenus et les diffuse facilement sur votre téléphone, tablette, ordinateur ou TV.\nVos médias vous appartiennent. Jellyfin est entièrement open-source, sans publicité, sans abonnement et respectueux de votre vie privée.\nCe que vous pouvez faire avec Jellyfin :\n- Regarder vos films et séries où que vous soyez\n- Écouter votre musique et parcourir vos photos\n- Diffuser sur plusieurs appareils\n- Garder vos contenus bien organisés\n- Profiter de vos médias sans publicité ni abonnement",
+      "en": "Jellyfin lets you enjoy your media library, simply and freely.\nWatch your movies and TV shows, listen to your music, and view your photos from all your devices. Jellyfin automatically organizes your content and streams it easily to your phone, tablet, computer, or TV.\nYour media belongs to you. Jellyfin is completely open-source, ad-free, subscription-free, and privacy-respecting.\nWhat you can do with Jellyfin:\n- Watch your movies and TV shows wherever you are\n- Listen to your music and browse your photos\n- Stream to multiple devices\n- Keep your content well organized\n- Enjoy your media without ads or subscriptions"
+    },
+    "tagline": {
+      "fr": "Votre centre multimédia personnel, pensé pour la liberté et la confidentialité.",
+      "en": "Your personal media center, designed for freedom and privacy."
+    },
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/jellyfin/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/jellyfin/image1.png",
@@ -74,13 +114,21 @@
     "id": "linkwarden",
     "name": "Linkwarden",
     "tagline": "Bookmark Preservation for Individuals and Teams",
-    "category": "social",
+    "category": {
+      "fr": "Organisation",
+      "en": "Organization"
+    },
     "version": "2.13.1",
-    "buildId": 1,
+    "buildId": 2,
     "port": 3028,
-    "description": "📚 Linkwarden is a self-hosted, open-source collaborative bookmark manager to collect, organize and archive webpages.\n\n🛜 The objective is to organize useful webpages and articles you find across the web in one place, and since useful webpages can go away (see the inevitability of Link Rot), Linkwarden also saves a copy of each webpage as a Screenshot and PDF, ensuring accessibility even if the original content is no longer available.\n\n👥 Additionally, Linkwarden is designed with collaboration in mind, sharing links with the public and/or allowing multiple users to work together seamlessly.",
-    "developer": "Linkwarden",
-    "website": "https://linkwarden.app",
+    "description": {
+      "fr": "Linkwarden vous permet d’enregistrer, d’organiser et de conserver vos liens importants en un seul endroit sécurisé.\nGardez vos articles, outils et ressources sans craindre les liens cassés ou les contenus supprimés. Linkwarden sauvegarde une copie des pages enregistrées afin que vous puissiez y accéder à tout moment, même si le site d’origine change ou disparaît.\nConçu avec une approche respectueuse de la vie privée, Linkwarden vous aide à créer simplement votre bibliothèque personnelle de connaissances.\nCe que vous pouvez faire avec Linkwarden :\n- Enregistrer et organiser vos liens facilement\n- Accéder à vos contenus à tout moment\n- Conserver une copie des pages sauvegardées\n- Rechercher et gérer votre collection de liens\n- Garder le contrôle de vos données",
+      "en": "Linkwarden lets you save, organize, and preserve your important links in one secure place.\nKeep your articles, tools, and resources without worrying about broken links or deleted content. Linkwarden saves a copy of the pages you save so you can access them anytime, even if the original site changes or disappears.\nBuilt with a privacy-first approach, Linkwarden helps you easily create your personal knowledge library.\nWhat you can do with Linkwarden:\n- Save and organize your links easily\n- Access your content anytime\n- Preserve a copy of saved pages\n- Search and manage your link collection\n- Keep control of your data"
+    },
+    "tagmline": {
+      "fr": "Linkwarden est la solution simple et fiable pour ne plus jamais perdre un lien important.",
+      "en": "Linkwarden is the simple and reliable solution to never lose an important link again."
+    },
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/image1.png",
@@ -92,11 +140,21 @@
     "manifestVersion": 1,
     "id": "mealie",
     "name": "Mealie",
-    "category": "plannifiers",
+    "category": {
+      "fr": "Planificateurs",
+      "en": "Planners"
+    },
     "version": "3.9.2",
-    "buildId": 1,
+    "buildId": 2,
     "port": 9091,
-    "description": "Mealie is a self hosted recipe manager, meal planner and shopping list with a RestAPI backend and a reactive frontend built in Vue for a pleasant user experience for the whole family. Easily add recipes into your database by providing the URL and Mealie will automatically import the relevant data, or add a family recipe with the UI editor. Mealie also provides an API for interactions from 3rd party applications.",
+    "description": {
+      "fr": "Mealie simplifie la gestion des recettes et la planification des repas au quotidien.\nEnregistrez vos recettes préférées, planifiez vos menus de la semaine et générez automatiquement vos listes de courses. Que vous cuisiniez souvent ou occasionnellement, Mealie vous aide à gagner du temps et à mieux vous organiser.\nToutes vos recettes sont centralisées, faciles à retrouver et à adapter selon vos envies.\nCe que vous pouvez faire avec Mealie :\n- Enregistrer et organiser vos recettes\n- Planifier les repas de la semaine\n- Générer automatiquement des listes de courses\n- Gérer votre collection de recettes\n- Cuisiner plus sereinement au quotidien",
+      "en": "Mealie simplifies recipe management and meal planning for everyday life.\nSave your favorite recipes, plan your weekly menus, and automatically generate your shopping lists. Whether you cook often or occasionally, Mealie helps you save time and stay organized.\nAll your recipes are centralized, easy to find, and adaptable to your tastes.\nWhat you can do with Mealie:\n- Save and organize your recipes\n- Plan weekly meals\n- Automatically generate shopping lists\n- Manage your recipe collection\n- Cook more confidently every day"
+    },
+    "tagline": {
+      "fr": "votre assistant cuisine personnel, pensé pour des repas plus simples et mieux organisés.",
+      "en": "your personal kitchen assistant, designed for simpler and better-organized meals."
+    },
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/mealie/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/mealie/image1.png",
@@ -108,11 +166,21 @@
     "manifestVersion": 1,
     "id": "memos",
     "name": "memos",
-    "category": "plannifiers",
+    "category": {
+      "fr": "Productivité",
+      "en": "Productivity"
+    },
     "version": "0.0.25",
-    "buildId": 5,
+    "buildId": 6,
     "port": 3016,
-    "description": "Memos is a privacy-first, self-hosted knowledge base that works seamlessly for personal notes, team wikis, and knowledge management. Built with Go and React, it offers lightning-fast performance without compromising on features or usability.gallery:",
+    "description": {
+      "fr": "Memos vous permet de capturer, organiser et retrouver vos idées à tout moment.\nPrenez rapidement des notes, des rappels ou des idées et gardez-les bien organisées en un seul endroit. Que ce soit pour le travail, les études ou vos projets personnels, Memos vous aide à ne rien oublier et à rester productif.\nCe que vous pouvez faire avec Memos :\n- Prendre des notes et idées rapidement\n- Organiser vos pensées facilement\n- Accéder à vos notes où que vous soyez\n- Suivre vos tâches, rappels et projets\nMemos est simple, rapide et fiable — votre carnet numérique personnel.",
+      "en": "Memos lets you capture, organize, and retrieve your ideas anytime.\nQuickly jot down notes, reminders, or ideas and keep them well organized in one place. Whether for work, study, or personal projects, Memos helps you remember everything and stay productive.\nWhat you can do with Memos:\n- Quickly take notes and ideas\n- Easily organize your thoughts\n- Access your notes wherever you are\n- Track your tasks, reminders, and projects\nMemos is simple, fast, and reliable — your personal digital notebook."
+    },
+    "tagline": {
+      "fr": "Votre carnet numérique personnel, pensé pour capturer et organiser vos idées.",
+      "en": "Your personal digital notebook, designed to capture and organize your ideas."
+    },
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/memos/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/memos/image1.png",
@@ -123,35 +191,47 @@
   {
     "manifestVersion": 1,
     "id": "n8n",
-    "category": "automation",
+    "category": {
+      "fr": "Automatisation",
+      "en": "Automation"
+    },
     "name": "n8n",
     "version": "2.3.2",
-    "buildId": 4,
-    "tagline": "Build complex workflows, really fast",
-    "description": "n8n is an extendable workflow automation tool. With a fair-code distribution model, n8n will always have visible source code,  be available to self-host, and allow you to add your own custom functions, logic and apps.  n8n's node-based approach makes it highly versatile, enabling you to connect anything to everything.\n\nn8n (pronounced n-eight-n) helps you to connect any app with an API with any other, and manipulate its data with little or no code.\n\nCustomizable: highly flexible workflows and the option to build custom nodes.\n\nPrivacy-focused: self-host n8n for privacy and security.",
-    "developer": "n8n",
-    "website": "https://n8n.io",
-    "dependencies": [],
-    "repo": "https://github.com/n8n-io/n8n",
-    "support": "https://docs.n8n.io/",
+    "buildId": 5,
+    "tagline": {
+      "fr": "Créez des flux de travail complexes, très rapidement",
+      "en": "Build complex workflows, really fast"
+    },
+    "description": {
+      "fr": "n8n vous permet d’automatiser vos flux de travail et de connecter vos applications facilement.\nCréez des processus automatisés sans coder, que ce soit pour des tâches simples comme transférer des données entre apps ou pour des workflows complexes impliquant plusieurs services. Avec n8n, vous gagnez du temps, réduisez les tâches répétitives et gardez un contrôle total sur vos données.\nCe que vous pouvez faire avec n8n :\n- Automatiser les tâches entre applications et services\n- Créer des workflows personnalisés sans coder\n- Connecter plus de 200 applications et services\n- Exécuter vos workflows de manière sécurisée sur votre infrastructure\n- Gagner du temps et améliorer votre productivité\nn8n est un outil d’automatisation open-source puissant et flexible pour tous.",
+      "en": "n8n lets you automate your workflows and connect your applications easily.\nCreate automated processes without coding, whether for simple tasks like transferring data between apps or complex workflows involving multiple services. With n8n, you save time, reduce repetitive tasks, and keep full control over your data.\nWhat you can do with n8n:\n- Automate tasks between applications and services\n- Create customized workflows without coding\n- Connect more than 200 applications and services\n- Execute your workflows securely on your infrastructure\n- Save time and improve your productivity\nn8n is a powerful and flexible open-source automation tool for everyone."
+    },
     "port": 5678,
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/n8n/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/n8n/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/n8n/image2.png"
-    ],
-    "submitter": "Pranshu Agrawal"
+    ]
   },
   {
     "manifestVersion": 1,
     "id": "open-notebook",
-    "category": "productivity",
+    "category": {
+      "fr": "Productivité",
+      "en": "Productivity"
+    },
     "name": "open-notebook",
     "version": "1.3.1",
-    "buildId": 5,
-    "tagline": "In a world dominated by Artificial Intelligence, having the ability to think 🧠 and acquire new knowledge 💡, is a skill that should not be a privilege for a few, nor restricted to a single provider.",
-    "description": "Open Notebook empowers you to:\n🔒 Control your data - Keep your research private and secure 🤖 Choose your AI models - Support for 16+ providers including OpenAI, Anthropic, Ollama, LM Studio, and more 📚 Organize multi-modal content - PDFs, videos, audio, web pages, and more 🎙️ Generate professional podcasts - Advanced multi-speaker podcast generation 🔍 Search intelligently - Full-text and vector search across all your content 💬 Chat with context - AI conversations powered by your research Learn more about our project at https://www.open-notebook.ai",
+    "buildId": 6,
+    "description": {
+      "fr": "Open Notebook est votre carnet numérique personnel pour capturer idées, notes et recherches au même endroit.\nOrganisez vos pensées, suivez vos projets et accédez à vos notes où que vous soyez. Que ce soit pour les études, le travail ou vos projets personnels, Open Notebook vous aide à rester productif et concentré.\nCe que vous pouvez faire avec Open Notebook :\n- Prendre des notes rapidement et facilement\n- Organiser vos idées et projets\n- Accéder à votre carnet où que vous soyez\n- Suivre vos recherches, tâches et rappels\nOpen Notebook est simple, flexible et open-source — vos idées restent sous votre contrôle.",
+      "en": "Open Notebook is your personal digital notebook to capture ideas, notes, and research all in one place.\nOrganize your thoughts, track your projects, and access your notes wherever you are. Whether for study, work, or personal projects, Open Notebook helps you stay productive and focused.\nWhat you can do with Open Notebook:\n- Take notes quickly and easily\n- Organize your ideas and projects\n- Access your notebook wherever you are\n- Track your research, tasks, and reminders\nOpen Notebook is simple, flexible, and open-source — your ideas remain under your control."
+    },
     "port": 8502,
+    "tagline": {
+      "fr": "Votre carnet numérique personnel pour capturer idées, notes et recherches.",
+      "en": "Your personal digital notebook to capture ideas, notes, and research."
+    },
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/open-notebook/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/open-notebook/image1.png",
@@ -161,12 +241,22 @@
   {
     "manifestVersion": 1,
     "id": "rdrive",
-    "category": "storage",
+    "category": {
+      "fr": "Stockage",
+      "en": "Storage"
+    },
     "name": "rDrive",
     "version": "0.0.1",
-    "buildId": 15,
+    "buildId": 16,
     "port": 3010,
-    "description": "Ryvie rDrive is a self-hosted cloud storage solution designed for individuals and businesses seeking a secure",
+    "description": {
+      "fr": "rDrive est une solution de stockage de fichiers auto-hébergée, sécurisée et facile à utiliser.\nGérez, partagez et synchronisez vos fichiers en toute simplicité. Que ce soit pour un usage personnel ou professionnel, rDrive vous offre un espace de stockage fiable et accessible.\nCe que vous pouvez faire avec rDrive :\n- Stocker et organiser vos fichiers\n- Synchroniser vos données sur votre ryvie\n- Accéder à vos fichiers depuis n'importe où\nrDrive est conçu pour être simple, sécurisé et performant — vos données restent sous votre contrôle.",
+      "en": "rDrive is a self-hosted, secure, and easy-to-use file storage solution.\nManage, share, and sync your files with ease. Whether for personal or professional use, rDrive provides you with a reliable and accessible storage space.\nWhat you can do with rDrive:\n- Store and organize your files\n- Sync your data on your ryvie\n- Access your files from anywhere\nrDrive is designed to be simple, secure, and efficient — your data remains under your control."
+    },
+    "tagline": {
+      "fr": "Votre solution de stockage de fichiers auto-hébergée, sécurisée et facile à utiliser.",
+      "en": "Your self-hosted, secure, and easy-to-use file storage solution."
+    },
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/image1.png",
@@ -176,12 +266,22 @@
   {
     "manifestVersion": 1,
     "id": "rdrop",
-    "category": "sharing",
+    "category": {
+      "fr": "Partage",
+      "en": "Sharing"
+    },
     "name": "rDrop",
     "version": "0.0.0",
-    "buildId": 10,
+    "buildId": 11,
     "port": 8080,
-    "description": "Ryvie rDrop is a self-hosted file sharing solution that enables users to securely upload,",
+    "description": {
+      "fr": "rDrop est une application de partage de fichiers simple et sécurisée qui vous permet de partager des fichiers rapidement et facilement avec d'autres personnes.\nElle rDrop facilite le partage de fichiers volumineux sans compromettre la sécurité.\nrDrop est conçu pour être simple, sécurisé et efficace — vos fichiers restent sous votre contrôle.",
+      "en": "rDrop is a simple and secure file-sharing application that allows you to share files quickly and easily with others.\nrDrop makes it easy to share large files without compromising security.\nrDrop is designed to be simple, secure, and efficient — your files remain under your control."
+    },
+    "tagline": {
+      "fr": "Partagez vos fichiers rapidement et en toute sécurité avec rDrop.",
+      "en": "Share your files quickly and securely with rDrop."
+    },
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrop/image_1.png",
@@ -192,12 +292,22 @@
   {
     "manifestVersion": 1,
     "id": "rpictures",
-    "category": "storage",
+    "category": {
+      "fr": "Stockage",
+      "en": "Storage"
+    },
     "name": "rPictures",
     "version": "2.0.0",
-    "buildId": 4,
+    "buildId": 5,
     "port": 3013,
-    "description": "Ryvie rPictures is a self-hosted photo local cloud storage solution",
+    "description": {
+      "fr": "rPictures est une solution de stockage local de photos auto-hébergée, sécurisée et facile à utiliser.\nGérez, organisez et visualisez vos photos en toute simplicité. Que ce soit pour un usage personnel ou professionnel, rPictures vous offre un espace de stockage fiable et accessible.\nCe que vous pouvez faire avec rPictures :\n- Stocker et organiser vos photos\n- Visualiser vos images\n- Accéder à vos photos depuis n'importe où\nrPictures est conçu pour être simple, sécurisé et performant — vos données restent sous votre contrôle.",
+      "en": "rPictures is a self-hosted, secure, and easy-to-use local photo storage solution.\nManage, organize, and view your photos with ease. Whether for personal or professional use, rPictures provides you with a reliable and accessible storage space.\nWhat you can do with rPictures:\n- Store and organize your photos\n- View your images\n- Access your photos from anywhere\nrPictures is designed to be simple, secure, and efficient — your data remains under your control."
+    },
+    "tagline": {
+      "fr": "Votre solution de stockage local de photos auto-hébergée, sécurisée et facile à utiliser.",
+      "en": "Your self-hosted, secure, and easy-to-use local photo storage solution."
+    },
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rpictures/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rpictures/image1.png",
@@ -207,12 +317,22 @@
   {
     "manifestVersion": 1,
     "id": "rtransfer",
-    "category": "storage",
+    "category": {
+      "fr": "Partage",
+      "en": "Sharing"
+    },
     "name": "rTransfer",
     "version": "0.0.1",
-    "buildId": 2,
+    "buildId": 3,
     "port": 3011,
-    "description": "Ryvie rTransfer is a self-hosted file transfer solution",
+    "description": {
+      "fr": "rTransfer est une solution de transfert de fichiers auto-hébergée, sécurisée et facile à utiliser.\nTransférez, partagez et gérez vos fichiers en toute simplicité. Que ce soit pour un usage personnel ou professionnel, rTransfer vous offre une plateforme fiable et accessible.\nCe que vous pouvez faire avec rTransfer :\n- Transférer et organiser vos fichiers\n- Partager des fichiers en toute sécurité\nrTransfer est conçu pour être simple, sécurisé et performant — vos données restent sous votre contrôle.",
+      "en": "rTransfer is a self-hosted, secure, and easy-to-use file transfer solution.\nTransfer, share, and manage your files with ease. Whether for personal or professional use, rTransfer provides you with a reliable and accessible platform.\nWhat you can do with rTransfer:\n- Transfer and organize your files\n- Share files securely\nrTransfer is designed to be simple, secure, and efficient — your data remains under your control."
+    },
+    "tagline": {
+      "fr": "Votre solution de transfert de fichiers auto-hébergée, sécurisée et facile à utiliser.",
+      "en": "Your self-hosted, secure, and easy-to-use file transfer solution."
+    },
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/image1.png",
@@ -223,11 +343,21 @@
     "manifestVersion": 1,
     "id": "vaultwarden",
     "name": "Vaultwarden",
-    "category": "security",
+    "category": {
+      "fr": "Sécurité",
+      "en": "Security"
+    },
     "version": "1.32.7",
-    "buildId": 4,
+    "buildId": 5,
     "port": 3024,
-    "description": "Vaultwarden is an unofficial Bitwarden compatible server written in Rust, formerly known as bitwarden_rs. It is a lightweight alternative to the official Bitwarden server and is perfect for self-hosted deployments.\n \n\nVaultwarden provides a secure password manager that works across all your devices. Store your passwords, credit cards, and other sensitive information in an encrypted vault.\n\n⚠️ IMPORTANT: This application requires HTTPS to function properly due to Web Crypto API requirements. Access it via the reverse proxy on port 3024 with HTTPS enabled.",
+    "description": {
+      "fr": "Vaultwarden sécurise tous vos mots de passe et informations sensibles en un seul endroit.\nEnregistrez, organisez et accédez facilement à vos identifiants, notes sécurisées et autres données privées. Avec Vaultwarden, vous gardez le contrôle total de vos informations — sans publicité, sans suivi et entièrement open-source. Accédez à votre coffre depuis tous vos appareils, où que vous soyez, en toute sécurité.\nCe que vous pouvez faire avec Vaultwarden :\n- Stocker et gérer vos mots de passe en toute sécurité\n- Enregistrer vos notes et informations sensibles\n- Accéder à votre coffre depuis tous vos appareils\n- Protéger vos données grâce au chiffrement de bout en bout\n- Garder le contrôle total de vos informations privées\nVaultwarden est une solution simple, sécurisée et open-source pour gérer votre vie numérique.",
+      "en": "Vaultwarden secures all your passwords and sensitive information in one place.\nSave, organize, and easily access your credentials, secure notes, and other private data. With Vaultwarden, you maintain full control of your information — no ads, no tracking, and fully open-source. Access your vault from all your devices, wherever you are, securely.\nWhat you can do with Vaultwarden:\n- Store and manage your passwords securely\n- Save your notes and sensitive information\n- Access your vault from all your devices\n- Protect your data with end-to-end encryption\n- Keep full control of your private information\nVaultwarden is a simple, secure, and open-source solution to manage your digital life."
+    },
+    "tagline": {
+      "fr": "Gestionnaire de mots de passe sécurisé et auto-hébergé",
+      "en": "Secure and self-hosted password manager"
+    },
     "gallery": [
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/vaultwarden/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/vaultwarden/image1.png",

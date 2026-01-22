@@ -9,7 +9,7 @@ services:
       # URL de base pour les invitations et liens (généré dynamiquement à partir de LOCAL_IP)
       - DOMAIN=https://${LOCAL_IP}:3024
       # Autoriser l'inscription (à passer à false une fois ton compte créé)
-      - SIGNUPS_ALLOWED=true
+      - SIGNUPS_ALLOWED=true 
       # Optionnel : Activer l'interface d'administration (sécurisée par un token)
       # - ADMIN_TOKEN=un_mot_de_passe_tres_long_et_aleatoire
     volumes:

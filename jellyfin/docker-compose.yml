@@ -7,7 +7,7 @@ services:
     volumes:
       - ./data/config:/config
       - ./data/cache:/cache
-      - type: bind
+      - type: bind 
         source: ./data/media
         target: /media
       - type: bind

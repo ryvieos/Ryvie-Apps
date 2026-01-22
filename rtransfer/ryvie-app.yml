@@ -1,12 +1,43 @@
 manifestVersion: 1
 id: rtransfer
-category: storage
+category: 
+  fr: Partage
+  en: Sharing
 name: rTransfer
 version: "0.0.1"
-buildId: 2
+buildId: 3
 port: 3011
-description: >-
-  Ryvie rTransfer is a self-hosted file transfer solution
+description: 
+  fr:
+    "rTransfer est une solution de transfert de fichiers auto-hébergée, sécurisée et facile à utiliser.
+
+    Transférez, partagez et gérez vos fichiers en toute simplicité. Que ce soit pour un usage personnel ou professionnel, rTransfer vous offre une plateforme fiable et accessible.
+
+    Ce que vous pouvez faire avec rTransfer :
+
+    - Transférer et organiser vos fichiers
+
+    - Partager des fichiers en toute sécurité
+
+    rTransfer est conçu pour être simple, sécurisé et performant — vos données restent sous votre contrôle."
+
+  en:
+    "rTransfer is a self-hosted, secure, and easy-to-use file transfer solution.
+
+    Transfer, share, and manage your files with ease. Whether for personal or professional use, rTransfer provides you with a reliable and accessible platform.
+
+    What you can do with rTransfer:
+
+    - Transfer and organize your files
+
+    - Share files securely
+
+    rTransfer is designed to be simple, secure, and efficient — your data remains under your control."
+
+tagline: 
+  fr: "Votre solution de transfert de fichiers auto-hébergée, sécurisée et facile à utiliser."
+  en: "Your self-hosted, secure, and easy-to-use file transfer solution."
+
 gallery:
   - icon.png
   - image1.png

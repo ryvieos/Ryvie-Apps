@@ -1,12 +1,51 @@
 manifestVersion: 1
 id: memos
 name: memos
-category: plannifiers
+category: 
+  fr: Productivité
+  en: Productivity
 version: 0.0.25
-buildId: 5
+buildId: 6
 port: 3016
-description: >-
-  Memos is a privacy-first, self-hosted knowledge base that works seamlessly for personal notes, team wikis, and knowledge management. Built with Go and React, it offers lightning-fast performance without compromising on features or usability.gallery:
+description: 
+  fr:
+    "Memos vous permet de capturer, organiser et retrouver vos idées à tout moment.
+
+    Prenez rapidement des notes, des rappels ou des idées et gardez-les bien organisées en un seul endroit. Que ce soit pour le travail, les études ou vos projets personnels, Memos vous aide à ne rien oublier et à rester productif.
+
+    Ce que vous pouvez faire avec Memos :
+
+    - Prendre des notes et idées rapidement
+
+    - Organiser vos pensées facilement
+
+    - Accéder à vos notes où que vous soyez
+
+    - Suivre vos tâches, rappels et projets
+
+    Memos est simple, rapide et fiable — votre carnet numérique personnel."
+
+  en:
+    "Memos lets you capture, organize, and retrieve your ideas anytime.
+
+    Quickly jot down notes, reminders, or ideas and keep them well organized in one place. Whether for work, study, or personal projects, Memos helps you remember everything and stay productive.
+
+    What you can do with Memos:
+
+    - Quickly take notes and ideas
+
+    - Easily organize your thoughts
+
+    - Access your notes wherever you are
+
+    - Track your tasks, reminders, and projects
+
+    Memos is simple, fast, and reliable — your personal digital notebook."
+
+tagline: 
+  fr: "Votre carnet numérique personnel, pensé pour capturer et organiser vos idées."
+  en: "Your personal digital notebook, designed to capture and organize your ideas."
+
 gallery:
   - icon.png
   - image1.png

@@ -2,20 +2,54 @@ manifestVersion: 1
 id: linkwarden
 name: Linkwarden
 tagline: Bookmark Preservation for Individuals and Teams
-category: social
+category:
+  fr: Organisation
+  en: Organization
 version: 2.13.1
-buildId: 1
+buildId: 2
 port: 3028
-description: >-
-  📚 Linkwarden is a self-hosted, open-source collaborative bookmark manager to collect, organize and archive webpages.
+description:
+  fr:
+    "Linkwarden vous permet d’enregistrer, d’organiser et de conserver vos liens importants en un seul endroit sécurisé.
 
+    Gardez vos articles, outils et ressources sans craindre les liens cassés ou les contenus supprimés. Linkwarden sauvegarde une copie des pages enregistrées afin que vous puissiez y accéder à tout moment, même si le site d’origine change ou disparaît.
 
-  🛜 The objective is to organize useful webpages and articles you find across the web in one place, and since useful webpages can go away (see the inevitability of Link Rot), Linkwarden also saves a copy of each webpage as a Screenshot and PDF, ensuring accessibility even if the original content is no longer available.
+    Conçu avec une approche respectueuse de la vie privée, Linkwarden vous aide à créer simplement votre bibliothèque personnelle de connaissances.
 
+    Ce que vous pouvez faire avec Linkwarden :
 
-  👥 Additionally, Linkwarden is designed with collaboration in mind, sharing links with the public and/or allowing multiple users to work together seamlessly.
-developer: Linkwarden
-website: https://linkwarden.app
+    - Enregistrer et organiser vos liens facilement
+
+    - Accéder à vos contenus à tout moment
+
+    - Conserver une copie des pages sauvegardées
+
+    - Rechercher et gérer votre collection de liens
+
+    - Garder le contrôle de vos données"
+
+  en:
+    "Linkwarden lets you save, organize, and preserve your important links in one secure place.
+
+    Keep your articles, tools, and resources without worrying about broken links or deleted content. Linkwarden saves a copy of the pages you save so you can access them anytime, even if the original site changes or disappears.
+
+    Built with a privacy-first approach, Linkwarden helps you easily create your personal knowledge library.
+
+    What you can do with Linkwarden:
+
+    - Save and organize your links easily
+
+    - Access your content anytime
+
+    - Preserve a copy of saved pages
+
+    - Search and manage your link collection
+
+    - Keep control of your data"
+
+tagmline: 
+  fr: "Linkwarden est la solution simple et fiable pour ne plus jamais perdre un lien important."
+  en: "Linkwarden is the simple and reliable solution to never lose an important link again."
 
 gallery:
   - icon.png

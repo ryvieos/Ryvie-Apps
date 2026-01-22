@@ -1,41 +1,55 @@
 manifestVersion: 1
 id: jellyfin
-category: distraction
+category: 
+  fr: multimédia
+  en: multimedia
 name: jellyfin
 version: 10.11.5
-buildId: 1
+buildId: 2
 port: 
   - 8096
-description: >-
-  Jellyfin is a free and open-source media server software that allows users to organize, manage, and stream their personal media collections, including movies, TV shows, music, and photos. It provides a user-friendly interface and supports a wide range of devices for seamless media playback.
+description:
+  fr:
+    "Jellyfin vous permet de profiter de votre bibliothèque multimédia, simplement et librement.
 
+    Regardez vos films et séries, écoutez votre musique et consultez vos photos depuis tous vos appareils. Jellyfin organise automatiquement vos contenus et les diffuse facilement sur votre téléphone, tablette, ordinateur ou TV.
+
+    Vos médias vous appartiennent. Jellyfin est entièrement open-source, sans publicité, sans abonnement et respectueux de votre vie privée.
+
+    Ce que vous pouvez faire avec Jellyfin :
+
+    - Regarder vos films et séries où que vous soyez
+
+    - Écouter votre musique et parcourir vos photos
+
+    - Diffuser sur plusieurs appareils
+
+    - Garder vos contenus bien organisés
+
+    - Profiter de vos médias sans publicité ni abonnement"
   
-  🎬 Media Organization
-  
-  Jellyfin helps users organize their media libraries by automatically fetching metadata, cover art, and other relevant information for their media files. This makes it easy to browse and find content within the server.
-  
-  
-  📡 Streaming Capabilities
-  
-  With Jellyfin, users can stream their media content to various devices, including smart TVs, smartphones, tablets, and web browsers. It supports multiple streaming protocols to ensure compatibility with different devices.
-  
-  
-  👥 Multi-User Support
-  
-  Jellyfin allows multiple users to create individual profiles, each with their own watchlists, preferences, and viewing history. This feature is particularly useful for households with multiple members who want personalized media experiences.
-  
-  
-  🔒 Privacy and Control
-  
-  As an open-source solution, Jellyfin gives users full control over their media server without relying on third-party services. Users can host the server on their own hardware, ensuring privacy and security for their media collections.
-  
-  
-  🌐 Cross-Platform Compatibility
-  
-  Jellyfin is compatible with various operating systems, including Windows, macOS, Linux, and Docker. This flexibility allows users to set up their media server on a wide range of devices.
-  
-  
-  Jellyfin is an excellent choice for individuals looking for a free and customizable media server solution that prioritizes user control and privacy.
+  en:
+    "Jellyfin lets you enjoy your media library, simply and freely.
+
+    Watch your movies and TV shows, listen to your music, and view your photos from all your devices. Jellyfin automatically organizes your content and streams it easily to your phone, tablet, computer, or TV.
+
+    Your media belongs to you. Jellyfin is completely open-source, ad-free, subscription-free, and privacy-respecting.
+
+    What you can do with Jellyfin:
+
+    - Watch your movies and TV shows wherever you are
+
+    - Listen to your music and browse your photos
+
+    - Stream to multiple devices
+
+    - Keep your content well organized
+
+    - Enjoy your media without ads or subscriptions"
+
+tagline: 
+  fr: "Votre centre multimédia personnel, pensé pour la liberté et la confidentialité."
+  en: "Your personal media center, designed for freedom and privacy."
 
 gallery:
   - icon.png
