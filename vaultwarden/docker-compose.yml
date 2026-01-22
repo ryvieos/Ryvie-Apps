@@ -1,5 +1,5 @@
 name: vaultwarden
-
+ 
 services:
   vaultwarden:
     container_name: app-vaultwarden
