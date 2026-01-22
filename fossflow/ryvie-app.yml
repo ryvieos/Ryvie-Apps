@@ -9,7 +9,7 @@ buildId: 1
 port: 3012
 description:
   fr:
-    FossFLOW vous permet de créer facilement des diagrammes isométriques clairs et élégants.
+    "FossFLOW vous permet de créer facilement des diagrammes isométriques clairs et élégants.
 
     Visualisez des systèmes, des flux de travail et des idées dans un style isométrique lisible, directement depuis votre ryvie.
 
@@ -25,10 +25,10 @@ description:
     
     - Continuer à travailler hors ligne
 
-    - Garder le contrôle de vos données
+    - Garder le contrôle de vos données"
   
   en:
-    FossFLOW lets you easily create clear and elegant isometric diagrams.
+    "FossFLOW lets you easily create clear and elegant isometric diagrams.
 
     Visualize systems, workflows, and ideas in a readable isometric style, directly from your ryvie.
 
@@ -44,7 +44,7 @@ description:
 
     - Continue working offline
 
-    - Keep control of your data
+    - Keep control of your data"
 
 tagline: 
   fr: "Créez facilement des diagrammes isométriques clairs et élégants"

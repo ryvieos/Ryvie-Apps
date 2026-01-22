@@ -10,7 +10,7 @@ port:
   - 8096
 description:
   fr:
-    Jellyfin vous permet de profiter de votre bibliothèque multimédia, simplement et librement.
+    "Jellyfin vous permet de profiter de votre bibliothèque multimédia, simplement et librement.
 
     Regardez vos films et séries, écoutez votre musique et consultez vos photos depuis tous vos appareils. Jellyfin organise automatiquement vos contenus et les diffuse facilement sur votre téléphone, tablette, ordinateur ou TV.
 
@@ -26,10 +26,10 @@ description:
 
     - Garder vos contenus bien organisés
 
-    - Profiter de vos médias sans publicité ni abonnement
+    - Profiter de vos médias sans publicité ni abonnement"
   
   en:
-    Jellyfin lets you enjoy your media library, simply and freely.
+    "Jellyfin lets you enjoy your media library, simply and freely.
 
     Watch your movies and TV shows, listen to your music, and view your photos from all your devices. Jellyfin automatically organizes your content and streams it easily to your phone, tablet, computer, or TV.
 
@@ -45,7 +45,7 @@ description:
 
     - Keep your content well organized
 
-    - Enjoy your media without ads or subscriptions
+    - Enjoy your media without ads or subscriptions"
 
 tagline: 
   fr: "Votre centre multimédia personnel, pensé pour la liberté et la confidentialité."

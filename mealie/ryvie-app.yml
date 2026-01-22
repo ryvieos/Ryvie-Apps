@@ -9,7 +9,7 @@ buildId: 1
 port: 9091
 description:
   fr: 
-    Mealie simplifie la gestion des recettes et la planification des repas au quotidien.
+    "Mealie simplifie la gestion des recettes et la planification des repas au quotidien.
 
     Enregistrez vos recettes préférées, planifiez vos menus de la semaine et générez automatiquement vos listes de courses. Que vous cuisiniez souvent ou occasionnellement, Mealie vous aide à gagner du temps et à mieux vous organiser.
 
@@ -25,10 +25,10 @@ description:
 
     - Gérer votre collection de recettes
 
-    - Cuisiner plus sereinement au quotidien
+    - Cuisiner plus sereinement au quotidien"
 
   en:
-    Mealie simplifies recipe management and meal planning for everyday life.
+    "Mealie simplifies recipe management and meal planning for everyday life.
 
     Save your favorite recipes, plan your weekly menus, and automatically generate your shopping lists. Whether you cook often or occasionally, Mealie helps you save time and stay organized.
 
@@ -44,7 +44,7 @@ description:
 
     - Manage your recipe collection
 
-    - Cook more confidently every day
+    - Cook more confidently every day"
 
 tagline: 
   fr: "votre assistant cuisine personnel, pensé pour des repas plus simples et mieux organisés."
