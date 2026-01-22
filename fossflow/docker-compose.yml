@@ -1,5 +1,5 @@
 services:
-  fossflow:
+  fossflow: 
     container_name: app-fossflow
     image: stnsmith/fossflow:latest
     pull_policy: always 

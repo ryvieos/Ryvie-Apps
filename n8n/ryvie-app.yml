@@ -5,11 +5,11 @@ category:
   en: Automation
 name: n8n
 version: 2.3.2
-buildId: 4
+buildId: 5
 tagline: Build complex workflows, really fast
 description: 
   fr:
-    n8n vous permet d’automatiser vos flux de travail et de connecter vos applications facilement.
+    "n8n vous permet d’automatiser vos flux de travail et de connecter vos applications facilement.
 
     Créez des processus automatisés sans coder, que ce soit pour des tâches simples comme transférer des données entre apps ou pour des workflows complexes impliquant plusieurs services. Avec n8n, vous gagnez du temps, réduisez les tâches répétitives et gardez un contrôle total sur vos données.
 
@@ -25,10 +25,10 @@ description:
 
     - Gagner du temps et améliorer votre productivité
 
-    n8n est un outil d’automatisation open-source puissant et flexible pour tous.
+    n8n est un outil d’automatisation open-source puissant et flexible pour tous."
 
   en:
-    n8n lets you automate your workflows and connect your applications easily.
+    "n8n lets you automate your workflows and connect your applications easily.
 
     Create automated processes without coding, whether for simple tasks like transferring data between apps or complex workflows involving multiple services. With n8n, you save time, reduce repetitive tasks, and keep full control over your data.
 
@@ -44,7 +44,7 @@ description:
 
     - Save time and improve your productivity
 
-    n8n is a powerful and flexible open-source automation tool for everyone.
+    n8n is a powerful and flexible open-source automation tool for everyone."
 
 tagline: 
   fr: "Créez des flux de travail complexes, très rapidement"

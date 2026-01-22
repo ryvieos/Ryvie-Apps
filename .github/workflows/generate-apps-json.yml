@@ -12,8 +12,6 @@ on:
       - 'generate-apps-json.sh'
       - 'generate-ports-json.sh'
       - 'README.md'
-      - '**/ryvie-app.yml'
-      - '**/icon.png'
 permissions:
   contents: write
 

@@ -6,11 +6,11 @@ category:
   fr: Organisation
   en: Organization
 version: 2.13.1
-buildId: 1
+buildId: 2
 port: 3028
 description:
   fr:
-    Linkwarden vous permet d’enregistrer, d’organiser et de conserver vos liens importants en un seul endroit sécurisé.
+    "Linkwarden vous permet d’enregistrer, d’organiser et de conserver vos liens importants en un seul endroit sécurisé.
 
     Gardez vos articles, outils et ressources sans craindre les liens cassés ou les contenus supprimés. Linkwarden sauvegarde une copie des pages enregistrées afin que vous puissiez y accéder à tout moment, même si le site d’origine change ou disparaît.
 
@@ -26,10 +26,10 @@ description:
 
     - Rechercher et gérer votre collection de liens
 
-    - Garder le contrôle de vos données
+    - Garder le contrôle de vos données"
 
   en:
-    Linkwarden lets you save, organize, and preserve your important links in one secure place.
+    "Linkwarden lets you save, organize, and preserve your important links in one secure place.
 
     Keep your articles, tools, and resources without worrying about broken links or deleted content. Linkwarden saves a copy of the pages you save so you can access them anytime, even if the original site changes or disappears.
 
@@ -45,7 +45,7 @@ description:
 
     - Search and manage your link collection
 
-    - Keep control of your data
+    - Keep control of your data"
 
 tagmline: 
   fr: "Linkwarden est la solution simple et fiable pour ne plus jamais perdre un lien important."

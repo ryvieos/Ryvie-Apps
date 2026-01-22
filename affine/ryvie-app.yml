@@ -5,11 +5,11 @@ category:
   fr: Productivité
   en: Productivity
 version: 0.25.1
-buildId: 1
+buildId: 2
 port: 3015
 description:
   fr:
-    AFFiNE est une application open-source moderne de prise de notes et de gestion des connaissances, conçue pour remplacer les outils traditionnels de productivité. Elle combine documents, tableaux, blocs de texte et organisation visuelle dans un espace de travail unique, flexible et intuitif.
+    "AFFiNE est une application open-source moderne de prise de notes et de gestion des connaissances, conçue pour remplacer les outils traditionnels de productivité. Elle combine documents, tableaux, blocs de texte et organisation visuelle dans un espace de travail unique, flexible et intuitif.
 
     Pensée pour les individus comme pour les équipes, AFFiNE permet de structurer, relier et faire évoluer vos idées librement, en ligne ou hors ligne. Vos données restent sous votre contrôle grâce à une approche open-source et respectueuse de la vie privée.
 
@@ -27,10 +27,10 @@ description:
 
     - Projet open-source, transparent et extensible
 
-    AFFiNE est l’outil idéal pour la prise de notes, la gestion de projets, la recherche ou le brainstorming.
+    AFFiNE est l’outil idéal pour la prise de notes, la gestion de projets, la recherche ou le brainstorming."
   
   en:
-    AFFiNE is a modern open-source note-taking and knowledge management application designed to replace traditional productivity tools. It brings together documents, tables, text blocks, and visual organization into a single, flexible, and intuitive workspace.
+    "AFFiNE is a modern open-source note-taking and knowledge management application designed to replace traditional productivity tools. It brings together documents, tables, text blocks, and visual organization into a single, flexible, and intuitive workspace.
 
     Built for both individuals and teams, AFFiNE lets you structure, connect, and grow your ideas freely, online or offline. Your data stays under your control thanks to its open-source, privacy-first approach.
 
@@ -48,7 +48,7 @@ description:
 
     - Open-source, transparent, and extensible
 
-    AFFiNE is perfect for note-taking, project management, research, and brainstorming.
+    AFFiNE is perfect for note-taking, project management, research, and brainstorming."
 
 tagline: 
   fr: "L'outil parfait pour la prise de notes, la gestion de projets, la recherche et le brainstorming."

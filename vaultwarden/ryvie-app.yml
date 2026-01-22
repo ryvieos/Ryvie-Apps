@@ -5,11 +5,11 @@ category:
   fr: Sécurité
   en: Security
 version: 1.32.7
-buildId: 4
+buildId: 5
 port: 3024
 description:
   fr:
-    Vaultwarden sécurise tous vos mots de passe et informations sensibles en un seul endroit.
+    "Vaultwarden sécurise tous vos mots de passe et informations sensibles en un seul endroit.
 
     Enregistrez, organisez et accédez facilement à vos identifiants, notes sécurisées et autres données privées. Avec Vaultwarden, vous gardez le contrôle total de vos informations — sans publicité, sans suivi et entièrement open-source. Accédez à votre coffre depuis tous vos appareils, où que vous soyez, en toute sécurité.
 
@@ -25,10 +25,10 @@ description:
 
     - Garder le contrôle total de vos informations privées
 
-    Vaultwarden est une solution simple, sécurisée et open-source pour gérer votre vie numérique.
+    Vaultwarden est une solution simple, sécurisée et open-source pour gérer votre vie numérique."
 
   en:
-    Vaultwarden secures all your passwords and sensitive information in one place.
+    "Vaultwarden secures all your passwords and sensitive information in one place.
 
     Save, organize, and easily access your credentials, secure notes, and other private data. With Vaultwarden, you maintain full control of your information — no ads, no tracking, and fully open-source. Access your vault from all your devices, wherever you are, securely.
 
@@ -44,7 +44,7 @@ description:
 
     - Keep full control of your private information
 
-    Vaultwarden is a simple, secure, and open-source solution to manage your digital life.
+    Vaultwarden is a simple, secure, and open-source solution to manage your digital life."
 
 tagline: 
   fr: "Gestionnaire de mots de passe sécurisé et auto-hébergé"
