@@ -32,6 +32,7 @@ jobs:
           fi
           if [[ $latest == *-dev.* ]]; then
             base=$(echo $latest | sed 's/-dev\..*//')
+          fi
           base=${latest%.*}
           patch=${latest##*.}
           next="${base}.$((patch + 1))"
