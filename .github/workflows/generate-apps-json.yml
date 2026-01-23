@@ -131,7 +131,7 @@ jobs:
           if git rev-parse "$tag" >/dev/null 2>&1; then
             echo "Tag already exists, skipping"
           else
-            git tag $tag
+            git tag $tag ${{ github.sha }}
             git push origin $tag
           fi
 
@@ -140,7 +140,8 @@ jobs:
         with:
           tag_name: ${{ steps.version.outputs.next_version }}
           name: "Release ${{ steps.version.outputs.next_version }}"
-          body: "Automatic release generated from main branch."
+          body: "Automatic release generated from dev branch."
+          prerelease: true
           files: |
             apps.json
             ports.json
