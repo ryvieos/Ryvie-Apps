@@ -8,7 +8,7 @@ version: 1.32.7
 buildId: 12
 port: 3024
 description:
-  fr:
+  fr: 
     "Vaultwarden sécurise tous vos mots de passe et informations sensibles en un seul endroit.
 
     Enregistrez, organisez et accédez facilement à vos identifiants, notes sécurisées et autres données privées. Avec Vaultwarden, vous gardez le contrôle total de vos informations — sans publicité, sans suivi et entièrement open-source. Accédez à votre coffre depuis tous vos appareils, où que vous soyez, en toute sécurité.
