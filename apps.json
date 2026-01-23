@@ -8,7 +8,7 @@
       "en": "Productivity"
     },
     "version": "0.25.1",
-    "buildId": 8,
+    "buildId": 9,
     "port": 3015,
     "description": {
       "fr": "AFFiNE est une application open-source moderne de prise de notes et de gestion des connaissances, conçue pour remplacer les outils traditionnels de productivité. Elle combine documents, tableaux, blocs de texte et organisation visuelle dans un espace de travail unique, flexible et intuitif.\nPensée pour les individus comme pour les équipes, AFFiNE permet de structurer, relier et faire évoluer vos idées librement, en ligne ou hors ligne. Vos données restent sous votre contrôle grâce à une approche open-source et respectueuse de la vie privée.\nFonctionnalités clés :\n- Prise de notes par blocs (texte, listes, tableaux, etc.)\n- Organisation visuelle et liens entre contenus\n- Travail hors ligne avec synchronisation\n- Collaboration en temps réel\n- Données locales et contrôle total de la confidentialité\n- Projet open-source, transparent et extensible\nAFFiNE est l’outil idéal pour la prise de notes, la gestion de projets, la recherche ou le brainstorming.",
