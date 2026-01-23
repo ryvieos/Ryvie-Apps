@@ -32,11 +32,13 @@ jobs:
           fi
           if [[ $latest == *-dev.* ]]; then
             base=$(echo $latest | sed 's/-dev\..*//')
+            patch=$(echo $base | sed 's/.*\.//')
+            base=$(echo $base | sed 's/\.[^.]*$//')
+          else
+            base=${latest%.*}
+            patch=${latest##*.}
           fi
-          base=${latest%.*}
-          patch=${latest##*.}
           next="${base}.$((patch + 1))"
-
           echo "next_version=$next" >> $GITHUB_OUTPUT
           echo "📦 Next version: $next"
           
