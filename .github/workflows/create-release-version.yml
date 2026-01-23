@@ -26,19 +26,14 @@ jobs:
       - name: Determine next version
         id: version
         run: |
-          latest=$(git tag | sort -V | tail -n 1)
+          latest=$(git tag | grep -v -- '-dev' | sort -V | tail -n 1)
           if [ -z "$latest" ]; then
-            latest="v0.0.0"
-          fi
-          if [[ $latest == *-dev.* ]]; then
-            base=$(echo $latest | sed 's/-dev\..*//')
-            patch=$(echo $base | sed 's/.*\.//')
-            base=$(echo $base | sed 's/\.[^.]*$//')
+            next="v0.0.1"
           else
             base=${latest%.*}
             patch=${latest##*.}
+            next="${base}.$((patch + 1))"
           fi
-          next="${base}.$((patch + 1))"
           echo "next_version=$next" >> $GITHUB_OUTPUT
           echo "📦 Next version: $next"
           
