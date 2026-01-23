@@ -97,8 +97,8 @@ jobs:
           git push origin dev
   
   pre_release:
+    needs: generate_apps_json
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository with tags
         uses: actions/checkout@v4
