@@ -35,6 +35,23 @@ jobs:
           next="${base}.$((patch + 1))"
           echo "next_version=$next" >> $GITHUB_OUTPUT
           echo "📦 Next version: $next"
+          
+          latest=$(git tag | sort -V | tail -n 1)
+          if [ -z "$latest" ]; then
+            latest="v0.0.0"
+          fi
+
+          if [[ $latest == *-dev.* ]]; then
+            base=$(echo $latest | sed 's/-dev\..*//')
+            next="${base}.$((patch + 1))"
+          else
+            base=${latest%.*}
+            patch=${latest##*.}
+            next="${base}.$((patch + 1))"
+          fi
+          
+          echo "next_version=$next" >> $GITHUB_OUTPUT
+          echo "📦 Next version: $next"
 
       - name: Create and push tag
         run: |
