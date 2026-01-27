@@ -64,7 +64,7 @@
       "en": "Diagrams"
     },
     "version": "1.7.0",
-    "buildId": 3,
+    "buildId": 4,
     "port": 3012,
     "description": {
       "fr": "FossFLOW vous permet de créer facilement des diagrammes isométriques clairs et élégants.\nVisualisez des systèmes, des flux de travail et des idées dans un style isométrique lisible, directement depuis votre ryvie.\nQue ce soit pour documenter un projet, expliquer un concept ou représenter une architecture, FossFLOW vous aide à vous concentrer sur l’essentiel : la clarté et la créativité, tout en gardant le contrôle de vos données.\nCe que vous pouvez faire avec FossFLOW :\n- Créer rapidement de beaux diagrammes isométriques\n- Visualiser clairement systèmes et flux\n- Travailler directement dans le navigateur\n- Continuer à travailler hors ligne\n- Garder le contrôle de vos données",
