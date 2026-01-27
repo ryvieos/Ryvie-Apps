@@ -3,7 +3,7 @@ name: vaultwarden
 services:
   vaultwarden:
     container_name: app-vaultwarden
-    image: vaultwarden/server:latest
+    image: vaultwarden/server:1.35.2
     restart: unless-stopped
     environment:
       # URL de base pour les invitations et liens (généré dynamiquement à partir de LOCAL_IP)
