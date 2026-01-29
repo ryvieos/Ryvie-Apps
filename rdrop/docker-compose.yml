@@ -8,7 +8,7 @@ services:
     command: ash -c "npm i && node index.js"
     container_name: app-rdrop-node
     restart: unless-stopped
- 
+
   nginx:
     build:
       context: ${PWD}/docker

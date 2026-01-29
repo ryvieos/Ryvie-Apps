@@ -1,5 +1,5 @@
 version: "3.8"
- 
+
 services:
   # ==========================================
   # OnlyOffice Stack
@@ -14,7 +14,7 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
-    volumes: 
+    volumes:
       - ./docker-data/rabbitmq/data:/var/lib/rabbitmq
       - ./docker-data/rabbitmq/log:/var/log/rabbitmq
     networks:
@@ -89,13 +89,13 @@ services:
 
   onlyoffice-connector:
     container_name: app-rdrive-onlyoffice-connector
-    image: julescloud/rdrive-onlyoffice-connector:v0.0.1
+    image: julescloud/rdrive-onlyoffice-connector:v0.0.3
     environment:
       - SERVER_PORT=5000
       - SERVER_PREFIX=/plugins/onlyoffice/
       - SERVER_ORIGIN=${REACT_APP_ONLYOFFICE_CONNECTOR_URL}
-      - CREDENTIALS_ENDPOINT=${REACT_APP_BACKEND_URL}/
-      - ONLY_OFFICE_SERVER=${REACT_APP_ONLYOFFICE_DOCUMENT_SERVER_URL}/
+      - CREDENTIALS_ENDPOINT=http://localhost:4000/
+      - ONLY_OFFICE_SERVER=http://localhost:8090/
       - CREDENTIALS_ID=tdrive_onlyoffice
       - CREDENTIALS_SECRET=c1cc66db78e1d3bb4713c55d5ab2
     network_mode: host
@@ -127,10 +127,14 @@ services:
 
   node_create_user:
     container_name: app-rdrive-node-create-user
-    image: julescloud/rdrive-node:v0.0.1
+    image: julescloud/rdrive-node-create-user:v0.0.3
+    env_file:
+      - .env
     environment: &backend_env_vars
       - DEV=dev
       - ACCOUNTS_TYPE=internal
+      - OAUTH_SERVICE_URL=${OAUTH_SERVICE_URL:-https://cloudoauth-files.ryvie.fr}
+      - INSTANCE_ID=${INSTANCE_ID}
       - DB_DRIVER=mongodb
       - DB_MONGO_URI=mongodb://mongo:27017
       - PUBSUB_TYPE=local
@@ -141,7 +145,6 @@ services:
       - DIAG_PROBE_SECRET=diag-secret
       - LDAP_URL=ldap://openldap:1389
       - LDAP_BIND_DN=cn=admin,dc=example,dc=org
-      - LDAP_BIND_PASSWORD=adminpassword
       - LDAP_BASE_DN=dc=example,dc=org
       - LDAP_USERS_DN=ou=users,dc=example,dc=org
       - LDAP_GROUPS_DN=ou=groups,dc=example,dc=org
@@ -164,7 +167,9 @@ services:
   node:
     container_name: app-rdrive-node
     restart: unless-stopped
-    image: julescloud/rdrive-node:v0.0.2
+    image: julescloud/rdrive-node:v0.0.6
+    env_file:
+      - .env
     ports:
       - 4000:4000
       - 9229:9229
@@ -185,7 +190,7 @@ services:
       - ldap_my_custom_network
 
   frontend:
-    image: julescloud/rdrive-frontend:v0.0.1
+    image: julescloud/rdrive-frontend:v0.0.6
     container_name: app-rdrive-frontend
     environment:
       - DEV=production
@@ -196,6 +201,7 @@ services:
       - REACT_APP_WEBSOCKET_URL=${REACT_APP_WEBSOCKET_URL}
       - REACT_APP_ONLYOFFICE_CONNECTOR_URL=${REACT_APP_ONLYOFFICE_CONNECTOR_URL}
       - REACT_APP_ONLYOFFICE_DOCUMENT_SERVER_URL=${REACT_APP_ONLYOFFICE_DOCUMENT_SERVER_URL}
+      - REACT_APP_FRONTEND_URL_PRIVATE=${REACT_APP_FRONTEND_URL_PRIVATE}
     ports:
       - 3010:80
       - 8443:443
@@ -212,7 +218,7 @@ services:
     networks:
       - tdrive_default
       - ldap_my_custom_network
- 
+
 networks:
   tdrive_default:
     name: tdrive_default
