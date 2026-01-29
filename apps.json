@@ -247,7 +247,7 @@
     },
     "name": "rDrive",
     "version": "0.0.1",
-    "buildId": 16,
+    "buildId": 17,
     "port": 3010,
     "description": {
       "fr": "rDrive est une solution de stockage de fichiers auto-hébergée, sécurisée et facile à utiliser.\nGérez, partagez et synchronisez vos fichiers en toute simplicité. Que ce soit pour un usage personnel ou professionnel, rDrive vous offre un espace de stockage fiable et accessible.\nCe que vous pouvez faire avec rDrive :\n- Stocker et organiser vos fichiers\n- Synchroniser vos données sur votre ryvie\n- Accéder à vos fichiers depuis n'importe où\nrDrive est conçu pour être simple, sécurisé et performant — vos données restent sous votre contrôle.",
@@ -272,7 +272,7 @@
     },
     "name": "rDrop",
     "version": "0.0.0",
-    "buildId": 11,
+    "buildId": 12,
     "port": 8080,
     "description": {
       "fr": "rDrop est une application de partage de fichiers simple et sécurisée qui vous permet de partager des fichiers rapidement et facilement avec d'autres personnes.\nElle rDrop facilite le partage de fichiers volumineux sans compromettre la sécurité.\nrDrop est conçu pour être simple, sécurisé et efficace — vos fichiers restent sous votre contrôle.",
@@ -297,7 +297,7 @@
     },
     "name": "rPictures",
     "version": "2.0.0",
-    "buildId": 6,
+    "buildId": 7,
     "port": 3013,
     "description": {
       "fr": "rPictures est une solution de stockage local de photos auto-hébergée, sécurisée et facile à utiliser.\nGérez, organisez et visualisez vos photos en toute simplicité. Que ce soit pour un usage personnel ou professionnel, rPictures vous offre un espace de stockage fiable et accessible.\nCe que vous pouvez faire avec rPictures :\n- Stocker et organiser vos photos\n- Visualiser vos images\n- Accéder à vos photos depuis n'importe où\nrPictures est conçu pour être simple, sécurisé et performant — vos données restent sous votre contrôle.",
@@ -322,7 +322,7 @@
     },
     "name": "rTransfer",
     "version": "0.0.1",
-    "buildId": 3,
+    "buildId": 4,
     "port": 3011,
     "description": {
       "fr": "rTransfer est une solution de transfert de fichiers auto-hébergée, sécurisée et facile à utiliser.\nTransférez, partagez et gérez vos fichiers en toute simplicité. Que ce soit pour un usage personnel ou professionnel, rTransfer vous offre une plateforme fiable et accessible.\nCe que vous pouvez faire avec rTransfer :\n- Transférer et organiser vos fichiers\n- Partager des fichiers en toute sécurité\nrTransfer est conçu pour être simple, sécurisé et performant — vos données restent sous votre contrôle.",
