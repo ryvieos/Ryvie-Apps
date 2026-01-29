@@ -161,7 +161,6 @@ Once installed via the Ryvie AppStore:
 - [x] The application starts without errors
 - [x] `ryvie-app.yml` is valid and contains descriptions in fr/en
 - [x] Gallery images are present and optimized
-```
 
 ---
 
@@ -341,7 +340,6 @@ Une fois installée via l'AppStore Ryvie :
 - [x] L'application démarre sans erreur
 - [x] Le fichier ryvie-app.yml est valide et contient les descriptions en fr/en
 - [x] Les images de la galerie sont présentes et optimisées
-```
 
 ---
 
