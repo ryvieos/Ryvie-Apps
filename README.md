@@ -1,6 +1,7 @@
 # Ryvie App Store
 
-# - Contribution tutorial
+Contribution tutorial :
+
 ---
 ENGLISH VERSION (frensh below)
 ---
