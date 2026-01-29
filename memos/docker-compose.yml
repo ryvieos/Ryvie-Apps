@@ -14,4 +14,3 @@ services:
       - MEMOS_PORT=5230
       - MEMOS_DATA=/var/opt/memos
     restart: unless-stopped
-     
