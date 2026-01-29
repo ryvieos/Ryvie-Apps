@@ -3,7 +3,7 @@
 Contribution tutorial :
 
 ---
-ENGLISH VERSION (frensh below)
+ENGLISH VERSION (french below)
 ---
 
 # Ryvie-Apps
