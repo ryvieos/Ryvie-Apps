@@ -1,18 +1,10 @@
-#
-# WARNING: To install Immich, follow our guide: https://docs.immich.app/install/docker-compose
-#
-# Make sure to use the docker-compose.yml of the current release:
-#
-# https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml
-#
-# The compose file on main may not be compatible with the latest release.
 
 name: rpictures
 
 services:
   rpictures-server:
     container_name: app-rpictures-server
-    image: julescloud/rpictures-server:v2.0.4
+    image: julescloud/rpictures-server:v2.0.5
     # extends:
     #   file: hwaccel.transcoding.yml
     #   service: cpu # set to one of [nvenc, quicksync, rkmpp, vaapi, vaapi-wsl] for accelerated transcoding
