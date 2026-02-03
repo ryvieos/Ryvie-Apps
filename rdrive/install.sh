@@ -94,7 +94,6 @@ if [ -z "${ldap_admin_password:-}" ]; then
     exit 1
 fi
 
-chmod 600 "$LDAP_SECRET_FILE" || true
 log "   ✅ Mot de passe LDAP récupéré"
 
 # 4. Générer l'ID machine
@@ -121,8 +120,8 @@ INSTANCE_ID=$instance_id
 EOF
 
 # 6. Sécuriser le fichier .env
-chmod 600 "$rdrive_env"
-log "   ✅ Fichier .env créé et sécurisé"
+# chmod 600 "$rdrive_env"
+# log "   ✅ Fichier .env créé et sécurisé"
 
 #==========================================
 # INSTALLATION ET LANCEMENT DE RDRIVE
