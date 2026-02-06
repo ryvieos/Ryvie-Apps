@@ -8,7 +8,7 @@ ENGLISH VERSION (french below)
 
 # Ryvie-Apps
 
-Ryvie-Apps is a repository of Docker applications configured for Ryvie. Each application includes a `docker-compose.yml`, a Ryvie configuration file (`ryvie-app.yml`) and its logo (`icon.png`).
+Ryvie-Apps is a repository of Docker applications configured for Ryvie. Each application includes a `docker-compose.yml`, a Ryvie configuration file (`ryvie-app.yml`) and its logo (`icon.png`). 
 
 ---
 
