@@ -38,7 +38,7 @@
     },
     "name": "docuseal",
     "version": "2.2.8",
-    "buildId": 16,
+    "buildId": 17,
     "port": 3020,
     "description": {
       "fr": "DocuSeal est une application open-source de signature électronique et de gestion de documents, conçue pour simplifier la validation, le partage et la signature de fichiers en toute sécurité.\nPensée pour les particuliers comme pour les équipes, DocuSeal permet de signer des documents légalement, de suivre leur statut en temps réel et de garder un contrôle total sur vos données grâce à une approche respectueuse de la vie privée.\nFonctionnalités clés :\nSignature électronique simple et sécurisée\nGestion et suivi des documents signés\nFlux de validation clairs et efficaces\nHébergement autonome possible (self-hosted)\nRespect de la confidentialité et conformité\nProjet open-source, transparent et évolutif",
