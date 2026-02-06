@@ -76,6 +76,6 @@ done
 curl http://localhost:3013/api/ldap/sync
 
 echo ""
-echo "✅ rPictures est lancé."
+echo "✅ rPictures est lancé. "
 echo "ℹ️ Note: La synchronisation LDAP se fera après la création du premier utilisateur."
 echo "Installation de Ryvie rPictures terminée."
