@@ -247,7 +247,7 @@
     },
     "name": "rDrive",
     "version": "0.0.1",
-    "buildId": 19,
+    "buildId": 20,
     "port": 3010,
     "description": {
       "fr": "rDrive est une solution de stockage de fichiers auto-hébergée, sécurisée et facile à utiliser.\nGérez, partagez et synchronisez vos fichiers en toute simplicité. Que ce soit pour un usage personnel ou professionnel, rDrive vous offre un espace de stockage fiable et accessible.\nCe que vous pouvez faire avec rDrive :\n- Stocker et organiser vos fichiers\n- Synchroniser vos données sur votre ryvie\n- Accéder à vos fichiers depuis n'importe où\nrDrive est conçu pour être simple, sécurisé et performant — vos données restent sous votre contrôle.",
