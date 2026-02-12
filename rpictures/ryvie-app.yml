@@ -5,7 +5,7 @@ category:
   en: Storage
 name: rPictures
 version: "2.0.0"
-buildId: 12
+buildId: 13
 sso: true
 port: 3013
 description: 
