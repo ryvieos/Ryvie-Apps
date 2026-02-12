@@ -273,7 +273,7 @@
     },
     "name": "rDrop",
     "version": "0.0.0",
-    "buildId": 12,
+    "buildId": 8,
     "port": 8080,
     "description": {
       "fr": "rDrop est une application de partage de fichiers simple et sécurisée qui vous permet de partager des fichiers rapidement et facilement avec d'autres personnes.\nElle rDrop facilite le partage de fichiers volumineux sans compromettre la sécurité.\nrDrop est conçu pour être simple, sécurisé et efficace — vos fichiers restent sous votre contrôle.",
