@@ -181,7 +181,7 @@ Make sure your contribution:
 
 ## 📞 Questions?
 
-Open an issue or contact the project maintainers.
+Open an "issue" or contact the project maintainers.
 
 
 ---
@@ -360,4 +360,4 @@ Assurez-vous que votre contribution :
 
 ## 📞 Questions ?
 
-Ouvrez une issue ou contactez les mainteneurs du projet.
+Ouvrez une "issue" ou contactez les mainteneurs du projet.
