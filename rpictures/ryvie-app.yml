@@ -6,7 +6,7 @@ category:
 name: rPictures
 version: "2.0.0"
 buildId: 10
-
+sso: true
 port: 3013
 description: 
   fr:

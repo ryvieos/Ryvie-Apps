@@ -18,6 +18,8 @@ permissions:
 jobs:
   increment_versions:
     runs-on: ubuntu-latest
+    outputs:
+      new_commit: ${{ steps.push.outputs.commit_sha }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -40,15 +42,18 @@ jobs:
           ./increment-apps-versions.sh "${{ steps.changed-files.outputs.files }}"
 
       - name: Commit and push changes
+        id: push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
           if git diff --staged --quiet; then
             echo "No version changes to commit"
+            echo "commit_sha=${{ github.sha }}" >> $GITHUB_OUTPUT
           else
             git commit -m "chore: auto-increment app versions [skip ci]"
             git push
+            echo "commit_sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
           fi
 
   generate_apps_json:
@@ -59,12 +64,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.PAT_TOKEN }}
+          ref: ${{ needs.increment_versions.outputs.new_commit }}
           fetch-depth: 0
-
-      - name: Sync branch head
-        run: |
-          git fetch origin dev
-          git reset --hard origin/dev
 
       - name: Install dependencies
         run: |
@@ -106,6 +107,11 @@ jobs:
           fetch-depth: 0
           fetch-tags: true
           token: ${{ secrets.PAT_TOKEN }}
+          ref: dev
+
+      - name: Sync latest changes
+        run: |
+          git pull origin dev
 
       - name: Determine next version
         id: version
@@ -147,4 +153,3 @@ jobs:
             ports.json
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-
