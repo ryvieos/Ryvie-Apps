@@ -12,25 +12,24 @@ on:
       - 'generate-apps-json.sh'
       - 'generate-ports-json.sh'
       - 'README.md'
+
 permissions:
   contents: write
 
 jobs:
-  increment_versions:
+  build_and_release:
     runs-on: ubuntu-latest
-    outputs:
-      new_commit: ${{ steps.push.outputs.commit_sha }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.PAT_TOKEN }}
-          fetch-depth: 2
+          fetch-depth: 0
 
+      # ===== ÉTAPE 1: Increment versions =====
       - name: Get changed files
         id: changed-files
         run: |
-          # Ensure we have full history to compare multi-commit pushes
           git fetch --no-tags --prune --unshallow || true
           CHANGED=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} \
             | grep -vE '(^|/)(ryvie-app\.yml|icon\.png)$' \
@@ -41,32 +40,17 @@ jobs:
         run: |
           ./increment-apps-versions.sh "${{ steps.changed-files.outputs.files }}"
 
-      - name: Commit and push changes
-        id: push
+      - name: Commit version changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          if git diff --staged --quiet; then
-            echo "No version changes to commit"
-            echo "commit_sha=${{ github.sha }}" >> $GITHUB_OUTPUT
-          else
+          if ! git diff --staged --quiet; then
             git commit -m "chore: auto-increment app versions [skip ci]"
             git push
-            echo "commit_sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
           fi
 
-  generate_apps_json:
-    needs: increment_versions
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          ref: ${{ needs.increment_versions.outputs.new_commit }}
-          fetch-depth: 0
-
+      # ===== ÉTAPE 2: Generate JSON files =====
       - name: Install dependencies
         run: |
           sudo apt update
@@ -74,48 +58,26 @@ jobs:
           wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/local/bin/yq
           chmod +x /usr/local/bin/yq
 
-      - name: Generate apps.json
-        run: bash ./generate-apps-json.sh
-
-      - name: Generate ports.json
-        run: bash ./generate-ports-json.sh
-
-      - name: Commit apps.json and ports.json if changed
+      - name: Generate apps.json and ports.json
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github-actions"
+          bash ./generate-apps-json.sh
+          bash ./generate-ports-json.sh
 
+      - name: Commit JSON files
+        run: |
           git add apps.json ports.json
-          if git diff --cached --quiet; then
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update apps.json and ports.json [skip ci]"
+            git push
+          else
             echo "✅ No changes detected"
-            exit 0
           fi
 
-          git commit -m "Update apps.json and ports.json"
-
-          # 🔄 Rebase to avoid non-fast-forward
-          git pull --rebase origin dev
-          git push origin dev
-  
-  pre_release:
-    needs: generate_apps_json
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository with tags
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          fetch-tags: true
-          token: ${{ secrets.PAT_TOKEN }}
-          ref: dev
-
-      - name: Sync latest changes
-        run: |
-          git pull origin dev
-
+      # ===== ÉTAPE 3: Create pre-release =====
       - name: Determine next version
         id: version
         run: |
+          git fetch --tags
           latest=$(git tag | sort -V | tail -n 1)
           if [ -z "$latest" ]; then
             latest="v0.0.0"
@@ -134,9 +96,7 @@ jobs:
       - name: Create and push tag
         run: |
           tag=${{ steps.version.outputs.next_version }}
-          if git rev-parse "$tag" >/dev/null 2>&1; then
-            echo "Tag already exists, skipping"
-          else
+          if ! git rev-parse "$tag" >/dev/null 2>&1; then
             git tag $tag
             git push origin $tag
           fi
