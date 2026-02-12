@@ -5,7 +5,6 @@ on:
     branches:
       - dev
     paths-ignore:
-      - 'apps.json'
       - 'ports.json'
       - '.github/workflows/*'
       - 'generate-apps-json.sh'
