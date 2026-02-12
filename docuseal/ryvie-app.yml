@@ -1,58 +1,20 @@
 manifestVersion: 1
 id: docuseal
-category: 
+category:
   fr: Productivité
   en: Productivity
 name: docuseal
 version: 2.2.8
-buildId: 18
+buildId: 20
 port: 3020
 description:
-  fr: 
-    "DocuSeal est une application open-source de signature électronique et de gestion de documents, conçue pour simplifier la validation, le partage et la signature de fichiers en toute sécurité.
-
-    Pensée pour les particuliers comme pour les équipes, DocuSeal permet de signer des documents légalement, de suivre leur statut en temps réel et de garder un contrôle total sur vos données grâce à une approche respectueuse de la vie privée.
-
-    Fonctionnalités clés :
-
-    Signature électronique simple et sécurisée
-
-    Gestion et suivi des documents signés
-
-    Flux de validation clairs et efficaces
-
-    Hébergement autonome possible (self-hosted)
-
-    Respect de la confidentialité et conformité
-
-    Projet open-source, transparent et évolutif"
-
-
-  en: 
-    "DocuSeal is an open-source electronic signature and document management application designed to make signing, sharing, and validating documents simple and secure.
-
-    Built for individuals and teams, DocuSeal lets you legally sign documents, track their status in real time, and keep full control over your data with a privacy-first approach.
-
-    Key features:
-
-    Simple and secure electronic signatures
-
-    Document management and signing status tracking
-
-    Clear and efficient approval workflows
-
-    Self-hosting support
-
-    Privacy-focused and compliant
-
-    Open-source, transparent, and extensible"
-
+  fr: "DocuSeal est une application open-source de signature électronique et de gestion de documents, conçue pour simplifier la validation, le partage et la signature de fichiers en toute sécurité.\nPensée pour les particuliers comme pour les équipes, DocuSeal permet de signer des documents légalement, de suivre leur statut en temps réel et de garder un contrôle total sur vos données grâce à une approche respectueuse de la vie privée.\nFonctionnalités clés :\nSignature électronique simple et sécurisée\nGestion et suivi des documents signés\nFlux de validation clairs et efficaces\nHébergement autonome possible (self-hosted)\nRespect de la confidentialité et conformité\nProjet open-source, transparent et évolutif"
+  en: "DocuSeal is an open-source electronic signature and document management application designed to make signing, sharing, and validating documents simple and secure.\nBuilt for individuals and teams, DocuSeal lets you legally sign documents, track their status in real time, and keep full control over your data with a privacy-first approach.\nKey features:\nSimple and secure electronic signatures\nDocument management and signing status tracking\nClear and efficient approval workflows\nSelf-hosting support\nPrivacy-focused and compliant\nOpen-source, transparent, and extensible"
 tagline:
   fr: "Signez vos documents simplement."
   en: "Sign your documents simply."
-
 gallery:
-  - icon.png 
+  - icon.png
   - image1.png
   - image2.png
   - image3.png

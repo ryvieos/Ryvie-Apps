@@ -1,48 +1,19 @@
 manifestVersion: 1
 id: rpictures
-category: 
+category:
   fr: Stockage
   en: Storage
 name: rPictures
 version: "2.0.0"
-buildId: 10
-
+buildId: 15
+sso: true
 port: 3013
-description: 
-  fr:
-    "rPictures est une solution de stockage local de photos auto-hébergée, sécurisée et facile à utiliser.
-
-    Gérez, organisez et visualisez vos photos en toute simplicité. Que ce soit pour un usage personnel ou professionnel, rPictures vous offre un espace de stockage fiable et accessible.
-
-    Ce que vous pouvez faire avec rPictures :
-
-    - Stocker et organiser vos photos
-
-    - Visualiser vos images
-
-    - Accéder à vos photos depuis n'importe où
-
-    rPictures est conçu pour être simple, sécurisé et performant — vos données restent sous votre contrôle."
-
-  en:
-    "rPictures is a self-hosted, secure, and easy-to-use local photo storage solution.
-
-    Manage, organize, and view your photos with ease. Whether for personal or professional use, rPictures provides you with a reliable and accessible storage space.
-
-    What you can do with rPictures:
-
-    - Store and organize your photos
-
-    - View your images
-
-    - Access your photos from anywhere
-
-    rPictures is designed to be simple, secure, and efficient — your data remains under your control."
-
+description:
+  fr: "rPictures est une solution de stockage local de photos auto-hébergée, sécurisée et facile à utiliser.\nGérez, organisez et visualisez vos photos en toute simplicité. Que ce soit pour un usage personnel ou professionnel, rPictures vous offre un espace de stockage fiable et accessible.\nCe que vous pouvez faire avec rPictures :\n- Stocker et organiser vos photos\n- Visualiser vos images\n- Accéder à vos photos depuis n'importe où\nrPictures est conçu pour être simple, sécurisé et performant — vos données restent sous votre contrôle."
+  en: "rPictures is a self-hosted, secure, and easy-to-use local photo storage solution.\nManage, organize, and view your photos with ease. Whether for personal or professional use, rPictures provides you with a reliable and accessible storage space.\nWhat you can do with rPictures:\n- Store and organize your photos\n- View your images\n- Access your photos from anywhere\nrPictures is designed to be simple, secure, and efficient — your data remains under your control."
 tagline:
   fr: "Votre solution de stockage local de photos auto-hébergée, sécurisée et facile à utiliser."
   en: "Your self-hosted, secure, and easy-to-use local photo storage solution."
-
 gallery:
   - icon.png
   - image1.png
