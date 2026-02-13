@@ -1,28 +1,16 @@
 manifestVersion: 1
 id: rdrop
-category: 
+category:
   fr: Partage
   en: Sharing
 name: rDrop
 version: "0.0.0"
-buildId: 12
+buildId: 13
 port: 8080
-description: 
-  fr:
-    "rDrop est une application de partage de fichiers simple et sécurisée qui vous permet de partager des fichiers rapidement et facilement avec d'autres personnes.
-
-    Elle rDrop facilite le partage de fichiers volumineux sans compromettre la sécurité.
-
-    rDrop est conçu pour être simple, sécurisé et efficace — vos fichiers restent sous votre contrôle."
-
-  en:
-    "rDrop is a simple and secure file-sharing application that allows you to share files quickly and easily with others.
-
-    rDrop makes it easy to share large files without compromising security.
-
-    rDrop is designed to be simple, secure, and efficient — your files remain under your control."
-
-tagline: 
+description:
+  fr: "rDrop est une application de partage de fichiers simple et sécurisée qui vous permet de partager des fichiers rapidement et facilement avec d'autres personnes.\nElle rDrop facilite le partage de fichiers volumineux sans compromettre la sécurité.\nrDrop est conçu pour être simple, sécurisé et efficace — vos fichiers restent sous votre contrôle."
+  en: "rDrop is a simple and secure file-sharing application that allows you to share files quickly and easily with others.\nrDrop makes it easy to share large files without compromising security.\nrDrop is designed to be simple, secure, and efficient — your files remain under your control."
+tagline:
   fr: "Partagez vos fichiers rapidement et en toute sécurité avec rDrop."
   en: "Share your files quickly and securely with rDrop."
 gallery:
