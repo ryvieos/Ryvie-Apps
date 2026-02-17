@@ -272,7 +272,7 @@
       "en": "Sharing"
     },
     "name": "rDrop",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "buildId": 16,
     "port": 8080,
     "description": {
