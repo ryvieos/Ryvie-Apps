@@ -14,7 +14,7 @@ Ryvie-Apps is a repository of Docker applications configured for Ryvie. Each app
 
 ## 📋 How to propose a new application or a change
 
-We welcome contributions! Follow this guide to propose new applications or improvements. 
+We welcome contributions! Follow this guide to propose new applications or improvements.
 
 ### Contribution steps
 
