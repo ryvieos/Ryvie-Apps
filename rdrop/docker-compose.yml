@@ -1,11 +1,11 @@
 services:
   node:
-    image: "julescloud/rdrop-node:v0.0.1"
+    image: "julescloud/rdrop-node:v0.0.2"
     container_name: app-rdrop-node
     restart: unless-stopped
 
   nginx:
-    image: "julescloud/rdrop-nginx:v0.0.1"
+    image: "julescloud/rdrop-nginx:v0.0.2"
     ports:
       - "8080:80"
     env_file: ${PWD}/docker/fqdn.env
