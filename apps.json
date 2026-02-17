@@ -259,7 +259,7 @@
       "en": "Your self-hosted, secure, and easy-to-use file storage solution."
     },
     "gallery": [
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/icon_1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/image2.png"
     ]
@@ -273,7 +273,7 @@
     },
     "name": "rDrop",
     "version": "0.0.1",
-    "buildId": 15,
+    "buildId": 16,
     "port": 8080,
     "description": {
       "fr": "rDrop est une application de partage de fichiers simple et sécurisée qui vous permet de partager des fichiers rapidement et facilement avec d'autres personnes.\nElle rDrop facilite le partage de fichiers volumineux sans compromettre la sécurité.\nrDrop est conçu pour être simple, sécurisé et efficace — vos fichiers restent sous votre contrôle.",
