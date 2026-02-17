@@ -13,3 +13,4 @@ services:
     command: ["nginx", "-g", "daemon off;"]
     container_name: app-rdrop-nginx
     restart: unless-stopped
+    
