@@ -8,9 +8,9 @@ services:
     image: "julescloud/rdrop-nginx:v0.0.3"
     ports:
       - "8080:80"
-    env_file: ${PWD}/docker/fqdn.env
+    environment:
+      - FQDN=localhost
     entrypoint: /mnt/openssl/create.sh
     command: ["nginx", "-g", "daemon off;"]
     container_name: app-rdrop-nginx
     restart: unless-stopped
-    
