@@ -246,8 +246,8 @@
       "en": "Storage"
     },
     "name": "rDrive",
-    "version": "0.0.3",
-    "buildId": 23,
+    "version": "0.0.4",
+    "buildId": 24,
     "port": 3010,
     "sso": true,
     "description": {
