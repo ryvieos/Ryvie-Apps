@@ -44,6 +44,9 @@ services:
     restart: unless-stopped
     healthcheck:
       disable: false
+    networks:
+      - default
+      - ryvie-network
 
   redis:
     container_name: app-rpictures-redis
