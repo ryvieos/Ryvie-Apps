@@ -118,8 +118,8 @@
       "fr": "Organisation",
       "en": "Organization"
     },
-    "version": "2.13.1",
-    "buildId": 2,
+    "version": "2.14.0",
+    "buildId": 3,
     "port": 3028,
     "description": {
       "fr": "Linkwarden vous permet d’enregistrer, d’organiser et de conserver vos liens importants en un seul endroit sécurisé.\nGardez vos articles, outils et ressources sans craindre les liens cassés ou les contenus supprimés. Linkwarden sauvegarde une copie des pages enregistrées afin que vous puissiez y accéder à tout moment, même si le site d’origine change ou disparaît.\nConçu avec une approche respectueuse de la vie privée, Linkwarden vous aide à créer simplement votre bibliothèque personnelle de connaissances.\nCe que vous pouvez faire avec Linkwarden :\n- Enregistrer et organiser vos liens facilement\n- Accéder à vos contenus à tout moment\n- Conserver une copie des pages sauvegardées\n- Rechercher et gérer votre collection de liens\n- Garder le contrôle de vos données",
