@@ -170,8 +170,8 @@
       "fr": "Productivité",
       "en": "Productivity"
     },
-    "version": "0.0.25",
-    "buildId": 7,
+    "version": "0.26.1",
+    "buildId": 8,
     "port": 3016,
     "description": {
       "fr": "Memos vous permet de capturer, organiser et retrouver vos idées à tout moment.\nPrenez rapidement des notes, des rappels ou des idées et gardez-les bien organisées en un seul endroit. Que ce soit pour le travail, les études ou vos projets personnels, Memos vous aide à ne rien oublier et à rester productif.\nCe que vous pouvez faire avec Memos :\n- Prendre des notes et idées rapidement\n- Organiser vos pensées facilement\n- Accéder à vos notes où que vous soyez\n- Suivre vos tâches, rappels et projets\nMemos est simple, rapide et fiable — votre carnet numérique personnel.",
@@ -221,8 +221,8 @@
       "en": "Productivity"
     },
     "name": "open-notebook",
-    "version": "1.3.1",
-    "buildId": 6,
+    "version": "1.8.4",
+    "buildId": 7,
     "description": {
       "fr": "Open Notebook est votre carnet numérique personnel pour capturer idées, notes et recherches au même endroit.\nOrganisez vos pensées, suivez vos projets et accédez à vos notes où que vous soyez. Que ce soit pour les études, le travail ou vos projets personnels, Open Notebook vous aide à rester productif et concentré.\nCe que vous pouvez faire avec Open Notebook :\n- Prendre des notes rapidement et facilement\n- Organiser vos idées et projets\n- Accéder à votre carnet où que vous soyez\n- Suivre vos recherches, tâches et rappels\nOpen Notebook est simple, flexible et open-source — vos idées restent sous votre contrôle.",
       "en": "Open Notebook is your personal digital notebook to capture ideas, notes, and research all in one place.\nOrganize your thoughts, track your projects, and access your notes wherever you are. Whether for study, work, or personal projects, Open Notebook helps you stay productive and focused.\nWhat you can do with Open Notebook:\n- Take notes quickly and easily\n- Organize your ideas and projects\n- Access your notebook wherever you are\n- Track your research, tasks, and reminders\nOpen Notebook is simple, flexible, and open-source — your ideas remain under your control."
@@ -349,8 +349,8 @@
       "fr": "Sécurité",
       "en": "Security"
     },
-    "version": "1.32.7",
-    "buildId": 13,
+    "version": "1.35.7",
+    "buildId": 14,
     "port": 3024,
     "description": {
       "fr": "Vaultwarden sécurise tous vos mots de passe et informations sensibles en un seul endroit.\nEnregistrez, organisez et accédez facilement à vos identifiants, notes sécurisées et autres données privées. Avec Vaultwarden, vous gardez le contrôle total de vos informations — sans publicité, sans suivi et entièrement open-source. Accédez à votre coffre depuis tous vos appareils, où que vous soyez, en toute sécurité.\nCe que vous pouvez faire avec Vaultwarden :\n- Stocker et gérer vos mots de passe en toute sécurité\n- Enregistrer vos notes et informations sensibles\n- Accéder à votre coffre depuis tous vos appareils\n- Protéger vos données grâce au chiffrement de bout en bout\n- Garder le contrôle total de vos informations privées\nVaultwarden est une solution simple, sécurisée et open-source pour gérer votre vie numérique.",
