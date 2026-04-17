@@ -4,8 +4,8 @@ name: FossFlow
 category: 
   fr: Diagrammes
   en: Diagrams
-version: 1.7.0
-buildId: 5
+version: 1.10.8
+buildId: 6
 port: 3012
 description:
   fr:
