@@ -89,8 +89,8 @@
       "en": "multimedia"
     },
     "name": "jellyfin",
-    "version": "10.11.5",
-    "buildId": 2,
+    "version": "10.11.8",
+    "buildId": 3,
     "port": [
       8096
     ],
@@ -144,8 +144,8 @@
       "fr": "Planificateurs",
       "en": "Planners"
     },
-    "version": "3.9.2",
-    "buildId": 2,
+    "version": "3.14.0",
+    "buildId": 3,
     "port": 9091,
     "description": {
       "fr": "Mealie simplifie la gestion des recettes et la planification des repas au quotidien.\nEnregistrez vos recettes préférées, planifiez vos menus de la semaine et générez automatiquement vos listes de courses. Que vous cuisiniez souvent ou occasionnellement, Mealie vous aide à gagner du temps et à mieux vous organiser.\nToutes vos recettes sont centralisées, faciles à retrouver et à adapter selon vos envies.\nCe que vous pouvez faire avec Mealie :\n- Enregistrer et organiser vos recettes\n- Planifier les repas de la semaine\n- Générer automatiquement des listes de courses\n- Gérer votre collection de recettes\n- Cuisiner plus sereinement au quotidien",
