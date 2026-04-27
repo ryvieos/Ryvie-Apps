@@ -4,8 +4,8 @@ name: Affine
 category: 
   fr: Productivité
   en: Productivity
-version: 0.25.1
-buildId: 11
+version: 0.26.3
+buildId: 12
 port: 3015
 description:
   fr:

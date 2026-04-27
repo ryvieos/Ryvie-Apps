@@ -1,7 +1,7 @@
 services:
   mealie:
     container_name: app-mealie
-    image: hkotel/mealie:v3.9.2
+    image: hkotel/mealie:v3.14.0
     volumes:
       - ./mealie-data:/app/data/
     ports:

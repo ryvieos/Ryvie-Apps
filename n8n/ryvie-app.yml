@@ -4,8 +4,8 @@ category:
   fr: Automatisation
   en: Automation
 name: n8n
-version: 2.3.2
-buildId: 5
+version: 2.17.1
+buildId: 6
 description: 
   fr:
     "n8n vous permet d’automatiser vos flux de travail et de connecter vos applications facilement.

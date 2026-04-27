@@ -4,8 +4,8 @@ name: Vaultwarden
 category: 
   fr: Sécurité
   en: Security
-version: 1.32.7
-buildId: 13
+version: 1.35.7
+buildId: 14
 port: 3024
 description:
   fr: 

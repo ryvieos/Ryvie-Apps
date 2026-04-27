@@ -13,7 +13,7 @@ services:
       - app-network
  
   open_notebook:
-    image: lfnovo/open_notebook:1.3.1
+    image: lfnovo/open_notebook:1.8.4
     container_name: app-open-notebook
     ports:
       - "8502:8502"

@@ -4,8 +4,8 @@ category:
   fr: multimédia
   en: multimedia
 name: jellyfin
-version: 10.11.5
-buildId: 2
+version: 10.11.8
+buildId: 3
 port: 
   - 8096
 description:

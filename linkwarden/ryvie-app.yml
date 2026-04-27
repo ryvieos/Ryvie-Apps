@@ -5,8 +5,8 @@ tagline: Bookmark Preservation for Individuals and Teams
 category:
   fr: Organisation
   en: Organization
-version: 2.13.1
-buildId: 2
+version: 2.14.0
+buildId: 3
 port: 3028
 description:
   fr:

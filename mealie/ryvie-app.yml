@@ -4,8 +4,8 @@ name: Mealie
 category: 
   fr: Planificateurs
   en: Planners
-version: 3.9.2
-buildId: 2
+version: 3.14.0
+buildId: 3
 port: 9091
 description:
   fr: 
