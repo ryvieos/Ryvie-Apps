@@ -3,7 +3,7 @@ name: rpictures
 services:
   rpictures-server:
     container_name: app-rpictures-server
-    image: julescloud/rpictures-server:v2.0.6
+    image: julescloud/rpictures-server:v2.0.6@sha256:8f095af7e8041d3ab3be551a3162caafce98d0a05b6d572ebbdc6cf96d1fda93
     # extends:
     #   file: hwaccel.transcoding.yml
     #   service: cpu # set to one of [nvenc, quicksync, rkmpp, vaapi, vaapi-wsl] for accelerated transcoding

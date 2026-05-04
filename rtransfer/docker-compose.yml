@@ -1,7 +1,7 @@
 services:
   rtransfer:
     container_name: app-rtransfer
-    image: julescloud/rtransfer:v0.0.1
+    image: julescloud/rtransfer:v0.0.1@sha256:7ea126a832207d19de56241fa403b4e578b49f0e10a127960eb663a1885b485b
     restart: unless-stopped
     ports:
       - 3011:3000
