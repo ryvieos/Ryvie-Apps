@@ -24,6 +24,7 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/affine/image2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/affine/image3.png"
     ],
+    "digest": "sha256:0a082ab0b929139a34a6eb9d422ad107290bdf3fc2fc644036161f0d9f0ce239",
     "architectures": [
       "amd64",
       "arm64"
@@ -53,7 +54,8 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/image2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/image3.png"
-    ]
+    ],
+    "digest": "sha256:17297b2714109453760a1b20bafb70ac379f7b7cae448cba19a7050cf9584cc4"
   },
   {
     "manifestVersion": 1,
@@ -79,7 +81,8 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/fossflow/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/fossflow/image2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/fossflow/image3.png"
-    ]
+    ],
+    "digest": "sha256:38745465d67f64f855a20e2dc9a3d69148d1fe909f795f9fb5580b8177aa60c4"
   },
   {
     "manifestVersion": 1,
@@ -107,7 +110,8 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/jellyfin/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/jellyfin/image2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/jellyfin/image3.png"
-    ]
+    ],
+    "digest": "sha256:1ebca12ee68116ddc6bd38ea01af2db50d6e4cee64a5076981ef75c35709d5e8"
   },
   {
     "manifestVersion": 1,
@@ -134,7 +138,8 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/image2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/image3.png"
-    ]
+    ],
+    "digest": "sha256:67de8b999f4190f33fb212370ecb5ae98803580c63a36fd56b5ff7e09d11addb"
   },
   {
     "manifestVersion": 1,
@@ -160,7 +165,8 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/mealie/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/mealie/image2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/mealie/image3.png"
-    ]
+    ],
+    "digest": "sha256:6785e5ca87f0ae25f90be850fd1473e92a2c0bde1b5ef07be111c4c9565aeb75"
   },
   {
     "manifestVersion": 1,
@@ -186,7 +192,8 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/memos/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/memos/image2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/memos/image3.png"
-    ]
+    ],
+    "digest": "sha256:7bf4a85c67fa7d579513c0308f5cd637537076e0937b6b98876d3b5c4d7f1990"
   },
   {
     "manifestVersion": 1,
@@ -211,7 +218,8 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/n8n/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/n8n/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/n8n/image2.png"
-    ]
+    ],
+    "digest": "sha256:ba972aa2158577b808668f7f92705fa26f78c2c459a1f8d736ec6db4abbcb9b8"
   },
   {
     "manifestVersion": 1,
@@ -236,7 +244,11 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/open-notebook/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/open-notebook/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/open-notebook/image2.png"
-    ]
+    ],
+    "digests": {
+      "surrealdb": "sha256:e679fe70316f41b5ccb9551f2eb104eaf778330d1f549a3743390453de3a6da5",
+      "open_notebook": "sha256:6e5b3908e9e9706b70e61721036d4e506fd31f9a7b10f62fba4837d73d46c16a"
+    }
   },
   {
     "manifestVersion": 1,
@@ -262,7 +274,17 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/icon_1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/image2.png"
-    ]
+    ],
+    "digests": {
+      "rdrive-rabbitmq": "sha256:4d7c7d4796fc154f50f2eae1b6ae7f7bd19f7e4aa2865ead26c0fb707dc081bc",
+      "rdrive-postgresql": "sha256:17520d7a95d7693469605ee28162f957ac26ba2d29a4d9331d01b2655aa5b0ac",
+      "rdrive-onlyoffice": "sha256:85bbb3e375041cd8a9b4d9fe5b7d1a31ec34d1b50fd00be55dd4e15af9f388c6",
+      "rdrive-onlyoffice-connector": "sha256:8a9b01deb7c567ec5891bda3cfbea6fb925f81fc32d730d6b079a6704592640a",
+      "rdrive-mongo": "sha256:8338353797de553927861a7ff9e41c5f4beb272415dad65b8e22e2f377180edd",
+      "rdrive-node-create-user": "sha256:7205261a8a4ac066ca16be63217b13c64795fc311d7f7a763c799629f85196db",
+      "rdrive-node": "sha256:dbb132d420ee99ffe4fd760b104c98f8d7bf3e341fe855e943bfb2491af5e4f1",
+      "rdrive-frontend": "sha256:a641bfa15fd551a767035a68534cb5cf849ce8d3bb9f03d545b034ac40a06ef4"
+    }
   },
   {
     "manifestVersion": 1,
@@ -274,6 +296,10 @@
     "name": "rDrop",
     "version": "0.0.3",
     "buildId": 21,
+    "digests": {
+      "rdrop-node": "sha256:2ce9442fdcbee20ada377608962644ebbfaca70b9ac3e9d8c4c58056d16182b4",
+      "rdrop-nginx": "sha256:abfa199ba6bcfc8b411117616b61da1bb17fa2fa3252f695a8ea2f94989defcb"
+    },
     "port": 8080,
     "description": {
       "fr": "rDrop est une application de partage de fichiers simple et sécurisée qui vous permet de partager des fichiers rapidement et facilement avec d'autres personnes.\nElle rDrop facilite le partage de fichiers volumineux sans compromettre la sécurité.\nrDrop est conçu pour être simple, sécurisé et efficace — vos fichiers restent sous votre contrôle.",
@@ -313,7 +339,8 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rpictures/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rpictures/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rpictures/image2.png"
-    ]
+    ],
+    "digest": "sha256:8f095af7e8041d3ab3be551a3162caafce98d0a05b6d572ebbdc6cf96d1fda93"
   },
   {
     "manifestVersion": 1,
@@ -339,7 +366,8 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/image_1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/image_2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/image_3.png"
-    ]
+    ],
+    "digest": "sha256:7ea126a832207d19de56241fa403b4e578b49f0e10a127960eb663a1885b485b"
   },
   {
     "manifestVersion": 1,
@@ -366,6 +394,7 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/vaultwarden/image2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/vaultwarden/image3.png"
     ],
+    "digest": "sha256:9e380ab7a46826a70ff324cd800e1ee208cad4692f7c823f05c93f71010bf6f0",
     "proxy": {
       "enabled": true,
       "port": 3024,

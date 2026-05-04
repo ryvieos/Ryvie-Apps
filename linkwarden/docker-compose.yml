@@ -16,7 +16,7 @@ services:
       retries: 5
   app:
     container_name: app-linkwarden-app
-    image: ghcr.io/linkwarden/linkwarden:v2.14.0
+    image: ghcr.io/linkwarden/linkwarden:v2.14.0@sha256:67de8b999f4190f33fb212370ecb5ae98803580c63a36fd56b5ff7e09d11addb
     ports:
       - "3028:3000"
     environment:

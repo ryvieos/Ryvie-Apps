@@ -1,7 +1,7 @@
 services:
   fossflow: 
     container_name: app-fossflow
-    image: stnsmith/fossflow:latest
+    image: stnsmith/fossflow:latest@sha256:38745465d67f64f855a20e2dc9a3d69148d1fe909f795f9fb5580b8177aa60c4
     pull_policy: always 
     ports:
       - 3012:80

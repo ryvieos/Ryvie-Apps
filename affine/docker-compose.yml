@@ -2,7 +2,7 @@ version: '3.9'
  
 services:
   web: 
-    image: ghcr.io/toeverything/affine:0.26.3
+    image: ghcr.io/toeverything/affine:0.26.3@sha256:0a082ab0b929139a34a6eb9d422ad107290bdf3fc2fc644036161f0d9f0ce239
     container_name: app-affine-web
     restart: unless-stopped
     ports:
@@ -25,7 +25,7 @@ services:
       - affine-network
 
   migration:
-    image: ghcr.io/toeverything/affine:0.26.3
+    image: ghcr.io/toeverything/affine:0.26.3@sha256:0a082ab0b929139a34a6eb9d422ad107290bdf3fc2fc644036161f0d9f0ce239
     container_name: app-affine-migration
     restart: "no"
     command: ["sh", "-c", "node ./scripts/self-host-predeploy"]
