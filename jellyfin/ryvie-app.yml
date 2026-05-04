@@ -1,56 +1,19 @@
 manifestVersion: 1
 id: jellyfin
-category: 
+category:
   fr: multimédia
   en: multimedia
 name: jellyfin
 version: 10.11.8
-buildId: 3
-port: 
+buildId: 4
+port:
   - 8096
 description:
-  fr:
-    "Jellyfin vous permet de profiter de votre bibliothèque multimédia, simplement et librement.
-
-    Regardez vos films et séries, écoutez votre musique et consultez vos photos depuis tous vos appareils. Jellyfin organise automatiquement vos contenus et les diffuse facilement sur votre téléphone, tablette, ordinateur ou TV.
-
-    Vos médias vous appartiennent. Jellyfin est entièrement open-source, sans publicité, sans abonnement et respectueux de votre vie privée.
-
-    Ce que vous pouvez faire avec Jellyfin :
-
-    - Regarder vos films et séries où que vous soyez
-
-    - Écouter votre musique et parcourir vos photos
-
-    - Diffuser sur plusieurs appareils
-
-    - Garder vos contenus bien organisés
-
-    - Profiter de vos médias sans publicité ni abonnement"
-  
-  en:
-    "Jellyfin lets you enjoy your media library, simply and freely.
-
-    Watch your movies and TV shows, listen to your music, and view your photos from all your devices. Jellyfin automatically organizes your content and streams it easily to your phone, tablet, computer, or TV.
-
-    Your media belongs to you. Jellyfin is completely open-source, ad-free, subscription-free, and privacy-respecting.
-
-    What you can do with Jellyfin:
-
-    - Watch your movies and TV shows wherever you are
-
-    - Listen to your music and browse your photos
-
-    - Stream to multiple devices
-
-    - Keep your content well organized
-
-    - Enjoy your media without ads or subscriptions"
-
-tagline: 
+  fr: "Jellyfin vous permet de profiter de votre bibliothèque multimédia, simplement et librement.\nRegardez vos films et séries, écoutez votre musique et consultez vos photos depuis tous vos appareils. Jellyfin organise automatiquement vos contenus et les diffuse facilement sur votre téléphone, tablette, ordinateur ou TV.\nVos médias vous appartiennent. Jellyfin est entièrement open-source, sans publicité, sans abonnement et respectueux de votre vie privée.\nCe que vous pouvez faire avec Jellyfin :\n- Regarder vos films et séries où que vous soyez\n- Écouter votre musique et parcourir vos photos\n- Diffuser sur plusieurs appareils\n- Garder vos contenus bien organisés\n- Profiter de vos médias sans publicité ni abonnement"
+  en: "Jellyfin lets you enjoy your media library, simply and freely.\nWatch your movies and TV shows, listen to your music, and view your photos from all your devices. Jellyfin automatically organizes your content and streams it easily to your phone, tablet, computer, or TV.\nYour media belongs to you. Jellyfin is completely open-source, ad-free, subscription-free, and privacy-respecting.\nWhat you can do with Jellyfin:\n- Watch your movies and TV shows wherever you are\n- Listen to your music and browse your photos\n- Stream to multiple devices\n- Keep your content well organized\n- Enjoy your media without ads or subscriptions"
+tagline:
   fr: "Votre centre multimédia personnel, pensé pour la liberté et la confidentialité."
   en: "Your personal media center, designed for freedom and privacy."
-
 gallery:
   - icon.png
   - image1.png

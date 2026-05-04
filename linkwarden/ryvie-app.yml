@@ -6,51 +6,14 @@ category:
   fr: Organisation
   en: Organization
 version: 2.14.0
-buildId: 3
+buildId: 4
 port: 3028
 description:
-  fr:
-    "Linkwarden vous permet d’enregistrer, d’organiser et de conserver vos liens importants en un seul endroit sécurisé.
-
-    Gardez vos articles, outils et ressources sans craindre les liens cassés ou les contenus supprimés. Linkwarden sauvegarde une copie des pages enregistrées afin que vous puissiez y accéder à tout moment, même si le site d’origine change ou disparaît.
-
-    Conçu avec une approche respectueuse de la vie privée, Linkwarden vous aide à créer simplement votre bibliothèque personnelle de connaissances.
-
-    Ce que vous pouvez faire avec Linkwarden :
-
-    - Enregistrer et organiser vos liens facilement
-
-    - Accéder à vos contenus à tout moment
-
-    - Conserver une copie des pages sauvegardées
-
-    - Rechercher et gérer votre collection de liens
-
-    - Garder le contrôle de vos données"
-
-  en:
-    "Linkwarden lets you save, organize, and preserve your important links in one secure place.
-
-    Keep your articles, tools, and resources without worrying about broken links or deleted content. Linkwarden saves a copy of the pages you save so you can access them anytime, even if the original site changes or disappears.
-
-    Built with a privacy-first approach, Linkwarden helps you easily create your personal knowledge library.
-
-    What you can do with Linkwarden:
-
-    - Save and organize your links easily
-
-    - Access your content anytime
-
-    - Preserve a copy of saved pages
-
-    - Search and manage your link collection
-
-    - Keep control of your data"
-
-tagmline: 
+  fr: "Linkwarden vous permet d’enregistrer, d’organiser et de conserver vos liens importants en un seul endroit sécurisé.\nGardez vos articles, outils et ressources sans craindre les liens cassés ou les contenus supprimés. Linkwarden sauvegarde une copie des pages enregistrées afin que vous puissiez y accéder à tout moment, même si le site d’origine change ou disparaît.\nConçu avec une approche respectueuse de la vie privée, Linkwarden vous aide à créer simplement votre bibliothèque personnelle de connaissances.\nCe que vous pouvez faire avec Linkwarden :\n- Enregistrer et organiser vos liens facilement\n- Accéder à vos contenus à tout moment\n- Conserver une copie des pages sauvegardées\n- Rechercher et gérer votre collection de liens\n- Garder le contrôle de vos données"
+  en: "Linkwarden lets you save, organize, and preserve your important links in one secure place.\nKeep your articles, tools, and resources without worrying about broken links or deleted content. Linkwarden saves a copy of the pages you save so you can access them anytime, even if the original site changes or disappears.\nBuilt with a privacy-first approach, Linkwarden helps you easily create your personal knowledge library.\nWhat you can do with Linkwarden:\n- Save and organize your links easily\n- Access your content anytime\n- Preserve a copy of saved pages\n- Search and manage your link collection\n- Keep control of your data"
+tagmline:
   fr: "Linkwarden est la solution simple et fiable pour ne plus jamais perdre un lien important."
   en: "Linkwarden is the simple and reliable solution to never lose an important link again."
-
 gallery:
   - icon.png
   - image1.png
