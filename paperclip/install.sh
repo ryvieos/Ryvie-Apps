@@ -4,6 +4,9 @@ set -euo pipefail
 PAPERCLIP_DIR="/data/apps/paperclip"
 LOG_FILE="/data/logs/install-paperclip-$(date +%Y%m%d-%H%M%S).log"
 NETBIRD_INTERFACE="wt0"
+RYVIE_EMAIL="ryvie@ryvie.local"
+RYVIE_PASSWORD="ryvie1234"
+RYVIE_NAME="ryvie"
 
 mkdir -p /data/logs
 mkdir -p "$PAPERCLIP_DIR"
@@ -32,11 +35,11 @@ log "   ✅ Secret généré"
 
 # 3. Créer le .env
 log "📝 Création du fichier .env..."
-cat > "$PAPERCLIP_DIR/.env" << EOF
+cat > "$PAPERCLIP_DIR/.env" << ENVEOF
 PAPERCLIP_URL_BASE="http://$netbird_ip"
 BETTER_AUTH_SECRET="$secret"
 DATABASE_URL="postgres://paperclip:paperclip@db:5432/paperclip"
-EOF
+ENVEOF
 log "   ✅ Fichier .env créé"
 
 # 4. Permissions avant démarrage
@@ -130,26 +133,78 @@ until sudo docker exec paperclip-server-1 curl -sf http://localhost:3100/api/hea
 done
 log "✅ Serveur Paperclip prêt"
 
-# 12. Bootstrap CEO
+# 12. Bootstrap CEO (récupérer le token d'invite)
 log "-----------------------------------------------------"
-log "🔑 Génération du lien d'invitation admin..."
+log "🔑 Génération du token d'invitation admin..."
 log "-----------------------------------------------------"
 invite_output=$(sudo docker exec paperclip-server-1 sh -c \
     "cd /app && node cli/node_modules/tsx/dist/cli.mjs cli/src/index.ts auth bootstrap-ceo --base-url http://$netbird_ip:3100")
 invite_url=$(echo "$invite_output" | grep -oP 'http://\S+')
-log "   Invite URL: $invite_url"
+invite_token=$(echo "$invite_url" | grep -oP 'pcp_bootstrap_\S+')
+if [ -z "$invite_token" ]; then
+    log "❌ Impossible d'extraire le token bootstrap"
+    exit 1
+fi
+log "   Token d'invite: $invite_token"
 
-# 13. Link à la bonne adresse
+# 13. Créer le compte ryvie (ignoré si déjà existant)
+log "👤 Création du compte ryvie..."
+signup_http=$(sudo docker exec paperclip-server-1 curl -s -o /dev/null -w "%{http_code}" \
+    -X POST http://localhost:3100/api/auth/sign-up/email \
+    -H "Content-Type: application/json" \
+    -d "{\"name\":\"$RYVIE_NAME\",\"email\":\"$RYVIE_EMAIL\",\"password\":\"$RYVIE_PASSWORD\"}")
+if [ "$signup_http" = "200" ]; then
+    log "   ✅ Compte créé (HTTP $signup_http)"
+elif [ "$signup_http" = "422" ]; then
+    log "   ℹ️  Compte déjà existant, on continue (HTTP $signup_http)"
+else
+    log "   ⚠️  Réponse inattendue du sign-up : HTTP $signup_http"
+fi
+
+# 14. Se connecter et récupérer la valeur du cookie de session
+# FIX: le regex extrait uniquement la VALEUR du cookie (après le =), pas "nom=valeur"
+log "🔐 Connexion au compte ryvie..."
+session_cookie=$(sudo docker exec paperclip-server-1 curl -s -i \
+    -X POST http://localhost:3100/api/auth/sign-in/email \
+    -H "Content-Type: application/json" \
+    -d "{\"email\":\"$RYVIE_EMAIL\",\"password\":\"$RYVIE_PASSWORD\"}" \
+    2>/dev/null | grep -i "set-cookie" | grep -oP '(?<=paperclip-default\.session_token=)[^;]+' || true)
+
+if [ -z "$session_cookie" ]; then
+    log "❌ Impossible de récupérer le cookie de session (mauvais mot de passe ?)"
+    exit 1
+fi
+log "   ✅ Session récupérée"
+
+# 15. Accepter l'invite bootstrap (devient CEO)
+log "👑 Attribution du rôle CEO..."
+accept_response=$(sudo docker exec paperclip-server-1 curl -s \
+    -X POST "http://localhost:3100/api/invites/$invite_token/accept" \
+    -H "Content-Type: application/json" \
+    -H "Origin: http://$netbird_ip:3100" \
+    -H "Cookie: paperclip-default.session_token=$session_cookie" \
+    -d '{"requestType":"human"}')
+log "   Réponse accept: $accept_response"
+
+if echo "$accept_response" | grep -q "bootstrapAccepted"; then
+    log "   ✅ Compte ryvie configuré comme CEO"
+else
+    log "   ❌ Échec de l'attribution CEO — réponse: $accept_response"
+    exit 1
+fi
+
+# 16. Écrire l'URL principale dans setup.json
 SETUP_JSON="$PAPERCLIP_DIR/setup.json"
-echo "{\"setupUrl\": \"$invite_url\", \"appId\": \"paperclip\"}" > "$SETUP_JSON"
-log "📝 Setup URL écrit dans $SETUP_JSON"
+echo "{\"setupUrl\": \"http://$netbird_ip:3100\", \"appId\": \"paperclip\"}" > "$SETUP_JSON"
+log "📝 URL principale écrite dans $SETUP_JSON"
 
-# 14. Résumé
+# 17. Résumé
 log "═══════════════════════════════════════════════════════════════"
 log "✅ INSTALLATION TERMINÉE"
 log "═══════════════════════════════════════════════════════════════"
 log "📁 Répertoire Paperclip : $PAPERCLIP_DIR"
 log "🌐 IP NetBird           : $netbird_ip"
+log "👤 Compte               : $RYVIE_EMAIL / $RYVIE_PASSWORD"
 log "📋 Log complet          : $LOG_FILE"
 log "═══════════════════════════════════════════════════════════════"
 
@@ -157,10 +212,8 @@ echo ""
 echo "═══════════════════════════════════════════════════════════════"
 echo "✅ Paperclip est installé et prêt !"
 echo ""
-echo "   👉 Ouvre ce lien pour créer ton compte admin :"
-echo "   $invite_url"
-echo ""
 echo "   Interface : http://$netbird_ip:3100"
+echo "   Compte    : $RYVIE_EMAIL / $RYVIE_PASSWORD"
 echo "📋 Log complet : $LOG_FILE"
 echo "═══════════════════════════════════════════════════════════════"
 echo ""
