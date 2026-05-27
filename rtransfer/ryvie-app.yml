@@ -5,7 +5,7 @@ category:
   en: Sharing
 name: rTransfer
 version: "0.0.1"
-buildId: 5
+buildId: 6
 port: 3011
 description:
   fr: "rTransfer est une solution de transfert de fichiers auto-hébergée, sécurisée et facile à utiliser.\nTransférez, partagez et gérez vos fichiers en toute simplicité. Que ce soit pour un usage personnel ou professionnel, rTransfer vous offre une plateforme fiable et accessible.\nCe que vous pouvez faire avec rTransfer :\n- Transférer et organiser vos fichiers\n- Partager des fichiers en toute sécurité\nrTransfer est conçu pour être simple, sécurisé et performant — vos données restent sous votre contrôle."
