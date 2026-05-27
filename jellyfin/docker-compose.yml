@@ -1,6 +1,6 @@
 services:
   jellyfin:
-    image: jellyfin/jellyfin:10.11.8@sha256:1ebca12ee68116ddc6bd38ea01af2db50d6e4cee64a5076981ef75c35709d5e8
+    image: jellyfin/jellyfin:10.11.8
     container_name: app-jellyfin
     ports:
       - 8096:8096

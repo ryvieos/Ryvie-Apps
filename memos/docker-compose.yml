@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   memos:
-    image: neosmemo/memos:0.26.1@sha256:7bf4a85c67fa7d579513c0308f5cd637537076e0937b6b98876d3b5c4d7f1990
+    image: neosmemo/memos:0.26.1
     container_name: app-memos
     ports:
       - "3016:5230"

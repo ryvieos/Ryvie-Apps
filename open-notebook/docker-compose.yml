@@ -1,6 +1,6 @@
 services:
   surrealdb:
-    image: surrealdb/surrealdb:v2.0.4@sha256:e679fe70316f41b5ccb9551f2eb104eaf778330d1f549a3743390453de3a6da5
+    image: surrealdb/surrealdb:v2.0.4
     container_name: app-surrealdb
     volumes:
       - ./surreal_data:/mydata
@@ -13,7 +13,7 @@ services:
       - app-network
  
   open_notebook:
-    image: lfnovo/open_notebook:1.8.4@sha256:6e5b3908e9e9706b70e61721036d4e506fd31f9a7b10f62fba4837d73d46c16a
+    image: lfnovo/open_notebook:1.8.4
     container_name: app-open-notebook
     ports:
       - "8502:8502"
