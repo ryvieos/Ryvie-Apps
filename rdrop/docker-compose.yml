@@ -1,15 +1,15 @@
 services:
   node:
-    image: "julescloud/rdrop-node:v0.0.3"
+    image: julescloud/rdrop-node:v0.1.0
     container_name: app-rdrop-node
     restart: unless-stopped
   nginx:
-    image: "julescloud/rdrop-nginx:v0.0.3"
+    image: julescloud/rdrop-nginx:v0.1.0
     ports:
       - "8080:80"
     environment:
       - FQDN=localhost
     entrypoint: /mnt/openssl/create.sh
-    command: ["nginx", "-g", "daemon off;"]
+    command: [ "nginx", "-g", "daemon off;" ]
     container_name: app-rdrop-nginx
     restart: unless-stopped

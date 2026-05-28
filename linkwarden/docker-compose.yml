@@ -3,7 +3,7 @@ version: "3.7"
 services:
   postgres:
     container_name: app-linkwarden-postgres
-    image: postgres:16-alpine@sha256:0366402213df5db03c47ff80bcc697e92c8be0c213d03c941df1fc42d1ba9560
+    image: postgres:16-alpine
     environment:
       - POSTGRES_PASSWORD=linkwarden
     restart: unless-stopped 
