@@ -4,7 +4,7 @@ category:
   fr: Partage
   en: Sharing
 name: rDrop
-version: "0.0.3"
+version: "0.1.0"
 buildId: 22
 port: 8080
 description:

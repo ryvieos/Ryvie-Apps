@@ -1,10 +1,10 @@
 services:
   node:
-    image: julescloud/rdrop-node:v0.0.3
+    image: julescloud/rdrop-node:v0.1.0
     container_name: app-rdrop-node
     restart: unless-stopped
   nginx:
-    image: julescloud/rdrop-nginx:v0.0.3
+    image: julescloud/rdrop-nginx:v0.1.0
     ports:
       - "8080:80"
     environment:
