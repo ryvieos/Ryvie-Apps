@@ -8,7 +8,7 @@
       "en": "Productivity"
     },
     "version": "0.26.3",
-    "buildId": 13,
+    "buildId": 14,
     "port": 3015,
     "description": {
       "fr": "AFFiNE est une application open-source moderne de prise de notes et de gestion des connaissances, conçue pour remplacer les outils traditionnels de productivité. Elle combine documents, tableaux, blocs de texte et organisation visuelle dans un espace de travail unique, flexible et intuitif.\nPensée pour les individus comme pour les équipes, AFFiNE permet de structurer, relier et faire évoluer vos idées librement, en ligne ou hors ligne. Vos données restent sous votre contrôle grâce à une approche open-source et respectueuse de la vie privée.\nFonctionnalités clés :\n- Prise de notes par blocs (texte, listes, tableaux, etc.)\n- Organisation visuelle et liens entre contenus\n- Travail hors ligne avec synchronisation\n- Collaboration en temps réel\n- Données locales et contrôle total de la confidentialité\n- Projet open-source, transparent et extensible\nAFFiNE est l’outil idéal pour la prise de notes, la gestion de projets, la recherche ou le brainstorming.",
@@ -38,7 +38,7 @@
     },
     "name": "docuseal",
     "version": "2.4.4",
-    "buildId": 26,
+    "buildId": 27,
     "port": 3020,
     "description": {
       "fr": "DocuSeal est une application open-source de signature électronique et de gestion de documents, conçue pour simplifier la validation, le partage et la signature de fichiers en toute sécurité.\nPensée pour les particuliers comme pour les équipes, DocuSeal permet de signer des documents légalement, de suivre leur statut en temps réel et de garder un contrôle total sur vos données grâce à une approche respectueuse de la vie privée.\nFonctionnalités clés :\nSignature électronique simple et sécurisée\nGestion et suivi des documents signés\nFlux de validation clairs et efficaces\nHébergement autonome possible (self-hosted)\nRespect de la confidentialité et conformité\nProjet open-source, transparent et évolutif",
@@ -64,7 +64,7 @@
       "en": "Diagrams"
     },
     "version": "1.10.8",
-    "buildId": 7,
+    "buildId": 8,
     "port": 3012,
     "description": {
       "fr": "FossFLOW vous permet de créer facilement des diagrammes isométriques clairs et élégants.\nVisualisez des systèmes, des flux de travail et des idées dans un style isométrique lisible, directement depuis votre ryvie.\nQue ce soit pour documenter un projet, expliquer un concept ou représenter une architecture, FossFLOW vous aide à vous concentrer sur l’essentiel : la clarté et la créativité, tout en gardant le contrôle de vos données.\nCe que vous pouvez faire avec FossFLOW :\n- Créer rapidement de beaux diagrammes isométriques\n- Visualiser clairement systèmes et flux\n- Travailler directement dans le navigateur\n- Continuer à travailler hors ligne\n- Garder le contrôle de vos données",
@@ -90,7 +90,7 @@
     },
     "name": "jellyfin",
     "version": "10.11.8",
-    "buildId": 4,
+    "buildId": 5,
     "port": [
       8096
     ],
@@ -119,7 +119,7 @@
       "en": "Organization"
     },
     "version": "2.14.0",
-    "buildId": 4,
+    "buildId": 5,
     "port": 3028,
     "description": {
       "fr": "Linkwarden vous permet d’enregistrer, d’organiser et de conserver vos liens importants en un seul endroit sécurisé.\nGardez vos articles, outils et ressources sans craindre les liens cassés ou les contenus supprimés. Linkwarden sauvegarde une copie des pages enregistrées afin que vous puissiez y accéder à tout moment, même si le site d’origine change ou disparaît.\nConçu avec une approche respectueuse de la vie privée, Linkwarden vous aide à créer simplement votre bibliothèque personnelle de connaissances.\nCe que vous pouvez faire avec Linkwarden :\n- Enregistrer et organiser vos liens facilement\n- Accéder à vos contenus à tout moment\n- Conserver une copie des pages sauvegardées\n- Rechercher et gérer votre collection de liens\n- Garder le contrôle de vos données",
@@ -145,7 +145,7 @@
       "en": "Planners"
     },
     "version": "3.14.0",
-    "buildId": 4,
+    "buildId": 5,
     "port": 9091,
     "description": {
       "fr": "Mealie simplifie la gestion des recettes et la planification des repas au quotidien.\nEnregistrez vos recettes préférées, planifiez vos menus de la semaine et générez automatiquement vos listes de courses. Que vous cuisiniez souvent ou occasionnellement, Mealie vous aide à gagner du temps et à mieux vous organiser.\nToutes vos recettes sont centralisées, faciles à retrouver et à adapter selon vos envies.\nCe que vous pouvez faire avec Mealie :\n- Enregistrer et organiser vos recettes\n- Planifier les repas de la semaine\n- Générer automatiquement des listes de courses\n- Gérer votre collection de recettes\n- Cuisiner plus sereinement au quotidien",
@@ -171,7 +171,7 @@
       "en": "Productivity"
     },
     "version": "0.26.1",
-    "buildId": 9,
+    "buildId": 10,
     "port": 3016,
     "description": {
       "fr": "Memos vous permet de capturer, organiser et retrouver vos idées à tout moment.\nPrenez rapidement des notes, des rappels ou des idées et gardez-les bien organisées en un seul endroit. Que ce soit pour le travail, les études ou vos projets personnels, Memos vous aide à ne rien oublier et à rester productif.\nCe que vous pouvez faire avec Memos :\n- Prendre des notes et idées rapidement\n- Organiser vos pensées facilement\n- Accéder à vos notes où que vous soyez\n- Suivre vos tâches, rappels et projets\nMemos est simple, rapide et fiable — votre carnet numérique personnel.",
@@ -197,7 +197,7 @@
     },
     "name": "n8n",
     "version": "2.17.1",
-    "buildId": 7,
+    "buildId": 8,
     "description": {
       "fr": "n8n vous permet d’automatiser vos flux de travail et de connecter vos applications facilement.\nCréez des processus automatisés sans coder, que ce soit pour des tâches simples comme transférer des données entre apps ou pour des workflows complexes impliquant plusieurs services. Avec n8n, vous gagnez du temps, réduisez les tâches répétitives et gardez un contrôle total sur vos données.\nCe que vous pouvez faire avec n8n :\n- Automatiser les tâches entre applications et services\n- Créer des workflows personnalisés sans coder\n- Connecter plus de 200 applications et services\n- Exécuter vos workflows de manière sécurisée sur votre infrastructure\n- Gagner du temps et améliorer votre productivité\nn8n est un outil d’automatisation open-source puissant et flexible pour tous.",
       "en": "n8n lets you automate your workflows and connect your applications easily.\nCreate automated processes without coding, whether for simple tasks like transferring data between apps or complex workflows involving multiple services. With n8n, you save time, reduce repetitive tasks, and keep full control over your data.\nWhat you can do with n8n:\n- Automate tasks between applications and services\n- Create customized workflows without coding\n- Connect more than 200 applications and services\n- Execute your workflows securely on your infrastructure\n- Save time and improve your productivity\nn8n is a powerful and flexible open-source automation tool for everyone."
@@ -222,7 +222,7 @@
     },
     "name": "open-notebook",
     "version": "1.8.4",
-    "buildId": 8,
+    "buildId": 9,
     "description": {
       "fr": "Open Notebook est votre carnet numérique personnel pour capturer idées, notes et recherches au même endroit.\nOrganisez vos pensées, suivez vos projets et accédez à vos notes où que vous soyez. Que ce soit pour les études, le travail ou vos projets personnels, Open Notebook vous aide à rester productif et concentré.\nCe que vous pouvez faire avec Open Notebook :\n- Prendre des notes rapidement et facilement\n- Organiser vos idées et projets\n- Accéder à votre carnet où que vous soyez\n- Suivre vos recherches, tâches et rappels\nOpen Notebook est simple, flexible et open-source — vos idées restent sous votre contrôle.",
       "en": "Open Notebook is your personal digital notebook to capture ideas, notes, and research all in one place.\nOrganize your thoughts, track your projects, and access your notes wherever you are. Whether for study, work, or personal projects, Open Notebook helps you stay productive and focused.\nWhat you can do with Open Notebook:\n- Take notes quickly and easily\n- Organize your ideas and projects\n- Access your notebook wherever you are\n- Track your research, tasks, and reminders\nOpen Notebook is simple, flexible, and open-source — your ideas remain under your control."
@@ -246,8 +246,8 @@
       "en": "Storage"
     },
     "name": "rDrive",
-    "version": "0.0.5",
-    "buildId": 26,
+    "version": "0.0.6",
+    "buildId": 28,
     "port": 3010,
     "sso": true,
     "description": {
@@ -297,8 +297,8 @@
       "en": "Storage"
     },
     "name": "rPictures",
-    "version": "2.0.0",
-    "buildId": 17,
+    "version": "2.0.1",
+    "buildId": 19,
     "sso": true,
     "port": 3013,
     "description": {
@@ -324,7 +324,7 @@
     },
     "name": "rTransfer",
     "version": "0.0.1",
-    "buildId": 5,
+    "buildId": 6,
     "port": 3011,
     "description": {
       "fr": "rTransfer est une solution de transfert de fichiers auto-hébergée, sécurisée et facile à utiliser.\nTransférez, partagez et gérez vos fichiers en toute simplicité. Que ce soit pour un usage personnel ou professionnel, rTransfer vous offre une plateforme fiable et accessible.\nCe que vous pouvez faire avec rTransfer :\n- Transférer et organiser vos fichiers\n- Partager des fichiers en toute sécurité\nrTransfer est conçu pour être simple, sécurisé et performant — vos données restent sous votre contrôle.",
@@ -350,7 +350,7 @@
       "en": "Security"
     },
     "version": "1.35.7",
-    "buildId": 15,
+    "buildId": 16,
     "port": 3024,
     "description": {
       "fr": "Vaultwarden sécurise tous vos mots de passe et informations sensibles en un seul endroit.\nEnregistrez, organisez et accédez facilement à vos identifiants, notes sécurisées et autres données privées. Avec Vaultwarden, vous gardez le contrôle total de vos informations — sans publicité, sans suivi et entièrement open-source. Accédez à votre coffre depuis tous vos appareils, où que vous soyez, en toute sécurité.\nCe que vous pouvez faire avec Vaultwarden :\n- Stocker et gérer vos mots de passe en toute sécurité\n- Enregistrer vos notes et informations sensibles\n- Accéder à votre coffre depuis tous vos appareils\n- Protéger vos données grâce au chiffrement de bout en bout\n- Garder le contrôle total de vos informations privées\nVaultwarden est une solution simple, sécurisée et open-source pour gérer votre vie numérique.",
