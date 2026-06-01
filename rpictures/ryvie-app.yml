@@ -4,8 +4,8 @@ category:
   fr: Stockage
   en: Storage
 name: rPictures
-version: "2.0.0"
-buildId: 18
+version: "2.0.1"
+buildId: 19
 sso: true
 port: 3013
 description:
