@@ -7,6 +7,7 @@ NETBIRD_INTERFACE="wt0"
 RYVIE_EMAIL="ryvie@ryvie.fr"
 RYVIE_PASSWORD="changeme1234"
 RYVIE_NAME="ryvie"
+RYVIE_CLAUDE_DIR="/home/ryvie/.claude"
 
 mkdir -p /data/logs
 mkdir -p "$PAPERCLIP_DIR"
@@ -46,6 +47,11 @@ log "   ✅ Fichier .env créé"
 log "🔐 Application des permissions..."
 mkdir -p "$PAPERCLIP_DIR/data/paperclip"
 sudo chown -R 1000:1000 "$PAPERCLIP_DIR/data/paperclip"
+# Le dossier .claude de l'hôte est monté dans le container (auth Claude Code).
+# On s'assure qu'il existe et appartient à uid 1000 AVANT le démarrage,
+# sinon Docker le créerait en root et casserait l'accès (hôte + agent).
+mkdir -p "$RYVIE_CLAUDE_DIR"
+sudo chown 1000:1000 "$RYVIE_CLAUDE_DIR"
 log "   ✅ Permissions appliquées"
 
 # 5. Pull des images
