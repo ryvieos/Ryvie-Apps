@@ -58,6 +58,7 @@ LDAP_ADMIN_GROUP=admins
 LDAP_EMAIL_ATTRIBUTE=mail
 LDAP_NAME_ATTRIBUTE=cn
 LDAP_PASSWORD_ATTRIBUTE=userPassword
+OAUTH_ISSUER_URL=http://ryvie.local/auth/realms/ryvie
 EOF
 
 echo "✅ Fichier .env créé."

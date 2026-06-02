@@ -3,7 +3,7 @@ name: rpictures
 services:
   rpictures-server:
     container_name: app-rpictures-server
-    image: julescloud/rpictures-server:v2.0.6
+    image: julescloud/rpictures-server:v2.0.7
     # extends:
     #   file: hwaccel.transcoding.yml
     #   service: cpu # set to one of [nvenc, quicksync, rkmpp, vaapi, vaapi-wsl] for accelerated transcoding
@@ -33,7 +33,7 @@ services:
     container_name: app-rpictures-machine-learning
     # For hardware acceleration, add one of -[armnn, cuda, rocm, openvino, rknn] to the image tag.
     # Example tag: ${IMMICH_VERSION:-release}-cuda
-    image: julescloud/rpictures-machine-learning:v2.0.2
+    image: julescloud/rpictures-machine-learning:v2.0.3
     # extends: # uncomment this section for hardware acceleration - see https://docs.immich.app/features/ml-hardware-acceleration
     #   file: hwaccel.ml.yml
     #   service: cpu # set to one of [armnn, cuda, rocm, openvino, openvino-wsl, rknn] for accelerated inference - use the `-wsl` version for WSL2 where applicable
@@ -50,7 +50,7 @@ services:
 
   redis:
     container_name: app-rpictures-redis
-    image: docker.io/valkey/valkey:8
+    image: docker.io/valkey/valkey:9
     healthcheck:
       test: redis-cli ping || exit 1
     restart: unless-stopped

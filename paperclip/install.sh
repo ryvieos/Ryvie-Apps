@@ -4,9 +4,10 @@ set -euo pipefail
 PAPERCLIP_DIR="/data/apps/paperclip"
 LOG_FILE="/data/logs/install-paperclip-$(date +%Y%m%d-%H%M%S).log"
 NETBIRD_INTERFACE="wt0"
-RYVIE_EMAIL="ryvie@ryvie.local"
-RYVIE_PASSWORD="ryvie1234"
+RYVIE_EMAIL="ryvie@ryvie.fr"
+RYVIE_PASSWORD="changeme1234"
 RYVIE_NAME="ryvie"
+RYVIE_CLAUDE_DIR="/home/ryvie/.claude"
 
 mkdir -p /data/logs
 mkdir -p "$PAPERCLIP_DIR"
@@ -46,6 +47,11 @@ log "   ✅ Fichier .env créé"
 log "🔐 Application des permissions..."
 mkdir -p "$PAPERCLIP_DIR/data/paperclip"
 sudo chown -R 1000:1000 "$PAPERCLIP_DIR/data/paperclip"
+# Le dossier .claude de l'hôte est monté dans le container (auth Claude Code).
+# On s'assure qu'il existe et appartient à uid 1000 AVANT le démarrage,
+# sinon Docker le créerait en root et casserait l'accès (hôte + agent).
+mkdir -p "$RYVIE_CLAUDE_DIR"
+sudo chown 1000:1000 "$RYVIE_CLAUDE_DIR"
 log "   ✅ Permissions appliquées"
 
 # 5. Pull des images
@@ -123,7 +129,7 @@ sudo docker compose up -d server
 # 11. Attendre que le serveur soit prêt
 log "⏳ Attente du serveur Paperclip..."
 retries=30
-until sudo docker exec paperclip-server-1 curl -sf http://localhost:3100/api/health &>/dev/null; do
+until sudo docker exec app-paperclip-server curl -sf http://localhost:3100/api/health &>/dev/null; do
     sleep 3
     retries=$((retries-1))
     if [ $retries -eq 0 ]; then
@@ -137,7 +143,7 @@ log "✅ Serveur Paperclip prêt"
 log "-----------------------------------------------------"
 log "🔑 Génération du token d'invitation admin..."
 log "-----------------------------------------------------"
-invite_output=$(sudo docker exec paperclip-server-1 sh -c \
+invite_output=$(sudo docker exec app-paperclip-server sh -c \
     "cd /app && node cli/node_modules/tsx/dist/cli.mjs cli/src/index.ts auth bootstrap-ceo --base-url http://$netbird_ip:3100")
 invite_url=$(echo "$invite_output" | grep -oP 'http://\S+')
 invite_token=$(echo "$invite_url" | grep -oP 'pcp_bootstrap_\S+')
@@ -149,7 +155,7 @@ log "   Token d'invite: $invite_token"
 
 # 13. Créer le compte ryvie (ignoré si déjà existant)
 log "👤 Création du compte ryvie..."
-signup_http=$(sudo docker exec paperclip-server-1 curl -s -o /dev/null -w "%{http_code}" \
+signup_http=$(sudo docker exec app-paperclip-server curl -s -o /dev/null -w "%{http_code}" \
     -X POST http://localhost:3100/api/auth/sign-up/email \
     -H "Content-Type: application/json" \
     -d "{\"name\":\"$RYVIE_NAME\",\"email\":\"$RYVIE_EMAIL\",\"password\":\"$RYVIE_PASSWORD\"}")
@@ -164,7 +170,7 @@ fi
 # 14. Se connecter et récupérer la valeur du cookie de session
 # FIX: le regex extrait uniquement la VALEUR du cookie (après le =), pas "nom=valeur"
 log "🔐 Connexion au compte ryvie..."
-session_cookie=$(sudo docker exec paperclip-server-1 curl -s -i \
+session_cookie=$(sudo docker exec app-paperclip-server curl -s -i \
     -X POST http://localhost:3100/api/auth/sign-in/email \
     -H "Content-Type: application/json" \
     -d "{\"email\":\"$RYVIE_EMAIL\",\"password\":\"$RYVIE_PASSWORD\"}" \
@@ -178,7 +184,7 @@ log "   ✅ Session récupérée"
 
 # 15. Accepter l'invite bootstrap (devient CEO)
 log "👑 Attribution du rôle CEO..."
-accept_response=$(sudo docker exec paperclip-server-1 curl -s \
+accept_response=$(sudo docker exec app-paperclip-server curl -s \
     -X POST "http://localhost:3100/api/invites/$invite_token/accept" \
     -H "Content-Type: application/json" \
     -H "Origin: http://$netbird_ip:3100" \

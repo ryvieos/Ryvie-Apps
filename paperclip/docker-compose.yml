@@ -1,5 +1,8 @@
+name: paperclip
+
 services:
   db:
+    container_name: app-paperclip-db
     image: postgres:17-alpine
     restart: unless-stopped
     environment:
@@ -15,6 +18,7 @@ services:
       - ./data/pgdata:/var/lib/postgresql/data
 
   server:
+    container_name: app-paperclip-server
     image: tuyenvd/paperclip:latest
     restart: unless-stopped
     ports:
@@ -32,6 +36,9 @@ services:
       BETTER_AUTH_URL: "${PAPERCLIP_URL_BASE}:3100"
     volumes:
       - ./data/paperclip:/paperclip
+      # Auth Claude Code : monte la session claude de l'hôte (uid 1000 = node).
+      # Vue live : un /login sur l'hôte est visible immédiatement par l'agent, sans redémarrer.
+      - /home/ryvie/.claude:/paperclip/.claude
     depends_on:
       db:
         condition: service_healthy
