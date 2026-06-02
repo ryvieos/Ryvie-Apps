@@ -1,5 +1,8 @@
+name: paperclip
+
 services:
   db:
+    container_name: app-paperclip-db
     image: postgres:17-alpine
     restart: unless-stopped
     environment:
@@ -15,6 +18,7 @@ services:
       - ./data/pgdata:/var/lib/postgresql/data
 
   server:
+    container_name: app-paperclip-server
     image: tuyenvd/paperclip:latest
     restart: unless-stopped
     ports:
