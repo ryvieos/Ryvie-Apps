@@ -1,12 +1,27 @@
 version: '3.9'
  
 services:
-  web: 
+  # Reverse-proxy nginx : expose AFFiNE et injecte le CSS qui masque
+  # le bandeau "données locales" (voir nginx.conf).
+  proxy:
+    image: nginx:alpine
+    container_name: app-affine-proxy
+    restart: unless-stopped
+    ports:
+      - "3015:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - web
+    networks:
+      - affine-network
+
+  web:
     image: ghcr.io/toeverything/affine:0.26.3
     container_name: app-affine-web
     restart: unless-stopped
-    ports:
-      - "3015:3010"
+    expose:
+      - "3010"
     environment:
       REDIS_SERVER_HOST: redis
       DATABASE_URL: postgres://affine:affine@db:5432/affine
