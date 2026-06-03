@@ -43,6 +43,18 @@ log "-----------------------------------------------------"
 log "🐳 Téléchargement des images Docker..."
 log "-----------------------------------------------------"
 cd "$AFFINE_DIR"
+
+# 2bis. URL externe d'AFFiNE (indispensable). Sans elle, AFFiNE garde "localhost"
+# comme origine autorisée et BLOQUE en CORS toutes les requêtes venant de
+# http://<ip>:3015 -> la synchronisation des workspaces cloud échoue silencieusement
+# (l'import dit "OK" mais rien n'arrive sur le serveur). Le compose lit cette
+# variable via .env (AFFINE_SERVER_EXTERNAL_URL).
+cat > "$AFFINE_DIR/.env" << ENVEOF
+# Généré par install.sh — ne pas modifier manuellement
+AFFINE_SERVER_EXTERNAL_URL=${base_url}
+ENVEOF
+log "📝 .env écrit (AFFINE_SERVER_EXTERNAL_URL=${base_url})"
+
 sudo docker compose pull || true
 
 # 3. Démarrer la stack (db + redis + migration -> puis web)

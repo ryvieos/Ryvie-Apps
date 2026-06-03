@@ -26,6 +26,10 @@ services:
       REDIS_SERVER_HOST: redis
       DATABASE_URL: postgres://affine:affine@db:5432/affine
       NODE_ENV: production
+      # URL externe réelle (écrite dans .env par install.sh avec l'IP NetBird).
+      # Indispensable : sinon AFFiNE bloque en CORS les requêtes du navigateur
+      # et la synchro des workspaces cloud échoue.
+      AFFINE_SERVER_EXTERNAL_URL: ${AFFINE_SERVER_EXTERNAL_URL:-}
     volumes:
       - ./data/config:/root/.affine/config
       - ./data/storage/blob:/root/.affine/storage
