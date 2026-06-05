@@ -5,7 +5,7 @@ category:
   en: Storage
 name: rDrive
 version: "0.0.6"
-buildId: 28
+buildId: 29
 port: 3010
 sso: true
 description:
