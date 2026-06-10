@@ -17,7 +17,10 @@ mkdir -p "$N8N_DIR"
 lan_ip=$(hostname -I 2>/dev/null | awk '{print $1}')
 netbird_ip=$(ip addr show "$NETBIRD_INTERFACE" 2>/dev/null \
              | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -n1 || true)
-[ -z "$netbird_ip" ] && netbird_ip="$lan_ip"
+# NB: un `[ -z ] && ...` casserait avec `set -e` quand le test est faux. On utilise un if.
+if [ -z "$netbird_ip" ]; then
+  netbird_ip="$lan_ip"
+fi
 
 base_url="http://${netbird_ip}:${PORT}"
 
