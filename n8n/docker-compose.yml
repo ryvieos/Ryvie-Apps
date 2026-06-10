@@ -25,5 +25,16 @@ services:
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
       - N8N_RUNNERS_ENABLED=true
       - N8N_SECURE_COOKIE=false
+      # URL externe (liens d'invitation/setup + webhooks) — écrite dans .env par install.sh
+      - N8N_EDITOR_BASE_URL=${N8N_EDITOR_BASE_URL:-}
+      - WEBHOOK_URL=${N8N_EDITOR_BASE_URL:-}
+    # Healthcheck : l'app n'est « healthy » (icône verte) que quand /healthz répond.
+    # Évite le « running mais gris » (conteneur up mais app pas encore prête).
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://localhost:5678/healthz || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 15s
     volumes:
       - ./data:/home/node/.n8n

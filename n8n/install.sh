@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+# Installation n8n pour Ryvie — exécuté UNE fois au premier install.
+# Écrit l'URL externe (IP NetBird) dans .env pour que les liens d'invitation
+# et de setup n8n soient accessibles (sinon n8n utilise http://localhost:5678,
+# inatteignable depuis un autre appareil).
+#
+set -euo pipefail
+
+N8N_DIR="/data/apps/n8n"
+NETBIRD_INTERFACE="wt0"
+PORT="5678"
+
+mkdir -p "$N8N_DIR"
+
+# IP LAN (repli) et IP NetBird (URL externe canonique, comme affine)
+lan_ip=$(hostname -I 2>/dev/null | awk '{print $1}')
+netbird_ip=$(ip addr show "$NETBIRD_INTERFACE" 2>/dev/null \
+             | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -n1 || true)
+[ -z "$netbird_ip" ] && netbird_ip="$lan_ip"
+
+base_url="http://${netbird_ip}:${PORT}"
+
+cat > "$N8N_DIR/.env" << ENVEOF
+# Généré automatiquement par install.sh — ne pas modifier
+LOCAL_IP=${lan_ip}
+N8N_EDITOR_BASE_URL=${base_url}
+ENVEOF
+
+echo "[n8n install] .env écrit (N8N_EDITOR_BASE_URL=${base_url})"

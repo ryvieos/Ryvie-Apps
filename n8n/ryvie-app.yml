@@ -33,3 +33,10 @@ accounts:
       path: /rest/login
       body: '{"emailOrLdapLoginId":"{email}","password":"{password}"}'
       okCodes: [200]
+  # Récupération d'accès si mdp perdu : commande CLI native de n8n.
+  # Non destructif (workflows/credentials conservés) ; n8n doit redémarrer ensuite.
+  ownerReset:
+    container: app-n8n
+    cmd: ["n8n", "user-management:reset"]
+    restart: true
+    message: "Accès n8n réinitialisé. Rouvrez n8n pour recréer votre compte propriétaire."
