@@ -31,3 +31,9 @@ N8N_EDITOR_BASE_URL=${base_url}
 ENVEOF
 
 echo "[n8n install] .env écrit (N8N_EDITOR_BASE_URL=${base_url})"
+
+# Démarrer la stack : quand un install.sh existe, Ryvie ne lance PAS docker compose
+# lui-même — c'est à ce script de le faire (comme affine/paperclip).
+cd "$N8N_DIR"
+docker compose up -d
+echo "[n8n install] stack n8n démarrée"
