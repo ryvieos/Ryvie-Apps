@@ -18,3 +18,13 @@ gallery:
   - image1.png
   - image2.png
   - image3.png
+accounts:
+  strategy: rails-devise
+  container: app-docuseal
+  workingDir: /app
+  # Compte par défaut créé par Ryvie à l'install (docuseal n'a pas de défaut embarqué)
+  default:
+    email: ryvie@ryvie.fr
+    username: ryvie
+    password: changeme1234
+    provision: adapter

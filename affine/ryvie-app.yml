@@ -21,3 +21,18 @@ gallery:
 architectures:
   - amd64
   - arm64
+accounts:
+  # AFFiNE hache en argon2id sans secret : on génère le hash dans le conteneur
+  # affine (sa propre lib) puis on l'écrit en base. Aucun identifiant admin requis.
+  strategy: affine-argon2
+  dbContainer: app-affine-database
+  appContainer: app-affine-web
+  db:
+    user: affine
+    name: affine
+  # Compte par défaut créé par install.sh (create-admin-user)
+  default:
+    email: ryvie@ryvie.fr
+    username: ryvie
+    password: changeme1234
+    provision: installScript

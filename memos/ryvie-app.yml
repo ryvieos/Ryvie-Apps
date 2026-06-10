@@ -18,3 +18,19 @@ gallery:
   - image1.png
   - image2.png
   - image3.png
+accounts:
+  # memos (Go) : image sans python/sqlite → pas de stratégie list/reset DB.
+  # Compte par défaut provisionné et détecté via l'API de memos.
+  default:
+    username: ryvie
+    password: changeme1234
+    provision: api
+    # Appels HTTP faits par le backend vers le port publié (mainPort) de l'app.
+    signup:
+      path: /api/v1/users
+      body: '{"username":"{username}","password":"{password}","role":"HOST"}'
+      okCodes: [200]
+    login:
+      path: /api/v1/auth/signin
+      body: '{"passwordCredentials":{"username":"{username}","password":"{password}"}}'
+      okCodes: [200]

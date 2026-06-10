@@ -18,3 +18,24 @@ gallery:
   - image1.png
   - image2.png
   - image3.png
+accounts:
+  strategy: bcrypt-sqlite
+  container: app-mealie
+  dbPath: /app/data/mealie.db
+  table: users
+  columns:
+    id: id
+    email: email
+    username: username
+    password: password
+    admin: admin
+  # Déverrouille le compte au reset (mealie verrouille après N échecs)
+  clearOnReset:
+    login_attemps: 0
+    locked_at: null
+  # Compte par défaut embarqué par l'image mealie au 1er démarrage
+  default:
+    email: changeme@example.com
+    username: admin
+    password: MyPassword
+    provision: shipped

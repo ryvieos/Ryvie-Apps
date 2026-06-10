@@ -19,3 +19,14 @@ gallery:
   - image2.png
   - image3.png
   - image4.png
+accounts:
+  # Compte par défaut créé par install.sh (better-auth sign-up). Détection via login.
+  default:
+    email: ryvie@ryvie.fr
+    username: ryvie
+    password: changeme1234
+    provision: installScript
+    login:
+      path: /api/auth/sign-in/email
+      body: '{"email":"{email}","password":"{password}"}'
+      okCodes: [200]
