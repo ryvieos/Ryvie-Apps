@@ -20,10 +20,10 @@ gallery:
 accounts:
   # n8n (image sans curl) : provisioning + détection via son API (appels backend).
   default:
-    email: ryvie@ryvie.fr
-    username: ryvie
-    # n8n impose une majuscule + un chiffre dans le mot de passe.
-    password: Changeme1234
+    email: changeme@ryvie.fr
+    username: changeme
+    # n8n impose une majuscule + un chiffre (Changeme1234! convient).
+    password: "Changeme1234!"
     provision: api
     signup:
       path: /rest/owner/setup

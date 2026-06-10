@@ -24,9 +24,9 @@ API_BASE="http://localhost:${AFFINE_PORT}"
 COOKIE_JAR="$(mktemp /tmp/affine-cookies.XXXXXX)"
 
 # Compte admin par défaut (à changer après la première connexion)
-RYVIE_EMAIL="ryvie@ryvie.fr"
-RYVIE_PASSWORD="changeme1234"
-RYVIE_NAME="ryvie"
+RYVIE_EMAIL="changeme@ryvie.fr"
+RYVIE_PASSWORD='Changeme1234!'
+RYVIE_NAME="changeme"
 
 # ─── Utilitaires ────────────────────────────────────────────────────────────
 mkdir -p /data/logs "$AFFINE_DIR"

@@ -33,9 +33,11 @@ accounts:
   clearOnReset:
     login_attemps: 0
     locked_at: null
-  # Compte par défaut embarqué par l'image mealie au 1er démarrage
+  # mealie embarque un compte changeme@example.com/MyPassword au 1er démarrage.
+  # On le transforme en compte uniforme Ryvie (email + mdp) via sql-update.
   default:
-    email: changeme@example.com
-    username: admin
-    password: MyPassword
-    provision: shipped
+    email: changeme@ryvie.fr
+    username: changeme
+    password: "Changeme1234!"
+    provision: sql-update
+    shippedEmail: changeme@example.com

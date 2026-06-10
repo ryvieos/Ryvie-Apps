@@ -32,7 +32,7 @@ accounts:
     name: affine
   # Compte par défaut créé par install.sh (create-admin-user)
   default:
-    email: ryvie@ryvie.fr
-    username: ryvie
-    password: changeme1234
+    email: changeme@ryvie.fr
+    username: changeme
+    password: "Changeme1234!"
     provision: installScript
