@@ -23,6 +23,12 @@ services:
       - DATABASE_URL=postgresql://postgres:linkwarden@postgres:5432/postgres
       - NEXTAUTH_URL=http://ryvie.local:3028/api/v1/auth
       - NEXTAUTH_SECRET=linkwarden
+      # IA centrale Ryvie — renseigné quand l'app est connectée (Réglages → IA).
+      # Active l'auto-tagging par IA ; vides par défaut → fonction désactivée.
+      - NEXT_PUBLIC_OPENAI=${NEXT_PUBLIC_OPENAI:-}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - OPENAI_BASE_URL=${OPENAI_BASE_URL:-}
+      - OPENAI_MODEL=${OPENAI_MODEL:-}
     restart: unless-stopped
     volumes:
       - ./data/app:/data/data

@@ -17,3 +17,17 @@ gallery:
   - icon.png
   - image1.png
   - image2.png
+
+# Point central IA Ryvie. open-notebook a son propre registre de modèles : l'env
+# rend le provider "disponible", mais la connexion réelle (credential + modèle +
+# défauts) se fait via son API → décrite dans ai/connect.sh (hook).
+ai:
+  set:
+    apiKey: OPENAI_API_KEY
+    baseUrl: OPENAI_BASE_URL
+  generateEnv:
+    - OPEN_NOTEBOOK_ENCRYPTION_KEY   # requis pour stocker les credentials (généré 1x)
+  restart: true
+  hooks:
+    connect: ai/connect.sh
+    disconnect: ai/disconnect.sh

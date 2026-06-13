@@ -17,6 +17,14 @@ gallery:
   - icon.png
   - image1.png
   - image2.png
+# Point central IA Ryvie. n8n ne lit AUCUNE variable d'env pour ses credentials :
+# tout passe par son API (le hook se logue avec le compte propriétaire et crée une
+# credential OpenAI → LiteLLM). Pas d'injection env, pas de redémarrage.
+ai:
+  restart: false
+  hooks:
+    connect: ai/connect.sh
+    disconnect: ai/disconnect.sh
 accounts:
   # n8n (image sans curl) : provisioning + détection via son API (appels backend).
   default:

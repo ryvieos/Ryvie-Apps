@@ -19,3 +19,14 @@ gallery:
   - image1.png
   - image2.png
   - image3.png
+
+# Point central IA Ryvie : auto-tagging par IA. NEXT_PUBLIC_OPENAI=true active la
+# fonction côté UI ; la base LiteLLM + master key + modèle sont injectés à la connexion.
+ai:
+  set:
+    apiKey: OPENAI_API_KEY
+    baseUrl: OPENAI_BASE_URL
+    model: OPENAI_MODEL
+  extraEnv:
+    NEXT_PUBLIC_OPENAI: "true"
+  restart: true

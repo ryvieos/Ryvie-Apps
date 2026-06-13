@@ -30,6 +30,10 @@ services:
       # Indispensable : sinon AFFiNE bloque en CORS les requêtes du navigateur
       # et la synchro des workspaces cloud échoue.
       AFFINE_SERVER_EXTERNAL_URL: ${AFFINE_SERVER_EXTERNAL_URL:-}
+      # IA centrale Ryvie (Copilot) — injecté quand l'app est connectée (Réglages → IA).
+      # Vides par défaut : Copilot reste inactif tant qu'aucune clé n'est posée.
+      COPILOT_OPENAI_API_KEY: ${COPILOT_OPENAI_API_KEY:-}
+      COPILOT_OPENAI_BASE_URL: ${COPILOT_OPENAI_BASE_URL:-}
     volumes:
       - ./data/config:/root/.affine/config
       - ./data/storage/blob:/root/.affine/storage

@@ -21,6 +21,13 @@ gallery:
 architectures:
   - amd64
   - arm64
+# Point central IA Ryvie (Copilot AFFiNE) : clé + base LiteLLM injectées à la
+# connexion. Note : Copilot doit aussi être activé dans l'espace de travail AFFiNE.
+ai:
+  set:
+    apiKey: COPILOT_OPENAI_API_KEY
+    baseUrl: COPILOT_OPENAI_BASE_URL
+  restart: true
 accounts:
   # AFFiNE hache en argon2id sans secret : on génère le hash dans le conteneur
   # affine (sa propre lib) puis on l'écrit en base. Aucun identifiant admin requis.

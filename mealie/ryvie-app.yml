@@ -41,3 +41,12 @@ accounts:
     password: "Changeme1234!"
     provision: sql-update
     shippedEmail: changeme@example.com
+
+# Point central IA Ryvie : variables d'env renseignées quand l'app est connectée
+# (Réglages → IA). Ryvie y injecte la base LiteLLM + la master key + le modèle.
+ai:
+  set:
+    apiKey: OPENAI_API_KEY
+    baseUrl: OPENAI_BASE_URL
+    model: OPENAI_MODEL
+  restart: true
