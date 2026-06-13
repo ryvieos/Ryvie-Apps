@@ -5,7 +5,7 @@ category:
   en: Productivity
 name: open-notebook
 version: 1.8.4
-buildId: 9
+buildId: 10
 description:
   fr: "Open Notebook est votre carnet numérique personnel pour capturer idées, notes et recherches au même endroit.\nOrganisez vos pensées, suivez vos projets et accédez à vos notes où que vous soyez. Que ce soit pour les études, le travail ou vos projets personnels, Open Notebook vous aide à rester productif et concentré.\nCe que vous pouvez faire avec Open Notebook :\n- Prendre des notes rapidement et facilement\n- Organiser vos idées et projets\n- Accéder à votre carnet où que vous soyez\n- Suivre vos recherches, tâches et rappels\nOpen Notebook est simple, flexible et open-source — vos idées restent sous votre contrôle."
   en: "Open Notebook is your personal digital notebook to capture ideas, notes, and research all in one place.\nOrganize your thoughts, track your projects, and access your notes wherever you are. Whether for study, work, or personal projects, Open Notebook helps you stay productive and focused.\nWhat you can do with Open Notebook:\n- Take notes quickly and easily\n- Organize your ideas and projects\n- Access your notebook wherever you are\n- Track your research, tasks, and reminders\nOpen Notebook is simple, flexible, and open-source — your ideas remain under your control."
@@ -17,7 +17,6 @@ gallery:
   - icon.png
   - image1.png
   - image2.png
-
 # Point central IA Ryvie. open-notebook a son propre registre de modèles : l'env
 # rend le provider "disponible", mais la connexion réelle (credential + modèle +
 # défauts) se fait via son API → décrite dans ai/connect.sh (hook).
@@ -26,7 +25,7 @@ ai:
     apiKey: OPENAI_API_KEY
     baseUrl: OPENAI_BASE_URL
   generateEnv:
-    - OPEN_NOTEBOOK_ENCRYPTION_KEY   # requis pour stocker les credentials (généré 1x)
+    - OPEN_NOTEBOOK_ENCRYPTION_KEY # requis pour stocker les credentials (généré 1x)
   restart: true
   hooks:
     connect: ai/connect.sh
