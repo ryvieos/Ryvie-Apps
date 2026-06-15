@@ -1,8 +1,8 @@
 manifestVersion: 1
 id: hermes
 category:
-  fr: IA
-  en: AI
+  fr: Intelligence Artificielle
+  en: Artificial Intelligence
 name: Hermes
 version: "0.51.430"
 buildId: 1
@@ -61,5 +61,3 @@ accounts:
       port: 9119
       body: '{"provider":"basic","username":"{username}","password":"{password}"}'
       okCodes: [200]
-
-# Re-génération du catalogue : icône gallery hermes désormais publiée sur main.
