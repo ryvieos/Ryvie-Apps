@@ -5,7 +5,7 @@ category:
   en: AI
 name: Hermes
 version: "0.51.430"
-buildId: 2
+buildId: 3
 port: 9119
 description:
   fr: "Hermes est un agent IA auto-améliorant (développé par Nous Research) accompagné de son interface web. Contrairement à un simple chatbot, Hermes possède une boucle d'apprentissage : il crée des compétences à partir de son expérience, les affine au fil de l'usage, mémorise les connaissances importantes, recherche dans ses conversations passées et construit une compréhension de plus en plus fine de vos besoins au fil des sessions.\nL'interface web vous donne une parité quasi totale avec l'agent en ligne de commande, accessible depuis votre navigateur ou votre mobile :\n- Chat en streaming (réponses en temps réel)\n- Sessions persistantes avec recherche, archivage et organisation par projet\n- Navigateur de fichiers de l'espace de travail avec aperçu\n- Planification de tâches récurrentes (cron)\n- Support multi-fournisseurs (OpenAI, Anthropic, Google, OpenRouter…)\n- Saisie vocale et design adapté au mobile\nVos données et votre mémoire restent hébergées localement sur votre Ryvie."
