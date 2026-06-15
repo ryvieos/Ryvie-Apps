@@ -1,8 +1,8 @@
 manifestVersion: 1
 id: paperclip
 category:
-  fr: Intelligence Artificielle
-  en: Artificial Intelligence
+  fr: IA
+  en: AI
 name: Paperclip
 version: "0.3.1"
 buildId: 5

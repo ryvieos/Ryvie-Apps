@@ -1,8 +1,8 @@
 manifestVersion: 1
 id: hermes
 category:
-  fr: Intelligence Artificielle
-  en: Artificial Intelligence
+  fr: IA
+  en: AI
 name: Hermes
 version: "0.51.430"
 buildId: 2
