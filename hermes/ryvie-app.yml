@@ -1,0 +1,63 @@
+manifestVersion: 1
+id: hermes
+category:
+  fr: IA
+  en: AI
+name: Hermes
+version: "0.51.430"
+buildId: 3
+port: 9119
+description:
+  fr: "Hermes est un agent IA auto-améliorant (développé par Nous Research) accompagné de son interface web. Contrairement à un simple chatbot, Hermes possède une boucle d'apprentissage : il crée des compétences à partir de son expérience, les affine au fil de l'usage, mémorise les connaissances importantes, recherche dans ses conversations passées et construit une compréhension de plus en plus fine de vos besoins au fil des sessions.\nL'interface web vous donne une parité quasi totale avec l'agent en ligne de commande, accessible depuis votre navigateur ou votre mobile :\n- Chat en streaming (réponses en temps réel)\n- Sessions persistantes avec recherche, archivage et organisation par projet\n- Navigateur de fichiers de l'espace de travail avec aperçu\n- Planification de tâches récurrentes (cron)\n- Support multi-fournisseurs (OpenAI, Anthropic, Google, OpenRouter…)\n- Saisie vocale et design adapté au mobile\nVos données et votre mémoire restent hébergées localement sur votre Ryvie."
+  en: "Hermes is a self-improving AI agent (built by Nous Research) bundled with its web interface. Unlike a plain chatbot, Hermes has a built-in learning loop: it creates skills from experience, refines them during use, persists important knowledge, searches its own past conversations, and builds a deepening model of your needs across sessions.\nThe web interface gives you near 1:1 parity with the command-line agent, accessible from your browser or phone:\n- Streaming chat (real-time responses)\n- Persistent sessions with search, archiving and project organization\n- Workspace file browser with inline previews\n- Scheduled recurring tasks (cron)\n- Multi-provider support (OpenAI, Anthropic, Google, OpenRouter…)\n- Voice input and mobile-responsive design\nYour data and memory stay hosted locally on your Ryvie."
+tagline:
+  fr: "Un agent IA qui apprend de vous, avec interface web"
+  en: "A self-improving AI agent, with a web interface"
+gallery:
+  - icon.png
+  - image1.png
+  - image2.png
+  - image3.png
+# Connexion au point IA central de Ryvie (LiteLLM, OpenAI-compatible).
+# Hermes lit sa config LLM dans ~/.hermes/config.yaml (volume partagé) : le hook
+# connect y écrit un provider « custom » pointant vers LiteLLM (base + master key
+# + modèle stable « ryvie-ai »), puis redémarre l'agent. restart:false → on
+# ne recrée pas la stack, le hook gère le rechargement.
+ai:
+  restart: false
+  # Le hook (connect/disconnect/changement de modèle) fait `docker restart` de
+  # l'agent — le gateway relit config.yaml au démarrage. On le déclare pour que
+  # l'UI prévienne d'un redémarrage, même si Ryvie ne recrée pas la stack lui-même.
+  hookRestarts: true
+  # Conteneur rattaché au réseau de LiteLLM pour résoudre `ryvie-litellm` (DNS).
+  # Le dashboard web natif tourne dans ce même conteneur agent.
+  containers:
+    - app-hermes-agent
+  hooks:
+    connect: ai/connect.sh
+    disconnect: ai/disconnect.sh
+# Auth : le dashboard web natif est protégé par identifiant + mot de passe via le
+# provider natif `basic` (cf. HERMES_DASHBOARD_BASIC_AUTH_* dans docker-compose.yml).
+# Les identifiants vivent dans .env → Ryvie peut réinitialiser le mot de passe.
+accounts:
+  # Stratégie `hermes-dashboard` (cf. appAccountsService) : un seul compte (le
+  # provider basic n'a pas de multi-utilisateurs). Le reset réécrit la variable
+  # HERMES_DASHBOARD_BASIC_AUTH_PASSWORD dans .env puis recrée le conteneur pour
+  # que le dashboard relise le nouveau mot de passe. → menu « Gérer les comptes ».
+  strategy: hermes-dashboard
+  accountLabel: admin
+  # Variable de .env à réécrire lors d'une réinitialisation.
+  passwordVar: HERMES_DASHBOARD_BASIC_AUTH_PASSWORD
+  # La recréation du conteneur = redémarrage → on prévient l'UI.
+  resetRestarts: true
+  default:
+    username: admin
+    password: "Changeme1234!"
+    provision: shipped
+    # Détection « mot de passe encore par défaut ? » + vérification post-reset :
+    # tentative de login sur l'API du dashboard (200 = identifiants valides).
+    login:
+      path: /auth/password-login
+      port: 9119
+      body: '{"provider":"basic","username":"{username}","password":"{password}"}'
+      okCodes: [200]

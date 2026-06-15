@@ -8,6 +8,11 @@ services:
       - 9091:9000
     environment:
       TZ: Europe/Paris
+      # IA centrale Ryvie — injecté quand l'app est connectée (Réglages → IA).
+      # Vides par défaut : Mealie n'active ses fonctions IA que si la clé est posée.
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-}
     restart: unless-stopped
     
 volumes:

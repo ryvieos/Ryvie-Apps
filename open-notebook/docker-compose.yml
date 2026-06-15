@@ -19,7 +19,9 @@ services:
       - "8502:8502"
       - "5055:5055"
     environment:
-      - OPENAI_API_KEY=your_key_here
+      # IA centrale Ryvie — renseigné quand l'app est connectée (Réglages → IA).
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - OPENAI_BASE_URL=${OPENAI_BASE_URL:-}
       - SURREAL_URL=ws://surrealdb:8000/rpc
       - SURREAL_USER=root
       - SURREAL_PASSWORD=root

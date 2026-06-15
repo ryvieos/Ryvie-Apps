@@ -1,0 +1,62 @@
+version: "3.8"
+
+# Hermes (Web) pour Ryvie — interface web NATIVE de Nous Research.
+#   - hermes-agent : le moteur (agent IA auto-améliorant) + son dashboard web natif.
+# Le dashboard natif (`hermes dashboard`, service s6 intégré à l'image) tourne DANS
+# le conteneur de l'agent et lit la même config (~/.hermes) → plus besoin d'un second
+# conteneur webui tiers. Seul le dashboard est publié sur l'hôte (port 9119) ; la
+# gateway de l'agent reste interne au réseau docker.
+
+services:
+  hermes-agent:
+    image: nousresearch/hermes-agent:v2026.6.5
+    container_name: app-hermes-agent
+    command: gateway run
+    ports:
+      - "9119:9119"            # dashboard web natif (HERMES_DASHBOARD_PORT)
+    environment:
+      - HERMES_HOME=/home/hermes/.hermes
+      - HERMES_UID=1000
+      - HERMES_GID=1000
+      # --- Dashboard web natif de Hermes ---
+      # Service s6 intégré à l'image, activé par HERMES_DASHBOARD=1 : il lance
+      # `hermes dashboard` (gestion config / clés API / sessions) en tant que user
+      # hermes. Le build web (web_dist) est pré-construit par install.sh et persiste
+      # dans le volume hermes-agent-src → le service le sert sans rebuild.
+      - HERMES_DASHBOARD=1
+      - HERMES_DASHBOARD_HOST=0.0.0.0
+      - HERMES_DASHBOARD_PORT=9119
+      # --- Authentification par mot de passe (provider natif `basic`) ---
+      # Pas d'OAuth Nous Portal ni de --insecure : le provider `basic` (livré dans
+      # l'image, plugins/dashboard_auth/basic) protège le dashboard par
+      # identifiant + mot de passe. Le gate d'auth s'engage alors tout seul sur le
+      # bind non-loopback → page de login native « Sign in — Hermes Agent ».
+      # Identifiant + mot de passe + clé de session sont stockés dans .env (généré
+      # par install.sh), pas en dur ici → le mot de passe est modifiable depuis
+      # Ryvie « Gérer les comptes » (qui réécrit .env puis recrée le conteneur).
+      - HERMES_DASHBOARD_BASIC_AUTH_USERNAME=${HERMES_DASHBOARD_BASIC_AUTH_USERNAME:-admin}
+      - HERMES_DASHBOARD_BASIC_AUTH_PASSWORD=${HERMES_DASHBOARD_BASIC_AUTH_PASSWORD:-Changeme1234!}
+      # Clé de signature des sessions (HMAC) → sessions stables au redémarrage.
+      - HERMES_DASHBOARD_BASIC_AUTH_SECRET=${HERMES_DASHBOARD_BASIC_AUTH_SECRET:-}
+    volumes:
+      - hermes-home:/home/hermes/.hermes
+      - hermes-agent-src:/opt/hermes
+      - ./workspace:/workspace
+    restart: unless-stopped
+    networks:
+      - hermes-net
+
+networks:
+  hermes-net:
+    driver: bridge
+
+# Volumes nommés (recommandé par l'upstream pour le montage de l'agent).
+# hermes-agent-src contient AUSSI le build du dashboard (hermes_cli/web_dist) :
+# ne pas le supprimer sans relancer install.sh (qui reconstruit le build).
+# Après un changement de version de l'agent :
+#   docker compose down
+#   docker volume rm hermes_hermes-agent-src
+#   docker compose pull && docker compose up -d   (puis re-build via install.sh)
+volumes:
+  hermes-home:
+  hermes-agent-src:

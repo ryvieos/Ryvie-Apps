@@ -5,7 +5,7 @@ category:
   fr: Productivité
   en: Productivity
 version: 0.26.1
-buildId: 10
+buildId: 12
 port: 3016
 description:
   fr: "Memos vous permet de capturer, organiser et retrouver vos idées à tout moment.\nPrenez rapidement des notes, des rappels ou des idées et gardez-les bien organisées en un seul endroit. Que ce soit pour le travail, les études ou vos projets personnels, Memos vous aide à ne rien oublier et à rester productif.\nCe que vous pouvez faire avec Memos :\n- Prendre des notes et idées rapidement\n- Organiser vos pensées facilement\n- Accéder à vos notes où que vous soyez\n- Suivre vos tâches, rappels et projets\nMemos est simple, rapide et fiable — votre carnet numérique personnel."
@@ -18,3 +18,20 @@ gallery:
   - image1.png
   - image2.png
   - image3.png
+accounts:
+  # memos (Go) : image sans python/sqlite → pas de stratégie list/reset DB.
+  # Compte par défaut provisionné et détecté via l'API de memos.
+  default:
+    email: changeme@ryvie.fr
+    username: changeme
+    password: "Changeme1234!"
+    provision: api
+    # Appels HTTP faits par le backend vers le port publié (mainPort) de l'app.
+    signup:
+      path: /api/v1/users
+      body: '{"username":"{username}","password":"{password}","role":"HOST"}'
+      okCodes: [200]
+    login:
+      path: /api/v1/auth/signin
+      body: '{"passwordCredentials":{"username":"{username}","password":"{password}"}}'
+      okCodes: [200]

@@ -5,7 +5,7 @@ category:
   fr: Productivité
   en: Productivity
 version: 0.26.3
-buildId: 14
+buildId: 20
 port: 3015
 description:
   fr: "AFFiNE est une application open-source moderne de prise de notes et de gestion des connaissances, conçue pour remplacer les outils traditionnels de productivité. Elle combine documents, tableaux, blocs de texte et organisation visuelle dans un espace de travail unique, flexible et intuitif.\nPensée pour les individus comme pour les équipes, AFFiNE permet de structurer, relier et faire évoluer vos idées librement, en ligne ou hors ligne. Vos données restent sous votre contrôle grâce à une approche open-source et respectueuse de la vie privée.\nFonctionnalités clés :\n- Prise de notes par blocs (texte, listes, tableaux, etc.)\n- Organisation visuelle et liens entre contenus\n- Travail hors ligne avec synchronisation\n- Collaboration en temps réel\n- Données locales et contrôle total de la confidentialité\n- Projet open-source, transparent et extensible\nAFFiNE est l’outil idéal pour la prise de notes, la gestion de projets, la recherche ou le brainstorming."
@@ -21,3 +21,25 @@ gallery:
 architectures:
   - amd64
   - arm64
+# Point central IA Ryvie (Copilot AFFiNE) : clé + base LiteLLM injectées à la
+# connexion. Note : Copilot doit aussi être activé dans l'espace de travail AFFiNE.
+ai:
+  set:
+    apiKey: COPILOT_OPENAI_API_KEY
+    baseUrl: COPILOT_OPENAI_BASE_URL
+  restart: true
+accounts:
+  # AFFiNE hache en argon2id sans secret : on génère le hash dans le conteneur
+  # affine (sa propre lib) puis on l'écrit en base. Aucun identifiant admin requis.
+  strategy: affine-argon2
+  dbContainer: app-affine-database
+  appContainer: app-affine-web
+  db:
+    user: affine
+    name: affine
+  # Compte par défaut créé par install.sh (create-admin-user)
+  default:
+    email: changeme@ryvie.fr
+    username: changeme
+    password: "Changeme1234!"
+    provision: installScript

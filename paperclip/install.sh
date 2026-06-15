@@ -4,9 +4,9 @@ set -euo pipefail
 PAPERCLIP_DIR="/data/apps/paperclip"
 LOG_FILE="/data/logs/install-paperclip-$(date +%Y%m%d-%H%M%S).log"
 NETBIRD_INTERFACE="wt0"
-RYVIE_EMAIL="ryvie@ryvie.fr"
-RYVIE_PASSWORD="changeme1234"
-RYVIE_NAME="ryvie"
+RYVIE_EMAIL="changeme@ryvie.fr"
+RYVIE_PASSWORD='Changeme1234!'
+RYVIE_NAME="changeme"
 RYVIE_CLAUDE_DIR="/home/ryvie/.claude"
 
 mkdir -p /data/logs

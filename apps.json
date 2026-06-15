@@ -8,7 +8,7 @@
       "en": "Productivity"
     },
     "version": "0.26.3",
-    "buildId": 14,
+    "buildId": 20,
     "port": 3015,
     "description": {
       "fr": "AFFiNE est une application open-source moderne de prise de notes et de gestion des connaissances, conçue pour remplacer les outils traditionnels de productivité. Elle combine documents, tableaux, blocs de texte et organisation visuelle dans un espace de travail unique, flexible et intuitif.\nPensée pour les individus comme pour les équipes, AFFiNE permet de structurer, relier et faire évoluer vos idées librement, en ligne ou hors ligne. Vos données restent sous votre contrôle grâce à une approche open-source et respectueuse de la vie privée.\nFonctionnalités clés :\n- Prise de notes par blocs (texte, listes, tableaux, etc.)\n- Organisation visuelle et liens entre contenus\n- Travail hors ligne avec synchronisation\n- Collaboration en temps réel\n- Données locales et contrôle total de la confidentialité\n- Projet open-source, transparent et extensible\nAFFiNE est l’outil idéal pour la prise de notes, la gestion de projets, la recherche ou le brainstorming.",
@@ -27,7 +27,29 @@
     "architectures": [
       "amd64",
       "arm64"
-    ]
+    ],
+    "ai": {
+      "set": {
+        "apiKey": "COPILOT_OPENAI_API_KEY",
+        "baseUrl": "COPILOT_OPENAI_BASE_URL"
+      },
+      "restart": true
+    },
+    "accounts": {
+      "strategy": "affine-argon2",
+      "dbContainer": "app-affine-database",
+      "appContainer": "app-affine-web",
+      "db": {
+        "user": "affine",
+        "name": "affine"
+      },
+      "default": {
+        "email": "changeme@ryvie.fr",
+        "username": "changeme",
+        "password": "Changeme1234!",
+        "provision": "installScript"
+      }
+    }
   },
   {
     "manifestVersion": 1,
@@ -38,7 +60,7 @@
     },
     "name": "docuseal",
     "version": "2.4.4",
-    "buildId": 27,
+    "buildId": 29,
     "port": 3020,
     "description": {
       "fr": "DocuSeal est une application open-source de signature électronique et de gestion de documents, conçue pour simplifier la validation, le partage et la signature de fichiers en toute sécurité.\nPensée pour les particuliers comme pour les équipes, DocuSeal permet de signer des documents légalement, de suivre leur statut en temps réel et de garder un contrôle total sur vos données grâce à une approche respectueuse de la vie privée.\nFonctionnalités clés :\nSignature électronique simple et sécurisée\nGestion et suivi des documents signés\nFlux de validation clairs et efficaces\nHébergement autonome possible (self-hosted)\nRespect de la confidentialité et conformité\nProjet open-source, transparent et évolutif",
@@ -53,7 +75,18 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/image2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/image3.png"
-    ]
+    ],
+    "accounts": {
+      "strategy": "rails-devise",
+      "container": "app-docuseal",
+      "workingDir": "/app",
+      "default": {
+        "email": "changeme@ryvie.fr",
+        "username": "changeme",
+        "password": "Changeme1234!",
+        "provision": "adapter"
+      }
+    }
   },
   {
     "manifestVersion": 1,
@@ -83,6 +116,62 @@
   },
   {
     "manifestVersion": 1,
+    "id": "hermes",
+    "category": {
+      "fr": "IA",
+      "en": "AI"
+    },
+    "name": "Hermes",
+    "version": "0.51.430",
+    "buildId": 3,
+    "port": 9119,
+    "description": {
+      "fr": "Hermes est un agent IA auto-améliorant (développé par Nous Research) accompagné de son interface web. Contrairement à un simple chatbot, Hermes possède une boucle d'apprentissage : il crée des compétences à partir de son expérience, les affine au fil de l'usage, mémorise les connaissances importantes, recherche dans ses conversations passées et construit une compréhension de plus en plus fine de vos besoins au fil des sessions.\nL'interface web vous donne une parité quasi totale avec l'agent en ligne de commande, accessible depuis votre navigateur ou votre mobile :\n- Chat en streaming (réponses en temps réel)\n- Sessions persistantes avec recherche, archivage et organisation par projet\n- Navigateur de fichiers de l'espace de travail avec aperçu\n- Planification de tâches récurrentes (cron)\n- Support multi-fournisseurs (OpenAI, Anthropic, Google, OpenRouter…)\n- Saisie vocale et design adapté au mobile\nVos données et votre mémoire restent hébergées localement sur votre Ryvie.",
+      "en": "Hermes is a self-improving AI agent (built by Nous Research) bundled with its web interface. Unlike a plain chatbot, Hermes has a built-in learning loop: it creates skills from experience, refines them during use, persists important knowledge, searches its own past conversations, and builds a deepening model of your needs across sessions.\nThe web interface gives you near 1:1 parity with the command-line agent, accessible from your browser or phone:\n- Streaming chat (real-time responses)\n- Persistent sessions with search, archiving and project organization\n- Workspace file browser with inline previews\n- Scheduled recurring tasks (cron)\n- Multi-provider support (OpenAI, Anthropic, Google, OpenRouter…)\n- Voice input and mobile-responsive design\nYour data and memory stay hosted locally on your Ryvie."
+    },
+    "tagline": {
+      "fr": "Un agent IA qui apprend de vous, avec interface web",
+      "en": "A self-improving AI agent, with a web interface"
+    },
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/hermes/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/hermes/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/hermes/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/hermes/image3.png"
+    ],
+    "ai": {
+      "restart": false,
+      "hookRestarts": true,
+      "containers": [
+        "app-hermes-agent"
+      ],
+      "hooks": {
+        "connect": "ai/connect.sh",
+        "disconnect": "ai/disconnect.sh"
+      }
+    },
+    "accounts": {
+      "strategy": "hermes-dashboard",
+      "accountLabel": "admin",
+      "passwordVar": "HERMES_DASHBOARD_BASIC_AUTH_PASSWORD",
+      "resetRestarts": true,
+      "default": {
+        "username": "admin",
+        "password": "Changeme1234!",
+        "provision": "shipped",
+        "login": {
+          "path": "/auth/password-login",
+          "port": 9119,
+          "body": "{\"provider\":\"basic\",\"username\":\"{username}\",\"password\":\"{password}\"}",
+          "okCodes": [
+            200
+          ]
+        }
+      }
+    }
+  },
+  {
+    "manifestVersion": 1,
     "id": "jellyfin",
     "category": {
       "fr": "multimédia",
@@ -90,7 +179,7 @@
     },
     "name": "jellyfin",
     "version": "10.11.8",
-    "buildId": 5,
+    "buildId": 7,
     "port": [
       8096
     ],
@@ -107,7 +196,43 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/jellyfin/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/jellyfin/image2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/jellyfin/image3.png"
-    ]
+    ],
+    "accounts": {
+      "default": {
+        "email": "changeme@ryvie.fr",
+        "username": "changeme",
+        "password": "Changeme1234!",
+        "provision": "api",
+        "signup": [
+          {
+            "path": "/Startup/User",
+            "body": "{\"Name\":\"{username}\",\"Password\":\"{password}\"}",
+            "okCodes": [
+              200,
+              204
+            ]
+          },
+          {
+            "path": "/Startup/Complete",
+            "body": "{}",
+            "okCodes": [
+              200,
+              204
+            ]
+          }
+        ],
+        "login": {
+          "path": "/Users/AuthenticateByName",
+          "headers": {
+            "X-Emby-Authorization": "MediaBrowser Client=\"Ryvie\", Device=\"Ryvie\", DeviceId=\"ryvie\", Version=\"1.0\""
+          },
+          "body": "{\"Username\":\"{username}\",\"Pw\":\"{password}\"}",
+          "okCodes": [
+            200
+          ]
+        }
+      }
+    }
   },
   {
     "manifestVersion": 1,
@@ -119,7 +244,7 @@
       "en": "Organization"
     },
     "version": "2.14.0",
-    "buildId": 5,
+    "buildId": 6,
     "port": 3028,
     "description": {
       "fr": "Linkwarden vous permet d’enregistrer, d’organiser et de conserver vos liens importants en un seul endroit sécurisé.\nGardez vos articles, outils et ressources sans craindre les liens cassés ou les contenus supprimés. Linkwarden sauvegarde une copie des pages enregistrées afin que vous puissiez y accéder à tout moment, même si le site d’origine change ou disparaît.\nConçu avec une approche respectueuse de la vie privée, Linkwarden vous aide à créer simplement votre bibliothèque personnelle de connaissances.\nCe que vous pouvez faire avec Linkwarden :\n- Enregistrer et organiser vos liens facilement\n- Accéder à vos contenus à tout moment\n- Conserver une copie des pages sauvegardées\n- Rechercher et gérer votre collection de liens\n- Garder le contrôle de vos données",
@@ -134,7 +259,18 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/image2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/linkwarden/image3.png"
-    ]
+    ],
+    "ai": {
+      "set": {
+        "apiKey": "OPENAI_API_KEY",
+        "baseUrl": "OPENAI_BASE_URL",
+        "model": "OPENAI_MODEL"
+      },
+      "extraEnv": {
+        "NEXT_PUBLIC_OPENAI": "true"
+      },
+      "restart": true
+    }
   },
   {
     "manifestVersion": 1,
@@ -145,7 +281,7 @@
       "en": "Planners"
     },
     "version": "3.14.0",
-    "buildId": 5,
+    "buildId": 8,
     "port": 9091,
     "description": {
       "fr": "Mealie simplifie la gestion des recettes et la planification des repas au quotidien.\nEnregistrez vos recettes préférées, planifiez vos menus de la semaine et générez automatiquement vos listes de courses. Que vous cuisiniez souvent ou occasionnellement, Mealie vous aide à gagner du temps et à mieux vous organiser.\nToutes vos recettes sont centralisées, faciles à retrouver et à adapter selon vos envies.\nCe que vous pouvez faire avec Mealie :\n- Enregistrer et organiser vos recettes\n- Planifier les repas de la semaine\n- Générer automatiquement des listes de courses\n- Gérer votre collection de recettes\n- Cuisiner plus sereinement au quotidien",
@@ -160,7 +296,39 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/mealie/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/mealie/image2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/mealie/image3.png"
-    ]
+    ],
+    "accounts": {
+      "strategy": "bcrypt-sqlite",
+      "container": "app-mealie",
+      "dbPath": "/app/data/mealie.db",
+      "table": "users",
+      "columns": {
+        "id": "id",
+        "email": "email",
+        "username": "username",
+        "password": "password",
+        "admin": "admin"
+      },
+      "clearOnReset": {
+        "login_attemps": 0,
+        "locked_at": null
+      },
+      "default": {
+        "email": "changeme@ryvie.fr",
+        "username": "changeme",
+        "password": "Changeme1234!",
+        "provision": "sql-update",
+        "shippedEmail": "changeme@example.com"
+      }
+    },
+    "ai": {
+      "set": {
+        "apiKey": "OPENAI_API_KEY",
+        "baseUrl": "OPENAI_BASE_URL",
+        "model": "OPENAI_MODEL"
+      },
+      "restart": true
+    }
   },
   {
     "manifestVersion": 1,
@@ -171,7 +339,7 @@
       "en": "Productivity"
     },
     "version": "0.26.1",
-    "buildId": 10,
+    "buildId": 12,
     "port": 3016,
     "description": {
       "fr": "Memos vous permet de capturer, organiser et retrouver vos idées à tout moment.\nPrenez rapidement des notes, des rappels ou des idées et gardez-les bien organisées en un seul endroit. Que ce soit pour le travail, les études ou vos projets personnels, Memos vous aide à ne rien oublier et à rester productif.\nCe que vous pouvez faire avec Memos :\n- Prendre des notes et idées rapidement\n- Organiser vos pensées facilement\n- Accéder à vos notes où que vous soyez\n- Suivre vos tâches, rappels et projets\nMemos est simple, rapide et fiable — votre carnet numérique personnel.",
@@ -186,7 +354,29 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/memos/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/memos/image2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/memos/image3.png"
-    ]
+    ],
+    "accounts": {
+      "default": {
+        "email": "changeme@ryvie.fr",
+        "username": "changeme",
+        "password": "Changeme1234!",
+        "provision": "api",
+        "signup": {
+          "path": "/api/v1/users",
+          "body": "{\"username\":\"{username}\",\"password\":\"{password}\",\"role\":\"HOST\"}",
+          "okCodes": [
+            200
+          ]
+        },
+        "login": {
+          "path": "/api/v1/auth/signin",
+          "body": "{\"passwordCredentials\":{\"username\":\"{username}\",\"password\":\"{password}\"}}",
+          "okCodes": [
+            200
+          ]
+        }
+      }
+    }
   },
   {
     "manifestVersion": 1,
@@ -197,7 +387,7 @@
     },
     "name": "n8n",
     "version": "2.17.1",
-    "buildId": 8,
+    "buildId": 13,
     "description": {
       "fr": "n8n vous permet d’automatiser vos flux de travail et de connecter vos applications facilement.\nCréez des processus automatisés sans coder, que ce soit pour des tâches simples comme transférer des données entre apps ou pour des workflows complexes impliquant plusieurs services. Avec n8n, vous gagnez du temps, réduisez les tâches répétitives et gardez un contrôle total sur vos données.\nCe que vous pouvez faire avec n8n :\n- Automatiser les tâches entre applications et services\n- Créer des workflows personnalisés sans coder\n- Connecter plus de 200 applications et services\n- Exécuter vos workflows de manière sécurisée sur votre infrastructure\n- Gagner du temps et améliorer votre productivité\nn8n est un outil d’automatisation open-source puissant et flexible pour tous.",
       "en": "n8n lets you automate your workflows and connect your applications easily.\nCreate automated processes without coding, whether for simple tasks like transferring data between apps or complex workflows involving multiple services. With n8n, you save time, reduce repetitive tasks, and keep full control over your data.\nWhat you can do with n8n:\n- Automate tasks between applications and services\n- Create customized workflows without coding\n- Connect more than 200 applications and services\n- Execute your workflows securely on your infrastructure\n- Save time and improve your productivity\nn8n is a powerful and flexible open-source automation tool for everyone."
@@ -211,7 +401,45 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/n8n/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/n8n/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/n8n/image2.png"
-    ]
+    ],
+    "ai": {
+      "restart": false,
+      "hooks": {
+        "connect": "ai/connect.sh",
+        "disconnect": "ai/disconnect.sh"
+      }
+    },
+    "accounts": {
+      "default": {
+        "email": "changeme@ryvie.fr",
+        "username": "changeme",
+        "password": "Changeme1234!",
+        "provision": "api",
+        "signup": {
+          "path": "/rest/owner/setup",
+          "body": "{\"email\":\"{email}\",\"firstName\":\"{username}\",\"lastName\":\"Ryvie\",\"password\":\"{password}\"}",
+          "okCodes": [
+            200
+          ]
+        },
+        "login": {
+          "path": "/rest/login",
+          "body": "{\"emailOrLdapLoginId\":\"{email}\",\"password\":\"{password}\"}",
+          "okCodes": [
+            200
+          ]
+        }
+      },
+      "ownerReset": {
+        "container": "app-n8n",
+        "cmd": [
+          "n8n",
+          "user-management:reset"
+        ],
+        "restart": true,
+        "message": "Accès n8n réinitialisé. Rouvrez n8n pour recréer votre compte propriétaire."
+      }
+    }
   },
   {
     "manifestVersion": 1,
@@ -222,7 +450,7 @@
     },
     "name": "open-notebook",
     "version": "1.8.4",
-    "buildId": 9,
+    "buildId": 10,
     "description": {
       "fr": "Open Notebook est votre carnet numérique personnel pour capturer idées, notes et recherches au même endroit.\nOrganisez vos pensées, suivez vos projets et accédez à vos notes où que vous soyez. Que ce soit pour les études, le travail ou vos projets personnels, Open Notebook vous aide à rester productif et concentré.\nCe que vous pouvez faire avec Open Notebook :\n- Prendre des notes rapidement et facilement\n- Organiser vos idées et projets\n- Accéder à votre carnet où que vous soyez\n- Suivre vos recherches, tâches et rappels\nOpen Notebook est simple, flexible et open-source — vos idées restent sous votre contrôle.",
       "en": "Open Notebook is your personal digital notebook to capture ideas, notes, and research all in one place.\nOrganize your thoughts, track your projects, and access your notes wherever you are. Whether for study, work, or personal projects, Open Notebook helps you stay productive and focused.\nWhat you can do with Open Notebook:\n- Take notes quickly and easily\n- Organize your ideas and projects\n- Access your notebook wherever you are\n- Track your research, tasks, and reminders\nOpen Notebook is simple, flexible, and open-source — your ideas remain under your control."
@@ -236,18 +464,32 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/open-notebook/icon.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/open-notebook/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/open-notebook/image2.png"
-    ]
+    ],
+    "ai": {
+      "set": {
+        "apiKey": "OPENAI_API_KEY",
+        "baseUrl": "OPENAI_BASE_URL"
+      },
+      "generateEnv": [
+        "OPEN_NOTEBOOK_ENCRYPTION_KEY"
+      ],
+      "restart": true,
+      "hooks": {
+        "connect": "ai/connect.sh",
+        "disconnect": "ai/disconnect.sh"
+      }
+    }
   },
   {
     "manifestVersion": 1,
     "id": "paperclip",
     "category": {
-      "fr": "Intelligence Artificielle",
-      "en": "Artificial Intelligence"
+      "fr": "IA",
+      "en": "AI"
     },
     "name": "Paperclip",
     "version": "0.3.1",
-    "buildId": 3,
+    "buildId": 6,
     "port": 3100,
     "description": {
       "fr": "Paperclip est une plateforme d'orchestration d'agents IA qui permet de créer et gérer des équipes d'agents autonomes.\nDéfinissez des agents spécialisés, assignez-leur des tâches, et laissez-les collaborer pour accomplir des objectifs complexes. Paperclip supervise le travail, gère les communications et assure le suivi des résultats.\nCe que vous pouvez faire avec Paperclip :\n- Créer des équipes d'agents IA spécialisés\n- Assigner et suivre des tâches complexes\n- Automatiser des workflows avec des agents\n- Intégrer différents modèles d'IA (Claude, GPT, etc.)\n- Superviser et auditer le travail des agents\nPaperclip transforme l'IA en une véritable force de travail autonome, organisée et supervisée.",
@@ -263,7 +505,22 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/paperclip/image2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/paperclip/image3.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/paperclip/image4.png"
-    ]
+    ],
+    "accounts": {
+      "default": {
+        "email": "changeme@ryvie.fr",
+        "username": "changeme",
+        "password": "Changeme1234!",
+        "provision": "installScript",
+        "login": {
+          "path": "/api/auth/sign-in/email",
+          "body": "{\"email\":\"{email}\",\"password\":\"{password}\"}",
+          "okCodes": [
+            200
+          ]
+        }
+      }
+    }
   },
   {
     "manifestVersion": 1,
@@ -273,8 +530,8 @@
       "en": "Storage"
     },
     "name": "rDrive",
-    "version": "0.0.6",
-    "buildId": 28,
+    "version": "0.0.7",
+    "buildId": 30,
     "port": 3010,
     "sso": true,
     "description": {
@@ -325,7 +582,7 @@
     },
     "name": "rPictures",
     "version": "2.0.1",
-    "buildId": 19,
+    "buildId": 20,
     "sso": true,
     "port": 3013,
     "description": {
