@@ -23,6 +23,9 @@ gallery:
 ai:
   restart: false
   hooks:
+    # Exécuté à l'INSTALL (mdp par défaut encore valide) : crée+stocke la clé API n8n
+    # → la connexion IA ultérieure ne dépend plus du mot de passe.
+    bootstrap: ai/bootstrap.sh
     connect: ai/connect.sh
     disconnect: ai/disconnect.sh
 accounts:

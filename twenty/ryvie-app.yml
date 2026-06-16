@@ -1,0 +1,54 @@
+manifestVersion: 1
+id: twenty
+category:
+  fr: Productivité
+  en: Productivity
+name: Twenty CRM
+version: 2.14.0
+buildId: 1
+port: 3030
+description:
+  fr: "Twenty est un CRM open-source et moderne, alternative auto-hébergée à Salesforce.\nGérez vos contacts, entreprises, opportunités et pipelines de vente depuis une interface rapide et personnalisable, tout en gardant le contrôle total de vos données.\nCe que vous pouvez faire avec Twenty :\n- Suivre contacts, entreprises et opportunités\n- Personnaliser vos objets, champs et vues\n- Visualiser vos pipelines de vente (vue kanban/table)\n- Collaborer en équipe sur un espace de travail partagé\n- Héberger vos données chez vous, sans dépendre d'un cloud tiers\nTwenty est un CRM puissant, flexible et respectueux de la vie privée."
+  en: "Twenty is a modern, open-source CRM and a self-hosted alternative to Salesforce.\nManage your contacts, companies, opportunities and sales pipelines from a fast, customizable interface while keeping full control of your data.\nWhat you can do with Twenty:\n- Track contacts, companies and opportunities\n- Customize your objects, fields and views\n- Visualize your sales pipelines (kanban/table views)\n- Collaborate with your team on a shared workspace\n- Self-host your data without relying on a third-party cloud\nTwenty is a powerful, flexible and privacy-friendly CRM."
+tagline:
+  fr: "Le CRM open-source, alternative à Salesforce"
+  en: "The open-source CRM, a Salesforce alternative"
+gallery:
+  - icon.png
+# Connexion au point IA central de Ryvie (LiteLLM, OpenAI-compatible).
+# Twenty lit ses fournisseurs LLM via la variable d'env AI_PROVIDERS (JSON),
+# évaluée AU DÉMARRAGE du serveur → pas de hook : Ryvie écrit RYVIE_AI_KEY /
+# RYVIE_AI_BASE dans .env (bloc `set`), puis recrée la stack (server + worker)
+# et rattache les conteneurs au réseau LiteLLM. Le docker-compose construit
+# AI_PROVIDERS à partir de ces variables (modèle stable « ryvie-ai »).
+ai:
+  # restart non-false → Ryvie recrée la stack pour appliquer le nouvel env
+  # (Twenty ne relit pas AI_PROVIDERS à chaud). L'UI prévient du redémarrage.
+  containers:
+    - app-twenty
+    - app-twenty-worker
+  set:
+    apiKey:
+      - RYVIE_AI_KEY
+    baseUrl:
+      - RYVIE_AI_BASE
+accounts:
+  # Comptes Twenty : stockés dans Postgres (core."user", hash bcrypt). Stratégie
+  # générique `bcrypt-postgres` (cf. appAccountsService) → liste des comptes +
+  # réinitialisation de mot de passe par compte (menu « Gérer les comptes »).
+  # Pas de compte par défaut : le premier utilisateur est créé via l'UI de Twenty.
+  strategy: bcrypt-postgres
+  dbContainer: app-twenty-postgres
+  db:
+    user: postgres
+    name: default
+  schema: core
+  table: user
+  columns:
+    id: id
+    email: email
+    password: passwordHash
+    firstName: firstName
+    lastName: lastName
+  # Écriture directe en base → aucun redémarrage nécessaire pour un reset.
+  resetRestarts: false

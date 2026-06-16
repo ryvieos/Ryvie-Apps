@@ -1,0 +1,86 @@
+name: twenty
+
+services:
+  server:
+    image: twentycrm/twenty:${TAG:-v2.14.0}
+    container_name: app-twenty
+    volumes:
+      - ./server-local-data:/app/packages/twenty-server/.local-storage
+    ports:
+      - "3030:3000"
+    environment:
+      NODE_PORT: 3000
+      PG_DATABASE_URL: postgres://postgres:postgres@db:5432/default
+      SERVER_URL: ${SERVER_URL:-http://localhost:3030}
+      REDIS_URL: redis://redis:6379
+      STORAGE_TYPE: local
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      APP_SECRET: ${APP_SECRET:-}
+      # Point IA central Ryvie : fournisseur OpenAI-compatible « ryvie » pointant
+      # vers LiteLLM. apiKey/baseUrl sont écrits dans .env par Ryvie à la connexion
+      # IA (bloc `ai.set` de ryvie-app.yml) ; vides tant que non connecté → provider
+      # inactif. Modèle stable « ryvie-ai » (l'alias LiteLLM suit le modèle global).
+      AI_PROVIDERS: '{"ryvie":{"npm":"@ai-sdk/openai-compatible","label":"Ryvie AI","apiKey":"${RYVIE_AI_KEY:-}","baseUrl":"${RYVIE_AI_BASE:-}","models":[{"name":"ryvie-ai","label":"Ryvie AI"}]}}'
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:3000/healthz || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+    restart: unless-stopped
+
+  worker:
+    image: twentycrm/twenty:${TAG:-v2.14.0}
+    container_name: app-twenty-worker
+    volumes:
+      - ./server-local-data:/app/packages/twenty-server/.local-storage
+    command: ["yarn", "worker:prod"]
+    environment:
+      PG_DATABASE_URL: postgres://postgres:postgres@db:5432/default
+      SERVER_URL: ${SERVER_URL:-http://localhost:3030}
+      REDIS_URL: redis://redis:6379
+      DISABLE_DB_MIGRATIONS: "true"          # déjà jouées par le service server
+      DISABLE_CRON_JOBS_REGISTRATION: "true" # déjà enregistrées par le server
+      STORAGE_TYPE: local
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      APP_SECRET: ${APP_SECRET:-}
+      # Même fournisseur IA que le service server (le worker exécute aussi les jobs IA).
+      AI_PROVIDERS: '{"ryvie":{"npm":"@ai-sdk/openai-compatible","label":"Ryvie AI","apiKey":"${RYVIE_AI_KEY:-}","baseUrl":"${RYVIE_AI_BASE:-}","models":[{"name":"ryvie-ai","label":"Ryvie AI"}]}}'
+    depends_on:
+      db:
+        condition: service_healthy
+      server:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: postgres:16
+    container_name: app-twenty-postgres
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: default
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -h localhost -d postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  redis:
+    image: redis:7
+    container_name: app-twenty-redis
+    command: ["--maxmemory-policy", "noeviction"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
