@@ -1,6 +1,16 @@
 name: twenty
 
 services:
+  # Répare les droits du stockage local AVANT le serveur : sur un bind-mount, Docker
+  # crée le dossier manquant en root → le serveur (UID 1000 « node ») ne peut pas y
+  # écrire et la création de workspace/compte échoue (EACCES). On force donc 1000:1000.
+  init-permissions:
+    image: busybox
+    user: root
+    volumes:
+      - ./server-local-data:/local-storage
+    command: chown -R 1000:1000 /local-storage
+
   server:
     image: twentycrm/twenty:${TAG:-v2.14.0}
     container_name: app-twenty
@@ -22,6 +32,8 @@ services:
       # inactif. Modèle stable « ryvie-ai » (l'alias LiteLLM suit le modèle global).
       AI_PROVIDERS: '{"ryvie":{"npm":"@ai-sdk/openai-compatible","label":"Ryvie AI","apiKey":"${RYVIE_AI_KEY:-}","baseUrl":"${RYVIE_AI_BASE:-}","models":[{"name":"ryvie-ai","label":"Ryvie AI"}]}}'
     depends_on:
+      init-permissions:
+        condition: service_completed_successfully
       db:
         condition: service_healthy
       redis:
