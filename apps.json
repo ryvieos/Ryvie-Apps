@@ -387,7 +387,7 @@
     },
     "name": "n8n",
     "version": "2.17.1",
-    "buildId": 13,
+    "buildId": 14,
     "description": {
       "fr": "n8n vous permet d’automatiser vos flux de travail et de connecter vos applications facilement.\nCréez des processus automatisés sans coder, que ce soit pour des tâches simples comme transférer des données entre apps ou pour des workflows complexes impliquant plusieurs services. Avec n8n, vous gagnez du temps, réduisez les tâches répétitives et gardez un contrôle total sur vos données.\nCe que vous pouvez faire avec n8n :\n- Automatiser les tâches entre applications et services\n- Créer des workflows personnalisés sans coder\n- Connecter plus de 200 applications et services\n- Exécuter vos workflows de manière sécurisée sur votre infrastructure\n- Gagner du temps et améliorer votre productivité\nn8n est un outil d’automatisation open-source puissant et flexible pour tous.",
       "en": "n8n lets you automate your workflows and connect your applications easily.\nCreate automated processes without coding, whether for simple tasks like transferring data between apps or complex workflows involving multiple services. With n8n, you save time, reduce repetitive tasks, and keep full control over your data.\nWhat you can do with n8n:\n- Automate tasks between applications and services\n- Create customized workflows without coding\n- Connect more than 200 applications and services\n- Execute your workflows securely on your infrastructure\n- Save time and improve your productivity\nn8n is a powerful and flexible open-source automation tool for everyone."
@@ -405,6 +405,7 @@
     "ai": {
       "restart": false,
       "hooks": {
+        "bootstrap": "ai/bootstrap.sh",
         "connect": "ai/connect.sh",
         "disconnect": "ai/disconnect.sh"
       }
@@ -624,6 +625,61 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/image_2.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rtransfer/image_3.png"
     ]
+  },
+  {
+    "manifestVersion": 1,
+    "id": "twenty",
+    "category": {
+      "fr": "Productivité",
+      "en": "Productivity"
+    },
+    "name": "Twenty CRM",
+    "version": "2.14.0",
+    "buildId": 1,
+    "port": 3030,
+    "description": {
+      "fr": "Twenty est un CRM open-source et moderne, alternative auto-hébergée à Salesforce.\nGérez vos contacts, entreprises, opportunités et pipelines de vente depuis une interface rapide et personnalisable, tout en gardant le contrôle total de vos données.\nCe que vous pouvez faire avec Twenty :\n- Suivre contacts, entreprises et opportunités\n- Personnaliser vos objets, champs et vues\n- Visualiser vos pipelines de vente (vue kanban/table)\n- Collaborer en équipe sur un espace de travail partagé\n- Héberger vos données chez vous, sans dépendre d'un cloud tiers\nTwenty est un CRM puissant, flexible et respectueux de la vie privée.",
+      "en": "Twenty is a modern, open-source CRM and a self-hosted alternative to Salesforce.\nManage your contacts, companies, opportunities and sales pipelines from a fast, customizable interface while keeping full control of your data.\nWhat you can do with Twenty:\n- Track contacts, companies and opportunities\n- Customize your objects, fields and views\n- Visualize your sales pipelines (kanban/table views)\n- Collaborate with your team on a shared workspace\n- Self-host your data without relying on a third-party cloud\nTwenty is a powerful, flexible and privacy-friendly CRM."
+    },
+    "tagline": {
+      "fr": "Le CRM open-source, alternative à Salesforce",
+      "en": "The open-source CRM, a Salesforce alternative"
+    },
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/twenty/icon.png"
+    ],
+    "ai": {
+      "containers": [
+        "app-twenty",
+        "app-twenty-worker"
+      ],
+      "set": {
+        "apiKey": [
+          "RYVIE_AI_KEY"
+        ],
+        "baseUrl": [
+          "RYVIE_AI_BASE"
+        ]
+      }
+    },
+    "accounts": {
+      "strategy": "bcrypt-postgres",
+      "dbContainer": "app-twenty-postgres",
+      "db": {
+        "user": "postgres",
+        "name": "default"
+      },
+      "schema": "core",
+      "table": "user",
+      "columns": {
+        "id": "id",
+        "email": "email",
+        "password": "passwordHash",
+        "firstName": "firstName",
+        "lastName": "lastName"
+      },
+      "resetRestarts": false
+    }
   },
   {
     "manifestVersion": 1,
