@@ -22,6 +22,11 @@ gallery:
 # credential OpenAI → LiteLLM). Pas d'injection env, pas de redémarrage.
 ai:
   restart: false
+  # Conteneur rattaché au réseau IA dédié (ryvie-ai) → joint LiteLLM par DNS
+  # (ryvie-litellm), indépendant de l'IP hôte. SANS ça, la credential pointant vers
+  # http://ryvie-litellm:4010/v1 est injoignable depuis n8n.
+  containers:
+    - app-n8n
   hooks:
     # Exécuté à l'INSTALL (mdp par défaut encore valide) : crée+stocke la clé API n8n
     # → la connexion IA ultérieure ne dépend plus du mot de passe.
