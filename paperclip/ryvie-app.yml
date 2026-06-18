@@ -5,7 +5,7 @@ category:
   en: AI
 name: Paperclip
 version: "0.3.1"
-buildId: 6
+buildId: 7
 port: 3100
 description:
   fr: "Paperclip est une plateforme d'orchestration d'agents IA qui permet de créer et gérer des équipes d'agents autonomes.\nDéfinissez des agents spécialisés, assignez-leur des tâches, et laissez-les collaborer pour accomplir des objectifs complexes. Paperclip supervise le travail, gère les communications et assure le suivi des résultats.\nCe que vous pouvez faire avec Paperclip :\n- Créer des équipes d'agents IA spécialisés\n- Assigner et suivre des tâches complexes\n- Automatiser des workflows avec des agents\n- Intégrer différents modèles d'IA (Claude, GPT, etc.)\n- Superviser et auditer le travail des agents\nPaperclip transforme l'IA en une véritable force de travail autonome, organisée et supervisée."
