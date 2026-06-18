@@ -535,7 +535,7 @@
     },
     "name": "rDrive",
     "version": "0.0.7",
-    "buildId": 30,
+    "buildId": 31,
     "port": 3010,
     "sso": true,
     "description": {
@@ -550,7 +550,17 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/icon_1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/image1.png",
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/rdrive/image2.png"
-    ]
+    ],
+    "ai": {
+      "restart": false,
+      "containers": [
+        "app-rdrive-onlyoffice"
+      ],
+      "hooks": {
+        "connect": "ai/connect.sh",
+        "disconnect": "ai/disconnect.sh"
+      }
+    }
   },
   {
     "manifestVersion": 1,
