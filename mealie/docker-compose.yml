@@ -4,6 +4,8 @@ services:
     image: hkotel/mealie:v3.14.0
     volumes:
       - ./mealie-data:/app/data/
+      # Fiche de gestion des comptes Ryvie (stratégie container-exec).
+      - ./ryvie-accounts.py:/ryvie/ryvie-accounts.py:ro
     ports:
       - 9091:9000
     environment:

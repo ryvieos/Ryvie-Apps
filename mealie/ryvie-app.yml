@@ -19,8 +19,19 @@ gallery:
   - image2.png
   - image3.png
 accounts:
-  strategy: bcrypt-sqlite
+  # Reset/list/verify délégués à la fiche ryvie-accounts.py (montée dans le conteneur
+  # via le compose) : elle réutilise le hasher bcrypt présent dans Mealie. Le core ne
+  # connaît plus le schéma. Les champs dbPath/table/columns ci-dessous restent utilisés
+  # par le provisioning du compte par défaut (mode sql-update, à l'install).
+  strategy: container-exec
   container: app-mealie
+  runtime: python3
+  script: /ryvie/ryvie-accounts.py
+  env:
+    DB_PATH: /app/data/mealie.db
+  reset:
+    expect: "OK"
+  # ── Champs conservés pour le provisioning du compte par défaut (sql-update) ──
   dbPath: /app/data/mealie.db
   table: users
   columns:

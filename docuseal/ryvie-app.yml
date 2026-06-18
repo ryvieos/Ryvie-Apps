@@ -19,9 +19,16 @@ gallery:
   - image2.png
   - image3.png
 accounts:
-  strategy: rails-devise
+  # Reset/list/verify/provision délégués à la fiche ryvie-accounts.rb, exécutée
+  # via `rails runner` DANS app-docuseal : accès complet au modèle User (Devise/
+  # bcrypt) sans que le core connaisse le schéma.
+  strategy: container-exec
   container: app-docuseal
+  exec: ["rails", "runner"]
+  script: /ryvie/ryvie-accounts.rb
   workingDir: /app
+  reset:
+    expect: "OK"
   # Compte par défaut créé par Ryvie à l'install (docuseal n'a pas de défaut embarqué)
   default:
     email: changeme@ryvie.fr

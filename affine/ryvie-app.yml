@@ -29,14 +29,16 @@ ai:
     baseUrl: COPILOT_OPENAI_BASE_URL
   restart: true
 accounts:
-  # AFFiNE hache en argon2id sans secret : on génère le hash dans le conteneur
-  # affine (sa propre lib) puis on l'écrit en base. Aucun identifiant admin requis.
-  strategy: affine-argon2
-  dbContainer: app-affine-database
-  appContainer: app-affine-web
-  db:
-    user: affine
-    name: affine
+  # La logique de reset vit DANS l'app : la fiche ryvie-accounts.cjs s'exécute dans
+  # app-affine-web et réutilise le client Prisma d'AFFiNE (accès DB) + sa lib
+  # @node-rs/argon2 (hash argon2id sans secret). Le core ne connaît plus le schéma.
+  strategy: container-exec
+  container: app-affine-web
+  runtime: node
+  script: /ryvie/ryvie-accounts.cjs
+  workingDir: /app
+  reset:
+    expect: "OK"
   # Compte par défaut créé par install.sh (create-admin-user)
   default:
     email: changeme@ryvie.fr

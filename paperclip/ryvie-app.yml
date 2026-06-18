@@ -20,6 +20,16 @@ gallery:
   - image3.png
   - image4.png
 accounts:
+  # Paperclip s'authentifie via better-auth (hash scrypt, table `account`). La logique
+  # de reset vit DANS l'app : la fiche ryvie-accounts.mjs (montée dans le conteneur via
+  # le compose) réutilise le hasher natif de better-auth. Ryvie ne fait que la lancer.
+  strategy: container-exec
+  container: app-paperclip-server
+  runtime: node
+  script: /app/server/ryvie-accounts.mjs
+  workingDir: /app/server
+  reset:
+    expect: "OK"
   # Compte par défaut créé par install.sh (better-auth sign-up). Détection via login.
   default:
     email: changeme@ryvie.fr
