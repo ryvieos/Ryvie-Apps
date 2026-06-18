@@ -5,7 +5,7 @@ category:
   fr: Planificateurs
   en: Planners
 version: 3.14.0
-buildId: 8
+buildId: 10
 port: 9091
 description:
   fr: "Mealie simplifie la gestion des recettes et la planification des repas au quotidien.\nEnregistrez vos recettes préférées, planifiez vos menus de la semaine et générez automatiquement vos listes de courses. Que vous cuisiniez souvent ou occasionnellement, Mealie vous aide à gagner du temps et à mieux vous organiser.\nToutes vos recettes sont centralisées, faciles à retrouver et à adapter selon vos envies.\nCe que vous pouvez faire avec Mealie :\n- Enregistrer et organiser vos recettes\n- Planifier les repas de la semaine\n- Générer automatiquement des listes de courses\n- Gérer votre collection de recettes\n- Cuisiner plus sereinement au quotidien"
@@ -19,8 +19,19 @@ gallery:
   - image2.png
   - image3.png
 accounts:
-  strategy: bcrypt-sqlite
+  # Reset/list/verify délégués à la fiche ryvie-accounts.py (montée dans le conteneur
+  # via le compose) : elle réutilise le hasher bcrypt présent dans Mealie. Le core ne
+  # connaît plus le schéma. Les champs dbPath/table/columns ci-dessous restent utilisés
+  # par le provisioning du compte par défaut (mode sql-update, à l'install).
+  strategy: container-exec
   container: app-mealie
+  runtime: python3
+  script: /ryvie/ryvie-accounts.py
+  env:
+    DB_PATH: /app/data/mealie.db
+  reset:
+    expect: "OK"
+  # ── Champs conservés pour le provisioning du compte par défaut (sql-update) ──
   dbPath: /app/data/mealie.db
   table: users
   columns:

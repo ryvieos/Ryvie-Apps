@@ -9,6 +9,8 @@ services:
       - "3020:3000"
     volumes:
       - ./docuseal:/data/docuseal
+      # Fiche de gestion des comptes Ryvie (stratégie container-exec).
+      - ./accounts/ryvie-accounts.rb:/ryvie/ryvie-accounts.rb:ro
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/docuseal
       - DISABLE_REDIS=true

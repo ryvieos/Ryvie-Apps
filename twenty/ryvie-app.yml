@@ -5,7 +5,7 @@ category:
   en: Productivity
 name: Twenty CRM
 version: 2.14.0
-buildId: 2
+buildId: 4
 port: 3030
 description:
   fr: "Twenty est un CRM open-source et moderne, alternative auto-hébergée à Salesforce.\nGérez vos contacts, entreprises, opportunités et pipelines de vente depuis une interface rapide et personnalisable, tout en gardant le contrôle total de vos données.\nCe que vous pouvez faire avec Twenty :\n- Suivre contacts, entreprises et opportunités\n- Personnaliser vos objets, champs et vues\n- Visualiser vos pipelines de vente (vue kanban/table)\n- Collaborer en équipe sur un espace de travail partagé\n- Héberger vos données chez vous, sans dépendre d'un cloud tiers\nTwenty est un CRM puissant, flexible et respectueux de la vie privée."
@@ -33,22 +33,15 @@ ai:
     baseUrl:
       - RYVIE_AI_BASE
 accounts:
-  # Comptes Twenty : stockés dans Postgres (core."user", hash bcrypt). Stratégie
-  # générique `bcrypt-postgres` (cf. appAccountsService) → liste des comptes +
-  # réinitialisation de mot de passe par compte (menu « Gérer les comptes »).
-  # Pas de compte par défaut : le premier utilisateur est créé via l'UI de Twenty.
-  strategy: bcrypt-postgres
-  dbContainer: app-twenty-postgres
-  db:
-    user: postgres
-    name: default
-  schema: core
-  table: user
-  columns:
-    id: id
-    email: email
-    password: passwordHash
-    firstName: firstName
-    lastName: lastName
+  # Comptes Twenty : stockés dans Postgres (core."user", hash bcrypt). La logique
+  # de reset vit DANS l'app : la fiche ryvie-accounts.mjs s'exécute dans le serveur
+  # node de Twenty (app-twenty) et réutilise son bcrypt + pg. Le core ne connaît
+  # plus le schéma. Pas de compte par défaut : 1er utilisateur créé via l'UI.
+  strategy: container-exec
+  container: app-twenty
+  runtime: node
+  script: /ryvie/ryvie-accounts.mjs
+  reset:
+    expect: "OK"
   # Écriture directe en base → aucun redémarrage nécessaire pour un reset.
   resetRestarts: false

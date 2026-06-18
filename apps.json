@@ -8,7 +8,7 @@
       "en": "Productivity"
     },
     "version": "0.26.3",
-    "buildId": 20,
+    "buildId": 22,
     "port": 3015,
     "description": {
       "fr": "AFFiNE est une application open-source moderne de prise de notes et de gestion des connaissances, conçue pour remplacer les outils traditionnels de productivité. Elle combine documents, tableaux, blocs de texte et organisation visuelle dans un espace de travail unique, flexible et intuitif.\nPensée pour les individus comme pour les équipes, AFFiNE permet de structurer, relier et faire évoluer vos idées librement, en ligne ou hors ligne. Vos données restent sous votre contrôle grâce à une approche open-source et respectueuse de la vie privée.\nFonctionnalités clés :\n- Prise de notes par blocs (texte, listes, tableaux, etc.)\n- Organisation visuelle et liens entre contenus\n- Travail hors ligne avec synchronisation\n- Collaboration en temps réel\n- Données locales et contrôle total de la confidentialité\n- Projet open-source, transparent et extensible\nAFFiNE est l’outil idéal pour la prise de notes, la gestion de projets, la recherche ou le brainstorming.",
@@ -36,12 +36,13 @@
       "restart": true
     },
     "accounts": {
-      "strategy": "affine-argon2",
-      "dbContainer": "app-affine-database",
-      "appContainer": "app-affine-web",
-      "db": {
-        "user": "affine",
-        "name": "affine"
+      "strategy": "container-exec",
+      "container": "app-affine-web",
+      "runtime": "node",
+      "script": "/ryvie/ryvie-accounts.cjs",
+      "workingDir": "/app",
+      "reset": {
+        "expect": "OK"
       },
       "default": {
         "email": "changeme@ryvie.fr",
@@ -60,7 +61,7 @@
     },
     "name": "docuseal",
     "version": "2.4.4",
-    "buildId": 29,
+    "buildId": 31,
     "port": 3020,
     "description": {
       "fr": "DocuSeal est une application open-source de signature électronique et de gestion de documents, conçue pour simplifier la validation, le partage et la signature de fichiers en toute sécurité.\nPensée pour les particuliers comme pour les équipes, DocuSeal permet de signer des documents légalement, de suivre leur statut en temps réel et de garder un contrôle total sur vos données grâce à une approche respectueuse de la vie privée.\nFonctionnalités clés :\nSignature électronique simple et sécurisée\nGestion et suivi des documents signés\nFlux de validation clairs et efficaces\nHébergement autonome possible (self-hosted)\nRespect de la confidentialité et conformité\nProjet open-source, transparent et évolutif",
@@ -77,9 +78,17 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/docuseal/image3.png"
     ],
     "accounts": {
-      "strategy": "rails-devise",
+      "strategy": "container-exec",
       "container": "app-docuseal",
+      "exec": [
+        "rails",
+        "runner"
+      ],
+      "script": "/ryvie/ryvie-accounts.rb",
       "workingDir": "/app",
+      "reset": {
+        "expect": "OK"
+      },
       "default": {
         "email": "changeme@ryvie.fr",
         "username": "changeme",
@@ -281,7 +290,7 @@
       "en": "Planners"
     },
     "version": "3.14.0",
-    "buildId": 8,
+    "buildId": 10,
     "port": 9091,
     "description": {
       "fr": "Mealie simplifie la gestion des recettes et la planification des repas au quotidien.\nEnregistrez vos recettes préférées, planifiez vos menus de la semaine et générez automatiquement vos listes de courses. Que vous cuisiniez souvent ou occasionnellement, Mealie vous aide à gagner du temps et à mieux vous organiser.\nToutes vos recettes sont centralisées, faciles à retrouver et à adapter selon vos envies.\nCe que vous pouvez faire avec Mealie :\n- Enregistrer et organiser vos recettes\n- Planifier les repas de la semaine\n- Générer automatiquement des listes de courses\n- Gérer votre collection de recettes\n- Cuisiner plus sereinement au quotidien",
@@ -298,8 +307,16 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/mealie/image3.png"
     ],
     "accounts": {
-      "strategy": "bcrypt-sqlite",
+      "strategy": "container-exec",
       "container": "app-mealie",
+      "runtime": "python3",
+      "script": "/ryvie/ryvie-accounts.py",
+      "env": {
+        "DB_PATH": "/app/data/mealie.db"
+      },
+      "reset": {
+        "expect": "OK"
+      },
       "dbPath": "/app/data/mealie.db",
       "table": "users",
       "columns": {
@@ -493,7 +510,7 @@
     },
     "name": "Paperclip",
     "version": "0.3.1",
-    "buildId": 6,
+    "buildId": 8,
     "port": 3100,
     "description": {
       "fr": "Paperclip est une plateforme d'orchestration d'agents IA qui permet de créer et gérer des équipes d'agents autonomes.\nDéfinissez des agents spécialisés, assignez-leur des tâches, et laissez-les collaborer pour accomplir des objectifs complexes. Paperclip supervise le travail, gère les communications et assure le suivi des résultats.\nCe que vous pouvez faire avec Paperclip :\n- Créer des équipes d'agents IA spécialisés\n- Assigner et suivre des tâches complexes\n- Automatiser des workflows avec des agents\n- Intégrer différents modèles d'IA (Claude, GPT, etc.)\n- Superviser et auditer le travail des agents\nPaperclip transforme l'IA en une véritable force de travail autonome, organisée et supervisée.",
@@ -511,6 +528,14 @@
       "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/paperclip/image4.png"
     ],
     "accounts": {
+      "strategy": "container-exec",
+      "container": "app-paperclip-server",
+      "runtime": "node",
+      "script": "/app/server/ryvie-accounts.mjs",
+      "workingDir": "/app/server",
+      "reset": {
+        "expect": "OK"
+      },
       "default": {
         "email": "changeme@ryvie.fr",
         "username": "changeme",
@@ -648,7 +673,7 @@
     },
     "name": "Twenty CRM",
     "version": "2.14.0",
-    "buildId": 2,
+    "buildId": 4,
     "port": 3030,
     "description": {
       "fr": "Twenty est un CRM open-source et moderne, alternative auto-hébergée à Salesforce.\nGérez vos contacts, entreprises, opportunités et pipelines de vente depuis une interface rapide et personnalisable, tout en gardant le contrôle total de vos données.\nCe que vous pouvez faire avec Twenty :\n- Suivre contacts, entreprises et opportunités\n- Personnaliser vos objets, champs et vues\n- Visualiser vos pipelines de vente (vue kanban/table)\n- Collaborer en équipe sur un espace de travail partagé\n- Héberger vos données chez vous, sans dépendre d'un cloud tiers\nTwenty est un CRM puissant, flexible et respectueux de la vie privée.",
@@ -676,20 +701,12 @@
       }
     },
     "accounts": {
-      "strategy": "bcrypt-postgres",
-      "dbContainer": "app-twenty-postgres",
-      "db": {
-        "user": "postgres",
-        "name": "default"
-      },
-      "schema": "core",
-      "table": "user",
-      "columns": {
-        "id": "id",
-        "email": "email",
-        "password": "passwordHash",
-        "firstName": "firstName",
-        "lastName": "lastName"
+      "strategy": "container-exec",
+      "container": "app-twenty",
+      "runtime": "node",
+      "script": "/ryvie/ryvie-accounts.mjs",
+      "reset": {
+        "expect": "OK"
       },
       "resetRestarts": false
     }

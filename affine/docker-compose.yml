@@ -37,6 +37,8 @@ services:
     volumes:
       - ./data/config:/root/.affine/config
       - ./data/storage/blob:/root/.affine/storage
+      # Fiche de gestion des comptes Ryvie (stratégie container-exec).
+      - ./accounts/ryvie-accounts.cjs:/ryvie/ryvie-accounts.cjs:ro
     depends_on:
       redis:
         condition: service_healthy

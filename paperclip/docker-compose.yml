@@ -39,6 +39,10 @@ services:
       # Auth Claude Code : monte la session claude de l'hôte (uid 1000 = node).
       # Vue live : un /login sur l'hôte est visible immédiatement par l'agent, sans redémarrer.
       - /home/ryvie/.claude:/paperclip/.claude
+      # Fiche de gestion des comptes Ryvie (stratégie container-exec). Montée en
+      # lecture seule dans /app/server pour résoudre better-auth/pg via les
+      # node_modules de l'app.
+      - ./accounts/ryvie-accounts.mjs:/app/server/ryvie-accounts.mjs:ro
     depends_on:
       db:
         condition: service_healthy
