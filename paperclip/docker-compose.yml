@@ -42,7 +42,7 @@ services:
       # Fiche de gestion des comptes Ryvie (stratégie container-exec). Montée en
       # lecture seule dans /app/server pour résoudre better-auth/pg via les
       # node_modules de l'app.
-      - ./ryvie-accounts.mjs:/app/server/ryvie-accounts.mjs:ro
+      - ./accounts/ryvie-accounts.mjs:/app/server/ryvie-accounts.mjs:ro
     depends_on:
       db:
         condition: service_healthy

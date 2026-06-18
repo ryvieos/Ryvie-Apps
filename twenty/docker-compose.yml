@@ -17,7 +17,7 @@ services:
     volumes:
       - ./server-local-data:/app/packages/twenty-server/.local-storage
       # Fiche de gestion des comptes Ryvie (stratégie container-exec).
-      - ./ryvie-accounts.mjs:/ryvie/ryvie-accounts.mjs:ro
+      - ./accounts/ryvie-accounts.mjs:/ryvie/ryvie-accounts.mjs:ro
     ports:
       - "3030:3000"
     environment:
