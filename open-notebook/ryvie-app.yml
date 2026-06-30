@@ -26,6 +26,11 @@ ai:
     baseUrl: OPENAI_BASE_URL
   generateEnv:
     - OPEN_NOTEBOOK_ENCRYPTION_KEY # requis pour stocker les credentials (généré 1x)
+  # Conteneur rattaché au réseau IA dédié (ryvie-ai) → joint LiteLLM par DNS
+  # (ryvie-litellm), indépendant de l'IP hôte. SANS ça, la credential pointant vers
+  # http://ryvie-litellm:4010/v1 est injoignable → « Could not connect to the AI provider ».
+  containers:
+    - app-open-notebook
   restart: true
   hooks:
     connect: ai/connect.sh
