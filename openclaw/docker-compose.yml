@@ -1,0 +1,36 @@
+services:
+  openclaw:
+    image: ghcr.io/openclaw/openclaw:2026.6.11
+    container_name: app-openclaw
+    ports:
+      - "8789:18789"
+    # La gateway refuse de démarrer sans configuration (onboarding interactif).
+    # `--allow-unconfigured` la fait démarrer en mode service : l'utilisateur
+    # configure ensuite son agent + son provider IA dans l'UI de contrôle (18789).
+    command: ["node", "openclaw.mjs", "gateway", "--allow-unconfigured"]
+    environment:
+      # Auth de la gateway = mode « password » (mot de passe), configuré par
+      # install.sh dans openclaw.json (persisté dans le volume). Pas de token.
+      # mDNS/Bonjour désactivé en conteneur (recommandé par la doc).
+      - OPENCLAW_DISABLE_BONJOUR=1
+      # Pas d'assistant interactif : la gateway démarre en mode service, la
+      # configuration des providers IA se fait ensuite dans l'UI de contrôle.
+      - OPENCLAW_SKIP_ONBOARDING=1
+    volumes:
+      # Config + workspace (le workspace est un sous-dossier de .openclaw).
+      - ./data/openclaw:/home/node/.openclaw
+      # Secrets d'authentification (profils/clefs providers).
+      - ./data/auth:/home/node/.config/openclaw
+      # Fiche de gestion du compte Ryvie (list/reset/verify du mot de passe gateway)
+      - ./accounts/ryvie-accounts.mjs:/ryvie/ryvie-accounts.mjs:ro
+    # SÉCURITÉ : le socket Docker de l'hôte n'est volontairement PAS monté
+    # (sandbox désactivé) → l'agent reste confiné à son conteneur.
+    healthcheck:
+      # Image Node : on sonde /healthz (non authentifié) via node, sans dépendre
+      # de wget/curl présents ou non dans l'image.
+      test: ["CMD-SHELL", "node -e \"require('http').get('http://localhost:18789/healthz',r=>process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))\""]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 40s
+    restart: unless-stopped

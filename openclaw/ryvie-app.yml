@@ -1,0 +1,45 @@
+manifestVersion: 1
+id: openclaw
+category:
+  fr: IA
+  en: AI
+name: OpenClaw
+version: 2026.6.11
+buildId: 0
+port: 8789
+description:
+  fr: "OpenClaw est votre agent IA personnel, auto-hébergé sur votre Ryvie.\nContrairement à un simple chatbot, OpenClaw agit : il exécute des tâches, gère des fichiers, se connecte à vos messageries (Telegram, Discord, Slack…) et peut vous alerter de lui-même. Tout tourne sur votre matériel, vos données restent chez vous.\nCe que vous pouvez faire avec OpenClaw :\n- Déléguer des tâches à un agent IA autonome\n- Le connecter à vos applications de messagerie\n- Brancher le fournisseur IA de votre choix (dont le point IA central de votre Ryvie)\n- Garder le contrôle total : tout est local, aucune donnée envoyée à un tiers\nOpenClaw est open-source et respectueux de votre vie privée."
+  en: "OpenClaw is your personal AI agent, self-hosted on your Ryvie.\nUnlike a plain chatbot, OpenClaw takes action: it runs tasks, manages files, connects to your messaging apps (Telegram, Discord, Slack…) and can proactively reach out to you. Everything runs on your hardware, your data stays home.\nWhat you can do with OpenClaw:\n- Delegate tasks to an autonomous AI agent\n- Connect it to your messaging apps\n- Plug in the AI provider of your choice (including your Ryvie central AI)\n- Keep full control: everything is local, no data sent to third parties\nOpenClaw is open-source and privacy-respecting."
+tagline:
+  fr: "Votre agent IA personnel, chez vous. 🦞"
+  en: "Your personal AI agent, at home. 🦞"
+gallery:
+  - icon.png
+accounts:
+  # OpenClaw s'authentifie par UN mot de passe de gateway (gateway.auth.password),
+  # pas par multi-comptes. Le « compte » unique exposé = ce mot de passe. Reset/list/
+  # verify délégués à la fiche ryvie-accounts.mjs (CLI `openclaw config` dans le conteneur).
+  strategy: container-exec
+  container: app-openclaw
+  runtime: node
+  script: /ryvie/ryvie-accounts.mjs
+  reset:
+    expect: "OK"
+  # La gateway ne relit le mot de passe qu'au redémarrage → le cœur redémarre l'app.
+  resetRestarts: true
+  accountLabel: "Gateway"
+  # Mot de passe par défaut posé par install.sh (affiché tant qu'inchangé).
+  default:
+    password: "Changeme1234!"
+    provision: shipped
+
+# Point central IA Ryvie. OpenClaw ne lit pas de variable d'env pour ses providers :
+# on passe donc par des hooks qui enregistrent un provider « ryvie » (OpenAI-compatible)
+# pointant sur LiteLLM. Le conteneur est rattaché au réseau IA dédié (ryvie-ai).
+ai:
+  restart: false
+  containers:
+    - app-openclaw
+  hooks:
+    connect: ai/connect.sh
+    disconnect: ai/disconnect.sh
