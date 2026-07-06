@@ -181,6 +181,53 @@
   },
   {
     "manifestVersion": 1,
+    "id": "homeassistant",
+    "category": {
+      "fr": "Domotique",
+      "en": "Smart Home"
+    },
+    "name": "Home Assistant",
+    "version": 2026.7,
+    "buildId": 1,
+    "port": 8123,
+    "description": {
+      "fr": "Home Assistant est la plateforme de domotique open-source la plus populaire, entièrement auto-hébergée sur votre Ryvie.\nCentralisez et automatisez tous vos objets connectés (lumières, thermostats, caméras, capteurs, prises…) depuis une seule interface, sans dépendre du cloud d'un fabricant. Vos données restent chez vous.\nCe que vous pouvez faire avec Home Assistant :\n- Piloter des milliers d'appareils compatibles depuis une interface unique\n- Créer des automatisations puissantes (scènes, scripts, déclencheurs)\n- Suivre votre consommation d'énergie\n- Recevoir des notifications et surveiller votre maison à distance\n- Garder le contrôle total de vos données, en local et sans abonnement\nHome Assistant est open-source, respectueux de votre vie privée et fonctionne sans le cloud.",
+      "en": "Home Assistant is the most popular open-source home automation platform, fully self-hosted on your Ryvie.\nCentralize and automate all your connected devices (lights, thermostats, cameras, sensors, plugs…) from a single interface, without depending on any manufacturer's cloud. Your data stays home.\nWhat you can do with Home Assistant:\n- Control thousands of compatible devices from one interface\n- Build powerful automations (scenes, scripts, triggers)\n- Track your energy consumption\n- Get notifications and monitor your home remotely\n- Keep full control of your data, locally and subscription-free\nHome Assistant is open-source, privacy-respecting and works without the cloud."
+    },
+    "tagline": {
+      "fr": "Votre maison connectée, chez vous et sous votre contrôle.",
+      "en": "Your smart home, at home and under your control."
+    },
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/homeassistant/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/homeassistant/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/homeassistant/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/homeassistant/image3.png"
+    ],
+    "accounts": {
+      "strategy": "container-exec",
+      "container": "app-homeassistant",
+      "runtime": "python3",
+      "script": "/ryvie/ryvie-accounts.py",
+      "reset": {
+        "expect": "OK"
+      },
+      "resetRestarts": true
+    },
+    "configEditor": {
+      "restartOnSave": true,
+      "files": [
+        {
+          "key": "main",
+          "path": "config/configuration.yaml",
+          "label": "Configuration principale (configuration.yaml)",
+          "language": "yaml"
+        }
+      ]
+    }
+  },
+  {
+    "manifestVersion": 1,
     "id": "jellyfin",
     "category": {
       "fr": "multimédia",
@@ -240,6 +287,61 @@
             200
           ]
         }
+      }
+    }
+  },
+  {
+    "manifestVersion": 1,
+    "id": "librechat",
+    "category": {
+      "fr": "IA",
+      "en": "AI"
+    },
+    "name": "LibreChat",
+    "version": "0.8.7",
+    "buildId": 1,
+    "port": 3080,
+    "description": {
+      "fr": "LibreChat est une interface de chat IA open-source, complète et auto-hébergée, inspirée de ChatGPT.\nDiscutez avec les modèles de votre Ryvie, créez des agents, uploadez des fichiers et gardez l'historique de vos conversations — le tout sur votre serveur, sans envoyer vos données à un tiers.\nCe que vous pouvez faire avec LibreChat :\n- Discuter avec les modèles IA de votre Ryvie (point central LiteLLM)\n- Créer des conversations, les organiser et les rechercher\n- Créer des agents et des presets personnalisés\n- Uploader des fichiers et images dans vos conversations\n- Gérer plusieurs comptes utilisateurs\nLibreChat est open-source : vos conversations et vos données restent sous votre contrôle.",
+      "en": "LibreChat is a full-featured, open-source, self-hosted AI chat interface inspired by ChatGPT.\nChat with your Ryvie models, build agents, upload files and keep your conversation history — all on your own server, without sending your data to a third party.\nWhat you can do with LibreChat:\n- Chat with your Ryvie AI models (central LiteLLM endpoint)\n- Create, organize and search conversations\n- Build custom agents and presets\n- Upload files and images into your conversations\n- Manage multiple user accounts\nLibreChat is open-source: your conversations and data stay under your control."
+    },
+    "tagline": {
+      "fr": "Votre interface de chat IA open-source, auto-hébergée sur votre Ryvie.",
+      "en": "Your open-source AI chat interface, self-hosted on your Ryvie."
+    },
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/librechat/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/librechat/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/librechat/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/librechat/image3.png"
+    ],
+    "accounts": {
+      "strategy": "container-exec",
+      "container": "app-librechat",
+      "runtime": "node",
+      "script": "/ryvie/ryvie-accounts.cjs",
+      "reset": {
+        "expect": "OK"
+      },
+      "default": {
+        "email": "changeme@ryvie.fr",
+        "username": "changeme",
+        "password": "Changeme1234!",
+        "provision": "adapter"
+      }
+    },
+    "ai": {
+      "set": {
+        "apiKey": "RYVIE_AI_KEY",
+        "baseUrl": "RYVIE_AI_BASE_URL"
+      },
+      "containers": [
+        "app-librechat"
+      ],
+      "restart": true,
+      "hooks": {
+        "connect": "ai/connect.sh",
+        "disconnect": "ai/disconnect.sh"
       }
     }
   },
@@ -506,6 +608,57 @@
   },
   {
     "manifestVersion": 1,
+    "id": "openclaw",
+    "category": {
+      "fr": "IA",
+      "en": "AI"
+    },
+    "name": "OpenClaw",
+    "version": "2026.6.11",
+    "buildId": 1,
+    "port": 8789,
+    "description": {
+      "fr": "OpenClaw est votre agent IA personnel, auto-hébergé sur votre Ryvie.\nContrairement à un simple chatbot, OpenClaw agit : il exécute des tâches, gère des fichiers, se connecte à vos messageries (Telegram, Discord, Slack…) et peut vous alerter de lui-même. Tout tourne sur votre matériel, vos données restent chez vous.\nCe que vous pouvez faire avec OpenClaw :\n- Déléguer des tâches à un agent IA autonome\n- Le connecter à vos applications de messagerie\n- Brancher le fournisseur IA de votre choix (dont le point IA central de votre Ryvie)\n- Garder le contrôle total : tout est local, aucune donnée envoyée à un tiers\nOpenClaw est open-source et respectueux de votre vie privée.",
+      "en": "OpenClaw is your personal AI agent, self-hosted on your Ryvie.\nUnlike a plain chatbot, OpenClaw takes action: it runs tasks, manages files, connects to your messaging apps (Telegram, Discord, Slack…) and can proactively reach out to you. Everything runs on your hardware, your data stays home.\nWhat you can do with OpenClaw:\n- Delegate tasks to an autonomous AI agent\n- Connect it to your messaging apps\n- Plug in the AI provider of your choice (including your Ryvie central AI)\n- Keep full control: everything is local, no data sent to third parties\nOpenClaw is open-source and privacy-respecting."
+    },
+    "tagline": {
+      "fr": "Votre agent IA personnel, chez vous. 🦞",
+      "en": "Your personal AI agent, at home. 🦞"
+    },
+    "gallery": [
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/openclaw/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/openclaw/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/openclaw/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/openclaw/image3.png"
+    ],
+    "accounts": {
+      "strategy": "container-exec",
+      "container": "app-openclaw",
+      "runtime": "node",
+      "script": "/ryvie/ryvie-accounts.mjs",
+      "reset": {
+        "expect": "OK"
+      },
+      "resetRestarts": true,
+      "accountLabel": "Gateway",
+      "default": {
+        "password": "Changeme1234!",
+        "provision": "shipped"
+      }
+    },
+    "ai": {
+      "restart": false,
+      "containers": [
+        "app-openclaw"
+      ],
+      "hooks": {
+        "connect": "ai/connect.sh",
+        "disconnect": "ai/disconnect.sh"
+      }
+    }
+  },
+  {
+    "manifestVersion": 1,
     "id": "paperclip",
     "category": {
       "fr": "IA",
@@ -676,7 +829,7 @@
     },
     "name": "Twenty CRM",
     "version": "2.14.0",
-    "buildId": 4,
+    "buildId": 5,
     "port": 3030,
     "description": {
       "fr": "Twenty est un CRM open-source et moderne, alternative auto-hébergée à Salesforce.\nGérez vos contacts, entreprises, opportunités et pipelines de vente depuis une interface rapide et personnalisable, tout en gardant le contrôle total de vos données.\nCe que vous pouvez faire avec Twenty :\n- Suivre contacts, entreprises et opportunités\n- Personnaliser vos objets, champs et vues\n- Visualiser vos pipelines de vente (vue kanban/table)\n- Collaborer en équipe sur un espace de travail partagé\n- Héberger vos données chez vous, sans dépendre d'un cloud tiers\nTwenty est un CRM puissant, flexible et respectueux de la vie privée.",
@@ -687,7 +840,10 @@
       "en": "The open-source CRM, a Salesforce alternative"
     },
     "gallery": [
-      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/twenty/icon.png"
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/twenty/icon.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/twenty/image1.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/twenty/image2.png",
+      "https://cdn.jsdelivr.net/gh/ryvieos/Ryvie-Gallery@main/twenty/image3.png"
     ],
     "ai": {
       "containers": [
