@@ -1,0 +1,22 @@
+services:
+  homeassistant:
+    image: homeassistant/home-assistant:2026.7
+    container_name: app-homeassistant
+    ports:
+      - "8123:8123"
+    volumes:
+      - ./config:/config
+      # Fuseau horaire de l'hôte (horodatage des automatisations/logs)
+      - /etc/localtime:/etc/localtime:ro
+      # Fiche de gestion des comptes Ryvie (list/reset/verify)
+      - ./accounts/ryvie-accounts.py:/ryvie/ryvie-accounts.py:ro
+    environment:
+      - TZ=Europe/Paris
+    # Healthcheck : l'app n'est « healthy » (icône verte) que quand l'UI répond.
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://localhost:8123/ || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+    restart: unless-stopped

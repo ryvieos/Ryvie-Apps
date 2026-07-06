@@ -22,6 +22,10 @@ services:
       # IA centrale Ryvie — renseigné quand l'app est connectée (Réglages → IA).
       - OPENAI_API_KEY=${OPENAI_API_KEY:-}
       - OPENAI_BASE_URL=${OPENAI_BASE_URL:-}
+      # Clé de chiffrement des credentials (générée 1x dans .env via ai.generateEnv).
+      # DOIT être transmise au conteneur, sinon open-notebook affiche
+      # « Clé de chiffrement non configurée » et ne peut pas stocker la credential IA.
+      - OPEN_NOTEBOOK_ENCRYPTION_KEY=${OPEN_NOTEBOOK_ENCRYPTION_KEY:-}
       - SURREAL_URL=ws://surrealdb:8000/rpc
       - SURREAL_USER=root
       - SURREAL_PASSWORD=root

@@ -1,0 +1,55 @@
+manifestVersion: 1
+id: librechat
+category:
+  fr: IA
+  en: AI
+name: LibreChat
+version: 0.8.7
+buildId: 1
+port: 3080
+description:
+  fr: "LibreChat est une interface de chat IA open-source, complète et auto-hébergée, inspirée de ChatGPT.\nDiscutez avec les modèles de votre Ryvie, créez des agents, uploadez des fichiers et gardez l'historique de vos conversations — le tout sur votre serveur, sans envoyer vos données à un tiers.\nCe que vous pouvez faire avec LibreChat :\n- Discuter avec les modèles IA de votre Ryvie (point central LiteLLM)\n- Créer des conversations, les organiser et les rechercher\n- Créer des agents et des presets personnalisés\n- Uploader des fichiers et images dans vos conversations\n- Gérer plusieurs comptes utilisateurs\nLibreChat est open-source : vos conversations et vos données restent sous votre contrôle."
+  en: "LibreChat is a full-featured, open-source, self-hosted AI chat interface inspired by ChatGPT.\nChat with your Ryvie models, build agents, upload files and keep your conversation history — all on your own server, without sending your data to a third party.\nWhat you can do with LibreChat:\n- Chat with your Ryvie AI models (central LiteLLM endpoint)\n- Create, organize and search conversations\n- Build custom agents and presets\n- Upload files and images into your conversations\n- Manage multiple user accounts\nLibreChat is open-source: your conversations and data stay under your control."
+tagline:
+  fr: "Votre interface de chat IA open-source, auto-hébergée sur votre Ryvie."
+  en: "Your open-source AI chat interface, self-hosted on your Ryvie."
+gallery:
+  - icon.png
+  - image1.png
+  - image2.png
+  - image3.png
+accounts:
+  # Reset/list/verify/provision délégués à la fiche ryvie-accounts.cjs, exécutée
+  # dans app-librechat (Node + driver mongodb + bcryptjs). La fiche réutilise le
+  # hasher bcrypt de LibreChat et accède à MongoDB via MONGO_URI. Le core ne
+  # connaît ni le schéma ni le format de hash.
+  strategy: container-exec
+  container: app-librechat
+  runtime: node
+  script: /ryvie/ryvie-accounts.cjs
+  reset:
+    expect: "OK"
+  # LibreChat n'embarque aucun compte par défaut (1er inscrit = utilisateur).
+  # Ryvie crée changeme@ryvie.fr à l'install via la fiche (mode adapter).
+  default:
+    email: changeme@ryvie.fr
+    username: changeme
+    password: "Changeme1234!"
+    provision: adapter
+# Point central IA Ryvie. LibreChat récupère dynamiquement la liste des modèles
+# depuis l'endpoint OpenAI-compatible (LiteLLM) déclaré dans librechat.yaml. Le bloc
+# `ai.set` écrit la clé et l'URL du LiteLLM Ryvie dans le .env de l'app (variables
+# consommées par librechat.yaml). Le conteneur est rattaché au réseau IA dédié
+# (ryvie-ai) pour résoudre `ryvie-litellm` par DNS, indépendamment de l'IP hôte.
+ai:
+  set:
+    apiKey: RYVIE_AI_KEY
+    baseUrl: RYVIE_AI_BASE_URL
+  containers:
+    - app-librechat
+  restart: true
+  # Ajoute/retire dynamiquement l'endpoint "Ryvie AI" dans librechat.yaml :
+  # ainsi il n'apparaît dans l'UI QUE lorsque l'app est connectée à l'IA.
+  hooks:
+    connect: ai/connect.sh
+    disconnect: ai/disconnect.sh
