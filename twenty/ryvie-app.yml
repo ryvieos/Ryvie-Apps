@@ -15,6 +15,9 @@ tagline:
   en: "The open-source CRM, a Salesforce alternative"
 gallery:
   - icon.png
+  - image1.png
+  - image2.png
+  - image3.png
 # Connexion au point IA central de Ryvie (LiteLLM, OpenAI-compatible).
 # Twenty lit ses fournisseurs LLM via la variable d'env AI_PROVIDERS (JSON),
 # évaluée AU DÉMARRAGE du serveur → pas de hook : Ryvie écrit RYVIE_AI_KEY /

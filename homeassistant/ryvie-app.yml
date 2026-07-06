@@ -1,0 +1,45 @@
+manifestVersion: 1
+id: homeassistant
+category:
+  fr: Domotique
+  en: Smart Home
+name: Home Assistant
+version: 2026.7
+buildId: 0
+port: 8123
+description:
+  fr: "Home Assistant est la plateforme de domotique open-source la plus populaire, entièrement auto-hébergée sur votre Ryvie.\nCentralisez et automatisez tous vos objets connectés (lumières, thermostats, caméras, capteurs, prises…) depuis une seule interface, sans dépendre du cloud d'un fabricant. Vos données restent chez vous.\nCe que vous pouvez faire avec Home Assistant :\n- Piloter des milliers d'appareils compatibles depuis une interface unique\n- Créer des automatisations puissantes (scènes, scripts, déclencheurs)\n- Suivre votre consommation d'énergie\n- Recevoir des notifications et surveiller votre maison à distance\n- Garder le contrôle total de vos données, en local et sans abonnement\nHome Assistant est open-source, respectueux de votre vie privée et fonctionne sans le cloud."
+  en: "Home Assistant is the most popular open-source home automation platform, fully self-hosted on your Ryvie.\nCentralize and automate all your connected devices (lights, thermostats, cameras, sensors, plugs…) from a single interface, without depending on any manufacturer's cloud. Your data stays home.\nWhat you can do with Home Assistant:\n- Control thousands of compatible devices from one interface\n- Build powerful automations (scenes, scripts, triggers)\n- Track your energy consumption\n- Get notifications and monitor your home remotely\n- Keep full control of your data, locally and subscription-free\nHome Assistant is open-source, privacy-respecting and works without the cloud."
+tagline:
+  fr: "Votre maison connectée, chez vous et sous votre contrôle."
+  en: "Your smart home, at home and under your control."
+gallery:
+  - icon.png
+  - image1.png
+  - image2.png
+  - image3.png
+accounts:
+  # Reset/list/verify délégués à la fiche ryvie-accounts.py, exécutée dans
+  # app-homeassistant via la CLI native `hass --script auth`. Le cœur ne connaît
+  # ni le schéma ni le format de hash. RESET_ID = le nom d'utilisateur HA (email).
+  strategy: container-exec
+  container: app-homeassistant
+  runtime: python3
+  script: /ryvie/ryvie-accounts.py
+  reset:
+    expect: "OK"
+  # Home Assistant cache l'auth en mémoire : après un reset, le cœur redémarre le
+  # conteneur pour que le nouveau mot de passe soit pris en compte au login.
+  resetRestarts: true
+  # Pas de compte par défaut : HA le crée lui-même à l'onboarding (1er lancement).
+
+# Édition zéro-terminal de la config HA depuis l'UI Ryvie (intégrations avancées
+# YAML-only : rest, command_line, template…). Le fichier est validé (YAML) et l'app
+# redémarrée à la sauvegarde pour appliquer les changements.
+configEditor:
+  restartOnSave: true
+  files:
+    - key: main
+      path: config/configuration.yaml
+      label: Configuration principale (configuration.yaml)
+      language: yaml

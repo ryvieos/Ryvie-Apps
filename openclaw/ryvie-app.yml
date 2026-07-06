@@ -15,6 +15,9 @@ tagline:
   en: "Your personal AI agent, at home. 🦞"
 gallery:
   - icon.png
+  - image1.png
+  - image2.png
+  - image3.png
 accounts:
   # OpenClaw s'authentifie par UN mot de passe de gateway (gateway.auth.password),
   # pas par multi-comptes. Le « compte » unique exposé = ce mot de passe. Reset/list/

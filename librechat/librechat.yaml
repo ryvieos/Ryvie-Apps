@@ -1,0 +1,71 @@
+# Configuration LibreChat pour Ryvie
+# Doc: https://www.librechat.ai/docs/configuration/librechat_yaml
+version: 1.2.8
+cache: true
+
+# Interface : agents + Marketplace d'agents + sélecteur de personnes (partage).
+interface:
+  agents:
+    use: true
+    create: true
+    share: true
+    public: false
+  marketplace:
+    use: true
+  peoplePicker:
+    users: true
+    groups: true
+    roles: true
+
+# Serveurs MCP (Model Context Protocol) — outils exposés dans le chat et le
+# constructeur d'agents. Ceux ci-dessous sont HÉBERGÉS en OAuth : l'utilisateur
+# se connecte à SON compte en un clic (bouton « connect » dans l'UI), aucune clé
+# à saisir dans la config. `startup: false` = init à la demande (pas au démarrage).
+mcpServers:
+  # ── MCP publics SANS authentification : fonctionnent immédiatement ──
+  deepwiki:
+    type: streamable-http
+    url: https://mcp.deepwiki.com/mcp
+    startup: true
+    chatMenu: true
+  microsoft-learn:
+    type: streamable-http
+    url: https://learn.microsoft.com/api/mcp
+    startup: true
+    chatMenu: true
+  # ── MCP hébergés OAuth : nécessitent une connexion au compte (bouton "connect") ──
+  # Requiert une app OAuth enregistrée + une URL de callback publique joignable
+  # (DOMAIN_SERVER de l'app). Tant que ce n'est pas configuré, l'init affiche
+  # "Échec de l'initialisation du serveur MCP" (comportement normal).
+  notion:
+    type: streamable-http
+    url: https://mcp.notion.com/mcp
+    startup: false
+    chatMenu: true
+  github:
+    type: streamable-http
+    url: https://api.githubcopilot.com/mcp/
+    startup: false
+    chatMenu: true
+  linear:
+    type: streamable-http
+    url: https://mcp.linear.app/mcp
+    startup: false
+    chatMenu: true
+  sentry:
+    type: streamable-http
+    url: https://mcp.sentry.dev/mcp
+    startup: false
+    chatMenu: true
+  # Astuce mail/multi-outils : un agrégateur (Zapier/Composio/Pipedream) fournit
+  # une URL MCP personnelle exposant Gmail, Slack, Notion, etc. Ajoutez la vôtre :
+  # zapier:
+  #   type: streamable-http
+  #   url: https://mcp.zapier.com/api/mcp/mcp   # URL perso fournie par Zapier
+  #   headers:
+  #     Authorization: "Bearer ${ZAPIER_MCP_KEY}"
+
+# NB : l'endpoint IA central "Ryvie AI" n'est PAS défini ici en dur. Il est
+# ajouté/retiré dynamiquement par les hooks ai/connect.sh et ai/disconnect.sh
+# quand on connecte/déconnecte l'app à l'IA (Réglages → IA). Ainsi il n'apparaît
+# dans l'UI que lorsqu'il est réellement actif.

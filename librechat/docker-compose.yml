@@ -1,0 +1,72 @@
+services:
+  librechat:
+    image: ghcr.io/danny-avila/librechat:v0.8.7
+    container_name: app-librechat
+    ports:
+      - "3080:3080"
+    depends_on:
+      - librechat-mongodb
+      - librechat-meilisearch
+    # Charge tout le .env dans le conteneur (secrets + clés providers "user_provided").
+    env_file:
+      - .env
+    environment:
+      - HOST=0.0.0.0
+      - PORT=3080
+      - MONGO_URI=mongodb://librechat-mongodb:27017/LibreChat
+      # Recherche plein-texte des conversations (Meilisearch)
+      - SEARCH=true
+      - MEILI_HOST=http://librechat-meilisearch:7700
+      - MEILI_MASTER_KEY=${MEILI_MASTER_KEY:-}
+      # Configuration LibreChat (endpoint IA custom → LiteLLM Ryvie)
+      - CONFIG_PATH=/app/librechat.yaml
+      # Secrets générés une seule fois par install.sh (voir .env)
+      - CREDS_KEY=${CREDS_KEY:-}
+      - CREDS_IV=${CREDS_IV:-}
+      - JWT_SECRET=${JWT_SECRET:-}
+      - JWT_REFRESH_SECRET=${JWT_REFRESH_SECRET:-}
+      # Authentification : inscription locale autorisée (1er compte = admin)
+      - ALLOW_REGISTRATION=true
+      - ALLOW_EMAIL_LOGIN=true
+      - ALLOW_SOCIAL_LOGIN=false
+      # Point central IA Ryvie — renseigné quand l'app est connectée (Réglages → IA).
+      # Consommés par librechat.yaml (endpoint custom "Ryvie AI").
+      - RYVIE_AI_KEY=${RYVIE_AI_KEY:-}
+      - RYVIE_AI_BASE_URL=${RYVIE_AI_BASE_URL:-}
+    volumes:
+      - ./librechat.yaml:/app/librechat.yaml
+      - ./images:/app/client/public/images
+      - ./uploads:/app/uploads
+      - ./logs:/app/api/logs
+      # Fiche de gestion des comptes Ryvie (list/reset/verify/provision)
+      - ./accounts/ryvie-accounts.cjs:/ryvie/ryvie-accounts.cjs:ro
+    restart: always
+    networks:
+      - app-network
+
+  librechat-mongodb:
+    image: mongo:7.0
+    container_name: app-librechat-mongodb
+    command: mongod --noauth
+    volumes:
+      - ./data-node:/data/db
+    restart: always
+    networks:
+      - app-network
+
+  librechat-meilisearch:
+    image: getmeili/meilisearch:v1.35.1
+    container_name: app-librechat-meilisearch
+    environment:
+      - MEILI_HOST=http://librechat-meilisearch:7700
+      - MEILI_NO_ANALYTICS=true
+      - MEILI_MASTER_KEY=${MEILI_MASTER_KEY:-}
+    volumes:
+      - ./meili_data:/meili_data
+    restart: always
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
