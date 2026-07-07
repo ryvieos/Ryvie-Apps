@@ -5,7 +5,7 @@ category:
   en: AI
 name: OpenClaw
 version: 2026.6.11
-buildId: 1
+buildId: 2
 port: 8789
 description:
   fr: "OpenClaw est votre agent IA personnel, auto-hébergé sur votre Ryvie.\nContrairement à un simple chatbot, OpenClaw agit : il exécute des tâches, gère des fichiers, se connecte à vos messageries (Telegram, Discord, Slack…) et peut vous alerter de lui-même. Tout tourne sur votre matériel, vos données restent chez vous.\nCe que vous pouvez faire avec OpenClaw :\n- Déléguer des tâches à un agent IA autonome\n- Le connecter à vos applications de messagerie\n- Brancher le fournisseur IA de votre choix (dont le point IA central de votre Ryvie)\n- Garder le contrôle total : tout est local, aucune donnée envoyée à un tiers\nOpenClaw est open-source et respectueux de votre vie privée."
@@ -35,6 +35,16 @@ accounts:
   default:
     password: "Changeme1234!"
     provision: shipped
+# Exposition publique. La Control UI de la gateway refuse les WebSockets dont
+# l'Origin n'est pas autorisée : derrière une adresse publique (proxy NetBird/
+# Caddy), il faut ajouter le domaine à gateway.controlUi.allowedOrigins et
+# déclarer le proxy dans gateway.trustedProxies. Ryvie lance ces hooks (côté hôte)
+# quand l'app gagne/perd son adresse publique ; ils reçoivent RYVIE_PUBLIC_URL /
+# RYVIE_PUBLIC_DOMAIN et redémarrent la gateway pour qu'elle relise sa config.
+exposure:
+  hooks:
+    expose: exposure/expose.sh
+    unexpose: exposure/unexpose.sh
 # Point central IA Ryvie. OpenClaw ne lit pas de variable d'env pour ses providers :
 # on passe donc par des hooks qui enregistrent un provider « ryvie » (OpenAI-compatible)
 # pointant sur LiteLLM. Le conteneur est rattaché au réseau IA dédié (ryvie-ai).

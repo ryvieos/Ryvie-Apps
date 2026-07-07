@@ -615,7 +615,7 @@
     },
     "name": "OpenClaw",
     "version": "2026.6.11",
-    "buildId": 1,
+    "buildId": 2,
     "port": 8789,
     "description": {
       "fr": "OpenClaw est votre agent IA personnel, auto-hébergé sur votre Ryvie.\nContrairement à un simple chatbot, OpenClaw agit : il exécute des tâches, gère des fichiers, se connecte à vos messageries (Telegram, Discord, Slack…) et peut vous alerter de lui-même. Tout tourne sur votre matériel, vos données restent chez vous.\nCe que vous pouvez faire avec OpenClaw :\n- Déléguer des tâches à un agent IA autonome\n- Le connecter à vos applications de messagerie\n- Brancher le fournisseur IA de votre choix (dont le point IA central de votre Ryvie)\n- Garder le contrôle total : tout est local, aucune donnée envoyée à un tiers\nOpenClaw est open-source et respectueux de votre vie privée.",
@@ -644,6 +644,12 @@
       "default": {
         "password": "Changeme1234!",
         "provision": "shipped"
+      }
+    },
+    "exposure": {
+      "hooks": {
+        "expose": "exposure/expose.sh",
+        "unexpose": "exposure/unexpose.sh"
       }
     },
     "ai": {
@@ -716,7 +722,7 @@
     },
     "name": "rDrive",
     "version": "0.0.7",
-    "buildId": 31,
+    "buildId": 32,
     "port": 3010,
     "sso": true,
     "description": {
