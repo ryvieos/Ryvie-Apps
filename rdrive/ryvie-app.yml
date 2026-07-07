@@ -15,7 +15,7 @@ tagline:
   fr: "Votre solution de stockage de fichiers auto-hébergée, sécurisée et facile à utiliser."
   en: "Your self-hosted, secure, and easy-to-use file storage solution."
 gallery:
-  - icon_1.png
+  - icon.svg
   - image1.png
   - image2.png
 # Bloc `ai` : connecte la partie OnlyOffice au gateway IA central (LiteLLM piloté
