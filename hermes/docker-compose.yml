@@ -16,8 +16,11 @@ services:
       - "9119:9119"            # dashboard web natif (HERMES_DASHBOARD_PORT)
     environment:
       - HERMES_HOME=/home/hermes/.hermes
-      - HERMES_UID=1000
-      - HERMES_GID=1000
+      # UID/GID interne = propriétaire de /data (utilisateur ryvie), écrits dans .env
+      # par install.sh. L'image chowne son home et le bind-mount ./workspace sur cet
+      # UID. Fallback 1000 → comportement inchangé sur les appliances (ryvie = 1000).
+      - HERMES_UID=${PUID:-1000}
+      - HERMES_GID=${PGID:-1000}
       # --- Dashboard web natif de Hermes ---
       # Service s6 intégré à l'image, activé par HERMES_DASHBOARD=1 : il lance
       # `hermes dashboard` (gestion config / clés API / sessions) en tant que user

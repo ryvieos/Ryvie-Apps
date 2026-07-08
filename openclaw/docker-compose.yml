@@ -2,6 +2,10 @@ services:
   openclaw:
     image: ghcr.io/openclaw/openclaw:2026.6.11
     container_name: app-openclaw
+    # Tourne avec l'UID propriétaire de /data (utilisateur ryvie), aligné sur le
+    # chown de ./data fait par install.sh. PUID/PGID écrits dans .env par install.sh
+    # / le backend. Fallback 1000 → comportement inchangé sur les appliances.
+    user: "${PUID:-1000}:${PGID:-1000}"
     ports:
       - "8789:18789"
     # La gateway refuse de démarrer sans configuration (onboarding interactif).

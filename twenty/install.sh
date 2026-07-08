@@ -36,6 +36,12 @@ fi
 [ -z "$enc_key" ] && enc_key=$(openssl rand -base64 32)
 [ -z "$app_secret" ] && app_secret=$(openssl rand -base64 32)
 
+# UID/GID propriétaire de /data (= utilisateur applicatif ryvie, quel que soit son
+# UID selon la machine). server/worker tournent avec cet UID et écrivent le bind-mount
+# server-local-data → sans alignement c'est EACCES. Fallback 1000 si illisible.
+puid="$(stat -c '%u' /data 2>/dev/null || echo 1000)"
+pgid="$(stat -c '%g' /data 2>/dev/null || echo 1000)"
+
 cat > "$TWENTY_DIR/.env" << ENVEOF
 # Généré automatiquement par install.sh — ne pas modifier
 LOCAL_IP=${lan_ip}
@@ -43,6 +49,8 @@ TAG=v2.14.0
 SERVER_URL=${server_url}
 ENCRYPTION_KEY=${enc_key}
 APP_SECRET=${app_secret}
+PUID=${puid}
+PGID=${pgid}
 ENVEOF
 
 echo "[twenty install] .env écrit (SERVER_URL=${server_url})"

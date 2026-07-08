@@ -24,10 +24,18 @@ fi
 
 base_url="http://${netbird_ip}:${PORT}"
 
+# UID/GID propriétaire de /data (= utilisateur applicatif ryvie, quel que soit son
+# UID selon la machine). n8n tourne en user fixe non-root et écrit son bind-mount
+# ./data → sans alignement c'est « permission denied ». Fallback 1000 si illisible.
+puid="$(stat -c '%u' /data 2>/dev/null || echo 1000)"
+pgid="$(stat -c '%g' /data 2>/dev/null || echo 1000)"
+
 cat > "$N8N_DIR/.env" << ENVEOF
 # Généré automatiquement par install.sh — ne pas modifier
 LOCAL_IP=${lan_ip}
 N8N_EDITOR_BASE_URL=${base_url}
+PUID=${puid}
+PGID=${pgid}
 ENVEOF
 
 echo "[n8n install] .env écrit (N8N_EDITOR_BASE_URL=${base_url})"

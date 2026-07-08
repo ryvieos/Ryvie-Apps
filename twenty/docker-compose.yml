@@ -2,18 +2,22 @@ name: twenty
 
 services:
   # Répare les droits du stockage local AVANT le serveur : sur un bind-mount, Docker
-  # crée le dossier manquant en root → le serveur (UID 1000 « node ») ne peut pas y
-  # écrire et la création de workspace/compte échoue (EACCES). On force donc 1000:1000.
+  # crée le dossier manquant en root → le serveur ne peut pas y écrire et la création
+  # de workspace/compte échoue (EACCES). On l'aligne sur PUID/PGID = propriétaire de
+  # /data (utilisateur ryvie), écrits dans .env par install.sh / le backend.
+  # Fallback 1000 → comportement inchangé sur les appliances (ryvie = 1000).
   init-permissions:
     image: busybox
     user: root
     volumes:
       - ./server-local-data:/local-storage
-    command: chown -R 1000:1000 /local-storage
+    command: chown -R ${PUID:-1000}:${PGID:-1000} /local-storage
 
   server:
     image: twentycrm/twenty:${TAG:-v2.14.0}
     container_name: app-twenty
+    # Tourne avec l'UID propriétaire du bind-mount (cf. init-permissions).
+    user: "${PUID:-1000}:${PGID:-1000}"
     volumes:
       - ./server-local-data:/app/packages/twenty-server/.local-storage
       # Fiche de gestion des comptes Ryvie (stratégie container-exec).
@@ -51,6 +55,8 @@ services:
   worker:
     image: twentycrm/twenty:${TAG:-v2.14.0}
     container_name: app-twenty-worker
+    # Même UID que le server (partage le bind-mount ./server-local-data).
+    user: "${PUID:-1000}:${PGID:-1000}"
     volumes:
       - ./server-local-data:/app/packages/twenty-server/.local-storage
     command: ["yarn", "worker:prod"]

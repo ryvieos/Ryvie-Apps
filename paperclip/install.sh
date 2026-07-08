@@ -34,24 +34,32 @@ log "🔑 Génération du secret d'authentification..."
 secret=$(openssl rand -base64 32)
 log "   ✅ Secret généré"
 
+# UID/GID propriétaire de /data (= utilisateur applicatif ryvie, quel que soit son
+# UID selon la machine). Le server tourne avec cet UID et écrit ./data/paperclip +
+# le .claude monté → on aligne tout dessus. Fallback 1000 si /data illisible.
+puid="$(stat -c '%u' /data 2>/dev/null || echo 1000)"
+pgid="$(stat -c '%g' /data 2>/dev/null || echo 1000)"
+
 # 3. Créer le .env
 log "📝 Création du fichier .env..."
 cat > "$PAPERCLIP_DIR/.env" << ENVEOF
 PAPERCLIP_URL_BASE="http://$netbird_ip"
 BETTER_AUTH_SECRET="$secret"
 DATABASE_URL="postgres://paperclip:paperclip@db:5432/paperclip"
+PUID=${puid}
+PGID=${pgid}
 ENVEOF
 log "   ✅ Fichier .env créé"
 
 # 4. Permissions avant démarrage
 log "🔐 Application des permissions..."
 mkdir -p "$PAPERCLIP_DIR/data/paperclip"
-sudo chown -R 1000:1000 "$PAPERCLIP_DIR/data/paperclip"
+sudo chown -R "$puid:$pgid" "$PAPERCLIP_DIR/data/paperclip"
 # Le dossier .claude de l'hôte est monté dans le container (auth Claude Code).
-# On s'assure qu'il existe et appartient à uid 1000 AVANT le démarrage,
+# On s'assure qu'il existe et appartient à l'UID applicatif AVANT le démarrage,
 # sinon Docker le créerait en root et casserait l'accès (hôte + agent).
 mkdir -p "$RYVIE_CLAUDE_DIR"
-sudo chown 1000:1000 "$RYVIE_CLAUDE_DIR"
+sudo chown "$puid:$pgid" "$RYVIE_CLAUDE_DIR"
 log "   ✅ Permissions appliquées"
 
 # 5. Pull des images

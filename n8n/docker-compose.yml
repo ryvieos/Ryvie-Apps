@@ -7,13 +7,15 @@ services:
     user: root
     volumes:
       - ./data:/home/node/.n8n
-    command: chown -R 1000:1000 /home/node/.n8n 
+    # PUID/PGID = propriétaire de /data (utilisateur ryvie), écrits dans .env par
+    # install.sh / le backend. Fallback 1000 → inchangé sur les appliances.
+    command: chown -R ${PUID:-1000}:${PGID:-1000} /home/node/.n8n
 
   n8n: 
     image: n8nio/n8n:2.17.1
     container_name: app-n8n
     restart: unless-stopped
-    user: "1000:1000"
+    user: "${PUID:-1000}:${PGID:-1000}"
     depends_on:
       init-permissions:
         condition: service_completed_successfully
