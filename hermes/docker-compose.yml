@@ -48,10 +48,16 @@ services:
     restart: unless-stopped
     networks:
       - hermes-net
+      # Point IA central Ryvie (LiteLLM) rejoint par DNS `ryvie-litellm`, en déclaratif →
+      # survit aux recreate/update (plus de `docker network connect` impératif).
+      - ryvie-ai
 
 networks:
   hermes-net:
     driver: bridge
+  # Réseau IA central de Ryvie (backend). `external` → doit préexister (garanti par le backend).
+  ryvie-ai:
+    external: true
 
 # Volumes nommés (recommandé par l'upstream pour le montage de l'agent).
 # hermes-agent-src contient AUSSI le build du dashboard (hermes_cli/web_dist) :

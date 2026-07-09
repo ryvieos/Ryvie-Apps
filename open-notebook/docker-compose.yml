@@ -38,7 +38,13 @@ services:
     restart: always
     networks:
       - app-network
+      # Point IA central Ryvie (LiteLLM) rejoint par DNS `ryvie-litellm`, en déclaratif →
+      # survit aux recreate/update (plus de `docker network connect` impératif).
+      - ryvie-ai
 
 networks:
   app-network:
     driver: bridge
+  # Réseau IA central de Ryvie (backend). `external` → doit préexister (garanti par le backend).
+  ryvie-ai:
+    external: true

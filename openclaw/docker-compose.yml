@@ -38,3 +38,14 @@ services:
       retries: 10
       start_period: 40s
     restart: unless-stopped
+    # `default` (openclaw_default) EXPLICITE : dès qu'on déclare un réseau, Docker ne rattache plus
+    # automatiquement au default. `ryvie-ai` (external) = point IA central Ryvie (LiteLLM) rejoint
+    # par DNS `ryvie-litellm`, en déclaratif → survit aux recreate/update.
+    networks:
+      - default
+      - ryvie-ai
+
+networks:
+  # Réseau IA central de Ryvie (backend). `external` → doit préexister (garanti par le backend).
+  ryvie-ai:
+    external: true

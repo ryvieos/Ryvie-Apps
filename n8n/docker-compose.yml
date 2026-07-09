@@ -40,3 +40,14 @@ services:
       start_period: 15s
     volumes:
       - ./data:/home/node/.n8n
+    # `default` (n8n_default) EXPLICITE : dès qu'on déclare un réseau, Docker ne rattache plus
+    # automatiquement au default. `ryvie-ai` (external) = point IA central Ryvie (LiteLLM) rejoint
+    # par DNS `ryvie-litellm`, en déclaratif → survit aux recreate/update.
+    networks:
+      - default
+      - ryvie-ai
+
+networks:
+  # Réseau IA central de Ryvie (backend). `external` → doit préexister (garanti par le backend).
+  ryvie-ai:
+    external: true

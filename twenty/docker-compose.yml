@@ -51,6 +51,13 @@ services:
       retries: 20
       start_period: 30s
     restart: unless-stopped
+    # `default` (twenty_default) EXPLICITE obligatoire : dès qu'on déclare un réseau, Docker
+    # ne rattache plus automatiquement au default → sans lui, server perd db/redis. `ryvie-ai`
+    # (external) = point IA central Ryvie (LiteLLM) rejoint par DNS `ryvie-litellm`, en
+    # déclaratif → survit aux recreate/update (plus de `docker network connect` impératif).
+    networks:
+      - default
+      - ryvie-ai
 
   worker:
     image: twentycrm/twenty:${TAG:-v2.14.0}
@@ -77,6 +84,10 @@ services:
       server:
         condition: service_healthy
     restart: unless-stopped
+    # cf. server : `default` explicite (accès db/redis) + `ryvie-ai` (IA via DNS ryvie-litellm).
+    networks:
+      - default
+      - ryvie-ai
 
   db:
     image: postgres:16
@@ -104,3 +115,9 @@ services:
       timeout: 5s
       retries: 10
     restart: unless-stopped
+
+networks:
+  # Réseau IA central de Ryvie, créé/géré par le backend (aiService/litellmService). `external`
+  # → Docker ne le crée pas ici : il DOIT préexister (garanti au boot backend + avant chaque up).
+  ryvie-ai:
+    external: true
