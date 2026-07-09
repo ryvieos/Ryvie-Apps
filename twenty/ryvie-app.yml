@@ -5,7 +5,7 @@ category:
   en: Productivity
 name: Twenty CRM
 version: 2.14.0
-buildId: 6
+buildId: 7
 port: 3030
 description:
   fr: "Twenty est un CRM open-source et moderne, alternative auto-hébergée à Salesforce.\nGérez vos contacts, entreprises, opportunités et pipelines de vente depuis une interface rapide et personnalisable, tout en gardant le contrôle total de vos données.\nCe que vous pouvez faire avec Twenty :\n- Suivre contacts, entreprises et opportunités\n- Personnaliser vos objets, champs et vues\n- Visualiser vos pipelines de vente (vue kanban/table)\n- Collaborer en équipe sur un espace de travail partagé\n- Héberger vos données chez vous, sans dépendre d'un cloud tiers\nTwenty est un CRM puissant, flexible et respectueux de la vie privée."
