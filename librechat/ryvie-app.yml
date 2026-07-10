@@ -5,7 +5,7 @@ category:
   en: AI
 name: LibreChat
 version: 0.8.7
-buildId: 1
+buildId: 2
 port: 3080
 description:
   fr: "LibreChat est une interface de chat IA open-source, complète et auto-hébergée, inspirée de ChatGPT.\nDiscutez avec les modèles de votre Ryvie, créez des agents, uploadez des fichiers et gardez l'historique de vos conversations — le tout sur votre serveur, sans envoyer vos données à un tiers.\nCe que vous pouvez faire avec LibreChat :\n- Discuter avec les modèles IA de votre Ryvie (point central LiteLLM)\n- Créer des conversations, les organiser et les rechercher\n- Créer des agents et des presets personnalisés\n- Uploader des fichiers et images dans vos conversations\n- Gérer plusieurs comptes utilisateurs\nLibreChat est open-source : vos conversations et vos données restent sous votre contrôle."

@@ -22,6 +22,13 @@ cd "$HERMES_DIR"
 # déjà présentes (sinon on réinitialiserait le mot de passe / déconnecterait tout
 # le monde à chaque réinstall).
 touch .env
+# UID/GID propriétaire de /data (= utilisateur applicatif ryvie, quel que soit son
+# UID selon la machine). L'image chowne son home + le bind-mount ./workspace sur cet
+# UID (HERMES_UID/GID dans le compose). Fallback 1000 si /data illisible.
+puid="$(stat -c '%u' /data 2>/dev/null || echo 1000)"
+pgid="$(stat -c '%g' /data 2>/dev/null || echo 1000)"
+grep -q '^PUID=' .env || echo "PUID=${puid}" >> .env
+grep -q '^PGID=' .env || echo "PGID=${pgid}" >> .env
 grep -q '^HERMES_DASHBOARD_BASIC_AUTH_USERNAME=' .env || \
   echo "HERMES_DASHBOARD_BASIC_AUTH_USERNAME=admin" >> .env
 grep -q '^HERMES_DASHBOARD_BASIC_AUTH_PASSWORD=' .env || \

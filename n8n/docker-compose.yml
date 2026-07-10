@@ -7,13 +7,15 @@ services:
     user: root
     volumes:
       - ./data:/home/node/.n8n
-    command: chown -R 1000:1000 /home/node/.n8n 
+    # PUID/PGID = propriétaire de /data (utilisateur ryvie), écrits dans .env par
+    # install.sh / le backend. Fallback 1000 → inchangé sur les appliances.
+    command: chown -R ${PUID:-1000}:${PGID:-1000} /home/node/.n8n
 
   n8n: 
     image: n8nio/n8n:2.17.1
     container_name: app-n8n
     restart: unless-stopped
-    user: "1000:1000"
+    user: "${PUID:-1000}:${PGID:-1000}"
     depends_on:
       init-permissions:
         condition: service_completed_successfully
@@ -38,3 +40,14 @@ services:
       start_period: 15s
     volumes:
       - ./data:/home/node/.n8n
+    # `default` (n8n_default) EXPLICITE : dès qu'on déclare un réseau, Docker ne rattache plus
+    # automatiquement au default. `ryvie-ai` (external) = point IA central Ryvie (LiteLLM) rejoint
+    # par DNS `ryvie-litellm`, en déclaratif → survit aux recreate/update.
+    networks:
+      - default
+      - ryvie-ai
+
+networks:
+  # Réseau IA central de Ryvie (backend). `external` → doit préexister (garanti par le backend).
+  ryvie-ai:
+    external: true

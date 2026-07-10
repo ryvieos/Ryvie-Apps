@@ -132,7 +132,7 @@
     },
     "name": "Hermes",
     "version": "0.51.430",
-    "buildId": 3,
+    "buildId": 5,
     "port": 9119,
     "description": {
       "fr": "Hermes est un agent IA auto-améliorant (développé par Nous Research) accompagné de son interface web. Contrairement à un simple chatbot, Hermes possède une boucle d'apprentissage : il crée des compétences à partir de son expérience, les affine au fil de l'usage, mémorise les connaissances importantes, recherche dans ses conversations passées et construit une compréhension de plus en plus fine de vos besoins au fil des sessions.\nL'interface web vous donne une parité quasi totale avec l'agent en ligne de commande, accessible depuis votre navigateur ou votre mobile :\n- Chat en streaming (réponses en temps réel)\n- Sessions persistantes avec recherche, archivage et organisation par projet\n- Navigateur de fichiers de l'espace de travail avec aperçu\n- Planification de tâches récurrentes (cron)\n- Support multi-fournisseurs (OpenAI, Anthropic, Google, OpenRouter…)\n- Saisie vocale et design adapté au mobile\nVos données et votre mémoire restent hébergées localement sur votre Ryvie.",
@@ -299,7 +299,7 @@
     },
     "name": "LibreChat",
     "version": "0.8.7",
-    "buildId": 1,
+    "buildId": 2,
     "port": 3080,
     "description": {
       "fr": "LibreChat est une interface de chat IA open-source, complète et auto-hébergée, inspirée de ChatGPT.\nDiscutez avec les modèles de votre Ryvie, créez des agents, uploadez des fichiers et gardez l'historique de vos conversations — le tout sur votre serveur, sans envoyer vos données à un tiers.\nCe que vous pouvez faire avec LibreChat :\n- Discuter avec les modèles IA de votre Ryvie (point central LiteLLM)\n- Créer des conversations, les organiser et les rechercher\n- Créer des agents et des presets personnalisés\n- Uploader des fichiers et images dans vos conversations\n- Gérer plusieurs comptes utilisateurs\nLibreChat est open-source : vos conversations et vos données restent sous votre contrôle.",
@@ -506,7 +506,7 @@
     },
     "name": "n8n",
     "version": "2.17.1",
-    "buildId": 16,
+    "buildId": 18,
     "description": {
       "fr": "n8n vous permet d’automatiser vos flux de travail et de connecter vos applications facilement.\nCréez des processus automatisés sans coder, que ce soit pour des tâches simples comme transférer des données entre apps ou pour des workflows complexes impliquant plusieurs services. Avec n8n, vous gagnez du temps, réduisez les tâches répétitives et gardez un contrôle total sur vos données.\nCe que vous pouvez faire avec n8n :\n- Automatiser les tâches entre applications et services\n- Créer des workflows personnalisés sans coder\n- Connecter plus de 200 applications et services\n- Exécuter vos workflows de manière sécurisée sur votre infrastructure\n- Gagner du temps et améliorer votre productivité\nn8n est un outil d’automatisation open-source puissant et flexible pour tous.",
       "en": "n8n lets you automate your workflows and connect your applications easily.\nCreate automated processes without coding, whether for simple tasks like transferring data between apps or complex workflows involving multiple services. With n8n, you save time, reduce repetitive tasks, and keep full control over your data.\nWhat you can do with n8n:\n- Automate tasks between applications and services\n- Create customized workflows without coding\n- Connect more than 200 applications and services\n- Execute your workflows securely on your infrastructure\n- Save time and improve your productivity\nn8n is a powerful and flexible open-source automation tool for everyone."
@@ -573,7 +573,7 @@
     },
     "name": "open-notebook",
     "version": "1.8.4",
-    "buildId": 11,
+    "buildId": 12,
     "description": {
       "fr": "Open Notebook est votre carnet numérique personnel pour capturer idées, notes et recherches au même endroit.\nOrganisez vos pensées, suivez vos projets et accédez à vos notes où que vous soyez. Que ce soit pour les études, le travail ou vos projets personnels, Open Notebook vous aide à rester productif et concentré.\nCe que vous pouvez faire avec Open Notebook :\n- Prendre des notes rapidement et facilement\n- Organiser vos idées et projets\n- Accéder à votre carnet où que vous soyez\n- Suivre vos recherches, tâches et rappels\nOpen Notebook est simple, flexible et open-source — vos idées restent sous votre contrôle.",
       "en": "Open Notebook is your personal digital notebook to capture ideas, notes, and research all in one place.\nOrganize your thoughts, track your projects, and access your notes wherever you are. Whether for study, work, or personal projects, Open Notebook helps you stay productive and focused.\nWhat you can do with Open Notebook:\n- Take notes quickly and easily\n- Organize your ideas and projects\n- Access your notebook wherever you are\n- Track your research, tasks, and reminders\nOpen Notebook is simple, flexible, and open-source — your ideas remain under your control."
@@ -615,7 +615,7 @@
     },
     "name": "OpenClaw",
     "version": "2026.6.11",
-    "buildId": 2,
+    "buildId": 4,
     "port": 8789,
     "description": {
       "fr": "OpenClaw est votre agent IA personnel, auto-hébergé sur votre Ryvie.\nContrairement à un simple chatbot, OpenClaw agit : il exécute des tâches, gère des fichiers, se connecte à vos messageries (Telegram, Discord, Slack…) et peut vous alerter de lui-même. Tout tourne sur votre matériel, vos données restent chez vous.\nCe que vous pouvez faire avec OpenClaw :\n- Déléguer des tâches à un agent IA autonome\n- Le connecter à vos applications de messagerie\n- Brancher le fournisseur IA de votre choix (dont le point IA central de votre Ryvie)\n- Garder le contrôle total : tout est local, aucune donnée envoyée à un tiers\nOpenClaw est open-source et respectueux de votre vie privée.",
@@ -672,7 +672,7 @@
     },
     "name": "Paperclip",
     "version": "0.3.1",
-    "buildId": 8,
+    "buildId": 9,
     "port": 3100,
     "description": {
       "fr": "Paperclip est une plateforme d'orchestration d'agents IA qui permet de créer et gérer des équipes d'agents autonomes.\nDéfinissez des agents spécialisés, assignez-leur des tâches, et laissez-les collaborer pour accomplir des objectifs complexes. Paperclip supervise le travail, gère les communications et assure le suivi des résultats.\nCe que vous pouvez faire avec Paperclip :\n- Créer des équipes d'agents IA spécialisés\n- Assigner et suivre des tâches complexes\n- Automatiser des workflows avec des agents\n- Intégrer différents modèles d'IA (Claude, GPT, etc.)\n- Superviser et auditer le travail des agents\nPaperclip transforme l'IA en une véritable force de travail autonome, organisée et supervisée.",
@@ -722,7 +722,7 @@
     },
     "name": "rDrive",
     "version": "0.0.7",
-    "buildId": 37,
+    "buildId": 38,
     "port": 3010,
     "sso": true,
     "description": {
@@ -835,7 +835,7 @@
     },
     "name": "Twenty CRM",
     "version": "2.14.0",
-    "buildId": 5,
+    "buildId": 7,
     "port": 3030,
     "description": {
       "fr": "Twenty est un CRM open-source et moderne, alternative auto-hébergée à Salesforce.\nGérez vos contacts, entreprises, opportunités et pipelines de vente depuis une interface rapide et personnalisable, tout en gardant le contrôle total de vos données.\nCe que vous pouvez faire avec Twenty :\n- Suivre contacts, entreprises et opportunités\n- Personnaliser vos objets, champs et vues\n- Visualiser vos pipelines de vente (vue kanban/table)\n- Collaborer en équipe sur un espace de travail partagé\n- Héberger vos données chez vous, sans dépendre d'un cloud tiers\nTwenty est un CRM puissant, flexible et respectueux de la vie privée.",

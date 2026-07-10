@@ -18,9 +18,18 @@ else
 fi
 
 # Dossiers de données (config/workspace + secrets d'auth). L'image tourne en
-# utilisateur `node` (uid 1000) : on aligne le propriétaire pour éviter les EACCES.
+# utilisateur non-root : on aligne le propriétaire sur PUID/PGID = propriétaire de
+# /data (utilisateur ryvie, quel que soit son UID) pour éviter les EACCES.
+# Fallback 1000 si /data illisible → inchangé sur les appliances.
+puid="$(stat -c '%u' /data 2>/dev/null || echo 1000)"
+pgid="$(stat -c '%g' /data 2>/dev/null || echo 1000)"
 mkdir -p ./data/openclaw ./data/auth
-chown -R 1000:1000 ./data 2>/dev/null || true
+chown -R "$puid:$pgid" ./data 2>/dev/null || true
+
+# PUID/PGID lus par docker compose (user:) via le .env du dossier de l'app.
+touch .env
+grep -q '^PUID=' .env || echo "PUID=${puid}" >> .env
+grep -q '^PGID=' .env || echo "PGID=${pgid}" >> .env
 
 # Configuration de l'authentification de la gateway (persistée dans openclaw.json,
 # lue au démarrage ; idempotent). On applique :
